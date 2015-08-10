@@ -9,6 +9,7 @@ from flask                  import Flask
 from flask                  import redirect, session, url_for
 from flask                  import flash, render_template
 from flask.ext.bootstrap    import Bootstrap
+from flask.ext.migrate      import Migrate, MigrateCommand
 from flask.ext.moment       import Moment
 from flask.ext.script       import Manager, Shell
 from flask.ext.sqlalchemy   import SQLAlchemy
@@ -28,6 +29,7 @@ app.config[ "SQLALCHEMY_COMMIT_ON_TEARDOWN" ] = True
 manager     = Manager( app )
 bootstrap   = Bootstrap( app )
 db          = SQLAlchemy( app )
+migrate     = Migrate( app, db )
 moment      = Moment( app )
 
 
@@ -44,7 +46,7 @@ class XUser( db.Model ):
     __tablename__   = "users"
     pk              = db.Column( db.Integer, primary_key=True )
     username        = db.Column( db.String( 64 ), unique=True, index=True )
-    role_pk         = db.Column( db.Integer, db.Foreignkey( "roles.pk" ) )
+    role_pk         = db.Column( db.Integer, db.ForeignKey( "roles.pk" ) )
 
     def __repr__( self ):
         return "<User %r>" % self.username
@@ -98,6 +100,7 @@ def MakeShellContext():
     )
 
 manager.add_command( "shell", Shell( make_context=MakeShellContext ) )
+manager.add_command( "db", MigrateCommand )
 
 
 if __name__ == '__main__':
