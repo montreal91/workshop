@@ -1,5 +1,8 @@
 
-from . import db
+from werkzeug.security  import generate_password_hash
+from werkzeug.security  import check_password_hash
+
+from .                  import db
 
 
 class XRole( db.Model ):
@@ -9,17 +12,6 @@ class XRole( db.Model ):
     default         = db.Column( db.Boolean, default=False, index=True )
     permissions     = db.Column( db.Integer )
     users           = db.relationship( "XUser", backref="role" )
-
-
-    def __repr__( self ):
-        return "<Role %r>" % self.name
-
-
-class XUser( db.Model ):
-    __tablename__   = "users"
-    pk              = db.Column( db.Integer, primary_key=True )
-    username        = db.Column( db.String( 64 ), unique=True, index=True )
-    role_pk         = db.Column( db.Integer, db.ForeignKey( "roles.pk" ) )
 
     @staticmethod
     def InsertRoles():
@@ -48,6 +40,32 @@ class XUser( db.Model ):
             role.default = roles[ r ][ 1 ]
             db.session.add( role )
         db.session.commit()
+
+    def __repr__( self ):
+        return "<Role %r>" % self.name
+
+
+class XUser( db.Model ):
+    __tablename__   = "users"
+    pk              = db.Column( db.Integer, primary_key=True )
+    username        = db.Column( db.String( 64 ), unique=True, index=True )
+    role_pk         = db.Column( db.Integer, db.ForeignKey( "roles.pk" ) )
+    password_hash   = db.Column( db.String( 128 ) )
+
+
+    @property
+    def password( self ):
+        raise AttributeError( "password is not a readable attribute" )
+
+
+    @password.setter
+    def password( self, password ):
+        self.password_hash = generate_password_hash( password )
+
+
+    def VerifyPassword( self, password ):
+        return check_password_hash( self.password_hash, password )
+    
 
     def __repr__( self ):
         return "<User %r>" % self.username
