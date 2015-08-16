@@ -2,7 +2,10 @@
 from werkzeug.security  import generate_password_hash
 from werkzeug.security  import check_password_hash
 
+from flask.ext.login    import UserMixin
+
 from .                  import db
+from .                  import login_manager
 
 
 class XRole( db.Model ):
@@ -45,10 +48,11 @@ class XRole( db.Model ):
         return "<Role %r>" % self.name
 
 
-class XUser( db.Model ):
+class XUser( UserMixin, db.Model ):
     __tablename__   = "users"
     pk              = db.Column( db.Integer, primary_key=True )
     username        = db.Column( db.String( 64 ), unique=True, index=True )
+    email           = db.Column( db.String( 64 ), unique=True, index=True )
     role_pk         = db.Column( db.Integer, db.ForeignKey( "roles.pk" ) )
     password_hash   = db.Column( db.String( 128 ) )
 
@@ -65,10 +69,19 @@ class XUser( db.Model ):
 
     def VerifyPassword( self, password ):
         return check_password_hash( self.password_hash, password )
+
+
+    def get_id( self ):
+        return self.pk
     
 
     def __repr__( self ):
         return "<User %r>" % self.username
+
+
+@login_manager.user_loader
+def load_user( user_id ):
+    return XUser.query.get( int( user_id ) )
 
 
 class XPermission:
