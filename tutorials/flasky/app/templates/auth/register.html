@@ -1,13 +1,14 @@
 
+
 {% extends "base.html" %}
 
 {% import "bootstrap/wtf.html" as wtf %}
 
-{% block subtitle %}Login{% endblock %}
+{% block subtitle %}Register{% endblock %}
 
 {% block page_content %}
     <div class="page-header">
-        <h1>Login</h1>
+        <h1>Register</h1>
     </div>
     <div class="col-md-4">
         {{ wtf.quick_form( form ) }}
