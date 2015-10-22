@@ -2,7 +2,8 @@
 class RMinimumSeeker( object ):
     """
     Класс, реализующий функции для поиска минимума на отрезке, 
-    и поиска отрезка, содержащего минимум функции."""
+    и поиска отрезка, содержащего минимум функции.
+    """
     def __init__( self, callback, accuracy=0.01 ):
         """
         Конструктор класса, входными аргументами которого являются 
@@ -27,28 +28,31 @@ class RMinimumSeeker( object ):
         """
         Метод, который ищет отрезок, содержащий минимум функции.
         """
-        start   = -1
-        end     = self._accuracy * 2 - 1
-        for i in range( 10000 ):
+        start   = -2
+        end     = -1
+        print()
+        for i in range( 100 ):
             middle  = ( start + end ) / 2
+            print( "{0:d}. {1:.4f} {2:.4f} {3:.4f}".format( i, start, middle, end ) )
 
             if self._IsTripleLucky( start, end, middle ):
                 return start, middle, end
             length  = end - start
             start   = end
-            end     = start + length * 2
+            end     = start + length * 1.15
 
         start   = 1
         end     = -self._accuracy * 2 + 1
-        for i in range( 10000 ):
+        for i in range( 100 ):
             middle  = ( start + end ) / 2
+            print( "{0:d}. {1:.4f} {2:.4f} {3:.4f}".format( i, start, middle, end ) )
 
             if self._IsTripleLucky( start, end, middle ):
                 return start, end, middle
 
             length  = start - end
             start   = end
-            end     = start - length * 2
+            end     = start - length * 1.15
         return None
 
 
@@ -59,20 +63,21 @@ class RMinimumSeeker( object ):
         while True:
             middle      = ( start + end ) / 2 # c -- середина отрезка 
             epsilon     = self._accuracy / 4
-            left        = middle - epsilon # yk
+            left        = middle - epsilon # yk     
             right       = middle + epsilon # zk
             call_left   = self._callback( left ) # f( yk )
             call_right  = self._callback( right ) # f( zk )
-            # print( 
-            #     "{0:.4f} {1:.4f} {2:.4f} {3:.4f} {4:.4f} {5:.4f}".format(
-            #         start, 
-            #         end, 
-            #         left, 
-            #         right, 
-            #         call_left, 
-            #         call_right
-            #     )
-            # )
+
+            print( 
+                "{0:.4f} {1:.4f} {2:.4f} {3:.4f} {4:.4f} {5:.4f}".format(
+                    start, 
+                    end, 
+                    left, 
+                    right, 
+                    call_left, 
+                    call_right
+                )
+            )
 
             if call_left >= call_right:
                 start = left
@@ -162,5 +167,8 @@ if __name__ == '__main__':
     ms5 = RMinimumSeeker( TestFunction5, accuracy=0.02 )
     ms5.GetLocalMinimum( 1, 3 )
 
-    ms2.GetMinimum()
-
+    ms1.GetLuckyTriple()
+    ms2.GetLuckyTriple()
+    ms3.GetLuckyTriple()
+    ms4.GetLuckyTriple()
+    ms5.GetLuckyTriple()
