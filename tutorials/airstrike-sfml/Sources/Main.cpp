@@ -1,8 +1,15 @@
 
-#include "Game/Game.h"
+#include "Application.hpp"
+
+#include <iostream>
+
 
 int main( int argc, char const *argv[] ) {
-    Game game;
-    game.run();
+    try {
+        Application app;
+        app.run();
+    } catch (std::exception& e ) {
+        std::cout << "\nEXCEPTION: " << e.what() << std::endl;
+    }
     return 0;
 }
