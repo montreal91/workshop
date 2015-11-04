@@ -1,3 +1,5 @@
 *.sqlite
 __pycache__
 os
+*.o
+*.a
