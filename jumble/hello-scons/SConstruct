@@ -1,0 +1,14 @@
+
+sources = [
+    "greeter.cpp",
+    "folded-greeter/folded-greeter.cpp",
+    "hello.cpp",
+]
+
+libs = [
+    "-lsfml-graphics",
+    "-lsfml-window", 
+    "-lsfml-system"
+]
+
+Program( target="h++", source=sources, LIBS=libs, CXXFLAGS="-Wall" )

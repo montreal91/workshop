@@ -3,3 +3,4 @@ __pycache__
 os
 *.o
 *.a
+*.dblite
