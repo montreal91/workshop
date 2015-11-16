@@ -28,19 +28,19 @@ private:
     void updateStatistics( sf::Time dt );
     void registerStates();
 
-    static const sf::Time TimePerFrame;
+    static const sf::Time   TimePerFrame;
 
-    sf::RenderWindow    mWindow;
-    TextureHolder       mTextures;
-    FontHolder          mFonts;
-    Player              mPlayer;
+    sf::RenderWindow        mWindow;
+    TextureHolder           mTextures;
+    FontHolder              mFonts;
+    Player                  mPlayer;
 
-    StateStack          mStateStack;
+    StateStack              mStateStack;
 
-    sf::Text            mStatisticsText;
-    sf::Time            mStatisticsUpdateTime;
+    sf::Text                mStatisticsText;
+    sf::Time                mStatisticsUpdateTime;
 
-    std::size_t         mStatisticsNumFrames;
+    std::size_t             mStatisticsNumFrames;
 };
 
-#endif
+#endif // __APPLICATION_HPP__
