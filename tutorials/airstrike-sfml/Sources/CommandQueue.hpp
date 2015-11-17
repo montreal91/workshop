@@ -9,13 +9,13 @@
 
 class CommandQueue {
 public:
-    void push( const Command& command );
+    void    push( const Command& command );
     Command pop();
-    bool isEmpty() const;
+    bool    isEmpty() const;
 
 private:
     std::queue<Command> mQueue;
     
 };
 
-#endif
+#endif // __COMMAND_QUEUE_HPP__
