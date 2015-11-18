@@ -4,3 +4,5 @@ os
 *.o
 *.a
 *.dblite
+*.class
+*.iml
