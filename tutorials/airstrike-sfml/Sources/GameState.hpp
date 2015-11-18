@@ -6,6 +6,9 @@
 #include "World.hpp"
 #include "Player.hpp"
 
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Text.hpp>
+
 
 class GameState : public State {
 public:
@@ -21,4 +24,4 @@ private:
     
 };
 
-#endif
+#endif // __GAME_STATE_HPP__
