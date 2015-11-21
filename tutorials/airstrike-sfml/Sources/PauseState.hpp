@@ -3,6 +3,7 @@
 #define __PAUSE_STATE_HPP__
 
 #include "State.hpp"
+#include "Container.hpp"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
@@ -17,10 +18,9 @@ public:
     virtual bool handleEvent( const sf::Event& event );
 
 private:
-    sf::Sprite mBackgroundSprite;
-    sf::Text mPausedText;
-    sf::Text mInstructionText;
-
+    sf::Sprite      mBackgroundSprite;
+    sf::Text        mPausedText;
+    GUI::Container  mGUIContainer;
 };
 
-#endif
+#endif // __PAUSE_STATE_HPP__
