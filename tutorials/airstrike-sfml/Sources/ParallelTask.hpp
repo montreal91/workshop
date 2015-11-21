@@ -26,4 +26,4 @@ private:
 
 };
 
-#endif
+#endif // __PARALLEL_TASK_HPP__
