@@ -72,4 +72,4 @@ StateStack::registerState( States::ID stateID ) {
     };
 }
 
-#endif
+#endif // __STATE_STACK_HPP__
