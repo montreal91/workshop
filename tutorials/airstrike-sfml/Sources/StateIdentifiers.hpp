@@ -4,14 +4,17 @@
 
 
 namespace States {
-    enum ID {
-        None,
-        Title,
-        Menu,
-        Game,
-        Loading,
-        Pause,
-    };
-}
+enum ID {
+    None,
+    Title,
+    Menu,
+    Game,
+    Loading,
+    Pause,
+    Settings,
+    GameOver,
+};
 
-#endif
+} // namespace States
+
+#endif // __STATE_IDENTIFIERS_HPP__
