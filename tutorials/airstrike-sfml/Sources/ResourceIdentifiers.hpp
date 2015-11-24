@@ -9,19 +9,29 @@ namespace sf {
 }
 
 namespace Textures {
-    enum ID {
-        Eagle,
-        Raptor,
-        Desert,
-        TitleScreen,
-    };
-}
+enum ID {
+    Eagle,
+    Raptor,
+    Avenger,
+    Bullet,
+    Missile,
+    Desert,
+    HealthRefill,
+    MissileRefill,
+    FireSpread,
+    FireRate,
+    TitleScreen,
+    ButtonNormal,
+    ButtonSelected,
+    ButtonPressed,
+};
+} // namespace Textures
 
 namespace Fonts {
-    enum ID {
-        Main,
-    };
-}
+enum ID {
+    Main,
+};
+} // namespace Fonts
 
 template <typename Resource, typename Identifier>
 class ResourceHolder;
