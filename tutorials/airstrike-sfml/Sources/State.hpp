@@ -24,6 +24,7 @@ class State {
 public:
     typedef std::unique_ptr<State> Ptr;
 
+    // TODO: turn context into a class
     struct Context {
         Context( sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts, Player& player );
 
@@ -50,7 +51,6 @@ protected:
 private:
     StateStack* mStack;
     Context     mContext;
-
 };
 
 #endif
