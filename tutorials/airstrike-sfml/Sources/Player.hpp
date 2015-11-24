@@ -9,6 +9,8 @@
 
 #include <map>
 
+
+// TODO: replace it with a proper import 
 class CommandQueue;
 
 class Player {
@@ -18,7 +20,15 @@ public:
         MoveRight,
         MoveUp,
         MoveDown,
+        Fire,
+        LaunchMissile,
         ActionCount,
+    };
+
+    enum MissionStatus {
+        MissionRunning,
+        MissionSuccess,
+        MissionFailure,
     };
 
     Player();
@@ -29,12 +39,16 @@ public:
     void                assignKey( Action action, sf::Keyboard::Key key );
     sf::Keyboard::Key   getAssignedKey( Action action ) const;
 
+    void                setMissionStatus( MissionStatus status );
+    MissionStatus       getMissionStatus() const;
+
 private:
     void                                initalizeActions();
     static bool                         isRealtimeAction( Action action );
 
     std::map<sf::Keyboard::Key, Action> mKeyBinding;
     std::map<Action, Command>           mActionBinding;
+    MissionStatus                       mCurrentMissionStatus;
 };
 
-#endif
+#endif // __PLAYER_HPP__
