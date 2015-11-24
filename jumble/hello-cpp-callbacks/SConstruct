@@ -1,0 +1,3 @@
+
+
+Program( "main.cc", CXXFLAGS="-std=c++11" )
