@@ -1,15 +1,20 @@
 
 #include "SceneNode.hpp"
 #include "Command.hpp"
+#include "Utility.hpp"
+
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 
 #include <algorithm>
 #include <cassert>
+#include <cmath>
 
 
-SceneNode::SceneNode() :
+SceneNode::SceneNode( Category::Type category ) :
 mChildren(),
-mParent( nullptr ) {
-}
+mParent( nullptr ),
+mDefaultCategory( category ) {}
 
 void
 SceneNode::attachChild( Ptr child ) {
@@ -19,7 +24,11 @@ SceneNode::attachChild( Ptr child ) {
 
 SceneNode::Ptr
 SceneNode::detachChild( const SceneNode& node ) {
-    auto found = std::find_if( mChildren.begin(), mChildren.end(), [&] ( Ptr& p ) { return p.get() == &node; } );
+    auto found = std::find_if(
+        mChildren.begin(),
+        mChildren.end(),
+        [&] ( Ptr& p ) { return p.get() == &node; }
+    );
     assert( found != mChildren.end() );
 
     Ptr result      = std::move( *found );
@@ -29,19 +38,18 @@ SceneNode::detachChild( const SceneNode& node ) {
 }
 
 void
-SceneNode::update( sf::Time dt ) {
-    updateCurrent( dt );
-    updateChildren( dt );
+SceneNode::update( sf::Time dt, CommandQueue& commands ) {
+    updateCurrent( dt, commands );
+    updateChildren( dt, commands );
 }
 
 void
-SceneNode::updateCurrent( sf::Time dt ) {
-}
+SceneNode::updateCurrent( sf::Time dt, CommandQueue& commands ) {}
 
 void
-SceneNode::updateChildren( sf::Time dt ) {
+SceneNode::updateChildren( sf::Time dt, CommandQueue& commands ) {
     for ( Ptr& child : mChildren ) {
-        child->update( dt );
+        child->update( dt, commands );
     }
 }
 
@@ -54,15 +62,27 @@ SceneNode::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
 }
 
 void
-SceneNode::drawCurrent( sf::RenderTarget& target, sf::RenderStates states ) const {
-    // Do nothing by default
-}
+SceneNode::drawCurrent( sf::RenderTarget& target, sf::RenderStates states ) const {}
 
 void
 SceneNode::drawChildren( sf::RenderTarget& target, sf::RenderStates states ) const {
     for ( const Ptr& child : mChildren ) {
         child->draw( target, states );
     }
+}
+
+void
+SceneNode::drawBoundingRect( sf::RenderTarget& target, sf::RenderStates ) const {
+    sf::FloatRect rect = getBoundingRect();
+
+    sf::RectangleShape shape;
+    shape.setPosition( sf::Vector2f( rect.left, rect.top ) );
+    shape.setSize( sf::Vector2f( rect.width, rect.height ) );
+    shape.setFillColor( sf::Color::Transparent );
+    shape.setOutlineColor( sf::Color::Green );
+    shape.setOutlineThickness( 1.0f );
+
+    target.draw( shape );
 }
 
 sf::Vector2f
@@ -93,5 +113,61 @@ SceneNode::onCommand( const Command& command, sf::Time dt ) {
 
 unsigned int
 SceneNode::getCategory() const {
-    return Category::Scene;
+    return mDefaultCategory;
+}
+
+void
+SceneNode::checkSceneCollision( SceneNode& sceneGraph, std::set<Pair>& collisionPairs ) {
+    checkNodeCollision( sceneGraph, collisionPairs );
+
+    for( Ptr& child : sceneGraph.mChildren ) {
+        checkSceneCollision( *child, collisionPairs );
+    }
+}
+
+void
+SceneNode::checkNodeCollision( SceneNode& node, std::set<Pair>& collisionPairs ) {
+    if ( this != &node && collision( *this, node ) && !isDestroyed() && !node.isDestroyed() ) {
+        collisionPairs.insert( std::minmax( this, &node ) );
+    }
+    for( Ptr& child : mChildren ) {
+        child->checkNodeCollision( node, collisionPairs );
+    }
+}
+
+void
+SceneNode::removeWrecks() {
+    auto wreckFieldBegin = std::remove_if(
+        mChildren.begin(),
+        mChildren.end(),
+        std::mem_fn( &SceneNode::isMarkedForRemoval)
+    );
+    mChildren.erase( wreckFieldBegin, mChildren.end() );
+
+    std::for_each( mChildren.begin(), mChildren.end(), std::mem_fn( &SceneNode::removeWrecks ) );
+}
+
+sf::FloatRect
+SceneNode::getBoundingRect() const {
+    return sf::FloatRect();
+}
+
+bool
+SceneNode::isMarkedForRemoval() const {
+    return isDestroyed();
+}
+
+bool
+SceneNode::isDestroyed() const {
+    return false;
+}
+
+bool
+collision( const SceneNode& lhs, const SceneNode& rhs ) {
+    return lhs.getBoundingRect().intersects( rhs.getBoundingRect() );
+}
+
+float
+distance( const SceneNode& lhs, const SceneNode& rhs ) {
+    return length( lhs.getWorldPosition() - rhs.getWorldPosition() );
 }
