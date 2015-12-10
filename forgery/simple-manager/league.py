@@ -1,10 +1,10 @@
-from random import shuffle
+from random import shuffle, randint
 
 
 class JLeague(object):
     """docstring for JLeague"""
 
-    def __init__(self, divisions=1, indiv_matches=2, exdiv_matches=2, days=10):
+    def __init__(self, divisions=1, indiv_matches=2, exdiv_matches=2, days=12):
         """
         Constructor for JLeague
         :type divisions: int
@@ -13,9 +13,10 @@ class JLeague(object):
         :type days: int
         """
         super(JLeague, self).__init__()
-        self._days = days
-        self._divisions = self._MakeDivisions(divisions)
-        self._schedule = []
+        self._days          = days
+        self._divisions     = self._MakeDivisions(divisions)
+        self._schedule      = []
+        self._current_day   = 0
 
         if indiv_matches % 2 == 0:
             self._indiv_matches = indiv_matches
@@ -48,6 +49,22 @@ class JLeague(object):
             raise Exception("There should be at least one division in the league")
         else:
             return [set() for i in range(divisions)]
+
+    @property
+    def current_day(self):
+        return  self._current_day
+
+    @property
+    def current_matches(self):
+        res = []
+        for item in self._schedule[self._current_day]:
+            if type(item) != set:
+                res.append(item)
+        return res
+
+    @property
+    def days(self):
+        return self._days
 
     def AddTeam(self, team_id=None):
         """
@@ -87,7 +104,7 @@ class JLeague(object):
         :rtype: list
         """
         matches_l = []
-        same_matches = self._indiv_matches / 2
+        same_matches = int(self._indiv_matches / 2)
         for division in self._divisions:
             matches_l += self._MakeMatchesInsideDivision(division, same_matches)
         return matches_l
@@ -122,7 +139,7 @@ class JLeague(object):
     def _MakeMatchesInsideDivision(self, division, same_matches):
         """
         Creates list of games played by teams in the same divisions.
-        :type division: int
+        :type division: list
         :type same_matches: int
         """
         res = []
@@ -131,3 +148,19 @@ class JLeague(object):
                 if team1 != team2:
                     res += [(team1, team2) for k in range(same_matches)]
         return res
+
+    def QuickSimResult(self):
+        home_score, away_score = 0, 0
+        while home_score == away_score and max(home_score, away_score) != 2:
+            home_score = randint(0, 2)
+            away_score = randint(0, 2)
+        return home_score, away_score
+
+    def GetCurrentMatchByClubId(self, club_id):
+        for match in self.current_matches:
+            if club_id in match:
+                return match
+        return None
+
+    def NextDay(self):
+        self._current_day += 1
