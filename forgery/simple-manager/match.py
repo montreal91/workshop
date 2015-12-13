@@ -46,6 +46,13 @@ class JMatch(object):
         assert isinstance( val, int )
         self._day = val
 
+    @property
+    def is_played(self):
+        return  self._is_played
+
+    def SetMatchPlayed(self):
+        self._is_played = True
+
     def __str__(self):
         return "<{0:d}> vs <{1:d}>".format(self._home_team_id, self._away_team_id)
 
