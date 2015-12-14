@@ -1,5 +1,5 @@
-from random import choice
 
+from random import choice
 
 class JClub(object):
     def __init__(self, club_id=None, name=None, playable=False):
