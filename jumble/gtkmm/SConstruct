@@ -1,0 +1,15 @@
+
+env = Environment()
+
+env.ParseConfig("pkg-config --cflags --libs gtkmm-3.0")
+sources = [
+    "main.cc",
+    "helloworld.cc"
+]
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+]
+
+env.Program(target="gtk-hello-1", CXXFLAGS=flags, source=sources)
