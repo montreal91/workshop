@@ -18,7 +18,6 @@ class JLeague(object):
         super(JLeague, self).__init__()
         self._days              = None
         self._divisions         = self._MakeDivisions(divisions)
-        # self._schedule          = []
         self._current_day       = 0
         self._total_matches     = 0
 
@@ -157,7 +156,6 @@ class JLeague(object):
         """
         matches = self._CreateIntraDivMatches() + self._CreateExtraDivGames()
         shuffle(matches)
-        # self._schedule = [set() for i in range(self._days)]
         playing_clubs = []
 
         for match in matches:

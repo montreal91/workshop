@@ -18,11 +18,11 @@ club_names = [
     "Dandenong Pianists",
     "Melbourne Slams",
     "Melbourne Rockets",
-    "Darwin Genes",
-    "Kingston Whales",
-    "Brisbane Rangers",
-    "Adelaide Thrashers",
-    "Perth Penguins"
+    "Darwin Ducks",
+    # "Kingston Whales",
+    # "Brisbane Rangers",
+    # "Adelaide Thrashers",
+    # "Perth Penguins"
 ]
 
 tennis_players = 4
@@ -212,9 +212,11 @@ class JGame( object ):
         else:
             return True
 
-    def _ProcessEndOfSeason(self, tokens):
+    def _ProcessEndOfSeason(self):
         print("\nThe season is over.\n")
-        self._ShowCurrentStandings(tokens)
+        self._ShowCurrentStandings("l")
+        print()
+        self._ShowCurrentStandings(["cs", "div"])
 
         print("\nDo you want to play another season? (Y/N)")
         ui = ""
@@ -240,7 +242,7 @@ class JGame( object ):
                 print("You have to select player!")
                 continue
             if self._league.current_day >= self._league.days:
-                if self._ProcessEndOfSeason(["cs"]) == PROCESS_INPUT_CODES.HAS_TO_EXIT:
+                if self._ProcessEndOfSeason() == PROCESS_INPUT_CODES.HAS_TO_EXIT:
                     have_to_exit = True
                 else:
                     have_to_exit = False
