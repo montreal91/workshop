@@ -1,0 +1,14 @@
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+]
+
+flags_O3 = flags + ["-O3"]
+
+sources = [
+    "multiplication.cc",
+]
+
+# Program( target="mul_algorithms", source=sources, CXXFLAGS=flags )
+Program( target="O3_mul_algorithms", source=sources, CXXFLAGS=flags_O3 )
