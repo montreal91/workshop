@@ -1,0 +1,15 @@
+
+env = Environment()
+
+env.ParseConfig("pkg-config --cflags --libs gtkmm-3.0")
+sources = [
+    "main.cc",
+    "examplewindow.cc"
+]
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+]
+
+env.Program(target="list_store", CXXFLAGS=flags, source=sources)
