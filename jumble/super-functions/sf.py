@@ -19,6 +19,12 @@ class Vector( object ):
     def __sub__( self, vec ):
         return Vector( self.x - vec.x, self.y - vec.y )
 
+    def __mul__( self, scal ):
+        return Vector( self.x * scal, self.y * scal )
+
+    def __rmul__( self, scal ):
+        return Vector( self.x * scal, self.y * scal )
+
     def __str__( self ):
         return "({0:f}, {1:f})".format( self.x, self.y )
 
@@ -45,11 +51,15 @@ def FunctionPhi( old_x, antigradient, callback ):
 
 
 if __name__ == '__main__':
-    x0 = Vector( -2, 1 )
-    d0 = Vector( 16, -6 )
+    x0 = Vector( 2, 2 )
+    d0 = Vector( -16, -12 )
     x1 = Vector( 0.08, 0.22 )
     caller = FunctionPhi( x0, d0, TargetFunc )
+    print( caller( -1 ), caller( 0 ), caller( 2 ) )
+    print( caller( 0.137 ) )
     print( "Phi(0):", caller( 0 ) )
     print( "df(x0):", TargetFuncDerivative( x0 ) )
     print( "df(x1):", TargetFuncDerivative( x1 ) )
     print( "Beta  :", GetBeta( x1, x0, TargetFuncDerivative ) )
+    print( x0 * 2 )
+    print( 2 * x0 )
