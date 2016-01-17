@@ -2,7 +2,7 @@
 # Application package constructor
 
 from flask                  import Flask
-from flask                  import render_template
+# from flask                  import render_template
 from flask.ext.bootstrap    import Bootstrap
 from flask.ext.login        import LoginManager
 from flask.ext.mail         import Mail
@@ -19,7 +19,7 @@ db              = SQLAlchemy()
 login_manager   = LoginManager()
 
 login_manager.session_protection    = "strong"
-login_manager.login_view            = "auth.login"
+login_manager.login_view            = "auth.Login"
 
 
 def CreateApp( config_name ):

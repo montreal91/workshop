@@ -11,10 +11,8 @@
     </div>
     <div class="col-md-4">
         {{ wtf.quick_form( form ) }}
+        <br>
+        <p>Forgot your password? <a fref="{{ url_for('auth.PasswordResetRequest') }}">Click here to reset it</a>.</p>
+        <p>New user? <a href="{{ url_for('auth.Register') }}">Click here to register</a>.</p>
     </div>
-    <br>
-    <p>
-        New user?
-        <a href="{{ url_for( 'auth.Register' ) }}">Click here to register</a>
-    </p>
 {% endblock %}

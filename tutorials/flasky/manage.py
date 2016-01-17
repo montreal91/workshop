@@ -10,7 +10,7 @@ from app import CreateApp, db
 from app.models import XUser, XRole
 
 
-app = CreateApp( os.getenv( "FLASK_CONFIG" ) or "default" )
+app     = CreateApp( os.getenv( "FLASK_CONFIG" ) or "default" )
 manager = Manager( app )
 migrate = Migrate( app, db )
 
