@@ -2,7 +2,6 @@
 # Application package constructor
 
 from flask                  import Flask
-# from flask                  import render_template
 from flask.ext.bootstrap    import Bootstrap
 from flask.ext.login        import LoginManager
 from flask.ext.mail         import Mail

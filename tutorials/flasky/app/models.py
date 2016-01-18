@@ -4,9 +4,17 @@ from werkzeug.security  import generate_password_hash, check_password_hash
 from itsdangerous       import TimedJSONWebSignatureSerializer as Serializer
 
 from flask              import current_app
-from flask.ext.login    import UserMixin
+from flask.ext.login    import UserMixin, AnonymousUserMixin
 
 from .                  import db, login_manager
+
+
+class XPermission:
+    FOLLOW              = 0x01
+    COMMENT             = 0x02
+    WRITE_ARTICLES      = 0x04
+    MODERATE_COMMENTS   = 0x08
+    ADMINISTER          = 0x80
 
 
 class XRole( db.Model ):
@@ -15,7 +23,8 @@ class XRole( db.Model ):
     name            = db.Column( db.String( 64 ), unique=True )
     default         = db.Column( db.Boolean, default=False, index=True )
     permissions     = db.Column( db.Integer )
-    users           = db.relationship( "XUser", backref="role" )
+    users           = db.relationship( "XUser", backref="role", lazy="dynamic" )
+
 
     @staticmethod
     def InsertRoles():
@@ -39,7 +48,7 @@ class XRole( db.Model ):
         for r in roles:
             role = XRole.query.filter_by( name=r ).first()
             if role is None:
-                role = Role( name=r )
+                role = XRole( name=r )
             role.permissions = roles[ r ][ 0 ]
             role.default = roles[ r ][ 1 ]
             db.session.add( role )
@@ -57,6 +66,15 @@ class XUser( UserMixin, db.Model ):
     role_pk         = db.Column( db.Integer, db.ForeignKey( "roles.pk" ) )
     password_hash   = db.Column( db.String( 128 ) )
     confirmed       = db.Column( db.Boolean, default=False )
+
+
+    def __init__( self, **kwargs ):
+        super( XUser, self ).__init__( **kwargs )
+        if self.role is None:
+            if self.email == current_app.config["FLASKY_ADMIN"]:
+                self.role = XRole.query.filter_by( permissions=0xff ).first()
+            if self.role is None:
+                self.role = XRole.query.filter_by( default=True ).first()
 
 
     @property
@@ -138,6 +156,14 @@ class XUser( UserMixin, db.Model ):
         return True
 
 
+    def Can( self, permissions ):
+        return self.role is not None and ( self.role.permissions & permissions ) == permissions
+
+
+    def is_administer( self ):
+        return self.Can( XPermission.ADMINISTER )
+
+
     def get_id( self ):
         return self.pk
     
@@ -146,14 +172,17 @@ class XUser( UserMixin, db.Model ):
         return "<User %r>" % self.username
 
 
+class XAnonymousUser( AnonymousUserMixin ):
+    def Can( self, permissions ):
+        return False
+
+    def is_administer( self ):
+        return False
+
+login_manager.anonymous_user = XAnonymousUser
+
+
+
 @login_manager.user_loader
 def load_user( user_id ):
     return XUser.query.get( int( user_id ) )
-
-
-class XPermission:
-    FOLLOW              = 0x01
-    COMMENT             = 0x02
-    WRITE_ARTICLES      = 0x04
-    MODERATE_COMMENTS   = 0x08
-    ADMINISTER          = 0x80

@@ -3,11 +3,11 @@
 
 import os
 
-from flask.ext.script import Manager, Shell
-from flask.ext.migrate import Migrate, MigrateCommand
+from flask.ext.script   import Manager, Shell
+from flask.ext.migrate  import Migrate, MigrateCommand
 
-from app import CreateApp, db
-from app.models import XUser, XRole
+from app                import CreateApp, db
+from app.models         import XUser, XRole, XPermission
 
 
 app     = CreateApp( os.getenv( "FLASK_CONFIG" ) or "default" )
@@ -20,6 +20,7 @@ def MakeShellContext():
         db=db,
         XUser=XUser,
         XRole=XRole,
+        XPermission=XPermission
     )
 
 manager.add_command( "shell", Shell( make_context=MakeShellContext ) )
