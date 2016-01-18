@@ -9,6 +9,7 @@
     {{ super() }}
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css')}}">
 {% endblock %}
 
 {% block navbar %}
@@ -26,11 +27,15 @@
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
                 <li><a href="{{ url_for('main.Index') }}">Home</a></li>
+                {% if current_user.is_authenticated %}
+                <li><a href="{{ url_for('main.User', username=current_user.username) }}">Profile</a></li>
+                {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
             {% if current_user.is_authenticated %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="{{ current_user.Gravatar(size=18)}}">
                         Account <b class ="caret"></b>
                     </a>
                     <ul class="dropdown-menu">

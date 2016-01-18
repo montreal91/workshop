@@ -1,5 +1,6 @@
 
 import time
+from datetime   import datetime
 from unittest   import TestCase
 
 from app        import CreateApp, db
@@ -108,3 +109,26 @@ class XUserModelTestCase( TestCase ):
     def test_anonymous_user( self ):
         u = XAnonymousUser()
         self.assertFalse( u.Can( XPermission.FOLLOW ) )
+
+    def test_timestamps( self ):
+        u = XUser( password="Turtle" )
+        db.session.add( u )
+        db.session.commit()
+
+        self.assertTrue(
+            ( datetime.utcnow() - u.member_since ).total_seconds() < 3
+        )
+        self.assertTrue(
+            (datetime.utcnow() - u.last_seen).total_seconds() < 3
+        )
+
+
+    def test_ping( self ):
+        u = XUser( password="Turtle" )
+        db.session.add( u )
+        db.session.commit()
+        last_seen_before = u.last_seen
+        time.sleep( 2 )
+        u.Ping()
+
+        self.assertTrue( u.last_seen > last_seen_before )
