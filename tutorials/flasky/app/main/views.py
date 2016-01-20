@@ -4,15 +4,27 @@ from flask              import abort, flash
 from flask.ext.login    import login_required, current_user
 
 from .                  import main
-from .forms             import XEditProfileForm, XEditProfileAdminForm
+from .forms             import XEditProfileForm, XEditProfileAdminForm, XPostForm
 from ..                 import db
 from ..decorators       import AdminRequired
-from ..models           import XUser, XRole
+from ..models           import XUser, XRole, XPermission
+from ..models           import XPost
 
 
 @main.route( "/", methods=["GET", "POST"] )
 def Index():
-    return render_template( "index.html" )
+    form = XPostForm()
+    if current_user.Can( XPermission.WRITE_ARTICLES ) and form.validate_on_submit():
+        post = XPost()
+        post.body = form.body.data
+        post.author = current_user._get_current_object()
+
+        db.session.add(post)
+        db.session.commit()
+
+        return redirect( url_for( ".Index" ) )
+    posts = XPost.query.order_by( XPost.timestamp.desc() ).all()
+    return render_template( "index.html", form=form, posts=posts, Permission=XPermission )
 
 
 @main.route( "/user/<username>/" )
@@ -21,7 +33,8 @@ def User( username ):
     user = XUser.query.filter_by( username=username ).first()
     if user is None:
         return abort( 404 )
-    return render_template( "user.html", user=user )
+    posts = user.posts.order_by( XPost.timestamp.desc() ).all()
+    return render_template( "user.html", user=user, posts=posts )
 
 
 @main.route( "/edit-profile/", methods=["GET", "POST"] )

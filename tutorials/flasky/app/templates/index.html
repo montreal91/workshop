@@ -15,4 +15,11 @@
             {% endif %}
         </h1>
     </div>
+    {% if current_user.Can(Permission.WRITE_ARTICLES) %}
+        <div>
+        {{ wtf.quick_form(form) }}     
+        </div>
+    {% endif %}
+    {% include '_posts.html' %}
+
 {% endblock %}

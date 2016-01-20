@@ -27,6 +27,7 @@
         Member since {{ moment(user.member_since).format("L") }}.
         Last seen {{ moment(user.last_seen).fromNow() }}
     </p>
+    <p>{{ user.posts.count() }} blog posts.</p>
     <p>
         {% if user == current_user %}
         <a href="{{ url_for('.EditProfile') }}" class="btn btn-default">Edit Profile</a>
@@ -36,5 +37,7 @@
         {% endif %}
     </p>
 </div>
+<h3>Posts by {{ user.username }}</h3>
+{% include '_posts.html' %}
 
 {% endblock %}
