@@ -1,0 +1,10 @@
+
+files = ["camera_rays.cc"]
+
+flags = [
+    "-O3",
+    "-Wall",
+    "-std=c++11"
+]
+
+Program(target="cr", source=files, CXXFLAGS=flags)
