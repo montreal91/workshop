@@ -1,0 +1,6 @@
+flags = [
+    "-std=c++11",
+    "-Wall"
+]
+
+Program( target="bin", source=["main.cc"], CXXFLAGS=flags )
