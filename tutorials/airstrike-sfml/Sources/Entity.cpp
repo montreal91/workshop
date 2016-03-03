@@ -42,6 +42,12 @@ Entity::getHitpoints() const {
 }
 
 void
+Entity::setHitpoints( int points ) {
+    assert( points > 0 );
+    mHitpoints = points;
+}
+
+void
 Entity::repair( int points ) {
     assert( points > 0 );
     mHitpoints += points;
@@ -56,6 +62,11 @@ Entity::damage( int points ) {
 void
 Entity::destroy() {
     mHitpoints = 0;
+}
+
+void
+Entity::remove() {
+    destroy();
 }
 
 bool
