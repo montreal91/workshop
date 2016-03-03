@@ -116,7 +116,7 @@ Aircraft::updateCurrent( sf::Time dt, CommandQueue& commands ) {
 
         // Play explosion sound only once
         if ( !mExplosionBegan ) {
-            // Play sound effect 
+            // Play sound effect
             // TODO: put it into function
             SoundEffect::ID soundEffect = ( randomInt( 2 ) == 0 ) ? SoundEffect::Explosion1 : SoundEffect::Explosion2;
             playLocalSound( commands, soundEffect );

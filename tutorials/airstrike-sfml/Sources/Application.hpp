@@ -4,8 +4,10 @@
 
 #include "ResourceHolder.hpp"
 #include "ResourceIdentifiers.hpp"
-#include "Player.hpp"
+#include "KeyBinding.hpp"
 #include "StateStack.hpp"
+#include "MusicPlayer.hpp"
+#include "SoundPlayer.hpp"
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
@@ -33,13 +35,15 @@ private:
     sf::RenderWindow        mWindow;
     TextureHolder           mTextures;
     FontHolder              mFonts;
-    Player                  mPlayer;
+    MusicPlayer             mMusic;
+    SoundPlayer             mSounds;
 
+    KeyBinding              mKeyBinding1;
+    KeyBinding              mKeyBinding2;
     StateStack              mStateStack;
 
     sf::Text                mStatisticsText;
     sf::Time                mStatisticsUpdateTime;
-
     std::size_t             mStatisticsNumFrames;
 };
 
