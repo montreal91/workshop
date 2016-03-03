@@ -20,8 +20,7 @@ public:
 
 private:
     World   mWorld;
-    Player& mPlayer;
-    
+    Player  mPlayer;
 };
 
 #endif // __GAME_STATE_HPP__
