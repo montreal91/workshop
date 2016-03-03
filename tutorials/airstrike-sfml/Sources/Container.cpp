@@ -45,6 +45,15 @@ Container::handleEvent( const sf::Event& event ) {
     }
 }
 
+void
+Container::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
+    states.transform *= getTransform();
+
+    for( const Component::Ptr& child : mChildren ) {
+        target.draw( *child, states );
+    }
+}
+
 bool
 Container::hasSelection() const {
     return mSelectedChild >= 0;
@@ -68,6 +77,7 @@ Container::selectNext() {
         return;
     }
 
+    // Search next component that is selectable, wrap around if necessary
     int next = mSelectedChild;
     do {
         next = ( next + 1 ) % mChildren.size();
@@ -82,6 +92,7 @@ Container::selectPrevious() {
         return;
     }
 
+    // Search previous component that is selectable, wrap around if necessary
     int prev = mSelectedChild;
     do {
         prev = ( prev + mChildren.size() - 1 ) % mChildren.size();
@@ -89,14 +100,4 @@ Container::selectPrevious() {
 
     select( prev );
 }
-
-void
-Container::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
-    states.transform *= getTransform();
-
-    for ( const Component::Ptr& child : mChildren ) {
-        target.draw( *child, states );
-    }
-}
-
 } // namespace GUI
