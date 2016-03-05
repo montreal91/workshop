@@ -9,13 +9,13 @@
 
 
 namespace {
-    const std::vector<PickupData> Table = initalizePickupData();
-}
+const std::vector<PickupData> Table = initalizePickupData();
+} // namespace
 
 Pickup::Pickup( Type type, const TextureHolder& textures ) :
 Entity( 1 ),
 mType( type ),
-mSprite( textures.get( Table[type].texture ) ) {
+mSprite( textures.get( Table[type].texture ), Table[type].textureRect ) {
     centerOrigin( mSprite );
 }
 
@@ -35,6 +35,9 @@ Pickup::apply( Aircraft& player ) const {
 }
 
 void
-Pickup::drawCurrent( sf::RenderTarget& target, sf::RenderStates states ) const {
+Pickup::drawCurrent(
+    sf::RenderTarget& target,
+    sf::RenderStates states
+) const {
     target.draw( mSprite, states );
 }
