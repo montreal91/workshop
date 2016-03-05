@@ -8,15 +8,19 @@
 #include <SFML/System/Vector2.hpp>
 
 
+//TODO: replace it with a proper input
 namespace sf {
-    class Sprite;
-    class Text;
+class Sprite;
+class Text;
 } // namespace sf
+
+class Animation;
 
 std::string     toString( sf::Keyboard::Key key );
 
 void            centerOrigin( sf::Sprite& sprite );
 void            centerOrigin( sf::Text& text );
+void            centerOrigin( Animation& animation );
 
 float           toDegree( float radian );
 float           toRadian( float degree );

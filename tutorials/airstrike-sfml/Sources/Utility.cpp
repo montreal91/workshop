@@ -1,5 +1,6 @@
 
 #include "Utility.hpp"
+#include "Animation.hpp"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
@@ -127,8 +128,6 @@ toString( sf::Keyboard::Key key ) {
         BOOK_KEYTOSTRING_CASE(F14)
         BOOK_KEYTOSTRING_CASE(F15)
         BOOK_KEYTOSTRING_CASE(Pause)
-        case sf::Keyboard::KeyCount:
-            return "";
     }
     return "";
 }
@@ -151,14 +150,23 @@ centerOrigin( sf::Text& text ) {
     );
 }
 
+void
+centerOrigin( Animation& animation ) {
+    sf::FloatRect bounds = animation.getLocalBounds();
+    animation.setOrigin(
+        std::floor( bounds.left + bounds.width / 2.0f ),
+        std::floor( bounds.top + bounds.height / 2.0f )
+    );
+}
+
 float
 toDegree( float radian ) {
-    return 180.0f / 3.14159265 * radian;
+    return 180.0f / 3.14159265f * radian;
 }
 
 float
 toRadian( float degree ) {
-    return 3.14159265 / 180.0f * degree;
+    return 3.14159265f / 180.0f * degree;
 }
 
 int
