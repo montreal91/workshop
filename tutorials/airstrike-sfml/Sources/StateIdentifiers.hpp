@@ -11,8 +11,12 @@ enum ID {
     Game,
     Loading,
     Pause,
+    NetworkPause,
     Settings,
     GameOver,
+    MissionSuccess,
+    HostGame,
+    JoinGame,
 };
 
 } // namespace States

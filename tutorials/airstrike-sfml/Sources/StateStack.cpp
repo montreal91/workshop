@@ -72,9 +72,16 @@ StateStack::applyPendingChanges() {
                 mStack.push_back( createState( change.stateID ) );
                 break;
             case Pop:
+                mStack.back()->onDestroy();
                 mStack.pop_back();
+                if ( !mStack.empty() ) {
+                    mStack.back()->onActivate();
+                }
                 break;
             case Clear:
+                for ( State::Ptr& state : mStack ) {
+                    state->onDestroy();
+                }
                 mStack.clear();
                 break;
         }
