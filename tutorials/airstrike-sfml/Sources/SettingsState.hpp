@@ -3,7 +3,7 @@
 #define __SETTINGS_STATE_HPP__
 
 #include "State.hpp"
-#include "Player.hpp"
+#include "KeyBinding.hpp"
 #include "Container.hpp"
 #include "Button.hpp"
 #include "Label.hpp"
@@ -25,16 +25,17 @@ public:
 private:
     void updateLabels();
     void addButtonLabel(
-        Player::Action action,
-        float y,
+        std::size_t index,
+        std::size_t x,
+        std::size_t y,
         const std::string& text,
-        Context context
+        Context context // TODO: pass it through the constant link
     );
 
-    sf::Sprite                                          mBackgroundSprite;
-    GUI::Container                                      mGUIContainer;
-    std::array<GUI::Button::Ptr, Player::ActionCount>   mBindingButtons;
-    std::array<GUI::Label::Ptr, Player::ActionCount>    mBindingLabels;
+    sf::Sprite                                              mBackgroundSprite;
+    GUI::Container                                          mGUIContainer;
+    std::array<GUI::Button::Ptr, 2*PlayerAction::Count>     mBindingButtons;
+    std::array<GUI::Label::Ptr, 2*PlayerAction::Count>      mBindingLabels;
 };
 
 #endif //__SETTINGS_STATE_HPP__
