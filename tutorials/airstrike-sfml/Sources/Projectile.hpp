@@ -19,6 +19,7 @@ public:
     };
 
     Projectile( Type type, const TextureHolder& textures );
+
     void                    guideTowards( sf::Vector2f position );
     bool                    isGuided() const;
 
@@ -29,7 +30,10 @@ public:
 
 private:
     virtual void    updateCurrent( sf::Time dt, CommandQueue& commands );
-    virtual void    drawCurrent( sf::RenderTarget& target, sf::RenderStates states ) const;
+    virtual void    drawCurrent(
+        sf::RenderTarget& target,
+        sf::RenderStates states
+    ) const;
 
     Type            mType;
     sf::Sprite      mSprite;
