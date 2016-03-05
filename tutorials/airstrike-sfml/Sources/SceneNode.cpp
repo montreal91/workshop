@@ -62,17 +62,26 @@ SceneNode::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
 }
 
 void
-SceneNode::drawCurrent( sf::RenderTarget& target, sf::RenderStates states ) const {}
+SceneNode::drawCurrent(
+    sf::RenderTarget& target,
+    sf::RenderStates states
+) const {}
 
 void
-SceneNode::drawChildren( sf::RenderTarget& target, sf::RenderStates states ) const {
+SceneNode::drawChildren(
+    sf::RenderTarget& target,
+    sf::RenderStates states
+) const {
     for ( const Ptr& child : mChildren ) {
         child->draw( target, states );
     }
 }
 
 void
-SceneNode::drawBoundingRect( sf::RenderTarget& target, sf::RenderStates ) const {
+SceneNode::drawBoundingRect(
+    sf::RenderTarget& target,
+    sf::RenderStates
+) const {
     sf::FloatRect rect = getBoundingRect();
 
     sf::RectangleShape shape;
@@ -117,7 +126,10 @@ SceneNode::getCategory() const {
 }
 
 void
-SceneNode::checkSceneCollision( SceneNode& sceneGraph, std::set<Pair>& collisionPairs ) {
+SceneNode::checkSceneCollision(
+    SceneNode& sceneGraph,
+    std::set<Pair>& collisionPairs
+) {
     checkNodeCollision( sceneGraph, collisionPairs );
 
     for( Ptr& child : sceneGraph.mChildren ) {
@@ -125,8 +137,13 @@ SceneNode::checkSceneCollision( SceneNode& sceneGraph, std::set<Pair>& collision
     }
 }
 
+// WARNING: recursive
 void
-SceneNode::checkNodeCollision( SceneNode& node, std::set<Pair>& collisionPairs ) {
+SceneNode::checkNodeCollision(
+    SceneNode& node,
+    std::set<Pair>& collisionPairs
+) {
+    // TODO: put this complex condition into function
     if ( this != &node && collision( *this, node ) && !isDestroyed() && !node.isDestroyed() ) {
         collisionPairs.insert( std::minmax( this, &node ) );
     }
@@ -140,11 +157,15 @@ SceneNode::removeWrecks() {
     auto wreckFieldBegin = std::remove_if(
         mChildren.begin(),
         mChildren.end(),
-        std::mem_fn( &SceneNode::isMarkedForRemoval)
+        std::mem_fn( &SceneNode::isMarkedForRemoval )
     );
     mChildren.erase( wreckFieldBegin, mChildren.end() );
 
-    std::for_each( mChildren.begin(), mChildren.end(), std::mem_fn( &SceneNode::removeWrecks ) );
+    std::for_each(
+        mChildren.begin(),
+        mChildren.end(),
+        std::mem_fn( &SceneNode::removeWrecks )
+    );
 }
 
 sf::FloatRect
