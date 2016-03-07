@@ -1,39 +1,55 @@
+env = Environment( CXX="clang++" )
 
 flags = [
     "-std=c++11",
-    "-Wall"
+    "-Wall",
+    "-O3",
 ]
 
 libs = [
     "-lsfml-graphics",
     "-lsfml-window", 
     "-lsfml-system",
+    "-lsfml-audio",
+    "-lsfml-network",
 ]
 
 folder = "Sources/"
 
 sources = [
     folder + "Aircraft.cpp",
+    folder + "Animation.cpp",
     folder + "Application.cpp",
+    folder + "BloomEffect.cpp",
     folder + "Button.cpp",
     folder + "Command.cpp",
     folder + "CommandQueue.cpp",
     folder + "Component.cpp",
     folder + "Container.cpp",
     folder + "DataTables.cpp",
+    folder + "EmitterNode.cpp",
     folder + "Entity.cpp",
     folder + "GameOverState.cpp",
+    folder + "GameServer.cpp",
     folder + "GameState.cpp",
+    folder + "KeyBinding.cpp",
     folder + "Label.cpp",
     folder + "LoadingState.cpp",
     folder + "MenuState.cpp",
+    folder + "MultiplayerGameState.cpp",
+    folder + "MusicPlayer.cpp",
+    folder + "NetworkNode.cpp",
+    folder + "ParticleNode.cpp",
     folder + "ParallelTask.cpp",
     folder + "PauseState.cpp",
     folder + "Pickup.cpp",
     folder + "Player.cpp",
+    folder + "PostEffect.cpp",
     folder + "Projectile.cpp",
     folder + "SceneNode.cpp",
     folder + "SettingsState.cpp",
+    folder + "SoundNode.cpp",
+    folder + "SoundPlayer.cpp",
     folder + "SpriteNode.cpp",
     folder + "State.cpp",
     folder + "StateStack.cpp",
@@ -44,4 +60,4 @@ sources = [
     folder + "Main.cpp",
 ]
 
-Program( target="airstrike-sfml-0.7", source=sources, LIBS=libs, CXXFLAGS=flags )
+env.Program( target="airstrike-sfml-0.10", source=sources, LIBS=libs, CXXFLAGS=flags )
