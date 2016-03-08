@@ -1,10 +1,10 @@
-#ifndef __PARTICLE_HPP__
-#define __PARTICLE_HPP__
+
+#pragma once
 
 
-#include <SFML/System/Vector2.hpp>
-#include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Color.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/System/Vector2.hpp>
 
 
 struct Particle {
@@ -18,5 +18,3 @@ struct Particle {
     sf::Color       color;
     sf::Time        lifetime;
 };
-
-#endif // __PARTICLE_HPP__

@@ -1,15 +1,13 @@
 
-#ifndef __POST_EFFECT_HPP__
-#define __POST_EFFECT_HPP__
+#pragma once
 
+
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderTexture.hpp>
+#include <SFML/Graphics/Shader.hpp>
+#include <SFML/Graphics/VertexArray.hpp>
 #include <SFML/System/NonCopyable.hpp>
 
-// TODO: Replace this ugliness with proper input
-namespace sf {
-class RenderTarget;
-class RenderTexture;
-class Shader;
-} // namespace sf
 
 class PostEffect : sf::NonCopyable {
 public:
@@ -28,5 +26,3 @@ protected:
         sf::RenderTarget& output
     );
 };
-
-#endif // __POST_EFFECT_HPP__

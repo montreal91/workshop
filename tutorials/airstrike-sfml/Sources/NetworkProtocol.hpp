@@ -1,6 +1,5 @@
 
-#ifndef __NETWORK_PROTOCOL_HPP__
-#define __NETWORK_PROTOCOL_HPP__
+#pragma once
 
 
 #include <SFML/Config.hpp>
@@ -66,5 +65,3 @@ struct Action {
     sf::Vector2f    position;
 };
 } // namespace GameActions
-
-#endif // __NETWORK_PROTOCOL_HPP__

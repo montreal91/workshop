@@ -1,16 +1,23 @@
 
-#ifndef __PICKUP_HPP__
-#define __PICKUP_HPP__
+#pragma once
 
 
-#include "Entity.hpp"
-#include "Command.hpp"
-#include "ResourceIdentifiers.hpp"
-
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 
+// #include "Aircraft.hpp"
+#include "Category.hpp"
+#include "Command.hpp"
+#include "DataTables.hpp"
+#include "Entity.hpp"
+#include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
+#include "Utility.hpp"
 
-// TODO: replace it with a proper import 
+
+// TODO: replace it with a proper import
+// ??? Replacement produces a compile-time error
 class Aircraft;
 
 class Pickup : public Entity {
@@ -36,7 +43,4 @@ protected:
 private:
     Type        mType;
     sf::Sprite  mSprite;
-
 };
-
-#endif // __PICKUP_HPP__

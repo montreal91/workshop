@@ -1,6 +1,5 @@
 
-#ifndef __PARALLEL_TASK_HPP__
-#define __PARALLEL_TASK_HPP__
+#pragma once
 
 #include <SFML/System/Thread.hpp>
 #include <SFML/System/Mutex.hpp>
@@ -19,11 +18,8 @@ public:
 private:
     void runTask();
 
-    sf::Thread mThread;
-    bool mFinished;
-    sf::Clock mElapsedTime;
-    sf::Mutex mMutex;
-
+    sf::Thread  mThread;
+    bool        mFinished;
+    sf::Clock   mElapsedTime;
+    sf::Mutex   mMutex;
 };
-
-#endif // __PARALLEL_TASK_HPP__

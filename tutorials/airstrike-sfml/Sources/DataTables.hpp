@@ -1,21 +1,21 @@
 
 //TODO: move this shit to external file
 
-#ifndef __DATA_TABLES_HPP__
-#define __DATA_TABLES_HPP__
+#pragma once
 
 
-#include "ResourceIdentifiers.hpp"
+#include <functional>
+#include <vector>
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics/Rect.hpp>
 
-#include <vector>
-#include <functional>
-
-
-class Aircraft;
+#include "Aircraft.hpp"
+#include "Particle.hpp"
+#include "Pickup.hpp"
+#include "Projectile.hpp"
+#include "ResourceIdentifiers.hpp"
 
 
 struct Direction {
@@ -61,5 +61,3 @@ std::vector<AircraftData>   initalizeAircraftData();
 std::vector<ProjectileData> initalizeProjectileData();
 std::vector<PickupData>     initalizePickupData();
 std::vector<ParticleData>   initalizeParticleData();
-
-#endif // __DATA_TABLES_HPP__

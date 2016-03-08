@@ -1,12 +1,18 @@
 
-#ifndef __PROJECTILE_HPP__
-#define __PROJECTILE_HPP__
+#pragma once
 
+
+#include <cassert>
+#include <cmath>
+
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
 #include "Entity.hpp"
+#include "ResourceHolder.hpp"
 #include "ResourceIdentifiers.hpp"
-
-#include <SFML/Graphics/Sprite.hpp>
+#include "Utility.hpp"
 
 
 class Projectile : public Entity {
@@ -38,7 +44,4 @@ private:
     Type            mType;
     sf::Sprite      mSprite;
     sf::Vector2f    mTargetDirection;
-
 };
-
-#endif

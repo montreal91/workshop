@@ -1,7 +1,6 @@
 
 #include "StateStack.hpp"
 
-#include <cassert>
 
 StateStack::StateStack( State::Context context ) :
 mStack(),

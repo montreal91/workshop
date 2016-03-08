@@ -1,25 +1,25 @@
 
-#ifndef __EMITTER_NODE_HPP__
-#define __EMITTER_NODE_HPP__
+#pragma once
 
-#include "SceneNode.hpp"
+
+#include <SFML/System/Time.hpp>
+
+#include "Command.hpp"
+#include "CommandQueue.hpp"
 #include "Particle.hpp"
+#include "ParticleNode.hpp"
+#include "SceneNode.hpp"
 
-
-class ParticleNode;
 
 class EmitterNode : public SceneNode {
 public:
     explicit EmitterNode( Particle::Type type );
 
 private:
-    // TODO: Add corresponding includes
     virtual void    updateCurrent( sf::Time dt, CommandQueue& commands );
     void            emitParticles( sf::Time dt );
 
-    sf::Time mAccumulatedTime;
-    Particle::Type mType;
-    ParticleNode* mParticleSystem;
+    sf::Time        mAccumulatedTime;
+    Particle::Type  mType;
+    ParticleNode*   mParticleSystem;
 };
-
-#endif // __EMITTER_NODE_HPP__

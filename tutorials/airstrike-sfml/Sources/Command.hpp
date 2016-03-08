@@ -1,14 +1,13 @@
 
-#ifndef __COMMAND_HPP__
-#define __COMMAND_HPP__
+#pragma once
 
 
-#include "Category.hpp"
+#include <cassert>
+#include <functional>
 
 #include <SFML/System/Time.hpp>
 
-#include <functional>
-#include <cassert>
+#include "Category.hpp"
 
 
 class SceneNode;
@@ -33,5 +32,3 @@ Command::Action derivedAction( Function fn ) {
 
     };
 }
-
-#endif // __COMMAND_HPP__

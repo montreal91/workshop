@@ -1,14 +1,17 @@
 
-#ifndef __TEXT_NODE_HPP__
-#define __TEXT_NODE_HPP__
+#pragma once
 
+
+#include <string>
+
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/Text.hpp>
 
 #include "ResourceHolder.hpp"
 #include "ResourceIdentifiers.hpp"
 #include "SceneNode.hpp"
-
-#include <SFML/Graphics/Text.hpp>
-#include <SFML/Graphics/Font.hpp>
+#include "Utility.hpp"
 
 
 class TextNode : public SceneNode {
@@ -25,5 +28,3 @@ private:
 
     sf::Text        mText;
 };
-
-#endif //__TEXT_NODE_HPP__

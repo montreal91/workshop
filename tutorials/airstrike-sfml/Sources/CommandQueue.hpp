@@ -1,10 +1,10 @@
 
-#ifndef __COMMAND_QUEUE_HPP__
-#define __COMMAND_QUEUE_HPP__
-
-#include "Command.hpp"
+#pragma once
 
 #include <queue>
+
+#include "Command.hpp"
+#include "SceneNode.hpp"
 
 
 class CommandQueue {
@@ -15,7 +15,4 @@ public:
 
 private:
     std::queue<Command> mQueue;
-    
 };
-
-#endif // __COMMAND_QUEUE_HPP__

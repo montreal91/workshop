@@ -1,18 +1,25 @@
 
-#ifndef __GAME_SERVER_HPP__
-#define __GAME_SERVER_HPP__
+#pragma once
 
-#include <SFML/System/Vector2.hpp>
-#include <SFML/System/Thread.hpp>
-#include <SFML/System/Clock.hpp>
-#include <SFML/System/Sleep.hpp>
-#include <SFML/Graphics/Rect.hpp>
-#include <SFML/Network/TcpListener.hpp>
-#include <SFML/Network/TcpSocket.hpp>
 
 #include <vector>
 #include <memory>
 #include <map>
+
+#include <SFML/Graphics/Rect.hpp>
+#include <SFML/Network/Packet.hpp>
+#include <SFML/Network/TcpListener.hpp>
+#include <SFML/Network/TcpSocket.hpp>
+#include <SFML/System/Clock.hpp>
+#include <SFML/System/Thread.hpp>
+#include <SFML/System/Sleep.hpp>
+#include <SFML/System/Vector2.hpp>
+
+#include "Aircraft.hpp"
+#include "NetworkProtocol.hpp"
+#include "Pickup.hpp"
+#include "Utility.hpp"
+
 
 class GameServer {
 public:
@@ -88,5 +95,3 @@ private:
     sf::Time                            mLastSpawnTime;
     sf::Time                            mTimeForNextSpawn;
 };
-
-#endif // __GAME_SERVER_HPP__

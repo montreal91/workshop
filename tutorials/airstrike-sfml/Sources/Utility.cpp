@@ -1,14 +1,5 @@
 
 #include "Utility.hpp"
-#include "Animation.hpp"
-
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Text.hpp>
-
-#include <cmath>
-#include <random>
-#include <ctime>
-#include <cassert>
 
 
 namespace {

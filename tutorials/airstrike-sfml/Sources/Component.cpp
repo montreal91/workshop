@@ -38,5 +38,4 @@ void
 Component::deactivate() {
     mIsActive = false;
 }
-
 } // namespace GUI

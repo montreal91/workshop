@@ -1,6 +1,5 @@
 
-#ifndef __STATE_IDENTIFIERS_HPP__
-#define __STATE_IDENTIFIERS_HPP__
+#pragma once
 
 
 namespace States {
@@ -18,7 +17,4 @@ enum ID {
     HostGame,
     JoinGame,
 };
-
 } // namespace States
-
-#endif // __STATE_IDENTIFIERS_HPP__

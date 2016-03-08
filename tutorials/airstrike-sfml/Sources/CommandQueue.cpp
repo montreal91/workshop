@@ -1,6 +1,5 @@
 
 #include "CommandQueue.hpp"
-#include "SceneNode.hpp"
 
 
 void

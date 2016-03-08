@@ -1,6 +1,5 @@
 
-#ifndef __CATEGORY_HPP__
-#define __CATEGORY_HPP__
+#pragma once
 
 namespace Category {
 enum Type {
@@ -20,5 +19,3 @@ enum Type {
     Projectile          = AlliedProjectile | EnemyProjectile,
 };
 } // namespace Category
-
-#endif // __CATEGORY_HPP__

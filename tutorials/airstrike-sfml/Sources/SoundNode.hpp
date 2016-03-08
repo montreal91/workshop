@@ -1,14 +1,13 @@
 
-#ifndef __SOUND_NODE_HPP__
-#define __SOUND_NODE_HPP__
+#pragma once
 
 
-#include "SceneNode.hpp"
+#include <SFML/System/Vector2.hpp>
+
 #include "ResourceIdentifiers.hpp"
+#include "SceneNode.hpp"
+#include "SoundPlayer.hpp"
 
-
-// TODO: replace this with a proper input
-class SoundPlayer;
 
 class SoundNode : public SceneNode {
 public:
@@ -24,5 +23,3 @@ public:
 private:
     SoundPlayer& mSounds;
 };
-
-#endif // __SOUND_NODE_HPP__

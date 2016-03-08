@@ -1,9 +1,6 @@
 
 #include "KeyBinding.hpp"
 
-#include <string>
-#include <algorithm>
-
 
 KeyBinding::KeyBinding( int controlPreconfiguration ) :
 mKeyMap() {

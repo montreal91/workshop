@@ -1,12 +1,5 @@
 
 #include "MenuState.hpp"
-#include "Button.hpp"
-#include "Utility.hpp"
-#include "MusicPlayer.hpp"
-#include "ResourceHolder.hpp"
-
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Graphics/View.hpp>
 
 
 MenuState::MenuState( StateStack& stack, Context context ) :

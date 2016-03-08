@@ -1,18 +1,14 @@
 
-#ifndef __COMPONENT_HPP__
-#define __COMPONENT_HPP__
+#pragma once
 
+
+#include <memory>
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
 #include <SFML/Graphics/Transformable.hpp>
+#include <SFML/Window/Event.hpp>
 
-#include <memory>
-
-
-namespace sf {
-class Event;
-}
 
 namespace GUI {
 
@@ -39,5 +35,3 @@ private:
     bool mIsActive;
 };
 } // namespace GUI
-
-#endif // __COMPONENT_HPP__

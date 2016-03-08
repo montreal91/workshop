@@ -1,16 +1,15 @@
 
-#ifndef __MUSIC_PLAYER_HPP__
-#define __MUSIC_PLAYER_HPP__
+#pragma once
 
-
-#include "ResourceHolder.hpp"
-#include "ResourceIdentifiers.hpp"
-
-#include <SFML/System/NonCopyable.hpp>
-#include <SFML/Audio/Music.hpp>
 
 #include <map>
 #include <string>
+
+#include <SFML/Audio/Music.hpp>
+#include <SFML/System/NonCopyable.hpp>
+
+#include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
 
 
 class MusicPlayer : private sf::NonCopyable {
@@ -28,5 +27,3 @@ private:
     std::map<Music::ID, std::string>    mFilenames;
     float                               mVolume;
 };
-
-#endif // __MUSIC_PLAYER_HPP__

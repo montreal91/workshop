@@ -1,9 +1,5 @@
 
 #include "DataTables.hpp"
-#include "Aircraft.hpp"
-#include "Projectile.hpp"
-#include "Pickup.hpp"
-#include "Particle.hpp"
 
 
 using namespace std::placeholders;

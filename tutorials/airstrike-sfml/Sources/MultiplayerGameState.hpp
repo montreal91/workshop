@@ -1,23 +1,31 @@
 
-#ifndef __MULTIPLAYER_GAME_STATE_HPP__
-#define __MULTIPLAYER_GAME_STATE_HPP__
+#pragma once
 
+#include <fstream>
+#include <map>
+#include <string>
 
-#include "State.hpp"
-#include "World.hpp"
-#include "Player.hpp"
-#include "GameServer.hpp"
-#include "NetworkProtocol.hpp"
-
-#include <SFML/System/Clock.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
-#include <SFML/Network/TcpSocket.hpp>
+#include <SFML/Network/IpAddress.hpp>
 #include <SFML/Network/Packet.hpp>
+#include <SFML/Network/TcpSocket.hpp>
+#include <SFML/System/Clock.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include "GameServer.hpp"
+#include "MusicPlayer.hpp"
+#include "NetworkProtocol.hpp"
+#include "Player.hpp"
+#include "ResourceHolder.hpp"
+#include "State.hpp"
+#include "StateStack.hpp"
+#include "Utility.hpp"
+#include "World.hpp"
 
 
 class MultiplayerGameState : public State {
 public:
-    // TODO: include StateStack.hpp
     MultiplayerGameState( StateStack& stak, Context context, bool isHost );
 
     virtual void    draw();
@@ -36,16 +44,16 @@ private:
 
     World                       mWorld;
     sf::RenderWindow&           mWindow;
-    TextureHolder&              mTextureHolder; // TODO: include ResourceHolders.hpp
+    TextureHolder&              mTextureHolder;
 
-    std::map<int, PlayerPtr>    mPlayers; // TODO: include map
+    std::map<int, PlayerPtr>    mPlayers;
     std::vector<sf::Int32>      mLocalPlayerIdentifiers;
     sf::TcpSocket               mSocket;
     bool                        mConnected;
     std::unique_ptr<GameServer> mGameServer;
     sf::Clock                   mTickClock;
 
-    std::vector<std::string>    mBroadcasts; // TODO: include string
+    std::vector<std::string>    mBroadcasts;
     sf::Text                    mBroadcastText;
     sf::Time                    mBroadcastElapsedTime;
 
@@ -62,5 +70,3 @@ private:
     sf::Time                    mClientTimeout;
     sf::Time                    mTimeSinceLastPacket;
 };
-
-#endif // __MULTIPLAYER_GAME_STATE_HPP__

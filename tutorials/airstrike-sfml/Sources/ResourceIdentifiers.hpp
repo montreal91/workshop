@@ -1,15 +1,13 @@
 
-#ifndef __RESOURCE_IDENTIFIERS_HPP__
-#define __RESOURCE_IDENTIFIERS_HPP__
+#pragma once
 
-// Forward declaration of SFML classes
-// TODO: Just include it
-namespace sf {
-class Texture;
-class Font;
-class Shader;
-class SoundBuffer;
-} // namespace sf
+
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/Shader.hpp>
+#include <SFML/Graphics/Font.hpp>
+#include <SFML/Audio/SoundBuffer.hpp>
+
+#include "ResourceHolder.hpp"
 
 namespace Textures {
 enum ID {
@@ -57,13 +55,7 @@ enum ID {
 };
 } // namespace Music
 
-// TODO: proper input
-template <typename Resource, typename Identifier>
-class ResourceHolder;
-
 typedef ResourceHolder<sf::Texture, Textures::ID>           TextureHolder;
 typedef ResourceHolder<sf::Font, Fonts::ID>                 FontHolder;
 typedef ResourceHolder<sf::Shader, Shaders::ID>             ShaderHolder;
 typedef ResourceHolder<sf::SoundBuffer, SoundEffect::ID >   SoundBufferHolder;
-
-#endif // __RESOURCE_IDENTIFIERS_HPP__

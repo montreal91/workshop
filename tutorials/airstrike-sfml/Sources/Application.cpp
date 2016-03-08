@@ -1,17 +1,6 @@
 
 #include "Application.hpp"
 
-#include "Utility.hpp"
-#include "State.hpp"
-#include "StateIdentifiers.hpp"
-#include "TitleState.hpp"
-#include "GameState.hpp"
-#include "MultiplayerGameState.hpp"
-#include "MenuState.hpp"
-#include "PauseState.hpp"
-#include "SettingsState.hpp"
-#include "GameOverState.hpp"
-
 
 const sf::Time Application::TimePerFrame = sf::seconds( 1.0f / 60.0f );
 

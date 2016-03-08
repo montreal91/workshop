@@ -1,17 +1,5 @@
 
 #include "Aircraft.hpp"
-#include "DataTables.hpp"
-#include "Utility.hpp"
-#include "Pickup.hpp"
-#include "CommandQueue.hpp"
-#include "SoundNode.hpp"
-#include "NetworkNode.hpp"
-#include "ResourceHolder.hpp"
-
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/RenderStates.hpp>
-
-#include <cmath>
 
 
 using namespace std::placeholders; // TODO: get rid of this

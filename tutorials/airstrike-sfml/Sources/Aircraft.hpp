@@ -1,16 +1,26 @@
 
-#ifndef __AIRCRAFT_HPP__
-#define __AIRCRAFT_HPP__
+#pragma once
 
 
-#include "Entity.hpp"
-#include "Command.hpp"
-#include "ResourceIdentifiers.hpp"
-#include "Projectile.hpp"
-#include "TextNode.hpp"
-#include "Animation.hpp"
+#include <cmath>
 
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
 #include <SFML/Graphics/Sprite.hpp>
+
+#include "Animation.hpp"
+#include "Command.hpp"
+#include "CommandQueue.hpp"
+#include "DataTables.hpp"
+#include "Entity.hpp"
+#include "NetworkNode.hpp"
+#include "Pickup.hpp"
+#include "Projectile.hpp"
+#include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
+#include "SoundNode.hpp"
+#include "TextNode.hpp"
+#include "Utility.hpp"
 
 
 class Aircraft : public Entity {
@@ -90,5 +100,3 @@ private:
 
     int             mIdentifier;
 };
-
-#endif // __AIRCRAFT_HPP__

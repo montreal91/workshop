@@ -1,13 +1,12 @@
 
-#ifndef __RESOURCE_HOLDER_HPP__
-#define __RESOURCE_HOLDER_HPP__
+#pragma once
 
 
+#include <cassert>
 #include <map>
-#include <string>
 #include <memory>
 #include <stdexcept>
-#include <cassert>
+#include <string>
 
 
 template <typename Resource, typename Identifier>
@@ -32,5 +31,3 @@ private:
 };
 
 #include "ResourceHolder.inl"
-
-#endif

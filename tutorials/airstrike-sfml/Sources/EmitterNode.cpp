@@ -1,8 +1,5 @@
 
 #include "EmitterNode.hpp"
-#include "ParticleNode.hpp"
-#include "CommandQueue.hpp"
-#include "Command.hpp"
 
 
 EmitterNode::EmitterNode( Particle::Type type ):

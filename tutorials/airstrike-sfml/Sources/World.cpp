@@ -1,18 +1,5 @@
 
 #include "World.hpp"
-#include "Projectile.hpp"
-#include "Pickup.hpp"
-#include "TextNode.hpp"
-#include "ParticleNode.hpp"
-#include "SoundNode.hpp"
-#include "NetworkNode.hpp"
-#include "Utility.hpp"
-
-#include <SFML/Graphics/RenderTarget.hpp>
-
-#include <algorithm>
-#include <cmath>
-#include <limits>
 
 
 World::World(

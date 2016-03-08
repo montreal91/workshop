@@ -1,23 +1,29 @@
 
-#ifndef __SCENE_NODE_HPP__
-#define __SCENE_NODE_HPP__
+#pragma once
 
-
-#include "Category.hpp"
-
-#include <SFML/System/NonCopyable.hpp>
-#include <SFML/System/Time.hpp>
-#include <SFML/Graphics/Transformable.hpp>
-#include <SFML/Graphics/Drawable.hpp>
 
 #include <vector>
 #include <set>
 #include <memory>
 #include <utility>
+#include <algorithm>
+#include <cassert>
+#include <cmath>
+
+#include <SFML/System/NonCopyable.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Graphics/Transformable.hpp>
+#include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+
+#include "Category.hpp"
+#include "Command.hpp"
+#include "Utility.hpp"
 
 
-struct  Command;
-class   CommandQueue;
+// ??? Why this forward declaration can't be removed?
+class CommandQueue;
 
 
 class SceneNode :
@@ -84,5 +90,3 @@ private:
 
 bool    collision( const SceneNode& lhs, const SceneNode& rhs );
 float   distance( const SceneNode& lhs, const SceneNode& rhs );
-
-#endif // __SCENE_NODE_HPP__

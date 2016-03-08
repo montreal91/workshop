@@ -1,9 +1,6 @@
 
 #include "SoundPlayer.hpp"
 
-#include <SFML/Audio/Listener.hpp>
-
-#include <cmath>
 
 namespace {
 // Sound coordinate system, point of view of a player in front of the screen:

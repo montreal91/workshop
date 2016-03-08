@@ -1,17 +1,23 @@
 
-#ifndef __SETTINGS_STATE_HPP__
-#define __SETTINGS_STATE_HPP__
+#pragma once
 
-#include "State.hpp"
-#include "KeyBinding.hpp"
-#include "Container.hpp"
-#include "Button.hpp"
-#include "Label.hpp"
-
-#include <SFML/Graphics/Sprite.hpp>
-#include <SFML/Graphics/Text.hpp>
 
 #include <array>
+
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include "Button.hpp"
+#include "Container.hpp"
+#include "KeyBinding.hpp"
+#include "Label.hpp"
+#include "ResourceHolder.hpp"
+#include "State.hpp"
+#include "Utility.hpp"
 
 
 class SettingsState : public State {
@@ -37,5 +43,3 @@ private:
     std::array<GUI::Button::Ptr, 2*PlayerAction::Count>     mBindingButtons;
     std::array<GUI::Label::Ptr, 2*PlayerAction::Count>      mBindingLabels;
 };
-
-#endif //__SETTINGS_STATE_HPP__

@@ -1,15 +1,19 @@
 
-#ifndef __BOOK_PARTICLE_NODE_HPP__
-#define __BOOK_PARTICLE_NODE_HPP__
+#pragma once
 
 
-#include "SceneNode.hpp"
-#include "ResourceIdentifiers.hpp"
-#include "Particle.hpp"
+#include <algorithm>
+#include <deque>
 
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/Texture.hpp>
 #include <SFML/Graphics/VertexArray.hpp>
 
-#include <deque>
+#include "DataTables.hpp"
+#include "Particle.hpp"
+#include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
+#include "SceneNode.hpp"
 
 
 class ParticleNode : public SceneNode {
@@ -42,5 +46,3 @@ private:
     mutable sf::VertexArray mVertexArray;
     mutable bool            mNeedsVertexUpdate;
 };
-
-#endif // __BOOK_PARTICLE_NODE_HPP__

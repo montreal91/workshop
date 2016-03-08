@@ -1,8 +1,5 @@
 
 #include "TextNode.hpp"
-#include "Utility.hpp"
-
-#include <SFML/Graphics/RenderTarget.hpp>
 
 
 TextNode::TextNode( const FontHolder& fonts, const std::string& text ) {

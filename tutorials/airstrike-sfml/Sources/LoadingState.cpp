@@ -1,10 +1,5 @@
 
 #include "LoadingState.hpp"
-#include "ResourceHolder.hpp"
-#include "Utility.hpp"
-
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Graphics/View.hpp>
 
 
 LoadingState::LoadingState( StateStack& stack, Context context ):

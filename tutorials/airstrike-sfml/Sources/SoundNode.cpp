@@ -1,6 +1,6 @@
 
 #include "SoundNode.hpp"
-#include "SoundPlayer.hpp"
+
 
 SoundNode::SoundNode( SoundPlayer& player ) :
 SceneNode(),

@@ -1,7 +1,13 @@
 
-#ifndef __ENTITY_HPP__
-#define __ENTITY_HPP__
+#pragma once
 
+
+#include <cassert>
+
+#include <SFML/System/Time.hpp>
+#include <SFML/System/Vector2.hpp>
+
+#include "CommandQueue.hpp"
 #include "SceneNode.hpp"
 
 
@@ -29,7 +35,4 @@ protected:
 private:
     sf::Vector2f    mVelocity;
     int             mHitpoints;
-
 };
-
-#endif

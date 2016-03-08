@@ -1,12 +1,17 @@
 
-#ifndef __TITLE_STATE_HPP__
-#define __TITLE_STATE_HPP__
+#pragma once
 
 
-#include "State.hpp"
-
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include "ResourceHolder.hpp"
+#include "State.hpp"
+#include "StateStack.hpp"
+#include "Utility.hpp"
 
 
 class TitleState : public State {
@@ -23,7 +28,4 @@ private:
 
     bool        mShowText;
     sf::Time    mTextEffectTime;
-
 };
-
-#endif

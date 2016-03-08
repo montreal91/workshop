@@ -1,20 +1,22 @@
 
-#ifndef __PLAYER_HPP__
-#define __PLAYER_HPP__
+#pragma once
 
 
-#include "Command.hpp"
-#include "KeyBinding.hpp"
+#include <map>
+#include <string>
+#include <algorithm>
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Window/Event.hpp>
 #include <SFML/Network/TcpSocket.hpp>
+#include <SFML/Network/Packet.hpp>
 
-#include <map>
+#include "Aircraft.hpp"
+#include "Command.hpp"
+#include "CommandQueue.hpp"
+#include "KeyBinding.hpp"
+#include "NetworkProtocol.hpp"
 
-
-// TODO: replace it with a proper import 
-class CommandQueue;
 
 class Player : private sf::NonCopyable {
 public:
@@ -63,5 +65,3 @@ private:
     int                                 mIdentifier;
     sf::TcpSocket*                      mSocket;
 };
-
-#endif // __PLAYER_HPP__

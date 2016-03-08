@@ -1,9 +1,5 @@
 
 #include "Label.hpp"
-#include "Utility.hpp"
-
-#include <SFML/Graphics/RenderStates.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
 
 
 namespace GUI {
@@ -29,5 +25,4 @@ void
 Label::setText( const std::string& text ) {
     mText.setString( text );
 }
-
 } // namespace GUI

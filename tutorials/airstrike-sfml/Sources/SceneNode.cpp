@@ -1,14 +1,6 @@
 
 #include "SceneNode.hpp"
-#include "Command.hpp"
-#include "Utility.hpp"
-
-#include <SFML/Graphics/RectangleShape.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-
-#include <algorithm>
-#include <cassert>
-#include <cmath>
+#include "CommandQueue.hpp"
 
 
 SceneNode::SceneNode( Category::Type category ) :

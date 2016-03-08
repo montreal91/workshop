@@ -1,12 +1,5 @@
 
 #include "Button.hpp"
-#include "Utility.hpp"
-#include "SoundPlayer.hpp"
-#include "ResourceHolder.hpp"
-
-#include <SFML/Window/Event.hpp>
-#include <SFML/Graphics/RenderStates.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
 
 
 namespace GUI {

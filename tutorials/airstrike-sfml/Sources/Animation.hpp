@@ -1,9 +1,12 @@
 
-#ifndef __ANIMATION_HPP__
-#define __ANIMATION_HPP__
+#pragma once
 
+
+#include <SFML/Graphics/RenderTarget.hpp>
 #include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Texture.hpp>
 #include <SFML/System/Time.hpp>
+
 
 class Animation : public sf::Drawable, public sf::Transformable {
 public:
@@ -44,5 +47,3 @@ private:
     sf::Time        mElapsedTime;
     bool            mRepeat;
 };
-
-#endif // __ANIMATION_HPP__

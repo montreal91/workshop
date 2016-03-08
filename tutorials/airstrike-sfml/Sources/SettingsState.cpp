@@ -1,9 +1,5 @@
 
 #include "SettingsState.hpp"
-#include "Utility.hpp"
-#include "ResourceHolder.hpp"
-
-#include <SFML/Graphics/RenderWindow.hpp>
 
 
 SettingsState::SettingsState( StateStack& stack, Context context ) :

@@ -1,19 +1,28 @@
 
-#ifndef __APPLICATION_HPP__
-#define __APPLICATION_HPP__
+#pragma once
 
-#include "ResourceHolder.hpp"
-#include "ResourceIdentifiers.hpp"
-#include "KeyBinding.hpp"
-#include "StateStack.hpp"
-#include "MusicPlayer.hpp"
-#include "SoundPlayer.hpp"
+#include <string>
 
 #include <SFML/System/Time.hpp>
 #include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
 
-#include <string>
+#include "GameOverState.hpp"
+#include "GameState.hpp"
+#include "MenuState.hpp"
+#include "MultiplayerGameState.hpp"
+#include "MusicPlayer.hpp"
+#include "KeyBinding.hpp"
+#include "PauseState.hpp"
+#include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
+#include "SettingsState.hpp"
+#include "SoundPlayer.hpp"
+#include "State.hpp"
+#include "StateIdentifiers.hpp"
+#include "StateStack.hpp"
+#include "TitleState.hpp"
+#include "Utility.hpp"
 
 
 class Application {
@@ -46,5 +55,3 @@ private:
     sf::Time                mStatisticsUpdateTime;
     std::size_t             mStatisticsNumFrames;
 };
-
-#endif // __APPLICATION_HPP__

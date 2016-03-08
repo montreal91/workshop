@@ -1,23 +1,25 @@
 
-#ifndef __BUTTON_HPP__
-#define __BUTTON_HPP__
+#pragma once
 
 
-#include "Component.hpp"
-#include "ResourceIdentifiers.hpp"
-#include "State.hpp"
-#include "ResourceHolder.hpp"
+#include <functional>
+#include <memory>
+#include <string>
+#include <vector>
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Window/Event.hpp>
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
 
-#include <vector>
-#include <string>
-#include <memory>
-#include <functional>
+#include "Component.hpp"
+#include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
+#include "State.hpp"
+#include "SoundPlayer.hpp"
+#include "Utility.hpp"
 
-
-class SoundPlayer;
 
 namespace GUI {
 
@@ -60,5 +62,3 @@ private:
 };
 
 } // namespace GUI
-
-#endif // __BUTTON_HPP__

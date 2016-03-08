@@ -1,12 +1,6 @@
 
 #include "MultiplayerGameState.hpp"
-#include "MusicPlayer.hpp"
-#include "Utility.hpp"
 
-#include <SFML/Graphics/RenderWindow.hpp>
-#include <SFML/Network/IpAddress.hpp>
-
-#include <fstream>
 
 sf::IpAddress
 getAddressFromFile() {

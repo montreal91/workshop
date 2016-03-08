@@ -1,16 +1,16 @@
 
-#ifndef __BLOOM_EFFECT_HPP__
-#define __BLOOM_EFFECT_HPP__
+#pragma once
 
 
-#include "PostEffect.hpp"
-#include "ResourceIdentifiers.hpp"
-#include "ResourceHolder.hpp"
+#include <array>
 
 #include <SFML/Graphics/RenderTexture.hpp>
 #include <SFML/Graphics/Shader.hpp>
 
-#include <array>
+#include "PostEffect.hpp"
+#include "ResourceHolder.hpp"
+#include "ResourceIdentifiers.hpp"
+
 
 class BloomEffect : public PostEffect {
 public:
@@ -40,7 +40,4 @@ private:
     sf::RenderTexture   mBrightnessTexture;
     RenderTextureArray  mFirstPassTextures;
     RenderTextureArray  mSecondPassTextures;
-
 };
-
-#endif // __BLOOM_EFFECT_HPP__

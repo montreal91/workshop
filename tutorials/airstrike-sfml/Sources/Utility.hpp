@@ -1,20 +1,21 @@
 
-#ifndef __UTILITY_HPP__
-#define __UTILITY_HPP__
+#pragma once
 
+
+#include <cassert>
+#include <cmath>
+#include <ctime>
 #include <sstream>
+#include <string>
+#include <random>
 
-#include <SFML/Window/Keyboard.hpp>
+#include <SFML/Graphics/Sprite.hpp>
+#include <SFML/Graphics/Text.hpp>
 #include <SFML/System/Vector2.hpp>
+#include <SFML/Window/Keyboard.hpp>
 
+#include "Animation.hpp"
 
-//TODO: replace it with a proper input
-namespace sf {
-class Sprite;
-class Text;
-} // namespace sf
-
-class Animation;
 
 std::string     toString( sf::Keyboard::Key key );
 
@@ -29,6 +30,3 @@ int             randomInt( int exclusiveMax );
 
 float           length( sf::Vector2f vector );
 sf::Vector2f    unitVector( sf::Vector2f vector );
-
-
-#endif // __UTILITY_HPP__

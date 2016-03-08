@@ -1,10 +1,6 @@
 
 #include "PostEffect.hpp"
 
-#include <SFML/Graphics/Shader.hpp>
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/VertexArray.hpp>
-
 
 PostEffect::~PostEffect() {}
 

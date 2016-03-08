@@ -1,13 +1,18 @@
 
-#ifndef __GAME_STATE_HPP__
-#define __GAME_STATE_HPP__
+#pragma once
 
-#include "State.hpp"
-#include "World.hpp"
-#include "Player.hpp"
 
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include "MusicPlayer.hpp"
+#include "Player.hpp"
+#include "State.hpp"
+#include "StateStack.hpp"
+#include "World.hpp"
 
 
 class GameState : public State {
@@ -22,5 +27,3 @@ private:
     World   mWorld;
     Player  mPlayer;
 };
-
-#endif // __GAME_STATE_HPP__

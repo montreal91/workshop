@@ -1,15 +1,7 @@
 
 #include "Projectile.hpp"
-#include "EmitterNode.hpp"
-#include "DataTables.hpp"
-#include "Utility.hpp"
-#include "ResourceHolder.hpp"
-
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/RenderStates.hpp>
-
-#include <cmath>
-#include <cassert>
+#include "EmitterNode.hpp" // ??? Why this two includes
+#include "DataTables.hpp" // MUST be here and not in header
 
 
 namespace {

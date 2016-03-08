@@ -1,26 +1,21 @@
 
-#ifndef __STATE_STACK_HPP__
-#define __STATE_STACK_HPP__
+#pragma once
 
+
+#include <cassert>
+#include <functional>
+#include <map>
+#include <vector>
+#include <utility>
+
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/System/NonCopyable.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
 
 #include "State.hpp"
 #include "StateIdentifiers.hpp"
 #include "ResourceIdentifiers.hpp"
-
-#include <SFML/System/NonCopyable.hpp>
-#include <SFML/System/Time.hpp>
-
-#include <vector>
-#include <utility>
-#include <functional>
-#include <map>
-
-
-// TODO: Replace it with a proper input
-namespace sf {
-class Event;
-class RenderWindow;
-} // namespace sf
 
 
 class StateStack : private sf::NonCopyable {
@@ -81,5 +76,3 @@ void StateStack::registerState( States::ID stateID, Param1 arg1 ) {
         return State::Ptr( new T(* this, mContext, arg1 ) );
     };
 }
-
-#endif // __STATE_STACK_HPP__

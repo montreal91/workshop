@@ -1,13 +1,22 @@
 
-#ifndef __GAME_OVER_STATE_HPP__
-#define __GAME_OVER_STATE_HPP__
+#pragma once
 
-
-#include "State.hpp"
-#include "Container.hpp"
 
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/Graphics/View.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
+
+
+#include "Container.hpp"
+#include "Player.hpp"
+#include "ResourceHolder.hpp"
+#include "State.hpp"
+#include "StateStack.hpp"
+#include "Utility.hpp"
 
 
 class GameOverState : public State {
@@ -21,7 +30,4 @@ public:
 private:
     sf::Text mGameOverText;
     sf::Time mElapsedTime;
-
 };
-
-#endif

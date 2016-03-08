@@ -1,16 +1,9 @@
 
 #include "ParticleNode.hpp"
-#include "DataTables.hpp"
-#include "ResourceHolder.hpp"
-
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/Texture.hpp>
-
-#include <algorithm>
 
 
 namespace {
-    const std::vector<ParticleData> Table = initalizeParticleData();
+const std::vector<ParticleData> Table = initalizeParticleData();
 } // namespace
 
 ParticleNode::ParticleNode(

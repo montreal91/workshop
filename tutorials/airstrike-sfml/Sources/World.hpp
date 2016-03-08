@@ -1,34 +1,34 @@
 
-#ifndef __WORLD_HPP__
-#define __WORLD_HPP__
+#pragma once
 
 
+#include <algorithm>
+#include <array>
+#include <cmath>
+#include <limits>
+#include <queue>
+
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/Texture.hpp>
+#include <SFML/Graphics/View.hpp>
+#include <SFML/System/NonCopyable.hpp>
+
+#include "Aircraft.hpp"
+#include "BloomEffect.hpp"
+#include "Command.hpp"
+#include "CommandQueue.hpp"
+#include "NetworkNode.hpp"
+#include "NetworkProtocol.hpp"
+#include "ParticleNode.hpp"
+#include "Pickup.hpp"
+#include "Projectile.hpp"
 #include "ResourceHolder.hpp"
 #include "ResourceIdentifiers.hpp"
 #include "SceneNode.hpp"
-#include "SpriteNode.hpp"
-#include "Aircraft.hpp"
-#include "CommandQueue.hpp"
-#include "Command.hpp"
-#include "Pickup.hpp"
-#include "BloomEffect.hpp"
 #include "SoundPlayer.hpp"
-#include "NetworkProtocol.hpp"
-
-#include <SFML/System/NonCopyable.hpp>
-#include <SFML/Graphics/View.hpp>
-#include <SFML/Graphics/Texture.hpp>
-
-#include <array>
-#include <queue>
-
-
-// TODO: replace it with a proper input
-namespace sf {
-class RenderTarget;
-} // namespace sf
-
-class NetworkNode;
+#include "SpriteNode.hpp"
+#include "TextNode.hpp"
+#include "Utility.hpp"
 
 
 class World : private sf::NonCopyable {
@@ -121,5 +121,3 @@ private:
     NetworkNode*                        mNetworkNode;
     SpriteNode*                         mFinishSprite;
 };
-
-#endif // __WORLD_HPP__

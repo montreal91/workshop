@@ -1,14 +1,16 @@
 
-#ifndef __LOADING_STATE_HPP__
-#define __LOADING_STATE_HPP__
+#pragma once
 
-
-#include "State.hpp"
 
 #include <SFML/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
 #include <SFML/Graphics/Text.hpp>
+#include <SFML/Graphics/View.hpp>
 
 #include "ParallelTask.hpp"
+#include "ResourceHolder.hpp"
+#include "State.hpp"
+#include "Utility.hpp"
 
 
 class LoadingState : public State {
@@ -27,7 +29,4 @@ private:
     sf::RectangleShape  mProgressBar;
 
     ParallelTask        mLoadingTask;
-
 };
-
-#endif

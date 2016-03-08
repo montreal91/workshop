@@ -1,11 +1,5 @@
 
 #include "GameServer.hpp"
-#include "NetworkProtocol.hpp"
-#include "Utility.hpp"
-#include "Pickup.hpp"
-#include "Aircraft.hpp"
-
-#include <SFML/Network/Packet.hpp>
 
 
 GameServer::RemotePeer::RemotePeer() :

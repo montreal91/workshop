@@ -1,11 +1,11 @@
 
-#ifndef __SPRITE_NODE_HPP__
-#define __SPRITE_NODE_HPP__
+#pragma once
 
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/Sprite.hpp>
 
 #include "SceneNode.hpp"
-
-#include <SFML/Graphics/Sprite.hpp>
 
 
 class SpriteNode : public SceneNode {
@@ -22,5 +22,3 @@ private:
     sf::Sprite      mSprite;
 
 };
-
-#endif // __SPRITE_NODE_HPP__

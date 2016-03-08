@@ -1,9 +1,6 @@
 
 #include "Animation.hpp"
 
-#include <SFML/Graphics/RenderTarget.hpp>
-#include <SFML/Graphics/Texture.hpp>
-
 
 Animation::Animation() :
 mSprite(),

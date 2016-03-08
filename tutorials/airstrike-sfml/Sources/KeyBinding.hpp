@@ -1,11 +1,14 @@
 
-#ifndef __KEY_BINDING_HPP__
-#define __KEY_BINDING_HPP__
+#pragma once
+
+
+#include <algorithm>
+#include <map>
+#include <string>
+#include <vector>
 
 #include <SFML/Window/Keyboard.hpp>
 
-#include <map>
-#include <vector>
 
 namespace PlayerAction {
 enum Type {
@@ -40,5 +43,3 @@ private:
 
 // TODO: put it into class
 bool isRealtimeAction( PlayerAction::Type action );
-
-#endif // __KEY_BINDING_HPP__

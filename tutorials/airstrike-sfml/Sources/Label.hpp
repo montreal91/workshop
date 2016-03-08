@@ -1,14 +1,15 @@
 
+#pragma once
 
-#ifndef __LABEL_HPP__
-#define __LABEL_HPP__
 
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Graphics/Text.hpp>
 
 #include "Component.hpp"
-#include "ResourceIdentifiers.hpp"
 #include "ResourceHolder.hpp"
-
-#include <SFML/Graphics/Text.hpp>
+#include "ResourceIdentifiers.hpp"
+#include "Utility.hpp"
 
 
 namespace GUI {
@@ -31,5 +32,3 @@ private:
 };
 
 } // namespace GUI
-
-#endif // __LABEL_HPP__

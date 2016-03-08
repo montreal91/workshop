@@ -1,12 +1,15 @@
 
-#ifndef __CONTAINER_HPP__
-#define __CONTAINER_HPP__
+#pragma once
 
-
-#include "Component.hpp"
 
 #include <vector>
 #include <memory>
+
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include "Component.hpp"
 
 
 namespace GUI {
@@ -32,8 +35,5 @@ private:
 
     std::vector<Component::Ptr> mChildren;
     int                         mSelectedChild;
-
 };
 } // namespace GUI
-
-#endif // __CONTAINER_HPP__

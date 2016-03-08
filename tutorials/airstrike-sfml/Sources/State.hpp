@@ -1,26 +1,22 @@
 
-#ifndef __STATE_HPP__
-#define __STATE_HPP__
+#pragma once
 
-
-#include "StateIdentifiers.hpp"
-#include "ResourceIdentifiers.hpp"
-
-#include <SFML/System/Time.hpp>
-#include <SFML/Window/Event.hpp>
 
 #include <memory>
 
+#include <SFML/Graphics/RenderStates.hpp>
+#include <SFML/Graphics/RenderWindow.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
 
-// TODO: replace it with a proper input
-namespace sf {
-class RenderWindow;
-} // namespace sf
+#include "KeyBinding.hpp"
+#include "MusicPlayer.hpp"
+#include "ResourceIdentifiers.hpp"
+#include "SoundPlayer.hpp"
+#include "StateIdentifiers.hpp"
 
-class StateStack;
-class MusicPlayer;
-class SoundPlayer;
-class KeyBinding;
+
+class StateStack; // ??? Why this forward declaration can't be removed?
 
 
 class State {
@@ -69,5 +65,3 @@ private:
     StateStack* mStack;
     Context     mContext;
 };
-
-#endif // __STATE_HPP__
