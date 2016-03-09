@@ -1,0 +1,6 @@
+flags = [
+    "-std=c++11",
+    "-Wall"
+]
+
+Program(target="par", source="main.cc", CXXFLAGS=flags)
