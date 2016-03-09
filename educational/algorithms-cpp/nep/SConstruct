@@ -1,0 +1,14 @@
+
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+]
+
+flags_O3 = flags + ["-O3"]
+
+sources = [
+    "rpn1.cc",
+]
+
+Program( target="nep", source=sources, CXXFLAGS=flags_O3 )
