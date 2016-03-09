@@ -6,21 +6,21 @@
 
 #include <SFML/System/Vector2.hpp>
 
-#include "SceneNode.hpp"
 #include "NetworkProtocol.hpp"
+#include "SceneNode.hpp"
 
 
 class NetworkNode : public SceneNode {
 public:
     NetworkNode();
 
-    void                    notifyGameAction(
+    void                    NotifyGameAction(
         GameActions::Type type,
         sf::Vector2f position
     );
-    bool                    pollGameAction( GameActions::Action& out );
+    bool                    PollGameAction( GameActions::Action& out );
 
-    virtual unsigned int    getCategory() const;
+    virtual unsigned int    GetCategory() const;
 
 private:
     std::queue<GameActions::Action> mPendingActions;

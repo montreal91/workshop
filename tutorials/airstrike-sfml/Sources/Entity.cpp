@@ -8,71 +8,71 @@ mHitpoints( hitpoints ) {
 }
 
 void
-Entity::setVelocity( sf::Vector2f velocity ) {
+Entity::SetVelocity( sf::Vector2f velocity ) {
     mVelocity = velocity;
 }
 
 void
-Entity::setVelocity( float vx, float vy ) {
+Entity::SetVelocity( float vx, float vy ) {
     mVelocity.x = vx;
     mVelocity.y = vy;
 }
 
 sf::Vector2f
-Entity::getVelocity() const {
+Entity::GetVelocity() const {
     return mVelocity;
 }
 
 void
-Entity::accelerate( sf::Vector2f velocity ) {
+Entity::Accelerate( sf::Vector2f velocity ) {
     mVelocity += velocity;
 }
 
 void
-Entity::accelerate( float vx, float vy ) {
+Entity::Accelerate( float vx, float vy ) {
     mVelocity.x += vx;
     mVelocity.y += vy;
 }
 
 int
-Entity::getHitpoints() const {
+Entity::GetHitpoints() const {
     return mHitpoints;
 }
 
 void
-Entity::setHitpoints( int points ) {
+Entity::SetHitpoints( int points ) {
     assert( points > 0 );
     mHitpoints = points;
 }
 
 void
-Entity::repair( int points ) {
+Entity::Repair( int points ) {
     assert( points > 0 );
     mHitpoints += points;
 }
 
 void
-Entity::damage( int points ) {
+Entity::Damage( int points ) {
     assert( points > 0 );
     mHitpoints -= points;
 }
 
 void
-Entity::destroy() {
+Entity::Destroy() {
     mHitpoints = 0;
 }
 
 void
-Entity::remove() {
-    destroy();
+Entity::Remove() {
+    Destroy();
 }
 
 bool
-Entity::isDestroyed() const {
+Entity::IsDestroyed() const {
     return mHitpoints <= 0;
 }
 
 void
-Entity::updateCurrent( sf::Time dt, CommandQueue& commands ) {
+Entity::UpdateCurrent( sf::Time dt, CommandQueue& commands ) {
     move( mVelocity * dt.asSeconds() );
 }

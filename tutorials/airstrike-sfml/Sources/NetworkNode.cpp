@@ -8,12 +8,12 @@ mPendingActions() {}
 
 
 unsigned int
-NetworkNode::getCategory() const {
+NetworkNode::GetCategory() const {
     return Category::Network;
 }
 
 void
-NetworkNode::notifyGameAction(
+NetworkNode::NotifyGameAction(
     GameActions::Type type,
     sf::Vector2f position
 ) {
@@ -21,7 +21,7 @@ NetworkNode::notifyGameAction(
 }
 
 bool
-NetworkNode::pollGameAction( GameActions::Action& out ) {
+NetworkNode::PollGameAction( GameActions::Action& out ) {
     if ( mPendingActions.empty() ) {
         return false;
     } else {

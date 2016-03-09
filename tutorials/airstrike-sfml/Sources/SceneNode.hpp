@@ -38,47 +38,47 @@ public:
         Category::Type category = Category::None
     );
 
-    void                    attachChild( Ptr child );
-    Ptr                     detachChild( const SceneNode& node );
+    void                    AttachChild( Ptr child );
+    Ptr                     DetachChild( const SceneNode& node );
 
-    void                    update( sf::Time dt, CommandQueue& commands );
+    void                    Update( sf::Time dt, CommandQueue& commands );
 
-    sf::Vector2f            getWorldPosition() const;
-    sf::Transform           getWorldTransform() const;
+    sf::Vector2f            GetWorldPosition() const;
+    sf::Transform           GetWorldTransform() const;
 
-    void                    onCommand( const Command& command, sf::Time td );
-    virtual unsigned int    getCategory() const;
+    void                    OnCommand( const Command& command, sf::Time td );
+    virtual unsigned int    GetCategory() const;
 
-    void                    checkSceneCollision(
+    void                    CheckSceneCollision(
         SceneNode& sceneGraph,
         std::set<Pair>& collisionPairs
     );
-    void                    checkNodeCollision(
+    void                    CheckNodeCollision(
         SceneNode& node,
         std::set<Pair>& collisionPairs
     );
-    void                    removeWrecks();
-    virtual sf::FloatRect   getBoundingRect() const;
-    virtual bool            isMarkedForRemoval() const;
-    virtual bool            isDestroyed() const;
+    void                    RemoveWrecks();
+    virtual sf::FloatRect   GetBoundingRect() const;
+    virtual bool            IsMarkedForRemoval() const;
+    virtual bool            IsDestroyed() const;
 
 private:
-    virtual void        updateCurrent( sf::Time dt, CommandQueue& commands );
-    void                updateChildren( sf::Time dt, CommandQueue& commands );
+    virtual void        UpdateCurrent( sf::Time dt, CommandQueue& commands );
+    void                UpdateChildren( sf::Time dt, CommandQueue& commands );
 
     virtual void        draw(
         sf::RenderTarget& target,
         sf::RenderStates states
     ) const;
-    virtual void        drawCurrent(
+    virtual void        DrawCurrent(
         sf::RenderTarget& target,
         sf::RenderStates states
     ) const;
-    void                drawChildren(
+    void                DrawChildren(
         sf::RenderTarget& target,
         sf::RenderStates states
     ) const;
-    void                drawBoundingRect(
+    void                DrawBoundingRect(
         sf::RenderTarget& target,
         sf::RenderStates states
     ) const;
@@ -88,5 +88,5 @@ private:
     Category::Type      mDefaultCategory;
 };
 
-bool    collision( const SceneNode& lhs, const SceneNode& rhs );
-float   distance( const SceneNode& lhs, const SceneNode& rhs );
+bool    Collision( const SceneNode& lhs, const SceneNode& rhs );
+float   Distance( const SceneNode& lhs, const SceneNode& rhs );

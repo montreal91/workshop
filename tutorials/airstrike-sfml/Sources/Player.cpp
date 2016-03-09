@@ -10,8 +10,8 @@ struct AircraftMover {
     aircraftID( identifier ) {}
     
     void operator() ( Aircraft& aircraft, sf::Time dt ) const {
-        if ( aircraft.getIdentifier() == aircraftID ) {
-            aircraft.accelerate( velocity * aircraft.getMaxSpeed() );
+        if ( aircraft.GetIdentifier() == aircraftID ) {
+            aircraft.Accelerate( velocity * aircraft.GetMaxSpeed() );
         }
     }
 
@@ -24,8 +24,8 @@ struct AircraftFireTrigger {
     aircraftID( identifier ) {}
 
     void operator() ( Aircraft& aircraft, sf::Time ) const {
-        if ( aircraft.getIdentifier() == aircraftID ) {
-            aircraft.fire();
+        if ( aircraft.GetIdentifier() == aircraftID ) {
+            aircraft.Fire();
         }
     }
     int aircraftID;
@@ -36,8 +36,8 @@ struct AircraftMissileTrigger {
     aircraftID( identifier ) {}
 
     void operator() ( Aircraft& aircraft, sf::Time ) const {
-        if ( aircraft.getIdentifier() == aircraftID ) {
-            aircraft.launchMissile();
+        if ( aircraft.GetIdentifier() == aircraftID ) {
+            aircraft.LaunchMissile();
         }
     }
     int aircraftID;

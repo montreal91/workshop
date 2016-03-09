@@ -12,7 +12,7 @@ SpriteNode::SpriteNode(
 mSprite( texture, textureRect ) {}
 
 void
-SpriteNode::drawCurrent(
+SpriteNode::DrawCurrent(
     sf::RenderTarget& target,
     sf::RenderStates states
 ) const {

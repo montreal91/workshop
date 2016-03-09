@@ -17,50 +17,50 @@ mTargetDirection() {
 
     // Add particle system for missiles
     // TODO: put it into function
-    if ( isGuided() ) {
+    if ( IsGuided() ) {
         std::unique_ptr<EmitterNode> smoke( new EmitterNode( Particle::Smoke ) );
-        smoke->setPosition( 0.0f, getBoundingRect().height / 2.0f );
-        attachChild( std::move( smoke ) );
+        smoke->setPosition( 0.0f, GetBoundingRect().height / 2.0f );
+        AttachChild( std::move( smoke ) );
 
         std::unique_ptr<EmitterNode> propellant(
             new EmitterNode( Particle::Propellant )
         );
-        propellant->setPosition( 0.0f, getBoundingRect().height / 2.0f );
-        attachChild( std::move( propellant ) );
+        propellant->setPosition( 0.0f, GetBoundingRect().height / 2.0f );
+        AttachChild( std::move( propellant ) );
     }
 }
 
 void
-Projectile::guideTowards( sf::Vector2f position ) {
-    assert( isGuided() );
-    mTargetDirection = unitVector( position - getWorldPosition() );
+Projectile::GuideTowards( sf::Vector2f position ) {
+    assert( IsGuided() );
+    mTargetDirection = unitVector( position - GetWorldPosition() );
 }
 
 bool
-Projectile::isGuided() const {
+Projectile::IsGuided() const {
     return mType == Missile;
 }
 
 void
-Projectile::updateCurrent( sf::Time dt, CommandQueue& commands ) {
-    if ( isGuided() ) {
+Projectile::UpdateCurrent( sf::Time dt, CommandQueue& commands ) {
+    if ( IsGuided() ) {
         const float approachRate = 200.0f;
 
         sf::Vector2f newVelocity = unitVector(
-            approachRate * dt.asSeconds() * mTargetDirection + getVelocity()
+            approachRate * dt.asSeconds() * mTargetDirection + GetVelocity()
         );
-        newVelocity *= getMaxSpeed();
+        newVelocity *= GetMaxSpeed();
         float angle = std::atan2( newVelocity.y, newVelocity.x );
 
         setRotation( toDegree( angle ) + 90.0f );
-        setVelocity( newVelocity );
+        SetVelocity( newVelocity );
     }
 
-    Entity::updateCurrent( dt, commands );
+    Entity::UpdateCurrent( dt, commands );
 }
 
 void
-Projectile::drawCurrent(
+Projectile::DrawCurrent(
     sf::RenderTarget& target,
     sf::RenderStates states
 ) const {
@@ -68,22 +68,22 @@ Projectile::drawCurrent(
 }
 
 unsigned int
-Projectile::getCategory() const {
+Projectile::GetCategory() const {
     if ( mType == EnemyBullet ) return Category::EnemyProjectile;
     else return Category::AlliedProjectile;
 }
 
 sf::FloatRect
-Projectile::getBoundingRect() const {
-    return getWorldTransform().transformRect( mSprite.getGlobalBounds() );
+Projectile::GetBoundingRect() const {
+    return GetWorldTransform().transformRect( mSprite.getGlobalBounds() );
 }
 
 float
-Projectile::getMaxSpeed() const {
+Projectile::GetMaxSpeed() const {
     return Table[mType].speed;
 }
 
 int
-Projectile::getDamage() const {
+Projectile::GetDamage() const {
     return Table[mType].damage;
 }

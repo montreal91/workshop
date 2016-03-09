@@ -16,8 +16,8 @@ public:
     explicit EmitterNode( Particle::Type type );
 
 private:
-    virtual void    updateCurrent( sf::Time dt, CommandQueue& commands );
-    void            emitParticles( sf::Time dt );
+    virtual void    UpdateCurrent( sf::Time dt, CommandQueue& commands );
+    void            EmitParticles( sf::Time dt );
 
     sf::Time        mAccumulatedTime;
     Particle::Type  mType;

@@ -15,22 +15,22 @@ class Entity : public SceneNode {
 public:
     explicit        Entity( int hitpoints );
 
-    void            setVelocity( sf::Vector2f velocity );
-    void            setVelocity( float vx, float vy );
-    void            accelerate( sf::Vector2f velocity );
-    void            accelerate( float vx, float vy );
-    sf::Vector2f    getVelocity() const;
+    void            SetVelocity( sf::Vector2f velocity );
+    void            SetVelocity( float vx, float vy );
+    void            Accelerate( sf::Vector2f velocity );
+    void            Accelerate( float vx, float vy );
+    sf::Vector2f    GetVelocity() const;
 
-    int             getHitpoints() const;
-    void            setHitpoints( int points );
-    void            repair( int points );
-    void            damage( int points );
-    void            destroy();
-    virtual void    remove();
-    virtual bool    isDestroyed() const;
+    int             GetHitpoints() const;
+    void            SetHitpoints( int points );
+    void            Repair( int points );
+    void            Damage( int points );
+    void            Destroy();
+    virtual void    Remove();
+    virtual bool    IsDestroyed() const;
 
 protected:
-    virtual void    updateCurrent( sf::Time dt, CommandQueue& commands );
+    virtual void    UpdateCurrent( sf::Time dt, CommandQueue& commands );
 
 private:
     sf::Vector2f    mVelocity;

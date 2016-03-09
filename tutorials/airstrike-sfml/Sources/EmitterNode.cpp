@@ -9,13 +9,13 @@ mType( type ),
 mParticleSystem( nullptr ) {}
 
 void
-EmitterNode::updateCurrent( sf::Time dt, CommandQueue& commands ) {
+EmitterNode::UpdateCurrent( sf::Time dt, CommandQueue& commands ) {
     if ( mParticleSystem ) {
-        emitParticles( dt );
+        EmitParticles( dt );
     } else {
         // Find particle node with the same type as emitter node
         auto finder = [this](ParticleNode& container, sf::Time ) {
-            if ( container.getParticleType() == mType ) {
+            if ( container.GetParticleType() == mType ) {
                 mParticleSystem = &container;
             }
         };
@@ -29,7 +29,7 @@ EmitterNode::updateCurrent( sf::Time dt, CommandQueue& commands ) {
 }
 
 void
-EmitterNode::emitParticles( sf::Time dt ) {
+EmitterNode::EmitParticles( sf::Time dt ) {
     const float emissionRate    = 30.0f;
     const sf::Time interval     = sf::seconds( 1.0f ) / emissionRate;
 
@@ -37,6 +37,6 @@ EmitterNode::emitParticles( sf::Time dt ) {
 
     while ( mAccumulatedTime > interval ) {
         mAccumulatedTime -= interval;
-        mParticleSystem->addParticle( getWorldPosition() );
+        mParticleSystem->AddParticle( GetWorldPosition() );
     }
 }

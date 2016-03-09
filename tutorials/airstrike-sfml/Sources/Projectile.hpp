@@ -26,17 +26,17 @@ public:
 
     Projectile( Type type, const TextureHolder& textures );
 
-    void                    guideTowards( sf::Vector2f position );
-    bool                    isGuided() const;
+    void                    GuideTowards( sf::Vector2f position );
+    bool                    IsGuided() const;
 
-    virtual unsigned int    getCategory() const;
-    virtual sf::FloatRect   getBoundingRect() const;
-    float                   getMaxSpeed() const;
-    int                     getDamage() const;
+    virtual unsigned int    GetCategory() const;
+    virtual sf::FloatRect   GetBoundingRect() const;
+    float                   GetMaxSpeed() const;
+    int                     GetDamage() const;
 
 private:
-    virtual void    updateCurrent( sf::Time dt, CommandQueue& commands );
-    virtual void    drawCurrent(
+    virtual void    UpdateCurrent( sf::Time dt, CommandQueue& commands );
+    virtual void    DrawCurrent(
         sf::RenderTarget& target,
         sf::RenderStates states
     ) const;

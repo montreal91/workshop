@@ -70,19 +70,19 @@ initalizePickupData() {
 
     data[Pickup::HealthRefill].texture      = Textures::Entities;
     data[Pickup::HealthRefill].textureRect  = sf::IntRect( 0, 64, 40, 40 );
-    data[Pickup::HealthRefill].action       = [] ( Aircraft& a ) { a.repair( 25 ); };
+    data[Pickup::HealthRefill].action       = [] ( Aircraft& a ) { a.Repair( 25 ); };
 
     data[Pickup::MissileRefill].texture     = Textures::Entities;
     data[Pickup::MissileRefill].textureRect = sf::IntRect( 40, 64, 40, 40 );
-    data[Pickup::MissileRefill].action      = std::bind( &Aircraft::collectMissiles, _1, 3 );
+    data[Pickup::MissileRefill].action      = std::bind( &Aircraft::CollectMissiles, _1, 3 );
 
     data[Pickup::FireSpread].texture        = Textures::Entities;
     data[Pickup::FireSpread].textureRect    = sf::IntRect( 80, 64, 40, 40 );
-    data[Pickup::FireSpread].action         = std::bind( &Aircraft::increaseSpread, _1 );
+    data[Pickup::FireSpread].action         = std::bind( &Aircraft::IncreaseSpread, _1 );
 
     data[Pickup::FireRate].texture          = Textures::Entities;
     data[Pickup::FireRate].textureRect      = sf::IntRect( 120, 64, 40, 40 );
-    data[Pickup::FireRate].action           = std::bind( &Aircraft::increaseFireRate, _1 );
+    data[Pickup::FireRate].action           = std::bind( &Aircraft::IncreaseFireRate, _1 );
 
     return data;
 }

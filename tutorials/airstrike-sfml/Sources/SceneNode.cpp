@@ -9,13 +9,13 @@ mParent( nullptr ),
 mDefaultCategory( category ) {}
 
 void
-SceneNode::attachChild( Ptr child ) {
+SceneNode::AttachChild( Ptr child ) {
     child->mParent = this;
     mChildren.push_back( std::move( child ) );
 }
 
 SceneNode::Ptr
-SceneNode::detachChild( const SceneNode& node ) {
+SceneNode::DetachChild( const SceneNode& node ) {
     auto found = std::find_if(
         mChildren.begin(),
         mChildren.end(),
@@ -30,18 +30,18 @@ SceneNode::detachChild( const SceneNode& node ) {
 }
 
 void
-SceneNode::update( sf::Time dt, CommandQueue& commands ) {
-    updateCurrent( dt, commands );
-    updateChildren( dt, commands );
+SceneNode::Update( sf::Time dt, CommandQueue& commands ) {
+    UpdateCurrent( dt, commands );
+    UpdateChildren( dt, commands );
 }
 
 void
-SceneNode::updateCurrent( sf::Time dt, CommandQueue& commands ) {}
+SceneNode::UpdateCurrent( sf::Time dt, CommandQueue& commands ) {}
 
 void
-SceneNode::updateChildren( sf::Time dt, CommandQueue& commands ) {
+SceneNode::UpdateChildren( sf::Time dt, CommandQueue& commands ) {
     for ( Ptr& child : mChildren ) {
-        child->update( dt, commands );
+        child->Update( dt, commands );
     }
 }
 
@@ -49,18 +49,18 @@ void
 SceneNode::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
     states.transform *= getTransform();
 
-    drawCurrent( target, states );
-    drawChildren( target, states );
+    DrawCurrent( target, states );
+    DrawChildren( target, states );
 }
 
 void
-SceneNode::drawCurrent(
+SceneNode::DrawCurrent(
     sf::RenderTarget& target,
     sf::RenderStates states
 ) const {}
 
 void
-SceneNode::drawChildren(
+SceneNode::DrawChildren(
     sf::RenderTarget& target,
     sf::RenderStates states
 ) const {
@@ -70,11 +70,11 @@ SceneNode::drawChildren(
 }
 
 void
-SceneNode::drawBoundingRect(
+SceneNode::DrawBoundingRect(
     sf::RenderTarget& target,
     sf::RenderStates
 ) const {
-    sf::FloatRect rect = getBoundingRect();
+    sf::FloatRect rect = GetBoundingRect();
 
     sf::RectangleShape shape;
     shape.setPosition( sf::Vector2f( rect.left, rect.top ) );
@@ -87,12 +87,12 @@ SceneNode::drawBoundingRect(
 }
 
 sf::Vector2f
-SceneNode::getWorldPosition() const {
-    return getWorldTransform() * sf::Vector2f();
+SceneNode::GetWorldPosition() const {
+    return GetWorldTransform() * sf::Vector2f();
 }
 
 sf::Transform
-SceneNode::getWorldTransform() const {
+SceneNode::GetWorldTransform() const {
     sf::Transform transform = sf::Transform::Identity;
 
     for ( const SceneNode* node = this; node != nullptr; node=node->mParent ) {
@@ -102,85 +102,85 @@ SceneNode::getWorldTransform() const {
 }
 
 void
-SceneNode::onCommand( const Command& command, sf::Time dt ) {
-    if ( command.category & getCategory() ) {
+SceneNode::OnCommand( const Command& command, sf::Time dt ) {
+    if ( command.category & GetCategory() ) {
         command.action( *this, dt );
     }
 
     for( Ptr& child : mChildren ) {
-        child->onCommand( command, dt );
+        child->OnCommand( command, dt );
     }
 }
 
 unsigned int
-SceneNode::getCategory() const {
+SceneNode::GetCategory() const {
     return mDefaultCategory;
 }
 
 void
-SceneNode::checkSceneCollision(
+SceneNode::CheckSceneCollision(
     SceneNode& sceneGraph,
     std::set<Pair>& collisionPairs
 ) {
-    checkNodeCollision( sceneGraph, collisionPairs );
+    CheckNodeCollision( sceneGraph, collisionPairs );
 
     for( Ptr& child : sceneGraph.mChildren ) {
-        checkSceneCollision( *child, collisionPairs );
+        CheckSceneCollision( *child, collisionPairs );
     }
 }
 
 // WARNING: recursive
 void
-SceneNode::checkNodeCollision(
+SceneNode::CheckNodeCollision(
     SceneNode& node,
     std::set<Pair>& collisionPairs
 ) {
     // TODO: put this complex condition into function
-    if ( this != &node && collision( *this, node ) && !isDestroyed() && !node.isDestroyed() ) {
+    if ( this != &node && Collision( *this, node ) && !IsDestroyed() && !node.IsDestroyed() ) {
         collisionPairs.insert( std::minmax( this, &node ) );
     }
     for( Ptr& child : mChildren ) {
-        child->checkNodeCollision( node, collisionPairs );
+        child->CheckNodeCollision( node, collisionPairs );
     }
 }
 
 void
-SceneNode::removeWrecks() {
+SceneNode::RemoveWrecks() {
     auto wreckFieldBegin = std::remove_if(
         mChildren.begin(),
         mChildren.end(),
-        std::mem_fn( &SceneNode::isMarkedForRemoval )
+        std::mem_fn( &SceneNode::IsMarkedForRemoval )
     );
     mChildren.erase( wreckFieldBegin, mChildren.end() );
 
     std::for_each(
         mChildren.begin(),
         mChildren.end(),
-        std::mem_fn( &SceneNode::removeWrecks )
+        std::mem_fn( &SceneNode::RemoveWrecks )
     );
 }
 
 sf::FloatRect
-SceneNode::getBoundingRect() const {
+SceneNode::GetBoundingRect() const {
     return sf::FloatRect();
 }
 
 bool
-SceneNode::isMarkedForRemoval() const {
-    return isDestroyed();
+SceneNode::IsMarkedForRemoval() const {
+    return IsDestroyed();
 }
 
 bool
-SceneNode::isDestroyed() const {
+SceneNode::IsDestroyed() const {
     return false;
 }
 
 bool
-collision( const SceneNode& lhs, const SceneNode& rhs ) {
-    return lhs.getBoundingRect().intersects( rhs.getBoundingRect() );
+Collision( const SceneNode& lhs, const SceneNode& rhs ) {
+    return lhs.GetBoundingRect().intersects( rhs.GetBoundingRect() );
 }
 
 float
-distance( const SceneNode& lhs, const SceneNode& rhs ) {
-    return length( lhs.getWorldPosition() - rhs.getWorldPosition() );
+Distance( const SceneNode& lhs, const SceneNode& rhs ) {
+    return length( lhs.GetWorldPosition() - rhs.GetWorldPosition() );
 }

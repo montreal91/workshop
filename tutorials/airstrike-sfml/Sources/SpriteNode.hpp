@@ -14,11 +14,10 @@ public:
     SpriteNode( const sf::Texture& texture, const sf::IntRect& textureRect );
 
 private:
-    virtual void    drawCurrent(
+    virtual void    DrawCurrent(
         sf::RenderTarget& target,
         sf::RenderStates states
     ) const;
 
     sf::Sprite      mSprite;
-
 };

@@ -14,22 +14,22 @@ mSprite( textures.get( Table[type].texture ), Table[type].textureRect ) {
 }
 
 unsigned int
-Pickup::getCategory() const {
+Pickup::GetCategory() const {
     return Category::Pickup;
 }
 
 sf::FloatRect
-Pickup::getBoundingRect() const {
-    return getWorldTransform().transformRect( mSprite.getGlobalBounds() );
+Pickup::GetBoundingRect() const {
+    return GetWorldTransform().transformRect( mSprite.getGlobalBounds() );
 }
 
 void
-Pickup::apply( Aircraft& player ) const {
+Pickup::Apply( Aircraft& player ) const {
     Table[mType].action( player );
 }
 
 void
-Pickup::drawCurrent(
+Pickup::DrawCurrent(
     sf::RenderTarget& target,
     sf::RenderStates states
 ) const {

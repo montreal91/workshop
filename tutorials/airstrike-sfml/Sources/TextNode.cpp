@@ -5,16 +5,16 @@
 TextNode::TextNode( const FontHolder& fonts, const std::string& text ) {
     mText.setFont( fonts.get( Fonts::Main ) );
     mText.setCharacterSize( 20 );
-    setString( text );
+    SetString( text );
 }
 
 void
-TextNode::drawCurrent( sf::RenderTarget& target, sf::RenderStates states ) const {
+TextNode::DrawCurrent( sf::RenderTarget& target, sf::RenderStates states ) const {
     target.draw( mText, states );
 }
 
 void
-TextNode::setString( const std::string& text ) {
+TextNode::SetString( const std::string& text ) {
     mText.setString( text );
     centerOrigin( mText );
 }

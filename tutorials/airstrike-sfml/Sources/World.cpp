@@ -50,14 +50,14 @@ World::update( sf::Time dt ) {
     );
 
     for ( Aircraft* a : mPlayerAircrafts ) {
-        a->setVelocity( 0.0f, 0.0f );
+        a->SetVelocity( 0.0f, 0.0f );
     }
 
     destroyEntitiesOutsideView();
     guideMissiles();
 
     while ( !mCommandQueue.isEmpty() ) {
-        mSceneGraph.onCommand( mCommandQueue.pop(), dt );
+        mSceneGraph.OnCommand( mCommandQueue.pop(), dt );
     }
 
     adaptPlayerVelocity();
@@ -69,14 +69,14 @@ World::update( sf::Time dt ) {
     auto firstToRemove = std::remove_if(
         mPlayerAircrafts.begin(),
         mPlayerAircrafts.end(),
-        std::mem_fn( &Aircraft::isMarkedForRemoval )
+        std::mem_fn( &Aircraft::IsMarkedForRemoval )
     );
     mPlayerAircrafts.erase( firstToRemove, mPlayerAircrafts.end() );
 
-    mSceneGraph.removeWrecks();
+    mSceneGraph.RemoveWrecks();
     spawnEnemies();
 
-    mSceneGraph.update( dt, mCommandQueue );
+    mSceneGraph.Update( dt, mCommandQueue );
     adaptPlayerPosition();
 
     updateSounds();
@@ -104,7 +104,7 @@ World::getCommandQueue() {
 Aircraft*
 World::getAircraft( int identifier ) const {
     for ( Aircraft* a : mPlayerAircrafts ) {
-        if ( a->getIdentifier() == identifier ) {
+        if ( a->GetIdentifier() == identifier ) {
             return a;
         }
     }
@@ -115,7 +115,7 @@ void
 World::removeAircraft( int identifier ) {
     Aircraft* aircraft = getAircraft( identifier );
     if ( aircraft ) {
-        aircraft->destroy();
+        aircraft->Destroy();
         mPlayerAircrafts.erase( std::find(
             mPlayerAircrafts.begin(),
             mPlayerAircrafts.end(),
@@ -130,10 +130,10 @@ World::addAircraft( int identifier ) {
         new Aircraft( Aircraft::Eagle, mTextures, mFonts )
     );
     player->setPosition( mWorldView.getCenter() );
-    player->setIdentifier( identifier );
+    player->SetIdentifier( identifier );
 
     mPlayerAircrafts.push_back( player.get() );
-    mSceneLayers[UpperAir]->attachChild( std::move( player ) );
+    mSceneLayers[UpperAir]->AttachChild( std::move( player ) );
     return mPlayerAircrafts.back();
 }
 
@@ -141,13 +141,13 @@ void
 World::createPickup( sf::Vector2f position, Pickup::Type type ) {
     std::unique_ptr<Pickup> pickup( new Pickup( type, mTextures ) );
     pickup->setPosition( position );
-    pickup->setVelocity( 0.0f, 1.0f );
-    mSceneLayers[UpperAir]->attachChild( std::move( pickup ) );
+    pickup->SetVelocity( 0.0f, 1.0f );
+    mSceneLayers[UpperAir]->AttachChild( std::move( pickup ) );
 }
 
 bool
 World::pollGameAction( GameActions::Action& out ) {
-    return mNetworkNode->pollGameAction( out );
+    return mNetworkNode->PollGameAction( out );
 }
 
 void
@@ -211,11 +211,11 @@ World::adaptPlayerPosition() {
 void
 World::adaptPlayerVelocity() {
     for ( Aircraft* aircraft : mPlayerAircrafts ) {
-        sf::Vector2f velocity = aircraft->getVelocity();
+        sf::Vector2f velocity = aircraft->GetVelocity();
         if ( velocity.x != 0.0f && velocity.y != 0.0f ) {
-            aircraft->setVelocity( velocity / std::sqrt( 2.0f ) );
+            aircraft->SetVelocity( velocity / std::sqrt( 2.0f ) );
         }
-        aircraft->accelerate( 0.0f, mScrollSpeed );
+        aircraft->Accelerate( 0.0f, mScrollSpeed );
     }
 }
 
@@ -225,8 +225,8 @@ matchesCategories(
     Category::Type type1,
     Category::Type type2
 ) {
-    unsigned int category1 = colliders.first->getCategory();
-    unsigned int category2 = colliders.second->getCategory();
+    unsigned int category1 = colliders.first->GetCategory();
+    unsigned int category2 = colliders.second->GetCategory();
 
     if ( type1 & category1 && type2 & category2 ) {
         return true;
@@ -242,22 +242,22 @@ matchesCategories(
 void
 World::handleCollisions() {
     std::set<SceneNode::Pair> collisionPairs;
-    mSceneGraph.checkSceneCollision( mSceneGraph, collisionPairs );
+    mSceneGraph.CheckSceneCollision( mSceneGraph, collisionPairs );
 
     for ( SceneNode::Pair pair : collisionPairs ) {
         if ( matchesCategories( pair, Category::PlayerAircraft, Category::EnemyAircraft ) ) {
             auto& player    = static_cast<Aircraft&>( *pair.first );
             auto& enemy     = static_cast<Aircraft&>( *pair.second );
 
-            player.damage( enemy.getHitpoints() );
-            enemy.destroy();
+            player.Damage( enemy.GetHitpoints() );
+            enemy.Destroy();
         } else if ( matchesCategories( pair, Category::PlayerAircraft, Category::Pickup ) ) {
             auto& player = static_cast<Aircraft&>( *pair.first );
             auto& pickup = static_cast<Pickup&>( *pair.second );
 
-            pickup.apply( player );
-            pickup.destroy();
-            player.playLocalSound( mCommandQueue, SoundEffect::CollectPickup );
+            pickup.Apply( player );
+            pickup.Destroy();
+            player.PlayLocalSound( mCommandQueue, SoundEffect::CollectPickup );
         } else if (
             matchesCategories( pair, Category::EnemyAircraft, Category::AlliedProjectile ) ||
             matchesCategories( pair, Category::PlayerAircraft, Category::EnemyProjectile )
@@ -265,8 +265,8 @@ World::handleCollisions() {
             auto& aircraft      = static_cast<Aircraft&>( *pair.first );
             auto& projectile    = static_cast<Projectile&>( *pair.second );
 
-            aircraft.damage( projectile.getDamage() );
-            projectile.destroy();
+            aircraft.Damage( projectile.GetDamage() );
+            projectile.Destroy();
         }
     }
 }
@@ -279,7 +279,7 @@ World::updateSounds() {
     } else {
         // Mean position between all aircrafts
         for ( Aircraft* aircraft : mPlayerAircrafts ) {
-            listenerPosition += aircraft->getWorldPosition();
+            listenerPosition += aircraft->GetWorldPosition();
         }
         listenerPosition /= static_cast<float>( mPlayerAircrafts.size() );
     }
@@ -296,7 +296,7 @@ World::buildScene() {
         SceneNode::Ptr layer( new SceneNode( category ) );
         mSceneLayers[i] = layer.get();
 
-        mSceneGraph.attachChild( std::move( layer ) );
+        mSceneGraph.AttachChild( std::move( layer ) );
     }
 
     // Prepare the tiled background
@@ -313,36 +313,36 @@ World::buildScene() {
         new SpriteNode( jungleTexture, textureRect )
     );
     jungleSprite->setPosition( mWorldBounds.left, mWorldBounds.top );
-    mSceneLayers[Background]->attachChild( std::move( jungleSprite ) );
+    mSceneLayers[Background]->AttachChild( std::move( jungleSprite ) );
 
     // Add the finsh line to the scene
     sf::Texture& finishTexture = mTextures.get( Textures::FinishLine );
     std::unique_ptr<SpriteNode> finishSprite( new SpriteNode( finishTexture ) );
     finishSprite->setPosition( 0.0f, -76.0f );
     mFinishSprite = finishSprite.get();
-    mSceneLayers[Background]->attachChild( std::move( finishSprite ) );
+    mSceneLayers[Background]->AttachChild( std::move( finishSprite ) );
 
     // Add particle node to the scene
     std::unique_ptr<ParticleNode> smokeNode(
         new ParticleNode( Particle::Smoke, mTextures )
     );
-    mSceneLayers[LowerAir]->attachChild( std::move( smokeNode ) );
+    mSceneLayers[LowerAir]->AttachChild( std::move( smokeNode ) );
 
     // Add propellant particle node to scene
     std::unique_ptr<ParticleNode> propellantNode(
         new ParticleNode( Particle::Propellant, mTextures )
     );
-    mSceneLayers[LowerAir]->attachChild( std::move( propellantNode ) );
+    mSceneLayers[LowerAir]->AttachChild( std::move( propellantNode ) );
 
     // Add sound effect node
     std::unique_ptr<SoundNode> soundNode( new SoundNode( mSounds ) );
-    mSceneGraph.attachChild( std::move( soundNode ) );
+    mSceneGraph.AttachChild( std::move( soundNode ) );
 
     // Add network node, if necessary
     if ( mNetworkedWorld ) {
         std::unique_ptr<NetworkNode> networkNode( new NetworkNode() );
         mNetworkNode = networkNode.get();
-        mSceneGraph.attachChild( std::move( networkNode ) );
+        mSceneGraph.AttachChild( std::move( networkNode ) );
     }
     addEnemies();
 }
@@ -409,9 +409,9 @@ World::spawnEnemies() {
         enemy->setRotation( 180.0f );
 
         if ( mNetworkedWorld ) {
-            enemy->disablePickups();
+            enemy->DisablePickups();
         }
-        mSceneLayers[UpperAir]->attachChild( std::move( enemy ) );
+        mSceneLayers[UpperAir]->AttachChild( std::move( enemy ) );
         mEnemySpawnPoints.pop_back();
     }
 }
@@ -422,8 +422,8 @@ World::destroyEntitiesOutsideView() {
     command.category = Category::Projectile | Category::EnemyAircraft;
     command.action = derivedAction<Entity>(
         [this] ( Entity& e, sf::Time ) {
-            if ( !getBattlefieldBounds().intersects( e.getBoundingRect() ) ) {
-                e.remove();
+            if ( !getBattlefieldBounds().intersects( e.GetBoundingRect() ) ) {
+                e.Remove();
             }
         }
     );
@@ -436,7 +436,7 @@ World::guideMissiles() {
     enemyCollector.category = Category::EnemyAircraft;
     enemyCollector.action   = derivedAction<Aircraft>(
         [this] ( Aircraft& enemy, sf::Time ) {
-            if ( !enemy.isDestroyed() ) {
+            if ( !enemy.IsDestroyed() ) {
                 mActiveEnemies.push_back( &enemy );
             }
         }
@@ -448,7 +448,7 @@ World::guideMissiles() {
         // TODO: outsource this function into separate method
         [this] ( Projectile& missile, sf::Time ) {
             // Ignore unguided bullets
-            if ( !missile.isGuided() ) {
+            if ( !missile.IsGuided() ) {
                 return;
             }
 
@@ -456,7 +456,7 @@ World::guideMissiles() {
             Aircraft* closestEnemy  = nullptr;
 
             for( Aircraft* enemy : mActiveEnemies ) {
-                float enemyDistance = distance( missile, *enemy );
+                float enemyDistance = Distance( missile, *enemy );
 
                 if ( enemyDistance < minDistance ) {
                     closestEnemy    = enemy;
@@ -464,7 +464,7 @@ World::guideMissiles() {
                 }
             }
             if ( closestEnemy ) {
-                missile.guideTowards( closestEnemy->getWorldPosition() );
+                missile.GuideTowards( closestEnemy->GetWorldPosition() );
             }
         }
     );

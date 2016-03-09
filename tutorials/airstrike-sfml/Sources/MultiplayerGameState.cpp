@@ -215,10 +215,10 @@ MultiplayerGameState::update( sf::Time dt ) {
                     positionUpdatePacket << aircraft->getPosition().x;
                     positionUpdatePacket << aircraft->getPosition().y;
                     positionUpdatePacket << static_cast<sf::Int32>(
-                        aircraft->getHitpoints()
+                        aircraft->GetHitpoints()
                     );
                     positionUpdatePacket << static_cast<sf::Int32>(
-                        aircraft->getMissileAmmo()
+                        aircraft->GetMissileAmmo()
                     );
                 }
             }
@@ -358,8 +358,8 @@ MultiplayerGameState::handlePacket( sf::Int32 packetType, sf::Packet& packet ) {
 
                 Aircraft* aircraft = mWorld.addAircraft( aircraftIdentifier );
                 aircraft->setPosition( aircraftPosition );
-                aircraft->setHitpoints( hitpoints );
-                aircraft->setMissileAmmo( missileAmmo );
+                aircraft->SetHitpoints( hitpoints );
+                aircraft->SetMissileAmmo( missileAmmo );
 
                 mPlayers[aircraftIdentifier].reset(
                     new Player( &mSocket, aircraftIdentifier, nullptr )
