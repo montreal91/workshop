@@ -6,3 +6,4 @@ os
 *.dblite
 *.class
 *.iml
+*.pyc

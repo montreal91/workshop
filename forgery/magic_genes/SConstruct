@@ -1,0 +1,13 @@
+
+flags = [
+    "-Wall",
+    "-O3",
+    "-std=c++11"
+]
+
+sources = [
+    "main.cc",
+    "mage.cc"
+]
+
+Program(target="mg", source=sources, CXXFLAGS=flags)
