@@ -1,0 +1,8 @@
+
+env = Environment(
+    CXX = "clang++",
+    CXXFLAGS = "-std=c++11 -Wall -O3",
+    # LINKFLAGS = " -stdlib=libc++"
+)
+
+env.Program( target="hc", source="main.cc" )
