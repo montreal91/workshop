@@ -1,0 +1,16 @@
+
+
+flags = [
+    "-std=c++11",
+    # "-Wall",
+    "-O3",
+]
+
+
+sources = "main.cc"
+
+env = Environment(
+    CXX = "clang++",
+)
+
+env.Program( target="hello-sfml", source=sources, CXXFLAGS=flags)
