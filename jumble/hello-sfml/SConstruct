@@ -1,0 +1,23 @@
+
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+    "-O3",
+]
+
+libs = [
+    "-lsfml-graphics",
+    "-lsfml-window", 
+    "-lsfml-system",
+    "-lsfml-audio",
+    "-lsfml-network",
+]
+
+sources = "main.cpp"
+
+env = Environment(
+    CXX = "clang++",
+)
+
+env.Program( target="hello-sfml", source=sources, CXXFLAGS=flags, LIBS=libs )
