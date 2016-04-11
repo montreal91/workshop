@@ -7,30 +7,30 @@ import java.util.*;
 public class Hello {
     public static void main( String args[] ) {
         TreeMap<String, Long> class_map = new TreeMap<String, Long>();
-        class_map.put("Zelenograd", new Long(5));
-        class_map.put("Memphis", new Long(10));
-        class_map.put("Quatar", new Long(15));
-        class_map.put("Quirrell", new Long(20));
-        class_map.put("Zibo", new Long(25));
-        class_map.put("Moscow", new Long(30));
-        class_map.put("Monte Carlo", new Long(35));
-        class_map.put("Luisiana", new Long(40));
-        class_map.put("Amsterdam", new Long(45));
-        class_map.put("Adelaide", new Long(45));
-        class_map.put("Atlanta", new Long(45));
-        class_map.put("Boston", new Long(50));
-        class_map.put("Bangkok", new Long(55));
-        class_map.put("Mozambique", new Long(60));
-        class_map.put("Amsterdam", new Long(65));
-        class_map.put("Mazda", new Long(70));
-        class_map.put("MazdaMan", new Long(75));
-        class_map.put("ZZZ", new Long(80));
-        class_map.put("ZzZ", new Long(85));
-        class_map.put("ZElenograd", new Long(90));
+        class_map.put("Boston", new Long(10));
+        class_map.put("Barselona", new Long(30));
+        class_map.put("Barnaul", new Long(30));
+        class_map.put("Bombey", new Long(30));
+        class_map.put("Adelaide", new Long(3859));
+        class_map.put("Albukerque", new Long(1859));
+        class_map.put("Canberra", new Long(19999999));
+        class_map.put("Coro", new Long(991991));
+        class_map.put("Cottbus", new Long(138));
+        class_map.put("Cusco", new Long(221));
+        class_map.put("Cusan", new Long(221));
 
-
-        SortedMap<String, Long> sm = class_map.subMap("Ad", "Zez");
+        SortedMap<String, Long> sm = class_map.subMap("B", "Bz");
         // System.out.println(class_map);
-        System.out.println(sm);
+        // System.out.println(sm);
+        String s = "al";
+        // System.out.println(s + "z");
+        Long g = new Long(122);
+        Long h = new Long(221);
+        // System.out.println(g > h);
+        long[] la = {3, 3, 3, 2, 1, 3 ,5};
+        Arrays.sort(la);
+        for (int i = 0; i < la.length; i++) {
+            System.out.println(la[i]);
+        }
     }
 }
