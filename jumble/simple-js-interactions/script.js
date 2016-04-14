@@ -1,30 +1,33 @@
 
-var text1 = "<p>Some fucking text!</p>";
-var text2 = "<p>Another fucking text!</p>";
-var header1 = "<h1>Title 1</h1>";
-var header2 = "<h1>Title 2</h2>";
+var my_story = JSON.parse( paragraphs );
 
 var state = 0;
 
+
 function render_state() {
     var container = document.getElementById("container");
-    if (state === 0) {
-        container.innerHTML = header1 + text1;
-    } else if (state === 1) {
-        container.innerHTML = header2 + text2;
-    } else {
-        container.innerHTML = "<p>Something is fucked up!</p>";
+    var i;
+    for (i = 0; i < my_story.length; i++) {
+        if (state === my_story[i].id) {
+            container.innerHTML = my_story[i].text;
+            var dirs = my_story[i].directions;
+            var j;
+            for (j = 0; j < my_story[i].directions.length; j++) {
+                var button = document.createElement('button');
+                var current_direction = my_story[i].directions[j];
+                button.innerHTML = current_direction;
+                (function (cd) {
+                    button.addEventListener('click', function() {
+                        change_state(cd);
+                        render_state();
+                    });
+                })(current_direction);
+                container.appendChild(button);
+            }
+        }
     }
 }
 
-function change_state() {
-    state++;
-    state %= 2; // To ensure state can be only 0 and 1
+function change_state(e) {
+    state = e;
 }
-
-function process_button_click() {
-    change_state();
-    render_state();
-}
-
-window.addEventListener('load', render_state);
