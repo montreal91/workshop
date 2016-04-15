@@ -1,0 +1,18 @@
+
+libs = [
+    "-lBox2D"
+]
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+    "-O3",
+]
+
+sources = "main.cc"
+
+env = Environment(
+    CXX = "clang++",
+)
+
+env.Program( target="hello-box2d", source=sources, CXXFLAGS=flags, LIBS=libs )
