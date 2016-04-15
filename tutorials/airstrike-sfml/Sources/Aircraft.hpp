@@ -50,7 +50,7 @@ public:
     void                    LaunchMissile();
     void                    PlayLocalSound( CommandQueue& commands, SoundEffect::ID effect );
 
-    int                     GetIdentifier() const; // TODO const
+    int                     GetIdentifier() const;
     void                    SetIdentifier( int identifier );
     int                     GetMissileAmmo() const;
     void                    SetMissileAmmo( int ammo );
@@ -73,6 +73,9 @@ private:
     void            CreatePickup( SceneNode& node, const TextureHolder& textures ) const;
     void            UpdateTexts();
     void            UpdateRollAnimation();
+
+    SoundEffect::ID GetRandomExplosionSound() const;
+    bool            PickupDropCondition() const;
 
     Type            mType;
     sf::Sprite      mSprite;

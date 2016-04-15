@@ -2,7 +2,7 @@
 #include "Aircraft.hpp"
 
 
-using namespace std::placeholders; // TODO: get rid of this
+using namespace std::placeholders;
 
 namespace {
 const std::vector<AircraftData> Table = initalizeAircraftData();
@@ -105,9 +105,7 @@ Aircraft::UpdateCurrent( sf::Time dt, CommandQueue& commands ) {
         // Play explosion sound only once
         if ( !mExplosionBegan ) {
             // Play sound effect
-            // TODO: put it into function
-            // this->GetRandomExplosion
-            SoundEffect::ID soundEffect = ( randomInt( 2 ) == 0 ) ? SoundEffect::Explosion1 : SoundEffect::Explosion2;
+            SoundEffect::ID soundEffect = this->GetRandomExplosionSound();
             PlayLocalSound( commands, soundEffect );
 
             // Emit network gme action for enemy explosions
@@ -253,8 +251,7 @@ Aircraft::UpdateMovementPattern( sf::Time dt ) {
 
 void
 Aircraft::CheckPickupDrop( CommandQueue& commands ) {
-    // TODO: Wrap condition into function
-    if ( !IsAllied() && randomInt( 3 ) == 0 && !mSpawnedPickup && mPickupsEnabled ) {
+    if ( this->PickupDropCondition() ) {
         commands.push( mDropPickupCommand );
     }
     mSpawnedPickup = true;
@@ -371,4 +368,22 @@ Aircraft::UpdateRollAnimation() {
         }
         mSprite.setTextureRect( textureRect );
     }
+}
+
+SoundEffect::ID
+Aircraft::GetRandomExplosionSound() const {
+    if ( randomInt( 2 ) == 0 ) {
+        return SoundEffect::Explosion1;
+    } else {
+        return SoundEffect::Explosion2;
+    }
+}
+
+bool
+Aircraft::PickupDropCondition() const {
+    bool condition1 = !this->IsAllied();
+    bool condition2 = randomInt( 3 ) == 0;
+    bool condition3 = !this->mSpawnedPickup;
+    bool condition4 = this->mPickupsEnabled;
+    return condition1 && condition2 && condition3 && condition4;
 }
