@@ -98,7 +98,33 @@ Vector3::DotProduct( const Vector3& vec ) const {
 Vector3
 Vector3::CrossProduct( const Vector3& vec ) const {
     double x = this->y * vec.z - this->z * vec.y;
-    double y = this->x * vec.z - this->z * vec.x;
+    double y = -this->x * vec.z + this->z * vec.x;
     double z = this->x * vec.y - this->y * vec.x;
     return Vector3( x, y, z );
+}
+
+bool
+Vector3::IsNullVector() const {
+    double  epsilon = 0.00001;
+    bool    cond1   = fabs( this->x ) < epsilon;
+    bool    cond2   = fabs( this->y ) < epsilon;
+    bool    cond3   = fabs( this->z ) < epsilon;
+    return cond1 && cond2 && cond3;
+}
+
+bool
+Vector3::IsCollinearTo( const Vector3& vec ) const {
+    double product = this->DotProduct( vec );
+    return fabs( product ) <= 0.00001;
+}
+
+double
+Vector3::GetLength() const {
+    return std::sqrt( this->x * this->x + this->y * this->y + this->z * this->z );
+}
+
+Vector3
+Vector3::GetNormalizedVector() const {
+    double length = this->GetLength();
+    return Vector3( this->x / length, this->y / length, this->z / length );
 }

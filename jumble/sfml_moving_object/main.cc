@@ -16,6 +16,14 @@ float GetLength( const sf::Vector2f& vec ) {
     return std::sqrt(vec.x * vec.x + vec.y * vec.y);
 }
 
+float GetCosBetweenTwoVectors( const sf::Vector2f& vec1, const sf::Vector2f& vec2 ) {
+    return (vec1.x * vec2.x + vec1.y * vec2.y) / (GetLength(vec1) * GetLength(vec2)); 
+}
+
+float GetSinBetweenTwoVectors(const sf::Vector2f& vec1, const sf::Vector2f& vec2) {
+    return fabs(vec1.x * vec2.y - vec1.y * vec2.x) / (GetLength(vec1) * GetLength(vec2));
+}
+
 sf::Vector2f Normalize(const sf::Vector2f& vec) {
     float length = GetLength(vec);
     return sf::Vector2f(vec.x / length, vec.y / length);
@@ -30,6 +38,11 @@ sf::Vector2f GetDirection(const sf::Vector2f& start, const sf::Vector2f& destina
     return Normalize(dir);
 }
 
+float
+RadianToDegree( float radian ) {
+    return 180.0f / M_PI * radian;
+}
+
 void UpdateRectangleShape(
     sf::RectangleShape* shape,
     const sf::Vector2f& destination,
@@ -39,8 +52,23 @@ void UpdateRectangleShape(
     sf::Vector2f pos = shape->getPosition();
     sf::Vector2f velocity = GetDirection(pos, destination);
     pos += speed * dt.asSeconds() * velocity;
+    // float newcos = GetCosBetweenTwoVectors(velocity, sf::Vector2f(0, 1.0f));
     shape->setPosition(pos);
+    if ( fabs(velocity.x) <= 0.00001 || GetLength(velocity) <= 0.00001f ) {
+        shape->setRotation(0.0f);
+    } else {
+        shape->setRotation(RadianToDegree(std::acos(velocity.x)));
+    }
 }
+
+// sf::Transform GetTransform( const sf::Vector2f& pos, const sf::Vector2f& destination ) {
+//     sf::Vector2f velocity = GetDirection(pos, destination);
+//     return sf::Transform(
+//         GetCosBetweenTwoVectors(velocity, sf::Vector2f(1.0f, 0)), 0, 0,
+//         0, GetSinBetweenTwoVectors(velocity, sf::Vector2f(0, 1.0f)), 0,
+//         0, 0, 1
+//     );
+// }
 
 int main(int argc, char const *argv[]) {
     sf::RenderWindow window( sf::VideoMode( 600, 600 ), "MOVEMENT" );

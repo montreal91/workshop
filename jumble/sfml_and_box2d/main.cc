@@ -13,7 +13,7 @@ void DoSomePhysicMagic(b2Body* body, sf::RectangleShape* shape) {
     float32 angle = body->GetAngle();
 
     shape->setPosition(pos.x*PIXELS_PER_METER, pos.y*PIXELS_PER_METER);
-    shape->setRotation(angle);
+    shape->setRotation(shape->getRotation() + angle);
 }
 
 void CenterOrigin(sf::RectangleShape* shape) {
@@ -40,7 +40,7 @@ int main(int argc, char const *argv[]) {
     B2_NOT_USED( argc );
     B2_NOT_USED( argv );
 
-    b2Vec2 gravity( 0.0f, 1.5f );
+    b2Vec2 gravity( 0.0f, 10.0f );
 
     b2World world( gravity );
 
@@ -62,13 +62,12 @@ int main(int argc, char const *argv[]) {
     body_def.position.Set( 3.0f, 0.0f );
     b2Body* phys_body = world.CreateBody( &body_def );
 
-    b2MassData m_data;
-    phys_body->GetMassData(&m_data);
-    m_data.center.Set(0.0f, 0.01f);
-    phys_body->SetMassData(&m_data);
+    // phys_body->SetAngularVelocity(1.0f);
 
     b2PolygonShape dynamic_box;
     dynamic_box.SetAsBox( 1.0f, 0.6f );
+    std::cout << dynamic_box.m_centroid.x << " " << dynamic_box.m_centroid.y << "\n";
+
 
     b2FixtureDef fixture_def;
     fixture_def.shape = &dynamic_box;
@@ -105,5 +104,13 @@ int main(int argc, char const *argv[]) {
             time_since_last_update = sf::seconds(0.0f);
         }
     }
-    return 0;
+    for (int32 i = 0; i < dynamic_box.GetVertexCount(); i++ ) {
+        std::cout << dynamic_box.m_vertices[i].x << " " << dynamic_box.m_vertices[i].y << "\n";
+    }
+    std::cout << dynamic_box.m_centroid.x << " " << dynamic_box.m_centroid.y << "\n";
+
+    b2Transform trans = phys_body->GetTransform();
+    std::cout << trans.p.x << " " << trans.p.y << "\n";
+    std::cout << trans.q.GetAngle() << "\n";
+    return 1;
 }

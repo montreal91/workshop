@@ -29,8 +29,34 @@ public class Hello {
         // System.out.println(g > h);
         long[] la = {3, 3, 3, 2, 1, 3 ,5};
         Arrays.sort(la);
-        for (int i = 0; i < la.length; i++) {
-            System.out.println(la[i]);
+        // for (int i = 0; i < la.length; i++) {
+        //     System.out.println(la[i]);
+        // }
+
+        s = "chumbawamba";
+        String ss = s.substring(1);
+        System.out.println(ss);
+        System.out.println(s.charAt(0) < s.charAt(1));
+
+        Vector<Character> v = new Vector<Character>();
+        v.add('e');
+        v.add('g');
+        v.add(v.indexOf('g'), 'f');
+        for (int i = 0; i < v.size(); i++) {
+            System.out.println(v.elementAt(i));
         }
+        // char c = '';
+        // System.out.println(s.charAt(-1));
+        // System.out.println(s.substring(0, s.length()-1));
+        // s.charAt(s.length());
+
+        StringBuilder sb = new StringBuilder();
+        sb.append('a');
+        sb.append("lal");
+        System.out.println(sb.toString());
+        sb.delete(0, sb.length());
+        sb.append("lol");
+        System.out.println(sb.toString());
+
     }
 }

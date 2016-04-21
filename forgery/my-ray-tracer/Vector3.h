@@ -2,6 +2,7 @@
 #ifndef __VECTOR3_H__
 #define __VECTOR3_H__
 
+#include <cmath>
 
 #include "Vector2.h"
 
@@ -26,6 +27,11 @@ public:
 
     double  DotProduct( const Vector3& vec ) const;
     Vector3 CrossProduct( const Vector3& vec ) const;
+
+    bool    IsCollinearTo( const Vector3& vec ) const; // untested
+    bool    IsNullVector() const; // untested
+    double  GetLength() const;
+    Vector3 GetNormalizedVector() const;
 
     double x, y, z;
 
