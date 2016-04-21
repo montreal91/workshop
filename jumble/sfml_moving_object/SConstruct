@@ -1,0 +1,20 @@
+
+libs = [
+    "-lsfml-graphics",
+    "-lsfml-window",
+    "-lsfml-system",
+]
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+    "-O3",
+]
+
+sources = "main.cc"
+
+env = Environment(
+    CXX = "clang++",
+)
+
+env.Program( target="sfml_moving_object", source=sources, CXXFLAGS=flags, LIBS=libs )
