@@ -1,116 +1,100 @@
 
-#include <iostream>
-#include <cmath>
-
 #include <Box2D/Box2D.h>
 
 #include <SFML/Graphics.hpp>
 
-const float PIXELS_PER_METER = 100.0f;
+/** We need this to easily convert between pixel and real-world coordinates */
+static const float SCALE = 30.0f;
 
-void DoSomePhysicMagic(b2Body* body, sf::RectangleShape* shape) {
-    b2Vec2 pos = body->GetPosition();
-    float32 angle = body->GetAngle();
+// Create the base for the boxes to land
+void CreateGround(b2World& World, float X, float Y) {
+    b2BodyDef BodyDef;
+    BodyDef.position = b2Vec2(X/SCALE, Y/SCALE);
+    BodyDef.type = b2_staticBody;
+    b2Body* Body = World.CreateBody(&BodyDef);
 
-    shape->setPosition(pos.x*PIXELS_PER_METER, pos.y*PIXELS_PER_METER);
-    shape->setRotation(shape->getRotation() + angle);
+    b2PolygonShape Shape;
+    Shape.SetAsBox((800.0f / 2) / SCALE, (16.0f / 2) / SCALE);
+    b2FixtureDef FixtureDef;
+    FixtureDef.density = 0.0f;
+    FixtureDef.shape = &Shape;
+    Body->CreateFixture(&FixtureDef);
 }
 
-void CenterOrigin(sf::RectangleShape* shape) {
-    sf::FloatRect bounds = shape->getLocalBounds();
-    shape->setOrigin(
-        std::floor( bounds.left + bounds.width / 2.0f ),
-        std::floor( bounds.top + bounds.height / 2.0f )
-    );
+// Create the boxes
+void CreateBox(b2World& World, int MouseX, int MouseY) {
+    b2BodyDef BodyDef;
+    BodyDef.position = b2Vec2(MouseX / SCALE, MouseY / SCALE);
+    BodyDef.type = b2_dynamicBody;
+    b2Body* Body = World.CreateBody(&BodyDef);
+
+    b2PolygonShape Shape;
+    Shape.SetAsBox((32.0f/2) / SCALE, (32.0f/2)/SCALE);
+    b2FixtureDef FixtureDef;
+    FixtureDef.density = 1.0f;
+    FixtureDef.friction = 0.7f;
+    FixtureDef.shape = &Shape;
+    Body->CreateFixture(&FixtureDef);
 }
 
 int main(int argc, char const *argv[]) {
-    sf::RenderWindow window( sf::VideoMode( 600, 600 ), "SFML & BOX2D" );
-    sf::RectangleShape body( sf::Vector2f( 120.0f, 90.0f ) );
-    sf::RectangleShape ground( sf::Vector2f( 600.0f, 50.0f ) );
+    // Prepare the window
+    sf::RenderWindow Window(
+        sf::VideoMode(800, 600, 32),
+        "SFML & Box2D",
+        sf::Style::Fullscreen
+    );
+    Window.setFramerateLimit(60);
 
-    body.setFillColor( sf::Color( 100, 10, 10 ) );
-    body.setPosition( 250.0f, 0.0f );
-    CenterOrigin(&body);
+    // Prepare the world
+    b2Vec2 Gravity(0.0f, 9.8f);
+    b2World World(Gravity);
+    CreateGround(World, 400.0f, 500.0f);
 
-    ground.setFillColor( sf::Color::Black );
-    ground.setPosition(0.0f, 550.0f);
-    CenterOrigin(&ground);
+    // Prepare textures
+    sf::Texture GroundTexture;
+    sf::Texture BoxTexture;
+    GroundTexture.loadFromFile("ground.png");
+    BoxTexture.loadFromFile("box.png");
 
-    B2_NOT_USED( argc );
-    B2_NOT_USED( argv );
-
-    b2Vec2 gravity( 0.0f, 10.0f );
-
-    b2World world( gravity );
-
-    // Create ground
-    b2BodyDef ground_body_def;
-    ground_body_def.position.Set( 3.0f, 5.9f );
-
-    b2Body* groundBody = world.CreateBody( &ground_body_def );
-
-    b2PolygonShape ground_box;
-
-    ground_box.SetAsBox( 50.0f, 0.1f );
-
-    groundBody->CreateFixture( &ground_box, 0.0f );
-
-    // Create falling box
-    b2BodyDef body_def;
-    body_def.type = b2_dynamicBody;
-    body_def.position.Set( 3.0f, 0.0f );
-    b2Body* phys_body = world.CreateBody( &body_def );
-
-    // phys_body->SetAngularVelocity(1.0f);
-
-    b2PolygonShape dynamic_box;
-    dynamic_box.SetAsBox( 1.0f, 0.6f );
-    std::cout << dynamic_box.m_centroid.x << " " << dynamic_box.m_centroid.y << "\n";
-
-
-    b2FixtureDef fixture_def;
-    fixture_def.shape = &dynamic_box;
-
-    fixture_def.density = 1.0f;
-    fixture_def.friction = 0.3f;
-
-    phys_body->CreateFixture( &fixture_def );
-
-    float32 time_step = 1.0f / 60.0f;
-    int32 velocity_iterations = 6;
-    int32 position_iterations = 2;
-
-    sf::Clock clock;
-    sf::Time time_since_last_update;
-
-    while ( window.isOpen() ) {
-        sf::Time dt = clock.restart();
-        time_since_last_update += dt;
-        if (time_since_last_update.asSeconds() >= time_step) {
-            sf::Event event;
-            while ( window.pollEvent( event ) ) {
-                if ( event.type == sf::Event::Closed ) {
-                    window.close();
-                }
-            }
-            world.Step(time_step, velocity_iterations, position_iterations);
-            DoSomePhysicMagic(phys_body, &body);
-            DoSomePhysicMagic(groundBody, &ground);
-            window.clear( sf::Color( 10, 100, 10 ) );
-            window.draw( ground );
-            window.draw( body );
-            window.display();
-            time_since_last_update = sf::seconds(0.0f);
+    while (Window.isOpen()) {
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left)) {
+            int MouseX = sf::Mouse::getPosition(Window).x;
+            int MouseY = sf::Mouse::getPosition(Window).y;
+            CreateBox(World, MouseX, MouseY);
         }
-    }
-    for (int32 i = 0; i < dynamic_box.GetVertexCount(); i++ ) {
-        std::cout << dynamic_box.m_vertices[i].x << " " << dynamic_box.m_vertices[i].y << "\n";
-    }
-    std::cout << dynamic_box.m_centroid.x << " " << dynamic_box.m_centroid.y << "\n";
+        sf::Event event;
+        while (Window.pollEvent(event)) {
+            if (event.type == sf::Event::Closed) {
+                Window.close();
+            } else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
+                Window.close();
+            }
 
-    b2Transform trans = phys_body->GetTransform();
-    std::cout << trans.p.x << " " << trans.p.y << "\n";
-    std::cout << trans.q.GetAngle() << "\n";
-    return 1;
+        }
+        World.Step(1/60.0f, 8, 3);
+
+        Window.clear(sf::Color::White);
+        int BodyCount = 0;
+        for (b2Body* BodyIterator = World.GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext()) {
+            if (BodyIterator->GetType() == b2_dynamicBody) {
+                sf::Sprite Sprite;
+                Sprite.setTexture(BoxTexture);
+                Sprite.setOrigin(16.0f, 16.0f);
+                Sprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
+                Sprite.setRotation(BodyIterator->GetAngle() * 180 / b2_pi);
+                Window.draw(Sprite);
+                ++BodyCount;
+            } else {
+                sf::Sprite GroundSprite;
+                GroundSprite.setTexture(GroundTexture);
+                GroundSprite.setOrigin(400.0f, 8.0f);
+                GroundSprite.setPosition(SCALE * BodyIterator->GetPosition().x, SCALE * BodyIterator->GetPosition().y);
+                GroundSprite.setRotation(180/b2_pi * BodyIterator->GetAngle());
+                Window.draw(GroundSprite);
+            }
+        }
+        Window.display();
+    }
+    return 0;
 }
