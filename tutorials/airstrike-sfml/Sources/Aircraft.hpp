@@ -48,7 +48,10 @@ public:
 
     void                    Fire();
     void                    LaunchMissile();
-    void                    PlayLocalSound( CommandQueue& commands, SoundEffect::ID effect );
+    void                    PlayLocalSound(
+        CommandQueue& commands,
+        SoundEffect::ID effect
+    );
 
     int                     GetIdentifier() const;
     void                    SetIdentifier( int identifier );
@@ -56,26 +59,40 @@ public:
     void                    SetMissileAmmo( int ammo );
 
 private:
-    virtual void    DrawCurrent( sf::RenderTarget& target, sf::RenderStates states ) const;
-    virtual void    UpdateCurrent( sf::Time dt, CommandQueue& commands );
-    void            UpdateMovementPattern( sf::Time dt );
-    void            CheckPickupDrop( CommandQueue& commands );
-    void            CheckProjectileLaunch( sf::Time dt, CommandQueue& commands );
+    virtual void        DrawCurrent(
+        sf::RenderTarget& target,
+        sf::RenderStates states
+    ) const;
+    virtual void        UpdateCurrent( sf::Time dt, CommandQueue& commands );
+    void                UpdateMovementPattern( sf::Time dt );
+    void                CheckPickupDrop( CommandQueue& commands );
+    void                CheckProjectileLaunch( sf::Time dt, CommandQueue& commands );
 
-    void            CreateBullets( SceneNode& node, const TextureHolder& textures ) const;
-    void            CreateProjectile( 
+    void                CreateBullets(
+        SceneNode& node,
+        const TextureHolder& textures
+    ) const;
+    void                CreateProjectile(
         SceneNode& node, 
         Projectile::Type type, 
         float xOffset, 
         float yOffset, 
         const TextureHolder& textures 
     ) const;
-    void            CreatePickup( SceneNode& node, const TextureHolder& textures ) const;
-    void            UpdateTexts();
-    void            UpdateRollAnimation();
+    void                CreatePickup(
+        SceneNode& node,
+        const TextureHolder& textures
+    ) const;
+    void                UpdateTexts();
+    void                UpdateRollAnimation();
 
-    SoundEffect::ID GetRandomExplosionSound() const;
-    bool            PickupDropCondition() const;
+    SoundEffect::ID     GetRandomExplosionSound() const;
+    bool                PickupDropCondition() const;
+    Projectile::Type    GetBulletType() const;
+
+    // Positive for enemies, negative for allies;
+    float               GetBulletSign() const;
+    SoundEffect::ID     GetGunfireSoundId() const;
 
     Type            mType;
     sf::Sprite      mSprite;

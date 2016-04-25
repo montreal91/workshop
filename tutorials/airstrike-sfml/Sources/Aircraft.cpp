@@ -210,7 +210,7 @@ Aircraft::PlayLocalSound( CommandQueue& commands, SoundEffect::ID effect ) {
     command.category    = Category::SoundEffect;
     command.action      = derivedAction<SoundNode>(
         [effect, worldPosition] ( SoundNode& node, sf::Time ) {
-            node.playSound( effect, worldPosition );
+            node.playSound( effect );
         }
     );
     commands.push( command );
@@ -232,7 +232,6 @@ Aircraft::UpdateMovementPattern( sf::Time dt ) {
     const std::vector<Direction>& directions = Table[mType].directions;
     if ( !directions.empty() ) {
         // Moved long enough in current direction: change direction
-        // TODO: Wrap condition into function
         if ( mTravelledDistance > directions[mDirectionIndex].distance ) { 
             mDirectionIndex     = ( mDirectionIndex + 1 ) % directions.size();
             mTravelledDistance  = 0.0f;
@@ -267,7 +266,7 @@ Aircraft::CheckProjectileLaunch( sf::Time dt, CommandQueue& commands ) {
     // Check for automatic gunfire, allow only in intervals
     if ( mIsFiring && mFireCountdown <= sf::Time::Zero ) {
         commands.push( mFireCommand );
-        PlayLocalSound( commands, IsAllied() ? SoundEffect::AlliedGunfire : SoundEffect::EnemyGunfire ); // this->GetGunfireSound();
+        this->PlayLocalSound( commands, this->GetGunfireSoundId() );
 
         mFireCountdown += Table[mType].fireInterval / ( mFireRateLevel + 1.0f );
         mIsFiring = false;
@@ -285,10 +284,7 @@ Aircraft::CheckProjectileLaunch( sf::Time dt, CommandQueue& commands ) {
 
 void
 Aircraft::CreateBullets( SceneNode& node, const TextureHolder& textures ) const {
-    // TODO: put this shit into function
-    // this->GetBulletType()
-    Projectile::Type type = IsAllied() ? Projectile::AlliedBullet : Projectile::EnemyBullet;
-
+    Projectile::Type type = this->GetBulletType();
     switch ( mSpreadLevel ) {
         case 1:
             CreateProjectile( node, type, 0.0f, 0.5f, textures );
@@ -321,7 +317,7 @@ Aircraft::CreateProjectile(
     );
     sf::Vector2f velocity( 0, projectile->GetMaxSpeed() );
 
-    float sign = IsAllied() ? -1.0f : +1.0f; // Die!!! this->GetSign();
+    float sign = this->GetBulletSign();
     projectile->setPosition( GetWorldPosition() + offset * sign );
     projectile->SetVelocity( velocity * sign );
     node.AttachChild( std::move( projectile ) );
@@ -386,4 +382,31 @@ Aircraft::PickupDropCondition() const {
     bool condition3 = !this->mSpawnedPickup;
     bool condition4 = this->mPickupsEnabled;
     return condition1 && condition2 && condition3 && condition4;
+}
+
+Projectile::Type
+Aircraft::GetBulletType() const {
+    if ( this->IsAllied() ) {
+        return Projectile::AlliedBullet;
+    } else {
+        return Projectile::EnemyBullet;
+    }
+}
+
+float
+Aircraft::GetBulletSign() const {
+    if ( this->IsAllied() ) {
+        return -1.0f;
+    } else {
+        return +1.0f;
+    }
+}
+
+SoundEffect::ID
+Aircraft::GetGunfireSoundId() const {
+    if (this->IsAllied()) {
+        return SoundEffect::AlliedGunfire;
+    } else {
+        return SoundEffect::EnemyGunfire;
+    }
 }
