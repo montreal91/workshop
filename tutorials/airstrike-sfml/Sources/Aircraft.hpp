@@ -94,29 +94,29 @@ private:
     float               GetBulletSign() const;
     SoundEffect::ID     GetGunfireSoundId() const;
 
-    Type            mType;
-    sf::Sprite      mSprite;
-    Animation       mExplosion;
-    Command         mFireCommand;
-    Command         mMissileCommand;
-    sf::Time        mFireCountdown;
+    Type            m_type;
+    sf::Sprite      m_sprite;
+    Animation       m_explosion;
+    Command         m_fire_command;
+    Command         m_missile_command;
+    sf::Time        m_fire_countdown;
 
-    bool            mIsFiring;
-    bool            mIsLaunchingMissile;
-    bool            mShowExplosion;
-    bool            mExplosionBegan;
-    bool            mSpawnedPickup;
-    bool            mPickupsEnabled;
+    bool            m_is_firing;
+    bool            m_is_launching_missile;
+    bool            m_show_explosion;
+    bool            m_explosion_began;
+    bool            m_spawned_pickup;
+    bool            m_pickups_enabled;
 
-    int             mFireRateLevel;
-    int             mSpreadLevel;
-    int             mMissileAmmo;
+    int             m_fire_rate_level;
+    int             m_spread_level;
+    int             m_missile_ammo;
 
-    Command         mDropPickupCommand;
-    float           mTravelledDistance;
-    std::size_t     mDirectionIndex;
-    TextNode*       mHealthDisplay;
-    TextNode*       mMissileDisplay;
+    Command         m_drop_pickup_command;
+    float           m_travelled_distance;
+    std::size_t     m_direction_index;
+    TextNode*       m_health_display;
+    TextNode*       m_missile_display;
 
-    int             mIdentifier;
+    int             m_identifier;
 };
