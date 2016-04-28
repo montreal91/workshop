@@ -6,7 +6,7 @@ const sf::Time Application::TimePerFrame = sf::seconds( 1.0f / 60.0f );
 
 
 Application::Application() :
-mWindow( sf::VideoMode( 1024, 768 ), "Network", sf::Style::Close ),
+mWindow( sf::VideoMode( 1024, 768 ), "Network", sf::Style::Fullscreen ),
 mTextures(),
 mFonts(),
 mMusic(),
