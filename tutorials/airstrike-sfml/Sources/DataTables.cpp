@@ -30,7 +30,7 @@ initalizeAircraftData() {
     data[Aircraft::Avenger].hitpoints           = 40;
     data[Aircraft::Avenger].speed               = 50.0f;
     data[Aircraft::Avenger].texture             = Textures::Entities;
-    data[Aircraft::Avenger].textureRect         = sf::IntRect( 289, 3, 60, 57 );
+    data[Aircraft::Avenger].textureRect         = sf::IntRect( 228, 0, 60, 60 );
     data[Aircraft::Avenger].directions.push_back( Direction( +45.0f, 50.0f ) );
     data[Aircraft::Avenger].directions.push_back( Direction( 0.0f, 50.0f ) );
     data[Aircraft::Avenger].directions.push_back( Direction( -45.0f, 100.0f ) );
