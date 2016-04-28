@@ -23,7 +23,7 @@ sf::Vector2f Normalize(const sf::Vector2f& vec) {
 
 sf::Vector2f GetDirection(const sf::Vector2f& start, const sf::Vector2f& destination) {
     sf::Vector2f dir = destination - start;
-    if (GetLength(dir) <= 0.1) {
+    if (GetLength(dir) <= 1.5f) {
         return sf::Vector2f(0.0f, 0.0f);
     }
     return Normalize(dir);
@@ -62,7 +62,7 @@ int main(int argc, char const *argv[]) {
     body.setPosition( 00.0f, 00.0f );
     CenterOrigin(&body);
 
-    float max_speed = 200.0f;
+    float max_speed = 150.0f;
     sf::Vector2f destination = sf::Vector2f(300.0f, 300.0f);
 
     double time_step = 1.0f / 60.0f;
