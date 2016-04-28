@@ -23,22 +23,22 @@ mRepeat( false ) {}
 
 
 void
-Animation::setTexture( const sf::Texture& texture ) {
+Animation::SetTexture( const sf::Texture& texture ) {
     mSprite.setTexture( texture );
 }
 
 const sf::Texture*
-Animation::getTexture() const {
+Animation::GetTexture() const {
     return mSprite.getTexture();
 }
 
 void
-Animation::setFrameSize( sf::Vector2i frameSize ) {
+Animation::SetFrameSize( const sf::Vector2i& frameSize ) {
     mFrameSize = frameSize;
 }
 
 sf::Vector2i
-Animation::getFrameSize() const {
+Animation::GetFrameSize() const {
     return mFrameSize;
 }
 
@@ -86,7 +86,7 @@ sf::FloatRect
 Animation::getLocalBounds() const {
     return sf::FloatRect(
         getOrigin(),
-        static_cast<sf::Vector2f>( getFrameSize() )
+        static_cast<sf::Vector2f>( GetFrameSize() )
     );
 }
 

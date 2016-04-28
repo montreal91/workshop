@@ -13,11 +13,11 @@ public:
                         Animation();
     explicit            Animation( const sf::Texture& texture );
 
-    void                setTexture( const sf::Texture& texture );
-    const sf::Texture*  getTexture() const;
+    void                SetTexture( const sf::Texture& texture );
+    const sf::Texture*  GetTexture() const;
 
-    void                setFrameSize( sf::Vector2i mFrameSize );
-    sf::Vector2i        getFrameSize() const;
+    void                SetFrameSize( const sf::Vector2i& frameSize );
+    sf::Vector2i        GetFrameSize() const;
 
     void                setNumFrames( std::size_t numFrames );
     std::size_t         getNumFrames() const;
