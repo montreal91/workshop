@@ -1,0 +1,27 @@
+
+libs = [
+    "-lBox2D",
+    "-lsfml-graphics",
+    "-lsfml-window",
+    "-lsfml-system",
+]
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+    "-O3",
+]
+
+sources = [
+    "main.cc",
+    "command.cc",
+    "command_queue.cc",
+    "key_binding.cc",
+    "real_box.cc",
+]
+
+env = Environment(
+    CXX = "clang++",
+)
+
+env.Program( target="box_and_hits", source=sources, CXXFLAGS=flags, LIBS=libs )
