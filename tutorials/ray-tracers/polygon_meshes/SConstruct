@@ -1,0 +1,10 @@
+
+files = ["raytracepolymesh.cpp"]
+
+flags = [
+    "-O3",
+    "-Wall",
+    "-std=c++11"
+]
+
+Program(target="mesh", source=files, CXXFLAGS=flags)
