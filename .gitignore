@@ -8,3 +8,5 @@ os
 *.iml
 *.pyc
 *.zip
+*.dot
+*.pdf
