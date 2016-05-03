@@ -1,0 +1,28 @@
+
+#include "command_queue.h"
+
+namespace ih {
+
+void
+ECommandQueue::Push( const EsCommand& command ) {
+    this->m_queue.push( command );
+}
+
+EsCommand
+ECommandQueue::Pop() {
+    EsCommand command = this->m_queue.front();
+    this->m_queue.pop();
+    return command;
+}
+
+bool
+ECommandQueue::IsEmpty() const {
+    return this->m_queue.empty();
+}
+
+int
+ECommandQueue::GetSize() const {
+    return this->m_queue.size();
+}
+
+} // namespace ih
