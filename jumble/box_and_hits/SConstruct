@@ -1,10 +1,12 @@
 
 libs = [
-    "-lBox2D",
-    "-lsfml-graphics",
-    "-lsfml-window",
-    "-lsfml-system",
+    "Box2D",
+    "sfml-graphics",
+    "sfml-window",
+    "sfml-system",
 ]
+
+test_lib = ["cppunit"]
 
 flags = [
     "-std=c++11",
@@ -12,16 +14,42 @@ flags = [
     "-O3",
 ]
 
-sources = [
-    "main.cc",
-    "command.cc",
-    "command_queue.cc",
-    "key_binding.cc",
-    "real_box.cc",
+source_dir = "src/"
+ih_dir = "ih/"
+sg_dir = "sg/"
+
+common_sources = [
+    source_dir + ih_dir + "command.cc",
+    source_dir + ih_dir + "command_queue.cc",
+    source_dir + ih_dir + "key_binding.cc",
+    source_dir + sg_dir + "real_box.cc",
 ]
 
-env = Environment(
-    CXX = "clang++",
+main_source = [source_dir + "main.cc"]
+
+tests_dir = "tests/"
+tests_sources = [
+    tests_dir + "main_test.cc",
+    tests_dir + ih_dir + "command_queue_test.cc",
+    tests_dir + ih_dir + "key_binding_test.cc",
+]
+
+
+env = Environment( CXX="clang++" )
+env.Append( CPPPATH="." )
+
+common_objects = env.Object( source=common_sources, CXXFLAGS=flags, LIBS=libs )
+
+env.Program(
+    target="box_and_hits",
+    source=main_source+common_objects,
+    CXXFLAGS=flags,
+    LIBS=libs
 )
 
-env.Program( target="box_and_hits", source=sources, CXXFLAGS=flags, LIBS=libs )
+env.Program(
+    target="run_tests",
+    source=tests_sources+common_objects,
+    CXXFLAGS=flags,
+    LIBS=test_lib+libs
+)
