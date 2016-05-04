@@ -16,11 +16,12 @@ flags = [
 
 source_dir = "src/"
 ih_dir = "ih/"
-sg_dir = "sg/"
+sg_dir = "nodes/"
 
 common_sources = [
     source_dir + ih_dir + "command.cc",
     source_dir + ih_dir + "command_queue.cc",
+    source_dir + ih_dir + "controller.cc",
     source_dir + ih_dir + "key_binding.cc",
     source_dir + sg_dir + "real_box.cc",
 ]
@@ -33,7 +34,6 @@ tests_sources = [
     tests_dir + ih_dir + "command_queue_test.cc",
     tests_dir + ih_dir + "key_binding_test.cc",
 ]
-
 
 env = Environment( CXX="clang++" )
 env.Append( CPPPATH="." )
