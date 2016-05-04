@@ -1,0 +1,12 @@
+
+sources = [
+    "file_io.c",
+    "interpreter.c",
+]
+
+flags = [
+    "-std=c11",
+    "-O3",
+]
+
+Program( target="interpreter", source=sources, CFLAGS=flags )
