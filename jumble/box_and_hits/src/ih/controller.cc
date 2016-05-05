@@ -2,8 +2,6 @@
 #include "controller.h"
 
 
-using namespace std::placeholders;
-
 namespace ih {
 struct EsBoxMover {
     EsBoxMover( float vx, float vy, int identifier ):

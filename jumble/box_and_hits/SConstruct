@@ -25,6 +25,7 @@ common_sources = [
     source_dir + ih_dir + "key_binding.cc",
     source_dir + nodes_dir + "real_box.cc",
     source_dir + nodes_dir + "scene_node.cc",
+    source_dir + nodes_dir + "sprite_node.cc"
 ]
 
 main_source = [source_dir + "main.cc"]
