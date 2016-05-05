@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-#include "src/ih/controller.h"
+// #include "src/ih/controller.h"
 #include "src/nodes/real_box.h"
 
 
@@ -44,22 +44,22 @@ int main(int argc, char const *argv[]) {
     sf::Texture BoxTexture;
     GroundTexture.loadFromFile("media/sprites/ground.png");
     BoxTexture.loadFromFile("media/sprites/box.png");
-    ERealBox box(World, BoxTexture);
-    ih::EKeyBinding binding;
-    ih::EController controller( &binding, 0 );
+    nodes::ERealBox box(World, BoxTexture);
+    // ih::EKeyBinding binding;
+    // ih::EController controller( &binding, 0 );
 
     while (Window.isOpen()) {
-        ih::ECommandQueue cq;
+        // ih::ECommandQueue cq;
         sf::Event event;
         while (Window.pollEvent(event)) {
-            controller.HandleEvent(event, cq);
+            // controller.HandleEvent(event, cq);
             if (event.type == sf::Event::Closed) {
                 Window.close();
             } else if (event.type == sf::Event::KeyPressed && event.key.code == sf::Keyboard::Escape) {
                 Window.close();
             }
         }
-        controller.HandleRealtimeInput(cq);
+        // controller.HandleRealtimeInput(cq);
         World.Step(1/60.0f, 8, 3);
         box.UpdateFace();
 

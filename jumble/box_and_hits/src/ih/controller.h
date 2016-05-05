@@ -12,6 +12,7 @@
 #include "src/ih/command_queue.h"
 #include "src/ih/key_binding.h"
 #include "src/nodes/real_box.h"
+#include "src/nodes/scene_node.h"
 
 
 namespace ih {

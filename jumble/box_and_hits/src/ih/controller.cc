@@ -10,7 +10,7 @@ struct EsBoxMover {
     velocity( vx, vy ),
     box_id( identifier ) {}
 
-    void operator() ( ERealBox& box, sf::Time dt ) const {
+    void operator() ( nodes::ERealBox& box, sf::Time dt ) const {
         if ( box_id == box.GetIdentifier() ) {
             b2Vec2 dv;
             dv.x = velocity.x * box.GetMaxSpeed();
@@ -60,11 +60,11 @@ EController::GetMissionStatus() const {
 
 void
 EController::InitializeActions() {
-    this->m_action_binding[player_action::MoveForward].action = FDerivedAction<ERealBox> (
+    this->m_action_binding[player_action::MoveForward].action = FDerivedAction<nodes::ERealBox> (
         EsBoxMover( -1, 0, this->m_id )
     );
 
-    this->m_action_binding[player_action::MoveBackward].action = FDerivedAction<ERealBox> (
+    this->m_action_binding[player_action::MoveBackward].action = FDerivedAction<nodes::ERealBox> (
         EsBoxMover( +1, 0, this->m_id )
     );
 }

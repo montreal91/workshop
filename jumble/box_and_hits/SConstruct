@@ -14,16 +14,17 @@ flags = [
     "-O3",
 ]
 
-source_dir = "src/"
-ih_dir = "ih/"
-sg_dir = "nodes/"
+source_dir  = "src/"
+ih_dir      = "ih/"
+nodes_dir   = "nodes/"
 
 common_sources = [
     source_dir + ih_dir + "command.cc",
     source_dir + ih_dir + "command_queue.cc",
     source_dir + ih_dir + "controller.cc",
     source_dir + ih_dir + "key_binding.cc",
-    source_dir + sg_dir + "real_box.cc",
+    source_dir + nodes_dir + "real_box.cc",
+    source_dir + nodes_dir + "scene_node.cc",
 ]
 
 main_source = [source_dir + "main.cc"]

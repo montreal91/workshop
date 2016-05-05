@@ -7,13 +7,15 @@
 #include <SFML/System/Time.hpp>
 
 #include "category.h"
+#include "src/nodes/scene_node.h"
 
-
+namespace nodes {
 class ESceneNode;
+} // namespace nodes
 
 namespace ih {
 struct EsCommand {
-    typedef std::function<void( ESceneNode&, sf::Time )> Action_t;
+    typedef std::function<void( nodes::ESceneNode&, const sf::Time& )> Action_t;
 
     EsCommand();
     Action_t        action;
@@ -23,7 +25,7 @@ struct EsCommand {
 template <typename GameObject, typename Function>
 EsCommand::Action_t
 FDerivedAction( Function fun ) {
-    return [=]( ESceneNode& node, sf::Time dt) {
+    return [=]( nodes::ESceneNode& node, const sf::Time& dt) {
         // Check if cast safe
         assert( dynamic_cast<GameObject*>( &node ) != nullptr );
 

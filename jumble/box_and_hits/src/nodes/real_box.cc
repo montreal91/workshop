@@ -1,9 +1,15 @@
 
 #include "real_box.h"
 
+
+namespace nodes {
+
+
 const float ERealBox::SCALE = 30.0f;
 
-ERealBox::ERealBox( b2World& world, sf::Texture& box_texture ) {
+ERealBox::ERealBox( b2World& world, sf::Texture& box_texture ) :
+m_id( 0 ),
+m_max_speed( 2.0f ) {
     b2BodyDef BodyDef;
     BodyDef.position    = b2Vec2( 10, 0 );
     BodyDef.type        = b2_dynamicBody;
@@ -24,6 +30,7 @@ ERealBox::ERealBox( b2World& world, sf::Texture& box_texture ) {
     this->UpdateFace();
 }
 
+
 void
 ERealBox::UpdateFace() {
     b2Vec2 pos = this->m_body->GetPosition();
@@ -34,6 +41,23 @@ ERealBox::UpdateFace() {
 void
 ERealBox::SetVelocity(float vx, float vy) {
     this->m_body->SetLinearVelocity( b2Vec2( vx, vy ) );
+}
+
+void
+ERealBox::Accelerate( const b2Vec2& dv ) {
+    this->m_body->SetLinearVelocity(
+        this->m_body->GetLinearVelocity() + dv
+    );
+}
+
+int
+ERealBox::GetIdentifier() const {
+    return this->m_id;
+}
+
+float
+ERealBox::GetMaxSpeed() const {
+    return this->m_max_speed;
 }
 
 void
@@ -49,3 +73,5 @@ void
 ERealBox::draw( sf::RenderTarget& target, sf::RenderStates states ) const {
     target.draw( this->m_face, states );
 }
+
+} // namespace nodes
