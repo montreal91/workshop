@@ -4,11 +4,11 @@
 #include <SFML/Graphics.hpp>
 
 // #include "src/ih/controller.h"
-#include "src/nodes/real_box.h"
+#include "src/nodes/entity.h"
 
 
 /** We need this to easily convert between pixel and real-world coordinates */
-static const float SCALE = 30.0f;
+static const float SCALE = nodes::EEntity::SCALE;
 
 // Create the base for the boxes to land
 void CreateGround(b2World& World, float X, float Y) {
@@ -44,7 +44,7 @@ int main(int argc, char const *argv[]) {
     sf::Texture BoxTexture;
     GroundTexture.loadFromFile("media/sprites/ground.png");
     BoxTexture.loadFromFile("media/sprites/box.png");
-    nodes::ERealBox box(World, BoxTexture);
+    nodes::EEntity box(World, b2_dynamicBody, BoxTexture, 0.5333f, 0.5333f );
     // ih::EKeyBinding binding;
     // ih::EController controller( &binding, 0 );
 
@@ -61,7 +61,7 @@ int main(int argc, char const *argv[]) {
         }
         // controller.HandleRealtimeInput(cq);
         World.Step(1/60.0f, 8, 3);
-        box.UpdateFace();
+        box.Update(sf::seconds(1/60.0f));
 
         Window.clear(sf::Color::White);
         for (b2Body* BodyIterator = World.GetBodyList(); BodyIterator != 0; BodyIterator = BodyIterator->GetNext()) {

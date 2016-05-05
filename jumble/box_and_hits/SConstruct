@@ -23,6 +23,7 @@ common_sources = [
     source_dir + ih_dir + "command_queue.cc",
     source_dir + ih_dir + "controller.cc",
     source_dir + ih_dir + "key_binding.cc",
+    source_dir + nodes_dir + "entity.cc",
     source_dir + nodes_dir + "real_box.cc",
     source_dir + nodes_dir + "scene_node.cc",
     source_dir + nodes_dir + "sprite_node.cc"

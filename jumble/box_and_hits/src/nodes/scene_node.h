@@ -9,8 +9,8 @@
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/System/Time.hpp>
-#include <SFML/Graphics/Transformable.hpp>
 #include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/Transformable.hpp>
 
 #include "src/ih/category.h"
 #include "src/ih/command.h"
