@@ -4,7 +4,7 @@
 
 #include <SFML/Graphics/Texture.hpp>
 
-#include "resource_holder.hpp"
+#include "resource_holder.h"
 
 // rh stands for resource holder
 namespace rh {
@@ -12,7 +12,7 @@ namespace textures {
     enum EeId {
         Box,
         Ground,
-    }
+    };
 } // namespace textures
 
 typedef EtResourceHolder<sf::Texture, textures::EeId> ETextureHolder_t;

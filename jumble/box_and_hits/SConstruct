@@ -14,11 +14,14 @@ flags = [
     "-O3",
 ]
 
-source_dir  = "src/"
+game_dir    = "game/"
 ih_dir      = "ih/"
 nodes_dir   = "nodes/"
+source_dir  = "src/"
 
 common_sources = [
+    source_dir + game_dir + "game.cc",
+    source_dir + game_dir + "world.cc",
     source_dir + ih_dir + "command.cc",
     source_dir + ih_dir + "command_queue.cc",
     source_dir + ih_dir + "controller.cc",
@@ -26,7 +29,7 @@ common_sources = [
     source_dir + nodes_dir + "entity.cc",
     source_dir + nodes_dir + "real_box.cc",
     source_dir + nodes_dir + "scene_node.cc",
-    source_dir + nodes_dir + "sprite_node.cc"
+    source_dir + nodes_dir + "sprite_node.cc",
 ]
 
 main_source = [source_dir + "main.cc"]

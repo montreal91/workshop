@@ -19,14 +19,14 @@ public:
         float phys_width,
         float phys_height
     );
-    void            SetVelocity( const sf::Vector2f& velocity );
+    // void            SetVelocity( const sf::Vector2f& velocity );
     void            SetVelocity( float vx, float vy );
-    void            Accelerate( const sf::Vector2f& dv );
+    void            Accelerate( const b2Vec2& dv );
     void            Accelerate( float dvx, float dvy );
 
     static const float  SCALE;
 
-    sf::Vector2f        GetVelocity() const;
+    b2Vec2          GetVelocity() const;
 
 private:
     static void     CenterOrigin( sf::Sprite* sprite );
@@ -35,7 +35,7 @@ private:
     void            UpdateSprite();
 
 
-    sf::Vector2f    m_velocity;
+    b2Vec2          m_velocity;
     sf::Sprite      m_sprite;
     b2Body*         m_body;
 };

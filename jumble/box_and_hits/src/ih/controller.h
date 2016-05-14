@@ -10,16 +10,17 @@
 
 #include "src/ih/command.h"
 #include "src/ih/command_queue.h"
-#include "src/ih/key_binding.h"
-#include "src/nodes/real_box.h"
+// #include "src/ih/key_binding.h"
+#include "src/nodes/entity.h"
 #include "src/nodes/scene_node.h"
 
 
+// Input Handler
 namespace ih {
 
 class EController : private sf::NonCopyable {
 public:
-    typedef player_action::EeType Action_t;
+    // typedef player_action::EeType Action_t;
 
     enum EeMissionStatus {
         MissionRunning,
@@ -27,21 +28,31 @@ public:
         MissionFailure,
     };
 
-    EController( const EKeyBinding* binding, int id );
+    enum EeAction {
+        Accelerate,
+        Decelerate,
+        RotateClockwise,
+        RotateCounterClockwise,        
+    };
+
+    EController();
 
     void                HandleEvent( const sf::Event& event, ECommandQueue& commands );
     void                HandleRealtimeInput( ECommandQueue& commands );
     void                SetMissionStatus( EeMissionStatus status );
     EeMissionStatus     GetMissionStatus() const;
 
-private:
-    void InitializeActions();
+    void                AssignKey( EeAction action, sf::Keyboard::Key key );
+    sf::Keyboard::Key   GetAssignedKey( EeAction action ) const;
 
-    const EKeyBinding*              m_key_binding;
-    std::map<Action_t, EsCommand>   m_action_binding;
-    std::map<Action_t, bool>        m_action_proxies;
-    EeMissionStatus                 m_current_mission_status;
-    int                             m_id;
+private:
+    void            InitializeActions();
+    static bool     IsRealtimeAction( EeAction action );
+
+    std::map<sf::Keyboard::Key, EeAction>   m_key_binding;
+    std::map<EeAction, EsCommand>           m_action_binding;
+
+    EeMissionStatus                         m_current_mission_status;
 };
 
 } // namespace ih

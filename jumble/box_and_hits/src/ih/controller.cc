@@ -4,25 +4,19 @@
 
 namespace ih {
 struct EsBoxMover {
-    EsBoxMover( float vx, float vy, int identifier ):
-    velocity( vx, vy ),
-    box_id( identifier ) {}
+    EsBoxMover( float vx, float vy ):
+    velocity( vx, vy ) {}
 
-    void operator() ( nodes::ERealBox& box, sf::Time dt ) const {
-        if ( box_id == box.GetIdentifier() ) {
-            b2Vec2 dv;
-            dv.x = velocity.x * box.GetMaxSpeed();
-            dv.y = velocity.y * box.GetMaxSpeed();
-            box.Accelerate( dv );
-        }
+    void operator() ( nodes::EEntity& box, sf::Time dt ) const {
+        box.Accelerate( velocity );
     }
     b2Vec2 velocity;
-    int box_id;
 };
 
-EController::EController( const EKeyBinding* binding, int id ) :
-m_current_mission_status( MissionRunning ),
-m_id( id ) {
+EController::EController() :
+m_current_mission_status( MissionRunning ) {
+    this->m_key_binding[sf::Keyboard::Up] = Accelerate;
+    this->m_key_binding[sf::Keyboard::Down] = Decelerate;
     this->InitializeActions();
 
     for ( auto& pair : this->m_action_binding ) {
@@ -33,16 +27,19 @@ m_id( id ) {
 void
 EController::HandleEvent( const sf::Event& event, ECommandQueue& commands ) {
     if ( event.type == sf::Event::KeyPressed ) {
-        Action_t action;
-        commands.Push( this->m_action_binding[action] );
+        auto found = this->m_key_binding.find( event.key.code );
+        if ( found != this->m_key_binding.end() && !IsRealtimeAction( found->second ) ) {
+            commands.Push( this->m_action_binding[found->second]);
+        }
     }
 }
 
 void
 EController::HandleRealtimeInput( ECommandQueue& commands ) {
-    std::vector<Action_t> active_actions = this->m_key_binding->GetActiveRealtimeActions();
-    for ( auto action : active_actions ) {
-        commands.Push( this->m_action_binding[action] );
+    for ( auto pair : this->m_key_binding ) {
+        if ( sf::Keyboard::isKeyPressed( pair.first ) && IsRealtimeAction( pair.second ) ) {
+            commands.Push( this->m_action_binding[pair.second] );
+        }
     }
 }
 
@@ -57,14 +54,49 @@ EController::GetMissionStatus() const {
 }
 
 void
+EController::AssignKey( EeAction action, sf::Keyboard::Key key ) {
+    // Remove all keys that already map to action
+    // TODO: create two separate methods for these operations
+    for ( auto i = this->m_key_binding.begin(); i != this->m_key_binding.end(); ) {
+        if ( i->second == action ) this->m_key_binding.erase( i++ );
+        else ++i;
+    }
+    // Insert new binding
+    this->m_key_binding[key] = action;
+}
+
+sf::Keyboard::Key
+EController::GetAssignedKey( EeAction action ) const {
+    for ( auto pair : this->m_key_binding ) {
+        if ( pair.second == action ) return pair.first;
+    }
+    return sf::Keyboard::Unknown;
+}
+
+void
 EController::InitializeActions() {
-    this->m_action_binding[player_action::MoveForward].action = FDerivedAction<nodes::ERealBox> (
-        EsBoxMover( -1, 0, this->m_id )
+    this->m_action_binding[Accelerate].action = FDerivedAction<nodes::EEntity> (
+        EsBoxMover( -1, 0 )
     );
 
-    this->m_action_binding[player_action::MoveBackward].action = FDerivedAction<nodes::ERealBox> (
-        EsBoxMover( +1, 0, this->m_id )
+    this->m_action_binding[Decelerate].action = FDerivedAction<nodes::EEntity> (
+        EsBoxMover( +1, 0 )
     );
 }
+
+bool
+EController::IsRealtimeAction( EeAction action ) {
+    switch ( action ) {
+        case Accelerate:
+        case Decelerate:
+        // case RotateClockwise:
+        // case RotateCounterClockwise:
+        // case ActivateWeapon:
+            return true;
+        default:
+            return false;
+    }
+}
+
 
 } // namespace ih

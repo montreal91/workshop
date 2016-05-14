@@ -1,6 +1,6 @@
 
 // rh stands for resource holder
-namespace rh {
+// namespace rh {
 template <typename Resource, typename Identifier>
 void
 EtResourceHolder<Resource, Identifier>::Load(
@@ -65,4 +65,4 @@ EtResourceHolder<Resource, Identifier>::InsertResource(
     assert( inserted.second );
 }
 
-} // rh
+// } // rh

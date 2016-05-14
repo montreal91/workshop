@@ -33,10 +33,10 @@ m_velocity() {
     this->UpdateSprite();
 }
 
-void
-EEntity::SetVelocity( const sf::Vector2f& velocity ) {
-    this->m_velocity = velocity;
-}
+// void
+// EEntity::SetVelocity( const sf::Vector2f& velocity ) {
+//     this->m_velocity = velocity;
+// }
 
 void
 EEntity::SetVelocity( float vx, float vy ) {
@@ -45,7 +45,7 @@ EEntity::SetVelocity( float vx, float vy ) {
 }
 
 void
-EEntity::Accelerate( const sf::Vector2f& dv ) {
+EEntity::Accelerate( const b2Vec2& dv ) {
     this->m_velocity += dv;
 }
 
@@ -55,7 +55,7 @@ EEntity::Accelerate( float dvx, float dvy ) {
     this->m_velocity.y += dvy;
 }
 
-sf::Vector2f
+b2Vec2
 EEntity::GetVelocity() const {
     return this->m_velocity;
 }
