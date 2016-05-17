@@ -8,6 +8,7 @@ struct EsBoxMover {
     velocity( vx, vy ) {}
 
     void operator() ( nodes::EEntity& box, sf::Time dt ) const {
+        std::cout << "a";
         box.Accelerate( velocity );
     }
     b2Vec2 velocity;
@@ -36,6 +37,7 @@ EController::HandleEvent( const sf::Event& event, ECommandQueue& commands ) {
 
 void
 EController::HandleRealtimeInput( ECommandQueue& commands ) {
+    // std::cout << "r";
     for ( auto pair : this->m_key_binding ) {
         if ( sf::Keyboard::isKeyPressed( pair.first ) && IsRealtimeAction( pair.second ) ) {
             commands.Push( this->m_action_binding[pair.second] );
@@ -76,11 +78,11 @@ EController::GetAssignedKey( EeAction action ) const {
 void
 EController::InitializeActions() {
     this->m_action_binding[Accelerate].action = FDerivedAction<nodes::EEntity> (
-        EsBoxMover( -1, 0 )
+        EsBoxMover( -0, 1 )
     );
 
     this->m_action_binding[Decelerate].action = FDerivedAction<nodes::EEntity> (
-        EsBoxMover( +1, 0 )
+        EsBoxMover( +0, -1 )
     );
 }
 

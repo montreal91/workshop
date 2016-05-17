@@ -10,7 +10,7 @@
 // /** We need this to easily convert between pixel and real-world coordinates */
 // static const float SCALE = nodes::EEntity::SCALE;
 
-// // Create the base for the boxes to land
+// Create the base for the boxes to land
 // void CreateGround(b2World& World, float X, float Y) {
 //     b2BodyDef BodyDef;
 //     BodyDef.position = b2Vec2(X/SCALE, Y/SCALE);

@@ -1,6 +1,9 @@
 
 #pragma once
 
+
+#include <iostream>
+
 #include <Box2D/Box2D.h>
 
 #include <SFML/Graphics/Sprite.hpp>
@@ -14,10 +17,11 @@ class EEntity : public ESceneNode {
 public:
     explicit        EEntity(
         b2World& world,
-        const b2BodyType body_type,
+        const b2BodyType& body_type,
         sf::Texture& texture,
         float phys_width,
-        float phys_height
+        float phys_height,
+        const b2Vec2& position
     );
     // void            SetVelocity( const sf::Vector2f& velocity );
     void            SetVelocity( float vx, float vy );

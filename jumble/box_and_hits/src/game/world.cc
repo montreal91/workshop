@@ -16,21 +16,21 @@ m_player_box( nullptr ) {
 
 void
 EWorld::Update( const sf::Time& dt ) {
-    this->m_physical_world.Step( 1 / 60, 8, 3 );
+    this->m_physical_world.Step( 1 / 60.0f, 8, 3 );
 
     while ( !this->m_command_queue.IsEmpty() ) {
         this->m_scene_graph.OnCommand( this->m_command_queue.Pop(), dt );
     }
-
     this->m_scene_graph.Update( dt );
 }
 
 void
 EWorld::Draw() {
     // std::cout << "2";
-    this->m_window.clear(sf::Color::Black);
-    // this->m_window.setView( this->m_world_view );
-    // this->m_window.draw( this->m_scene_graph );
+    this->m_window.setView( this->m_world_view );
+    this->m_window.clear(sf::Color::White);
+    this->m_window.draw( this->m_scene_graph );
+    this->m_window.display();
 }
 
 ih::ECommandQueue&
@@ -57,11 +57,25 @@ EWorld::BuildScene() {
             this->m_physical_world,
             b2_dynamicBody,
             this->m_textures.Get(rh::textures::Box),
-            0.5333f, 0.5333f));
+            0.5333f, 0.5333f,
+            b2Vec2(10, 10)
+        )
+    );
     this->m_player_box = pb.get();
     // this->m_player_box->SetPosition(mSpawnPosition);
     // mSceneLayers[Air]->attachChild(std::move(pb));
-    this->m_scene_graph.AttachChild( std::move(pb ) );
-}
+    this->m_scene_graph.AttachChild( std::move( pb ) );
 
+    std::unique_ptr<nodes::EEntity> ground(
+        new nodes::EEntity(
+            this->m_physical_world,
+            b2_staticBody,
+            this->m_textures.Get( rh::textures::Ground ),
+            400.0f / nodes::EEntity::SCALE, // size
+            8.0f / nodes::EEntity::SCALE,
+            b2Vec2(400.0f / 30.0f, 500.0f / 30.0f)
+        )
+    );
+    this->m_scene_graph.AttachChild( std::move( ground ) );
+}
 } // namespace ee

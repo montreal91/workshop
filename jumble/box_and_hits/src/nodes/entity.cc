@@ -8,13 +8,14 @@ const float EEntity::SCALE = 30.0f;
 
 EEntity::EEntity(
     b2World& world,
-    const b2BodyType body_type,
+    const b2BodyType& body_type,
     sf::Texture& texture,
     float phys_width,
-    float phys_height ) :
+    float phys_height,
+    const b2Vec2& position ) :
 m_velocity() {
     b2BodyDef BodyDef;
-    BodyDef.position    = b2Vec2( 10, 0 );
+    BodyDef.position    = position;
     BodyDef.type        = body_type;
 
     this->m_body        = world.CreateBody( &BodyDef );
@@ -28,8 +29,14 @@ m_velocity() {
     this->m_body->CreateFixture( &FixtureDef );
 
     this->m_sprite.setTexture( texture );
-    this->CenterOrigin( &this->m_sprite );
 
+    // AD-HOC solution.
+    // Probably, the problem is with the size of the ground body
+    if ( body_type == b2_dynamicBody ) {
+        this->CenterOrigin( &this->m_sprite );
+    } else {
+        this->m_sprite.setOrigin(400.0f, 8.0f);
+    }
     this->UpdateSprite();
 }
 
@@ -46,7 +53,9 @@ EEntity::SetVelocity( float vx, float vy ) {
 
 void
 EEntity::Accelerate( const b2Vec2& dv ) {
+    std::cout << "e";
     this->m_velocity += dv;
+    this->m_body->SetLinearVelocity( this->m_velocity );
 }
 
 void

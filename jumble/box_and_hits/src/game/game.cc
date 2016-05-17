@@ -17,20 +17,21 @@ EGame::Run() {
     sf::Clock clock;
     sf::Time time_since_last_update = sf::Time::Zero;
     while ( this->m_window.isOpen() ) {
-        sf::Time dt = clock.restart();
-        time_since_last_update += dt;
-        if ( time_since_last_update >= TimePerFrame ) {
-            this->Update( TimePerFrame );
+        sf::Time elapsed_time = clock.restart();
+        time_since_last_update += elapsed_time;
+        while ( time_since_last_update > TimePerFrame ) {
+            time_since_last_update -= TimePerFrame;
             this->ProcessInput();
-            this->Render();
+            this->Update( TimePerFrame ); // ???
         }
+        this->Render();
     }
 }
 
 void
 EGame::ProcessInput() {
     ih::ECommandQueue& commands = this->m_world.GetCommandQueue();
-
+    std::cout << "p";
     sf::Event event;
     while ( this->m_window.pollEvent( event ) ) {
         this->m_controller.HandleEvent( event, commands );
@@ -38,18 +39,11 @@ EGame::ProcessInput() {
         if ( event.type == sf::Event::Closed ) {
             this->m_window.close();
         }
-
-        // Debug code
-        if ( event.key.code == sf::Keyboard::C ) {
-            std::cout << "B\n";
-            sf::CircleShape shape(100.f);
-            shape.setFillColor(sf::Color::Green);
-            this->m_window.clear();
-            this->m_window.draw( shape );
-        }
-
         if ( event.key.code == sf::Keyboard::Escape ) {
             this->m_window.close();
+        }
+        if ( event.key.code == sf::Keyboard::P ) {
+            std::cout << "q";
         }
     }
     this->m_controller.HandleRealtimeInput( commands );
@@ -62,12 +56,6 @@ EGame::Update( const sf::Time& dt ) {
 
 void
 EGame::Render() {
-    this->m_window.clear(sf::Color::Black);
-    // std::cout << "1";
-    // this->m_world.Draw();
-
-    // this->m_window.setView( m_window.getDefaultView() );
-    // this->m_window.dra
+    this->m_world.Draw();
 }
-
 } // namespace ee
