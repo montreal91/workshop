@@ -1,0 +1,26 @@
+
+libs = [
+    "sfml-graphics",
+    "sfml-window",
+    "sfml-system",
+]
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+    "-O3",
+]
+
+sources = [
+    "main.cc",
+    "game.cc",
+]
+
+env = Environment( CXX="clang++" )
+
+env.Program(
+    target="cw3",
+    source=sources,
+    CXXFLAGS=flags,
+    LIBS=libs
+)
