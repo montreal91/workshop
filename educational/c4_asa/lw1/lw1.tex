@@ -1,0 +1,428 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath,amssymb,amsopn,amsthm}
+\usepackage{graphicx,import}
+\usepackage{color}
+\usepackage[english,russian]{babel}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage[titletoc,toc,page]{appendix}
+\usepackage{listings}
+ \textwidth=17cm
+ \textheight=26cm
+ \topmargin=-1cm
+ \oddsidemargin=0cm
+ \headheight=0cm
+ \newcommand{\sectionbreak}{\clearpage}
+ \renewcommand{\appendixtocname}{Приложение}
+ \renewcommand{\appendixpagename}{Приложение}
+ 
+\lstset{
+    breaklines=true,
+    basicstyle=\ttfamily,
+     postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+  МИНОБРНАУКИ РОССИИ\\
+  Федеральное государственное бюджетное образовательное учреждение\\ высшего образования\\
+
+\bfseries \flqq Челябинский государственный университет\frqq \\
+\bfseries (ФГБОУ ВО \flqq ЧелГУ\frqq) \\[0.7cm]
+
+Математический факультет\\
+Кафедра теории управления и оптимизации\\[3.4cm]
+\large\bfseries ЛАБОРАТОРНАЯ РАБОТА\\[1cm]
+\textit{\large\bfseries{Первичная обработка статистических данных\\[2cm]}}
+
+{\footnotesize
+\begin{tabular}[t]{lllllllllllllllllll}
+& & & & & & & & & & & & & & & & &   Выполнил студент       &   Нефедов А.Ю.   \\
+& & & & & & & & & & & & & & & & &   академическая группа   &   МП-401        \\
+& & & & & & & & & & & & & & & & &   курс                   &   IV            \\
+& & & & & & & & & & & & & & & & &   форма обучения         &   очная         \\
+& & & & & & & & & & & & & & & & &   направление подготовки &   Прикладная математика    \\
+& & & & & & & & & & & & & & & & &                          &    и информатика              \\
+& & & & & & & & & & & & & & & & &   подпись                &   \rule{3.3cm}{0.01cm}\\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &   дата                   &   "\rule{0,7cm}{0.01cm}"\rule{1cm}{0.01cm} 2017 г.\\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &   Научный руководитель   &   Никитина С. А.\\
+& & & & & & & & & & & & & & & & &   Должность              &   доцент     \\
+& & & & & & & & & & & & & & & & &                          &   кафедры ТУиО  \\
+& & & & & & & & & & & & & & & & &   Ученая степень         &   кандидат ф.-м.н.\\
+& & & & & & & & & & & & & & & & &   Ученое звание          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &   подпись                &  \rule{3.3cm}{0.01cm}\\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &   дата                   &  "\rule{0,7cm}{0.01cm}"\rule{1cm}{0.01cm} 2017 г.     \\
+
+\end{tabular}
+\\[1.5cm]}
+
+\small{Челябинск}\\
+\small{2017}
+\end{center}
+\end{titlepage}
+\tableofcontents
+\section{Введение}
+  \par
+  Исходными данными для лабораторной работы является выборочные данные по РФ за 2012 год Российского мониторинга экономического положения и здоровья населения НИУ-ВШЭ (RLMS-HSE)», проводимого Национальным исследовательским университетом - Высшей школой экономики и ЗАО «Демоскоп» при участии Центра народонаселения Университета Северной Каролины в Чапел Хилле и Института социологии РАН.
+
+  \par
+  Целью данной лабораторной работы является проведение предварительного анализа выборки, определение ее основных характеристик, их интерпретации, подготовки данных для дальнейших исследований.
+  Исследование проводится с помощью языка программирования для статистической обработки данных R.
+
+\section{Подготовка данных к работе}
+  Исходные данные представлены в Excel.
+  Перед тем, как загружать их в рабочее пространство пакета R, необходимо:
+  \begin{enumerate}
+    \item Выделить данные своего варианта из общего массива данных.
+    \item Подключить пакет $xlsx$.
+    \item Подключить библиотеку $moments$.
+  \end{enumerate}
+
+  После чего можно загрузить данные в рабочее пространство пакета R с помощью команды
+  \begin{lstlisting}
+    data.table <- read.xlsx("my_data.xls", head=TRUE, sheetName="my_sheet")
+  \end{lstlisting}
+
+  Функция $read.xlsx$ сформирует таблицу на основе данных, которые находятся в файле $my\_data.xls$ и запишет в переменную $data.table$.
+  Далее командами, аналогичными
+  \begin{lstlisting}
+    salaries = sort(data.table[[1]])
+  \end{lstlisting}
+  нужно разделить таблицу на сортированные столбцы. 
+\clearpage
+
+\section{Зарплата}
+  \begin{figure}
+    \includegraphics{hist_col_1}
+    \caption{Гистограмма зарплат}
+    \label{salary_hist}
+  \end{figure}
+  Чтобы получить гистограмму зарплат, необходимо выполнить команду.
+  Результать работы команды можно видеть на рисунке \ref{salary_hist}
+  \begin{lstlisting}
+    hist(salaries)
+  \end{lstlisting}
+
+
+  Выборочное среднее
+  \begin{lstlisting}
+    mean(salaries)
+    [1] 16850.9
+  \end{lstlisting}
+
+  Выборочная дисперсия
+  \begin{lstlisting}
+    var(salaries)
+    [1] 182402990
+  \end{lstlisting}
+
+  Выборочное среднеквадратичное отклонение
+  \begin{lstlisting}
+    sd(salaries)
+    [1] 13505.67
+  \end{lstlisting}
+
+  Медиана
+  \begin{lstlisting}
+    median(salaries)
+    [1] 14000
+  \end{lstlisting}
+
+  Мода
+  \begin{lstlisting}
+    sort(unique(salaries))[which.max(salaries.t)]
+    [1] 15000
+  \end{lstlisting}
+
+  Выборочный коэффициент ассиметрии
+  \begin{lstlisting}
+    skewness(salaries)
+    [1] 3.773138
+  \end{lstlisting}
+
+  Эксцесс
+  \begin{lstlisting}
+    kurtosis(salaries)
+    [1] 34.06756
+  \end{lstlisting}
+
+  Также для зарплат необходимо проверить гипотезы о законе распределения (нормальном и логнормальном).
+
+  Прежде всего, необходимо найти квантиль распределения $\chi^2$.
+  \begin{lstlisting}
+    qchisq(0.01, length(salaries) - 1)
+    [1] 2821.778
+  \end{lstlisting}
+
+  Далее выполняются тесты для проверки гипотез о нормальном и логнормальном законе распределения соответственно.
+  \begin{lstlisting}
+    > chisq.test(salaries, y=NULL, p = rep(1/length(salaries), length(salaries)))
+
+    Chi-squared test for given probabilities
+
+    data:  salaries
+    X-squared = 32462755, df = 2999, p-value < 2.2e-16
+
+    >
+    > chisq.test(log(salaries), y=NULL, p = rep(1/length(salaries), length(salaries)))
+
+    Chi-squared test for given probabilities
+
+    data:  log(salaries)
+    X-squared = 169.4347, df = 2999, p-value = 1
+  \end{lstlisting}
+
+  По результатам проведения теста, в первом случае значение $\chi^2 = 32462755$, что многократно превышает допустимое значение на несколько порядков, поэтому гипотезу о том, что зарплаты имеют нормальное распределение принимать нельзя.
+  Во втором случае $\chi^2 = 169.4347$, что намного меньше полученного выше критического значения, поэтому гипотезу о том, что логарифмы зарплат распределены нормально (сами зарплаты имеют логнормальное распределение), необходимо принять.
+
+  Чтобы найти доверительный интервал для выборочного среднего, необходимо выполнить следующую команду:
+
+  \begin{lstlisting}
+    > t.test(log(salaries), conf.level=0.99)
+
+    One Sample t-test
+
+    data:  log(salaries)
+    t = 709.7113, df = 2999, p-value < 2.2e-16
+    alternative hypothesis: true mean is not equal to 0
+    99 percent confidence interval:
+    9.451223 9.520122
+    sample estimates:
+    mean of x 
+    9.485672
+  \end{lstlisting}
+
+\section{Образование}
+  \begin{figure}
+    \includegraphics{hist_education}
+    \caption{Гистограмма образования}
+    \label{education_hist}
+  \end{figure}
+
+  Гистограмма (рис \ref{education_hist})
+  \begin{lstlisting}
+    hist(education)
+  \end{lstlisting}
+
+
+  Выборочное среднее
+  \begin{lstlisting}
+    mean(education)
+    [1] 16.84367
+  \end{lstlisting}
+
+  Выборочная дисперсия
+  \begin{lstlisting}
+    var(education)
+    [1] 14.76948
+  \end{lstlisting}
+
+  Выборочное среднеквадратичное отклонение
+  \begin{lstlisting}
+    sd(education)
+    [1] 3.843109
+  \end{lstlisting}
+
+  Медиана
+  \begin{lstlisting}
+    median(education)
+    [1] 18
+  \end{lstlisting}
+
+  Мода
+  \begin{lstlisting}
+    sort(unique(education))[which.max(education.t)]
+    [[1] 21
+  \end{lstlisting}
+
+  Выборочный коэффициент ассиметрии
+  \begin{lstlisting}
+    skewness(education)
+    [1] -0.6632536
+  \end{lstlisting}
+
+  Эксцесс
+  \begin{lstlisting}
+    kurtosis(education)
+    [1] 2.543895
+  \end{lstlisting}
+
+\section{Опыт работы}
+  \begin{figure}
+    \includegraphics{hist_experience}
+    \caption{Гистограмма образования}
+    \label{experience_hist}
+  \end{figure}
+
+  Гистограмма (рис \ref{experience_hist})
+  \begin{lstlisting}
+    hist(experience)
+  \end{lstlisting}
+
+  Выборочное среднее
+  \begin{lstlisting}
+    mean(experience)
+    [1] 19.52033
+  \end{lstlisting}
+
+  Выборочная дисперсия
+  \begin{lstlisting}
+    var(experience)
+    [1] 146.1917
+  \end{lstlisting}
+
+  Выборочное среднеквадратичное отклонение
+  \begin{lstlisting}
+    sd(experience)
+    [1] 12.09097
+  \end{lstlisting}
+
+  Медиана
+  \begin{lstlisting}
+    median(experience)
+    [1] 18
+  \end{lstlisting}
+
+  Мода
+  \begin{lstlisting}
+    sort(unique(experience))[which.max(experience.t)]
+    [1] 18
+  \end{lstlisting}
+
+  Выборочный коэффициент ассиметрии
+  \begin{lstlisting}
+    skewness(experience)
+    [1] 0.3174265
+  \end{lstlisting}
+
+  Эксцесс
+  \begin{lstlisting}
+    kurtosis(experience)
+    [1] 2.312857
+  \end{lstlisting}
+
+\section{Численность населенного пункта}
+  \begin{figure}
+    \includegraphics{hist_population}
+    \caption{Гистограмма численности населенного пункта}
+    \label{population_hist}
+  \end{figure}
+
+  Гистограмма (рис \ref{population_hist})
+  \begin{lstlisting}
+    hist(population)
+  \end{lstlisting}
+
+  Выборочное среднее
+  \begin{lstlisting}
+    mean(population)
+    [1] 903962.6
+  \end{lstlisting}
+
+  Выборочная дисперсия
+  \begin{lstlisting}
+    var(population)
+    [1] 6.09288e+12
+  \end{lstlisting}
+
+  Выборочное среднеквадратичное отклонение
+  \begin{lstlisting}
+    sd(population)
+    [1] 2468376
+  \end{lstlisting}
+
+  Медиана
+  \begin{lstlisting}
+    median(population)
+    [1] 95854
+  \end{lstlisting}
+
+  Мода
+  \begin{lstlisting}
+    sort(unique(population))[which.max(population.t)]
+    [1] 11503501
+  \end{lstlisting}
+
+  Выборочный коэффициент ассиметрии
+  \begin{lstlisting}
+    skewness(population)
+    [1] 3.831788
+  \end{lstlisting}
+
+  Эксцесс
+  \begin{lstlisting}
+    kurtosis(population)
+    [1] 16.43082
+  \end{lstlisting}
+
+\section{Возраст}
+  \begin{figure}
+    \includegraphics{hist_age}
+    \caption{Гистограмма возрастов}
+    \label{age_hist}
+  \end{figure}
+
+  Гистограмма (рис \ref{age_hist})
+  \begin{lstlisting}
+    hist(age)
+  \end{lstlisting}
+
+  Выборочное среднее
+  \begin{lstlisting}
+    mean(age)
+    [1] 40.737
+  \end{lstlisting}
+
+  Выборочная дисперсия
+  \begin{lstlisting}
+    var(age)
+    [1] 143.8931
+  \end{lstlisting}
+
+  Выборочное среднеквадратичное отклонение
+  \begin{lstlisting}
+    sd(age)
+    [1] 11.99555
+  \end{lstlisting}
+
+  Медиана
+  \begin{lstlisting}
+    median(age)
+    [1] 40
+  \end{lstlisting}
+
+  Мода
+  \begin{lstlisting}
+    sort(unique(age))[which.max(age.t)]
+    [1] 34
+  \end{lstlisting}
+
+  Выборочный коэффициент ассиметрии
+  \begin{lstlisting}
+    skewness(age)
+    [1] 0.3110832
+  \end{lstlisting}
+
+  Эксцесс
+  \begin{lstlisting}
+    kurtosis(age)
+    [1] 2.295483
+  \end{lstlisting}
+
+\section{Заключение}
+  Из проведённых исследований следует грустный вывод.
+  Размеры зарплат распределены логнормально, а образование, опыт и возраст, нормально, следовательно, размер зарплат от этих показателей практически не зависит.
+  Размер зарплат имеет большой эксцесс; это означает, что очень малое количество людей имеет очень большую зарплату и очень большое количество людей малую зарплату.
+  Соотношение средней заработной платы и максимальной в выборке оставляет желать лучшего.
+\end{document}
