@@ -59,12 +59,18 @@ class NetworkGateway extends Thread {
         this.out.flush();
 
         String returned_xml;
+        ClientRequest request;
 
         while (this.cubbyhole.IsClientRunning()) {
             if (this.in.available() > 0) {
                 returned_xml = in.readUTF();
                 this.response = ServerResponse.ConvertFromXml(returned_xml);
                 this.cubbyhole.PutServerResponse(this.response);
+            }
+            request = this.cubbyhole.GetClientRequest();
+            if (request != null) {
+                this.out.writeUTF(ClientRequest.ConvertToXml(request));
+                this.out.flush();
             }
         }
         this.DisconnectFromServer();

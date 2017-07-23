@@ -3,12 +3,14 @@ package common;
 
 import java.io.StringReader;
 import java.io.StringWriter;
+import java.util.ArrayList;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.transform.stream.StreamResult;
 
@@ -22,24 +24,33 @@ import server.PakmanServer;
 @XmlRootElement
 public class ServerResponse {
     @XmlAttribute
-    private int x;
+    private int               x;
 
     @XmlAttribute
-    private int y;
+    private int               y;
 
     @XmlAttribute
-    private int score;
+    private int               score;
+
+    @XmlElement
+    private Vector            size;
+
+    @XmlElement
+    private ArrayList<Vector> walls;
 
     public ServerResponse() {
         this.x = Integer.MIN_VALUE;
         this.y = Integer.MIN_VALUE;
         this.score = Integer.MIN_VALUE;
+        this.size = new Vector();
+        this.walls = new ArrayList<Vector>();
     }
 
-    public ServerResponse(int x, int y, int score) {
+    public ServerResponse(int x, int y, int score, Vector size) {
         this.x = x;
         this.y = y;
         this.score = score;
+        this.size = size;
     }
 
     public int GetX() {
@@ -52,6 +63,18 @@ public class ServerResponse {
 
     public int GetScore() {
         return this.score;
+    }
+
+    public Vector GetSize() {
+        return this.size;
+    }
+
+    public ArrayList<Vector> GetWalls() {
+        return this.walls;
+    }
+
+    public void SetWalls(ArrayList<Vector> walls) {
+        this.walls = walls;
     }
 
     public static String ConvertToXml(ServerResponse server_response) throws JAXBException {
