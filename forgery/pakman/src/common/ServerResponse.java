@@ -24,6 +24,9 @@ import server.PakmanServer;
 @XmlRootElement
 public class ServerResponse {
     @XmlElement
+    private ArrayList<Vector> cookies;
+
+    @XmlElement
     private Vector            position;
 
     @XmlAttribute
@@ -40,6 +43,7 @@ public class ServerResponse {
         this.score = Integer.MIN_VALUE;
         this.size = new Vector();
         this.walls = new ArrayList<Vector>();
+        this.cookies = new ArrayList<Vector>();
     }
 
     public ServerResponse(Vector position, int score, Vector size) {
@@ -47,6 +51,11 @@ public class ServerResponse {
         this.score = score;
         this.size = size;
         this.walls = new ArrayList<Vector>();
+        this.cookies = new ArrayList<Vector>();
+    }
+
+    public ArrayList<Vector> GetCookies() {
+        return this.cookies;
     }
 
     public Vector GetPosition() {
@@ -63,6 +72,10 @@ public class ServerResponse {
 
     public ArrayList<Vector> GetWalls() {
         return this.walls;
+    }
+
+    public void SetCookies(ArrayList<Vector> cookies) {
+        this.cookies = cookies;
     }
 
     public void SetWalls(ArrayList<Vector> walls) {

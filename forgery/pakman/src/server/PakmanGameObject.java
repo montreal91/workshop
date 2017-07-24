@@ -16,24 +16,30 @@ import common.Vector;
 public class PakmanGameObject {
     private final char        COMMENT  = '#';
 
+    private ArrayList<Vector> cookies;
+    private Vector            initial_position;
+
     /**
      * Time in server ticks
      */
     private int               movement_time;
 
     private Directions        pakman_direction;
-
     private Vector            pakman_position;
     private int               pakman_speed;
-    private final int         POSITION = 1000;
 
+    private final int         POSITION = 1000;
+    private int               score;
     private Vector            size;
     private final int         SIZE     = 1011;
     private final int         SPEED    = 1111;
+
     private final int         WALL     = 1010;
+
     private ArrayList<Vector> walls;
 
     public PakmanGameObject() {
+        this.score = 0;
         this.walls = new ArrayList<Vector>();
         this.pakman_direction = Directions.NONE;
         try {
@@ -69,14 +75,20 @@ public class PakmanGameObject {
                     this.pakman_speed = PakmanGameObject.GetIntFromConfigLine(line);
                 } else if (next == this.POSITION) {
                     this.pakman_position = PakmanGameObject.GetVectorFromConfigLine(line);
+                    this.initial_position = new Vector(this.pakman_position);
                 } else {
                     continue;
                 }
             }
+            this.CreateCookies();
             br.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public ArrayList<Vector> GetCookies() {
+        return this.cookies;
     }
 
     public Directions GetPakmanDirection() {
@@ -87,12 +99,22 @@ public class PakmanGameObject {
         return this.pakman_position;
     }
 
+    public int GetScore() {
+        return this.score;
+    }
+
     public Vector GetSize() {
         return this.size;
     }
 
     public ArrayList<Vector> GetWalls() {
         return this.walls;
+    }
+
+    public void Restart() {
+        this.pakman_position = new Vector(this.initial_position);
+        this.CreateCookies();
+        this.score = 0;
     }
 
     public void SetPakmanDirection(Directions direction) {
@@ -114,14 +136,39 @@ public class PakmanGameObject {
                 this.pakman_position = next_pos;
                 this.movement_time = 0;
             }
-
         }
+        this.EatCookie();
         this.AddMovementTick();
     }
 
     private void AddMovementTick() {
         if (this.pakman_direction != Directions.NONE) {
             this.movement_time++;
+        }
+    }
+
+    private void CreateCookies() {
+        this.cookies = new ArrayList<Vector>();
+        for (int x = 0; x < this.size.GetX(); x++) {
+            for (int y = 0; y < this.size.GetY(); y++) {
+                Vector cookie = new Vector(x, y);
+                if (!this.IsPointWall(cookie)) {
+                    this.cookies.add(cookie);
+                }
+            }
+        }
+
+    }
+
+    private void EatCookie() {
+        Vector cookie;
+        for (int i = 0; i < this.cookies.size(); i++) {
+            cookie = this.cookies.get(i);
+            if (cookie.GetX() == this.pakman_position.GetX() && cookie.GetY() == this.pakman_position.GetY()) {
+                this.cookies.remove(i);
+                this.score++;
+                return;
+            }
         }
     }
 

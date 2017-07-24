@@ -39,7 +39,7 @@ public class PakmanServer {
     /**
      * Time step in milliseconds
      */
-    private final int        TIME_STEP     = 20;
+    private final int        TIME_STEP     = 50;
 
     public PakmanServer() {
         this.port = 54321;
@@ -85,6 +85,7 @@ public class PakmanServer {
         } else if (request.GetAction().equals(ClientActions.RESTART.GetAction())) {
             this.start_time = this.clock.millis();
             this.ticks = 0;
+            this.pakman.Restart();
         } else if (request.GetAction().equals(ClientActions.MOVE.GetAction())) {
             this.ProcessDirectionRequest(request);
         }
@@ -129,12 +130,13 @@ public class PakmanServer {
     private void SendResponse() throws IOException, JAXBException {
         if (!this.cl_socket.isClosed()) {
             ServerResponse response = new ServerResponse(
-                    this.pakman.GetPakmanPosition(), this.ticks, this.pakman.GetSize()
+                    this.pakman.GetPakmanPosition(), this.pakman.GetScore(), this.pakman.GetSize()
             );
             if (this.first_request) {
                 response.SetWalls(this.pakman.GetWalls());
                 this.first_request = false;
             }
+            response.SetCookies(this.pakman.GetCookies());
             this.out.writeUTF(ServerResponse.ConvertToXml(response));
             this.out.flush();
         }

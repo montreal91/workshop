@@ -5,7 +5,7 @@ size:
 
 # Number of ticks per one step
 speed:
-30
+10
 
 position:
 1;1

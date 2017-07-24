@@ -25,12 +25,15 @@ import common.Vector;
 class Render extends Thread {
 
     private Clock           clock;
+    private final Color     COOKIE_COLOR = Color.orange;
+    private final Vector    COOKIE_SIZE  = new Vector(5, 5);
+    private ArrayList<Quad> cookies;
     private CubbyHole       cubbyhole;
     private boolean         is_running;
+
     private Quad            pakman;
     private final Color     PAKMAN_COLOR = Color.yellow;
     private final Vector    PAKMAN_SIZE  = new Vector(17, 17);
-
     private ServerResponse  response;
     private final int       SCALE        = 25;
     private Text            text;
@@ -44,6 +47,7 @@ class Render extends Thread {
         this.clock = Clock.systemUTC();
         this.response = new ServerResponse();
         this.walls = new ArrayList<Quad>();
+        this.cookies = new ArrayList<Quad>();
         this.InitPakman();
     }
 
@@ -68,7 +72,7 @@ class Render extends Thread {
                     return;
                 }
             }
-            GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
+
             this.response = this.cubbyhole.GetServerResponse();
             if (this.response != null) {
                 this.SetupWalls();
@@ -84,9 +88,17 @@ class Render extends Thread {
     }
 
     private void Draw() {
+        GL11.glClear(GL11.GL_COLOR_BUFFER_BIT);
         this.pakman.Draw();
         this.text.Draw();
         this.DrawWalls();
+        this.DrawCookies();
+    }
+
+    private void DrawCookies() {
+        for (Quad cookie : this.cookies) {
+            cookie.Draw();
+        }
     }
 
     private void DrawWalls() {
@@ -138,26 +150,43 @@ class Render extends Thread {
 
     private void SetupWalls() {
         ArrayList<Vector> server_walls = this.response.GetWalls();
-        if (server_walls.size() > 0) {
-            for (Vector server_pos : server_walls) {
-                Vector pos = new Vector(server_pos.GetX() * this.SCALE, server_pos.GetY() * this.SCALE);
-                Quad brick = new Quad(pos, this.WALL_SIZE);
-                brick.SetGlColor(this.WALL_COLOR.r, this.WALL_COLOR.g, this.WALL_COLOR.b);
-                this.walls.add(brick);
-            }
+        for (Vector server_pos : server_walls) {
+            Vector pos = new Vector(server_pos.GetX() * this.SCALE, server_pos.GetY() * this.SCALE);
+            Quad brick = new Quad(pos, this.WALL_SIZE);
+            brick.SetGlColor(this.WALL_COLOR.r, this.WALL_COLOR.g, this.WALL_COLOR.b);
+            this.walls.add(brick);
         }
     }
 
     private void Update() {
+        this.UpdatePakman();
+        this.UpdateText();
+        this.UpdateCookies();
+
+    }
+
+    private void UpdateCookies() {
+        this.cookies.clear();
+        for (Vector server_pos : this.response.GetCookies()) {
+            Vector pos = new Vector(server_pos.GetX() * this.SCALE + 10, server_pos.GetY() * this.SCALE + 10);
+            Quad cookie = new Quad(pos, this.COOKIE_SIZE);
+            cookie.SetGlColor(this.COOKIE_COLOR.r, this.COOKIE_COLOR.g, this.COOKIE_COLOR.b);
+            this.cookies.add(cookie);
+        }
+    }
+
+    private void UpdatePakman() {
         Vector new_pakman_pos = this.response.GetPosition();
         new_pakman_pos.SetX(new_pakman_pos.GetX() * this.SCALE + 4);
         new_pakman_pos.SetY(new_pakman_pos.GetY() * this.SCALE + 4);
         this.pakman.SetPosition(new_pakman_pos);
-        this.text.SetString(String.valueOf(this.response.GetScore()));
-
     }
 
-    private static final long TIME_STEP = 50;
+    private void UpdateText() {
+        this.text.SetString(String.valueOf(this.response.GetScore()));
+    }
+
+    private static final long TIME_STEP = 100;
 
     private static void InitGl(int width, int height) {
         try {
