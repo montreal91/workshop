@@ -3,7 +3,6 @@ package server;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.Clock;
 
@@ -16,22 +15,22 @@ import common.ServerResponse;
 
 /**
  * @author montreal <br>
- *         Server that runs all game logic. Communicates with client using
- *         sockets.
+ *         Thread subclass which communicates with client through sockets.<br>
+ *         It takes requests from client, dispatches them, updates the game
+ *         state and then returns response to the client. Data is transferred
+ *         using XML.
  */
-public class PakmanServer {
-    private Socket           cl_socket;
-
+public class ServerThread extends Thread {
     private Clock            clock;
 
     private boolean          first_request = true;
+
     private DataInputStream  in;
     private DataOutputStream out;
     private PakmanGameObject pakman;
-    private int              port;
-
     private boolean          process;
-    private ServerSocket     srv_socket;
+
+    private Socket           socket;
 
     private long             start_time;
     private int              ticks;
@@ -41,21 +40,16 @@ public class PakmanServer {
      */
     private final int        TIME_STEP     = 50;
 
-    public PakmanServer() {
-        this.port = 54321;
-        try {
-            this.srv_socket = new ServerSocket(this.port);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public ServerThread(Socket socket) {
         this.clock = Clock.systemUTC();
-        this.cl_socket = null;
+        this.socket = socket;
         this.process = true;
 
         this.pakman = new PakmanGameObject();
     }
 
-    public void Run() {
+    @Override
+    public void run() {
         try {
             this.EstablishConnection();
             this.start_time = this.clock.millis();
@@ -93,12 +87,8 @@ public class PakmanServer {
     }
 
     private void EstablishConnection() throws IOException {
-        System.out.println("Waiting for clients");
-        this.cl_socket = this.srv_socket.accept();
-        System.out.println("Got a client...");
-
-        this.in = new DataInputStream(this.cl_socket.getInputStream());
-        this.out = new DataOutputStream(this.cl_socket.getOutputStream());
+        this.in = new DataInputStream(this.socket.getInputStream());
+        this.out = new DataOutputStream(this.socket.getOutputStream());
         String cl_request = this.in.readUTF();
         System.out.println("Client Wrote:");
         System.out.println(cl_request);
@@ -128,7 +118,7 @@ public class PakmanServer {
     }
 
     private void SendResponse() throws IOException, JAXBException {
-        if (!this.cl_socket.isClosed()) {
+        if (!this.socket.isClosed()) {
             ServerResponse response = new ServerResponse(
                     this.pakman.GetPakmanPosition(), this.pakman.GetScore(), this.pakman.GetSize()
             );
@@ -139,15 +129,6 @@ public class PakmanServer {
             response.SetCookies(this.pakman.GetCookies());
             this.out.writeUTF(ServerResponse.ConvertToXml(response));
             this.out.flush();
-        }
-    }
-
-    public static void main(String[] args) {
-        PakmanServer pakman_server = new PakmanServer();
-        try {
-            pakman_server.Run();
-        } catch (Exception e) {
-            e.printStackTrace();
         }
     }
 }

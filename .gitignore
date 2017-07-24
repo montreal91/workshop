@@ -10,4 +10,16 @@ os
 *.zip
 *.dot
 *.pdf
+*.aux
+*.png
+*.log
+*.tox
+*.toc
+*.xls
+*.csv
+*.pdf_tex
+codeforces/yandex_test/a.out
 educational/__graduation_work__/
+*.classpath
+*.project
+educational/c1_practice/bfs/a.out

@@ -14,11 +14,11 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.transform.stream.StreamResult;
 
-import server.PakmanServer;
+import server.ServerThread;
 
 /**
  * @author montreal <br>
- *         This class is used by {@link PakmanServer} to send all important
+ *         This class is used by {@link ServerThread} to send all important
  *         information to the client.<br>
  */
 @XmlRootElement
