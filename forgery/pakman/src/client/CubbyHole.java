@@ -9,12 +9,12 @@ import common.ServerResponse;
  *         {@link Render} and {@link NetworkGateway} classes.
  */
 class CubbyHole {
-    private ServerResponse response;
-    private boolean        response_available = false;
     private boolean        is_client_running  = true;
-
     private ClientRequest  request;
     private boolean        request_available  = false;
+
+    private ServerResponse response;
+    private boolean        response_available = false;
 
     public ClientRequest GetClientRequest() {
         if (this.request_available == true) {
@@ -26,9 +26,9 @@ class CubbyHole {
     }
 
     public ServerResponse GetServerResponse() {
-        if (response_available == true) {
-            response_available = false;
-            return response;
+        if (this.response_available == true) {
+            this.response_available = false;
+            return this.response;
         } else {
             return null;
         }
@@ -39,8 +39,10 @@ class CubbyHole {
     }
 
     public void PutClientRequest(ClientRequest request) {
-        this.request = request;
-        this.request_available = true;
+        if (this.request_available == false) {
+            this.request = request;
+            this.request_available = true;
+        }
     }
 
     public void PutServerResponse(ServerResponse response) {

@@ -24,18 +24,41 @@ public class ClientRequest {
     @XmlElement
     private String action;
 
+    @XmlElement
+    private String direction;
+
     public ClientRequest() {
         this.action = ClientActions.QUIT.GetAction();
+        this.direction = Directions.NONE.toString();
     }
 
     public ClientRequest(ClientActions action) {
         this.action = action.GetAction();
+        this.direction = Directions.NONE.toString();
+    }
+
+    public ClientRequest(ClientActions action, Directions direction) {
+        this.action = action.GetAction();
+        this.direction = direction.toString();
     }
 
     public String GetAction() {
         return this.action;
     }
 
+    public String GetDirection() {
+        return this.direction.toString();
+    }
+
+    public static ClientRequest ConvertFromXml(String xml) throws JAXBException {
+        JAXBContext jc = JAXBContext.newInstance(ClientRequest.class);
+        Unmarshaller um = jc.createUnmarshaller();
+
+        StringReader reader = new StringReader(xml);
+        return (ClientRequest) um.unmarshal(reader);
+    }
+
+    @SuppressWarnings("boxing")
     public static String ConvertToXml(ClientRequest request) throws JAXBException {
         JAXBContext jc;
         jc = JAXBContext.newInstance(ClientRequest.class);
@@ -46,13 +69,5 @@ public class ClientRequest {
         StreamResult result = new StreamResult(str_writer);
         m.marshal(request, result);
         return str_writer.toString();
-    }
-
-    public static ClientRequest ConvertFromXml(String xml) throws JAXBException {
-        JAXBContext jc = JAXBContext.newInstance(ClientRequest.class);
-        Unmarshaller um = jc.createUnmarshaller();
-
-        StringReader reader = new StringReader(xml);
-        return (ClientRequest) um.unmarshal(reader);
     }
 }

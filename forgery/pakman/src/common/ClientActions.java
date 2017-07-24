@@ -5,7 +5,7 @@ package common;
  *         Enumeration of all possible client actions.
  */
 public enum ClientActions {
-    QUIT("quit"), RESTART("restart");
+    MOVE("move"), QUIT("quit"), RESTART("restart");
 
     private String action;
 

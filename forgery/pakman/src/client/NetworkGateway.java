@@ -17,21 +17,21 @@ import common.ServerResponse;
  *         This class exchanges information with server.
  */
 class NetworkGateway extends Thread {
-    private CubbyHole        cubbyhole;
-    private ServerResponse   response;
     private String           address;
-    private int              port;
-    private Socket           socket;
-
+    private CubbyHole        cubbyhole;
     private DataInputStream  in;
     private DataOutputStream out;
+    private int              port;
+
+    private ServerResponse   response;
+    private Socket           socket;
 
     public NetworkGateway(CubbyHole c) {
         this.address = "127.0.0.1";
         this.port = 54321;
         try {
             InetAddress ip_address = InetAddress.getByName(this.address);
-            this.socket = new Socket(ip_address, port);
+            this.socket = new Socket(ip_address, this.port);
             this.socket.setKeepAlive(true);
 
             this.in = new DataInputStream(this.socket.getInputStream());
@@ -63,7 +63,7 @@ class NetworkGateway extends Thread {
 
         while (this.cubbyhole.IsClientRunning()) {
             if (this.in.available() > 0) {
-                returned_xml = in.readUTF();
+                returned_xml = this.in.readUTF();
                 this.response = ServerResponse.ConvertFromXml(returned_xml);
                 this.cubbyhole.PutServerResponse(this.response);
             }

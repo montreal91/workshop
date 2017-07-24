@@ -23,11 +23,8 @@ import server.PakmanServer;
  */
 @XmlRootElement
 public class ServerResponse {
-    @XmlAttribute
-    private int               x;
-
-    @XmlAttribute
-    private int               y;
+    @XmlElement
+    private Vector            position;
 
     @XmlAttribute
     private int               score;
@@ -39,26 +36,21 @@ public class ServerResponse {
     private ArrayList<Vector> walls;
 
     public ServerResponse() {
-        this.x = Integer.MIN_VALUE;
-        this.y = Integer.MIN_VALUE;
+        this.position = new Vector(Integer.MIN_VALUE, Integer.MIN_VALUE);
         this.score = Integer.MIN_VALUE;
         this.size = new Vector();
         this.walls = new ArrayList<Vector>();
     }
 
-    public ServerResponse(int x, int y, int score, Vector size) {
-        this.x = x;
-        this.y = y;
+    public ServerResponse(Vector position, int score, Vector size) {
+        this.position = position;
         this.score = score;
         this.size = size;
+        this.walls = new ArrayList<Vector>();
     }
 
-    public int GetX() {
-        return this.x;
-    }
-
-    public int GetY() {
-        return this.y;
+    public Vector GetPosition() {
+        return this.position;
     }
 
     public int GetScore() {
@@ -77,6 +69,15 @@ public class ServerResponse {
         this.walls = walls;
     }
 
+    public static ServerResponse ConvertFromXml(String xml) throws JAXBException {
+        JAXBContext jc = JAXBContext.newInstance(ServerResponse.class);
+        Unmarshaller um = jc.createUnmarshaller();
+
+        StringReader reader = new StringReader(xml);
+        return (ServerResponse) um.unmarshal(reader);
+    }
+
+    @SuppressWarnings("boxing")
     public static String ConvertToXml(ServerResponse server_response) throws JAXBException {
         JAXBContext jc;
         jc = JAXBContext.newInstance(ServerResponse.class);
@@ -87,13 +88,5 @@ public class ServerResponse {
         StreamResult result = new StreamResult(str_writer);
         m.marshal(server_response, result);
         return str_writer.toString();
-    }
-
-    public static ServerResponse ConvertFromXml(String xml) throws JAXBException {
-        JAXBContext jc = JAXBContext.newInstance(ServerResponse.class);
-        Unmarshaller um = jc.createUnmarshaller();
-
-        StringReader reader = new StringReader(xml);
-        return (ServerResponse) um.unmarshal(reader);
     }
 }

@@ -10,11 +10,11 @@ import common.Vector;
  *
  */
 public class Quad {
+    private float  gl_blue;
+    private float  gl_green;
+    private float  gl_red;
     private Vector pos;
     private Vector size;
-    private float  gl_red;
-    private float  gl_green;
-    private float  gl_blue;
 
     public Quad(Vector pos, Vector size) {
         this.pos = pos;
@@ -23,12 +23,6 @@ public class Quad {
         this.gl_red = 0;
         this.gl_green = 0;
         this.gl_blue = 0;
-    }
-
-    public void SetGlColor(float red, float green, float blue) {
-        this.gl_red = red;
-        this.gl_green = green;
-        this.gl_blue = blue;
     }
 
     public void Draw() {
@@ -43,6 +37,16 @@ public class Quad {
             GL11.glVertex2f(this.pos.GetX(), this.pos.GetY() + this.size.GetY());
         }
         GL11.glEnd();
+    }
+
+    public void SetGlColor(float red, float green, float blue) {
+        this.gl_red = red;
+        this.gl_green = green;
+        this.gl_blue = blue;
+    }
+
+    public void SetPosition(Vector pos) {
+        this.pos = pos;
     }
 
 }

@@ -3,6 +3,13 @@
 size:
 23;22
 
+# Number of ticks per one step
+speed:
+30
+
+position:
+1;1
+
 # Walls
 walls:
 

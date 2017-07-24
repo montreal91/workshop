@@ -11,6 +11,7 @@ import javax.xml.bind.JAXBException;
 
 import common.ClientActions;
 import common.ClientRequest;
+import common.Directions;
 import common.ServerResponse;
 
 /**
@@ -19,25 +20,26 @@ import common.ServerResponse;
  *         sockets.
  */
 public class PakmanServer {
-    private int              port;
-    private int              ticks;
-
-    private ServerSocket     srv_socket;
     private Socket           cl_socket;
+
     private Clock            clock;
+
+    private boolean          first_request = true;
     private DataInputStream  in;
     private DataOutputStream out;
+    private PakmanGameObject pakman;
+    private int              port;
 
     private boolean          process;
-    private boolean          first_request = true;
+    private ServerSocket     srv_socket;
+
+    private long             start_time;
+    private int              ticks;
 
     /**
      * Time step in milliseconds
      */
-    private final int        TIME_STEP     = 500;
-    private long             start_time;
-
-    private PakmanGameObject pakman;
+    private final int        TIME_STEP     = 20;
 
     public PakmanServer() {
         this.port = 54321;
@@ -51,15 +53,6 @@ public class PakmanServer {
         this.process = true;
 
         this.pakman = new PakmanGameObject();
-    }
-
-    public static void main(String[] args) {
-        PakmanServer pakman_server = new PakmanServer();
-        try {
-            pakman_server.Run();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
     public void Run() {
@@ -76,6 +69,7 @@ public class PakmanServer {
                     Thread.sleep(time_to_wait);
                 }
                 this.ProcessRequest();
+                this.pakman.Update();
                 this.SendResponse();
 
             }
@@ -83,6 +77,18 @@ public class PakmanServer {
         } catch (IOException | JAXBException | InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    private void DispatchRequest(ClientRequest request) {
+        if (request.GetAction().equals(ClientActions.QUIT.GetAction())) {
+            this.process = false;
+        } else if (request.GetAction().equals(ClientActions.RESTART.GetAction())) {
+            this.start_time = this.clock.millis();
+            this.ticks = 0;
+        } else if (request.GetAction().equals(ClientActions.MOVE.GetAction())) {
+            this.ProcessDirectionRequest(request);
+        }
+
     }
 
     private void EstablishConnection() throws IOException {
@@ -98,6 +104,20 @@ public class PakmanServer {
         this.out.flush();
     }
 
+    private void ProcessDirectionRequest(ClientRequest request) {
+        if (request.GetDirection().equals(Directions.RIGHT.toString())) {
+            this.pakman.SetPakmanDirection(Directions.RIGHT);
+        } else if (request.GetDirection().equals(Directions.LEFT.toString())) {
+            this.pakman.SetPakmanDirection(Directions.LEFT);
+        } else if (request.GetDirection().equals(Directions.UP.toString())) {
+            this.pakman.SetPakmanDirection(Directions.UP);
+        } else if (request.GetDirection().equals(Directions.DOWN.toString())) {
+            this.pakman.SetPakmanDirection(Directions.DOWN);
+        } else if (request.GetDirection().equals(Directions.NONE.toString())) {
+            this.pakman.SetPakmanDirection(Directions.NONE);
+        }
+    }
+
     private void ProcessRequest() throws IOException, JAXBException {
         ClientRequest request;
         if (this.in.available() > 0) {
@@ -106,25 +126,26 @@ public class PakmanServer {
         }
     }
 
-    private void DispatchRequest(ClientRequest request) {
-        if (request.GetAction().equals(ClientActions.QUIT.GetAction())) {
-            this.process = false;
-        } else if (request.GetAction().equals(ClientActions.RESTART.GetAction())) {
-            this.start_time = this.clock.millis();
-            this.ticks = 0;
-        }
-
-    }
-
     private void SendResponse() throws IOException, JAXBException {
         if (!this.cl_socket.isClosed()) {
-            ServerResponse response = new ServerResponse(1, 1, this.ticks, this.pakman.GetSize());
+            ServerResponse response = new ServerResponse(
+                    this.pakman.GetPakmanPosition(), this.ticks, this.pakman.GetSize()
+            );
             if (this.first_request) {
                 response.SetWalls(this.pakman.GetWalls());
                 this.first_request = false;
             }
             this.out.writeUTF(ServerResponse.ConvertToXml(response));
             this.out.flush();
+        }
+    }
+
+    public static void main(String[] args) {
+        PakmanServer pakman_server = new PakmanServer();
+        try {
+            pakman_server.Run();
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }
