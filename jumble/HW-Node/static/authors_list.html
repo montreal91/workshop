@@ -1,0 +1,14 @@
+
+<h1>Authors</h1>
+
+<p>
+  <a href="#!/create_author/">Create Author</a>
+</p>
+
+<ul>
+  <li ng-repeat="author in authors_list">
+    <a href="#!/author/{{ author._id }}/">
+      {{ author.first_name + " " + author.last_name }}
+    </a>
+  </li>
+</ul>

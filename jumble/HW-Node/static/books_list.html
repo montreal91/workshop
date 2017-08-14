@@ -1,0 +1,13 @@
+
+<h1>Books</h1>
+
+<p>
+  <a href="#!/create_book/">Create New Book</a>  
+</p>
+
+<ul>
+  <li ng-repeat="book in books_list">
+    <a href="#!/book/{{ book._id }}/">{{ book.title }}</a>
+    <span ng-show="book.pub_year">({{ book.pub_year }})</span>
+  </li>
+</ul>

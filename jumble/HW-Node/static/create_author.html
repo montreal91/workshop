@@ -1,0 +1,33 @@
+
+<h2>Create Author</h2>
+
+<form>
+  <p>  
+    First Name: <input type="text" name="first_name" ng-model="first_name"><br>
+    <span ng-show="first_name_required">
+      {{ required_error_message }}
+    </span>
+  </p>
+  <p>
+    Second Name: <input type="text" ng-model="second_name"><br>
+  </p>
+  <p>
+    <label>Last name:</label>
+    <input type="text"ng-model="last_name" name="last_name">
+    <br>
+    <span ng-show="last_name_required">
+      {{ required_error_message }}
+    </span>
+  </p>
+  <br>
+  Bio: <textarea cols="20"></textarea>
+  <br>
+  Full Name: {{ first_name + " " + last_name }}
+  <p>
+    <button ng-click="send_author_data()">Submit</button>
+  </p>
+</form>
+
+<span ng-show="response">
+  {{ author_creation_status }}
+</span>

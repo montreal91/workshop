@@ -1,0 +1,28 @@
+
+<div ng-show="found">
+  <h1>{{ book.title }}</h1>
+
+    <a href="#!/edit/book/{{ book._id}}">Edit Authors</a>
+    <ul>
+    <li ng-repeat="author in book.authors">
+      <a href="#!/author/{{ author._id }}/">
+        {{ author.first_name + " " + author.last_name }}
+      </a>
+    </li>
+  </ul>
+  <span ng-show="book.authors.length === 0">
+    This book has no authors yet.
+  </span>
+</div>
+  
+  <p>
+    Publication year: {{ book.pub_year }}
+  </p>
+
+</div>
+
+<div ng-show="!found">
+  <p>
+    There is no such book.
+  </p>  
+</div>

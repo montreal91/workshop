@@ -1,0 +1,22 @@
+
+<div ng-show="found">
+  <h1>{{ author.first_name + " " + author.last_name }}</h1>
+  
+
+  <ul>
+    <li ng-repeat="book in author.books">
+      <a href="#!/book/{{ book._id }}/">
+        {{ book.title }} ({{ book.pub_year }})
+      </a>
+    </li>
+  </ul>
+  
+  <p ng-show="author.bio">
+    Bio: {{ author.bio }}
+  </p>
+
+<div ng-show="!found">
+  <p>
+    There is no such author.
+  </p>  
+</div>

@@ -1,0 +1,29 @@
+
+<h1>Create Book</h1>
+
+<form>
+  <p>
+    <label>Title</label>
+    <input type="text" ng-model="title">
+    <br>
+    <span ng-show="no_title_error">
+      {{ required_error_message }}
+    </span>
+  </p>
+  <p>
+    <label>Publication Year</label>
+    <input type="number" ng-model="pub_year">
+    <br>
+    <span ng-show="no_pub_year_error">
+      {{ required_error_message }}
+    </span>
+  </p>
+  <p>
+    <button ng-click="send_book_data()">Submit</button>
+  </p>
+</form>
+
+<span ng-show="response">
+  {{ book_creation_status }}
+</span>
+

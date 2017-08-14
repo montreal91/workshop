@@ -1,0 +1,10 @@
+
+<h1>Edit Book</h1>
+
+<h2>{{ book.title }}</h2>
+
+<p ng-repeat="author in authors_list">
+  <input type="checkbox" ng-model="marked_authors[$index].val">
+  {{ author.first_name }} {{ author.last_name }}
+</p>
+<button ng-click="send_edited_authors()">Submit</button>

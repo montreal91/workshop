@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Hello Node.js App</title>
+  <meta charset="utf-8">
+  <link href='https://fonts.googleapis.com/css?family=Anaheim' rel='stylesheet' type="text/css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+
+</head>
+<body>
+
+<div ng-app="bookshelf">
+  <p><a href="#!/">Main</a></p>
+
+  <a href="#!/books/">Books</a> |
+  <a href="#!/authors/">Authors</a>
+  <div ng-view></div>
+</div>
+
+<script type="text/javascript" src="script.js"></script>
+
+</body>
+</html>
