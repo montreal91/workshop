@@ -1,0 +1,21 @@
+#!/bin/bash
+
+NAME="gunilask"
+FLASKDIR=/home/montreal/Programming/workshop/jumble/gunilask
+VENDIR=/home/montreal/.virtualenvs/foo
+SOCKFILE=/home/montreal/Programming/workshop/jumble/gunilask/sock
+USER=captain
+GROUP=captain
+NUM_WORKERS=3
+
+echo "Starting $NAME"
+cd $VENDIR
+source bin/activate
+
+export PYTHONPATH=$FLASKDIR:$PYTHONPATH
+RUNDIR=$(dirname $SOCKFILE)
+test -d $RUNDIR || mkdir -p $RUNDIR
+
+# Start gunicorn
+# chown captain:captain $SOCKFILE
+exec gunicorn hello:app -b 0.0.0.0:8000 --name $NAME --workers $NUM_WORKERS --user=$USER --group=$GROUP --log-level=debug --bind=unix:$SOCKFILE -D
