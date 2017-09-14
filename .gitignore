@@ -23,3 +23,9 @@ educational/__graduation_work__/
 *.classpath
 *.project
 educational/c1_practice/bfs/a.out
+forgery/java-test-task/*.txt
+jumble/haskell-lists/.stack-work/
+*.vscode/
+tutorials/gtkmm/tree_store/tree_store
+jumble/random/*.out
+jumble/HW-flask-vsc/
