@@ -14,6 +14,7 @@ flags = [
 sources = [
     "main.cc",
     "game.cc",
+    "zero_finder.cc",
 ]
 
 env = Environment( CXX="clang++" )

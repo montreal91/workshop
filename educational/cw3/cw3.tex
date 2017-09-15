@@ -1,0 +1,270 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage{amsmath,amssymb,amsopn,amsthm}
+\usepackage{graphicx,import}
+\usepackage{color}
+\usepackage[english,russian]{babel}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage[titletoc,toc,page]{appendix}
+\usepackage{listings}
+ \textwidth=17cm
+ \textheight=26cm
+ \topmargin=-1cm
+ \oddsidemargin=0cm
+ \headheight=0cm
+ \newcommand{\sectionbreak}{\clearpage}
+ \renewcommand{\appendixtocname}{Приложение}
+ \renewcommand{\appendixpagename}{Приложение}
+ 
+\lstset{
+    breaklines=true,
+    basicstyle=\ttfamily,
+     postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{red}\hookrightarrow\space}}
+}
+\begin{document}
+\begin{titlepage}
+\begin{center}
+  МИНОБРНАУКИ РОССИИ\\
+  Федеральное государственное бюджетное образовательное учреждение\\ высшего образования\\
+
+\bfseries \flqq Челябинский государственный университет\frqq \\
+\bfseries (ФГБОУ ВО \flqq ЧелГУ\frqq) \\[0.7cm]
+
+Математический факультет\\
+Кафедра теории управления и оптимизации\\[3.4cm]
+\large\bfseries КУРСОВАЯ РАБОТА\\[1cm]
+\textit{\large\bfseries{Об одной задаче преследования\\[2cm]}}
+
+{\footnotesize
+\begin{tabular}[t]{lllllllllllllllllll}
+& & & & & & & & & & & & & & & & &   Выполнил студент       &   Нефедов А.Ю.   \\
+& & & & & & & & & & & & & & & & &   академическая группа   &   МП-301        \\
+& & & & & & & & & & & & & & & & &   курс                   &   III            \\
+& & & & & & & & & & & & & & & & &   форма обучения         &   очная         \\
+& & & & & & & & & & & & & & & & &   направление подготовки &   Прикладная математика    \\
+& & & & & & & & & & & & & & & & &                          &    и информатика              \\
+& & & & & & & & & & & & & & & & &   подпись                &   \rule{3.3cm}{0.01cm}\\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &   дата                   &   "\rule{0,7cm}{0.01cm}"\rule{1cm}{0.01cm} 2016 г.\\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &   Научный руководитель   &   Ухоботов В. И.\\
+& & & & & & & & & & & & & & & & &   Должность              &   профессор     \\
+& & & & & & & & & & & & & & & & &                          &   кафедры ТУиО  \\
+& & & & & & & & & & & & & & & & &   Ученая степень         &   доктор ф.-м.н.\\
+& & & & & & & & & & & & & & & & &   Ученое звание          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &   подпись                &  \rule{3.3cm}{0.01cm}\\
+& & & & & & & & & & & & & & & & &                          &                 \\
+& & & & & & & & & & & & & & & & &   дата                   &  "\rule{0,7cm}{0.01cm}"\rule{1cm}{0.01cm} 2016 г.     \\
+
+\end{tabular}
+\\[1.5cm]}
+
+\small{Челябинск}\\
+\small{2016}
+\end{center}
+\end{titlepage}
+\tableofcontents
+\section{Постановка задачи}
+\par
+Вертолёт \(E\) преследует катер $P$.
+Допускается, что катер достаточно лёгкий, чтобы свободно управлять своей скоростью $\overline{v}$ (масса катера не учитывается).
+Величина скорости $\overline{v}$ ограничена числом $b > 0$.
+%Катер относительно воды может двигаться в любую сторону со скоростью v, величина которой ограничена числом b > 0.
+Катер попал в водоворот.
+Каждая точка водоворота вращается вокруг центра с постоянной угловой скоростью $\omega$.
+Также допускается, что вертолёт тоже достаточно лёгкий, чтобы свободно управлять своей скоростью $\overline{u}$,
+которая по величине не превышает $a > 0$.
+Рассматривается ситуация, когда вертолёт быстрее катера ($a > b$).
+Цель вертолёта как можно быстрее догнать катер.
+
+\section{Исследование задачи}
+  \subsection{Движение катера}
+    \begin{figure}
+      \centering
+      \def\svgwidth{\columnwidth}
+      \input{pic1.pdf_tex}
+      \caption{Движение катера}
+    \end{figure}
+
+    Пусть в некоторый момент времени $t$ катер находится в точке $K$.
+    На промежутке времени от $t$ до $t + \tau, (\tau > 0)$ катер выбрал скорость относительно воды,
+    равную $\overline{v}$.
+    Положение катера в момент времени $t + \tau$ определяется из условия
+    \begin{equation}\label{movement:equation}
+      \overline{OK_1} = \overline{OA} + \overline{OB} 
+    \end{equation}
+    
+    Здесь $K_1$ - новое положение катера,
+    $O$ - центр водоворота,
+    $\overline{OB}$ = $\tau\overline{v}$.
+    $\overline{OA}$ получается поворотом вектора $\overline{OK}$ на угол $\tau\omega$.
+  \subsection{Точка прицеливания}
+    \begin{figure}
+      \centering
+      \def\svgwidth{\columnwidth}
+      \input{pic2.pdf_tex}
+      \caption{Точка прицеливания}
+    \end{figure}
+    Пусть дано число $T > 0$ и момент времени $0 \leq t \leq T$.
+    Точка $P$ получается из точки $K$ при повороте вектора $\overline{OK}$ на угол $\omega(T - t)$.
+    Аналогично точка $P_1$ получается из точки $K_1$ при повороте вектора $OK_1$ на угол
+    $\omega(T-(t + \tau)) = \omega(T - t) - \omega\tau$.
+    Из формулы (\ref{movement:equation}) следует, что точку $P_1$ можно получить следующим способом:
+    \begin{enumerate}
+      \item
+	Повернуть вектор $\overline{OA}$ на угол $\omega(T-t) - \omega\tau$.
+	Но это всё равно, что повернуть вектор $\overline{OK}$ на угол $\omega(T - t)$.
+      \item
+	Повернуть вектор $\overline{OB}$ = $\tau \overline{v}$ на угол
+	$\omega(T - (t + \tau))$.
+	где вектор $\overline{v_1}$ получается поворотом вектора $\overline{v}$ на угол $\omega(T - (t + \tau))$.
+      \item
+	При сложении векторов $\overline{OP_1} = \overline{OP} + \overline{OD}$ получается точка $P_1$.
+    \end{enumerate}
+    
+    Таким образом, точка $P$ движется с постоянной по величине скоростью $\overline{v_1}$,
+    направление которой может меняться в зависимости от выбора направления скорости $\overline{v}$.
+    
+    При $t = T$ точка $P$ совпадёт с точкой $K$.
+    Поэтому, если в момент времени $t = T$, вертолёт догонит точку $P$, т он догоняет и катер.
+    Для поимки катера вертолёту надо в каждый момент времени $0 \leq t \leq T$ направлять свою скорость на точку $P$. 
+  \subsection{Нахождение момента времени Т}
+  \par
+    Пусть в начальный момент времени $t = 0$ катер находится в точке $K$, а вертолёт в точке $E$.
+    Соответствующая моменту $t = 0$ точка прицеливания $P$ получается поворотом вектора $\overline{OK}$ на угол $\omega T$.
+    
+    \begin{figure}
+      \centering
+      \def\svgwidth{\columnwidth}
+      \input{pic3.pdf_tex}
+      \caption{Время погони}
+    \end{figure}
+    
+    Из треугольника $OPE$:
+    $$|\overline{PM}|^2 = |\overline{OP}|^2 + |\overline{OE}|^2 - 2|\overline{OP}||\overline{OE}|cos(\omega T +\varphi_K -\varphi_E)$$
+    
+    Переобозначим $|\overline{OE}| = \rho_E$, $|\overline{OP}| = \rho_K$.
+    Тогда предыдущее равенство принимает вид
+    $$|\overline{PM}|^2 = \rho_K^2 + \rho_E^2 - 2 \rho_K\rho_Ecos(\omega T + \varphi_K -\varphi_E)$$
+    
+    Поскольку время преследования вертолётом точки P равно
+      $$
+	T = \frac{|PM|^2}{a - b}
+      $$
+    то для определения $T$ получается уравнение
+    \begin{equation}\label{time:equation}
+      \sqrt{\rho_K^2 + \rho_E^2 - 2 \rho_K\rho_Ecos(\omega T + \varphi_K -\varphi_E)} = (a - b)T.
+    \end{equation}
+    
+    Необходимо показать, что уравнение (\ref{time:equation}) имеет положительный корень $T$.
+    Для этого необходимо рассмотреть функцию
+    \begin{equation} \label{time:function}
+      f(t) = \sqrt{\rho_K^2 + \rho_E^2 - 2 \rho_K\rho_Ecos(\omega t + \varphi_K -\varphi_E)} - (a - b)t.
+    \end{equation}
+    
+    Поскольку $|cos(\omega T + \varphi_K - \varphi_E)| \leq 1$, то подкоренное выражение удовлетворяет неравенствам
+    $$|\rho_K - \rho_E|^2 \leq \rho_K^2 + \rho_E^2 - 2 \rho_K\rho_Ecos(\omega t + \varphi_K -\varphi_E) \leq |\rho_K + \rho_E|^2 $$
+    
+    Следовательно,
+    $$|\rho_K - \rho_E| - (a - b)t \leq f(t) \leq |\rho_K + \rho_E| - (a - b)t $$
+    
+    \begin{figure}
+      
+      \centering
+      \def\svgwidth{\columnwidth}
+      \input{pic4.pdf_tex}
+      \caption{Момент времени Т}
+      \label{fig:zero}
+    \end{figure}
+    
+    Поведение функции $f(t)$ проиллюстрировано на Рис. \ref{fig:zero}.
+    На рисунке обозначено 
+    
+    $$
+      p = \frac{|\rho_K - \rho_E|}{(a - b)},
+      q = \frac{|\rho_K + \rho_E|}{(a - b)}
+    $$
+    
+    Далее, для того, чтобы избавиться от необходимости непосредственно вычислять углы $\varphi_K$ и $\varphi_E$,
+    и ограничиться лишь их тригонометрическими функциями, нужно преобразовать $cos(\omega T + \varphi_K - \varphi_E)$
+    при помощи тригонометрических тождеств следующим образом:
+    $$
+      (cos(\omega t)cos(\varphi_K) - sin(\omega t)sin(\varphi_K))cos(\varphi_E) +
+      (sin(\omega t)cos(\varphi_K) + cos(\omega t)sin(\varphi_K))sin(\varphi_E)
+    $$
+
+
+\section{Описание программы}
+  \par
+  На языке \textit{C++} c использованием библиотеки \textit{SFML (Simple and Fast Multimedia Library)}
+  была реализована рассматриваемая игра.
+  
+  \par
+  Пользователь при помощи клавиш WASD управляет катером, который находится в водовороте.
+  Компьютер, использующий описанное выше управление, управляет вертолётом, который преследует катер.
+  На экран выводится катер (маленький зелёный круг), вертолёт (большой красный круг), центр водоворота и точка преследования.
+  Помимо этого в левом верхнем углу выводится текст с технической информацией:
+  \begin{itemize}
+    \item количество кадров в секунду (FPS);
+    \item время, необходимое для обновления состояния программы (в аттосекундах);
+    \item текущее время погони (в секундах);
+    \item ожидаемое время погони;
+  \end{itemize}
+  
+  На данный момент реализована ненаказывающая стратегия вертолёта: время преследования вычисляется в начале работы программы
+  и в последующем остаётся неизменным.
+  В результате вертолёт ловит катер ровно в заданный момент времени $T$, и ошибки в управлении катера никак не влияют
+  на время преследования.
+  \begin{figure}
+    \begin{center}
+      \includegraphics[scale=0.45]{program1}
+      \caption{Рабочее окно программы}
+    \end{center}
+  \end{figure}
+  \begin{figure}
+    \begin{center}
+      \includegraphics[scale=0.45]{program2}
+      \caption{После момента завершения погони}
+    \end{center}
+  \end{figure}
+  
+  Полный текст программы приведён в \ref{appendix:code}.
+
+
+\addcontentsline{toc}{section}{Список литературы}
+\begin{thebibliography}{9}
+    \bibitem{1} Ухоботов В.И.
+      Метод одномерного проектирования в линейных дифференциальных играх с интегральными ограничениями: 
+      Учеб. пособие. Челябинск: Челяб. гос. ун-т, 2005.
+    \bibitem{2} Айзекс Р. Дифференциальные игры. М.: Мир, 1967.
+\end{thebibliography}
+
+    \clearpage
+        \begin{appendices}
+\section{Текст программы}
+  \label{appendix:code}
+  \subsection{Main.cc}
+  \lstinputlisting[language=c++]{main.cc}
+  \subsection{ZeroFinder.h}
+  \lstinputlisting[language=c++]{zero_finder.h}
+  \subsection{ZeroFinder.cc}
+  \lstinputlisting[language=c++]{zero_finder.cc}
+  \subsection{Game.h}
+  \lstinputlisting[language=c++]{game.h}
+  \subsection{Game.cc}
+  \lstinputlisting[language=c++]{game.cc}
+
+
+\end{appendices}
+
+
+
+\end{document}
