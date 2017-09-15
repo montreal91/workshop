@@ -5,9 +5,23 @@ flags = [
     "-std=c++11"
 ]
 
-sources = [
-    "main.cc",
-    "mage.cc"
+common_sources = [
+    src_dir + "main.cc",
+    src_dir + "mage.cc",
+    src_dir + "society.cc",
 ]
 
-Program(target="mg", source=sources, CXXFLAGS=flags)
+test_lib = ["cppunit"]
+
+src_dir  = "src/"
+test_dir = "test/"
+
+env = Environment( CXX="clang++" )
+env.Append( CPPPATH="." )
+
+common_objects = env.Object( source=common_sources, CXXFLAGS=flags )
+
+env.Program(
+    target="mg",
+    source=main_source+common_objects,
+)
