@@ -1,0 +1,27 @@
+<head>
+  <script src="https://cdn.plot.ly/plotly-1.2.0.min.js"></script>
+  <meta charset="utf-8">
+  <title>Plotter</title>
+</head>
+<body>
+
+<div id="tester" style="width: 700px; height: 700px"></div>
+<script src="out.json"></script>
+<script type="text/javascript">
+  // console.log(jsonstr[0].vals);
+  TESTER = document.getElementById("tester");
+  Plotly.plot(
+    TESTER,
+    [
+      {
+        x:out[0].xses,
+        y:out[0].vals
+      }
+    ],
+    {
+      margin: {t: 0}
+    }
+  );
+</script>
+
+</body>
