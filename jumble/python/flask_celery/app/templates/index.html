@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Background Celery</title>
+</head>
+<body>
+
+<p>
+  <div id="tablo"></div>
+</p>
+<p>
+  <button onclick="return start_countdown();">Start Coundown</button>
+</p>
+
+<p>
+  <div id="tablo2"></div>
+  <button onclick="ping();">Ping</button>
+</p>
+
+<script type="text/javascript" src="https://unpkg.com/axios@0.16.2/dist/axios.min.js"></script>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.5/socket.io.min.js"></script>
+<script type="text/javascript" src="{{ url_for('static', filename='magic.js') }}"></script>
+</body>
+</html>
