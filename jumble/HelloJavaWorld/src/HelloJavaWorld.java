@@ -4,11 +4,10 @@
 
 public class HelloJavaWorld {
     public static void main( String args[] ) {
-        Greeter one = new Greeter();
-        Greeter two = new Greeter( "Montreal" );
-
-        System.out.printf( "Hello, Java World%n" );
-        one.ToGreet();
-        two.ToGreet();
+        Word v = new Word();
+//         String s = v.scramble("Udacity");
+//        String s = v.getWordWithSwappedLetters("Udacity", 2, 5);
+        String s = v.printSubstrings("Udacity");
+        System.out.println(s);
     }
 }
