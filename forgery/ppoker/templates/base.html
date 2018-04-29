@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hello Ajax Flask</title>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='my_ajax_request.js')}}"></script>
+</head>
+<body>
+    <form method="post" id="my_form" action="">
+        <input type="text" name="my_text"></input>
+        <button onclick="return my_ajax()">ChaCha</button>
+    </form>
+    <div id="clicks">{{clicks}}</div>
+    <div id="result"></div>
+</body>
+</html>
