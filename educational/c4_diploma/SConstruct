@@ -1,0 +1,29 @@
+libs = [
+    "Box2D",
+    "sfml-graphics",
+    "sfml-window",
+    "sfml-system",
+]
+
+flags = [
+    "-std=c++11",
+    "-Wall",
+    "-O3",
+]
+
+source_dir = "src/"
+
+files = [
+    "application.cc",
+    "main.cc",
+    "vertex.cc",
+]
+
+env = Environment(CXX="clang++")
+
+env.Program(
+    target="diploma",
+    source=list(map(lambda s: "src/" + s, files)),
+    CXXFLAGS=flags,
+    LIBS=libs,
+)
