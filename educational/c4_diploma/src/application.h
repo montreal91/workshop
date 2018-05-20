@@ -23,10 +23,13 @@ public:
 
   void Run();
 private:
+  b2Vec2 CalculateBlackHoleForce(const Vertex& vertex) const;
+
   // Returns normalized force direction applied to subject
   b2Vec2 CalculateForceDirection(const Vertex& subject, const Vertex& object) const;
   float CalculateForceMagnitude(const Vertex& subjet, const Vertex& object) const;
 
+  void InitVerticesPositions();
   void LoadData(std::istream& in);
   void PrintTestData() const;
   void ProcessInput();
@@ -43,6 +46,8 @@ private:
   float GRAVITATIONAL_CONSTANT;
 
   Matrix_t adjacency_matrix;
+  float black_hole_action_radius;
+  b2Vec2 black_hole_position;
   b2World physical_world;
   std::vector<Vertex> vertices;
   sf::RenderWindow window;

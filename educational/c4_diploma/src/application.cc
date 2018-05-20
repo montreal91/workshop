@@ -11,7 +11,18 @@ physical_world(b2Vec2(0.0f, 0.0f)),
 vertices(),
 window(sf::VideoMode(1200, 600), "Diploma", sf::Style::Close) {
   std::ifstream fileinput("graph.txt");
+
+  auto window_size = this->window.getSize();
+  float black_hole_x = (float)window_size.x;
+  float black_hole_y = (float)window_size.y;
+  this->black_hole_position = b2Vec2(
+    black_hole_x / 2 / Vertex::SCALE,
+    black_hole_y / 2 / Vertex::SCALE
+  );
+  this->black_hole_action_radius = this->black_hole_position.y - 2;
+
   this->LoadData(fileinput);
+  this->InitVerticesPositions();
 }
 
 void Application::Run() {
@@ -30,6 +41,21 @@ void Application::Run() {
   }
 }
 
+b2Vec2 Application::CalculateBlackHoleForce(const Vertex& vertex) const {
+  auto pos = vertex.GetPosition();
+  auto direction = this->black_hole_position - pos;
+
+  auto distance = util::GetVectorNorm(direction);
+
+  if (distance < this->black_hole_action_radius) {
+    return b2Vec2(0.0f, 0.0f);
+  } else {
+    direction = util::GetNormalizedVector(direction);
+    auto magnitude = distance;
+    return b2Vec2(direction.x * magnitude, direction.y * magnitude);
+  }
+}
+
 b2Vec2 Application::CalculateForceDirection(const Vertex& subject, const Vertex& object) const {
   b2Vec2 res = subject.GetPosition();
   res -= object.GetPosition();
@@ -40,6 +66,23 @@ float Application::CalculateForceMagnitude(const Vertex& subject, const Vertex& 
   return GRAVITATIONAL_CONSTANT;
 }
 
+void Application::InitVerticesPositions() {
+  const auto PI = 3.141592f;
+  auto phi = 2 * PI / this->vertices.size();
+  auto r = this->black_hole_action_radius * 0.25;
+
+  for (auto i=0; i < this->vertices.size(); i++) {
+    auto x = std::cos(phi * i) * r;
+    auto y = std::sin(phi * i) * r;
+
+    auto pos = b2Vec2(
+      this->black_hole_position.x + x,
+      this->black_hole_position.y + y
+    );
+    this->vertices[i].SetPosition(pos);
+  }
+}
+
 void Application::LoadData(std::istream& in) {
   int n;
   in >> n;
@@ -47,7 +90,7 @@ void Application::LoadData(std::istream& in) {
   for (int i = 0; i < n; i++) {
     int x, y;
     in >> x >> y;
-    Vertex v(this->physical_world, x, y);
+    Vertex v(this->physical_world);
     this->vertices.push_back(v);
   }
   float tmp = 0;
@@ -99,11 +142,12 @@ void Application::Render() {
 void Application::Update(const sf::Time& dt) {
   for (int i=0; i<this->vertices.size(); i++) {
     for (int j=0; j<this->vertices.size(); j++) {
-      b2Vec2 force = this->CalculateForceDirection(this->vertices[i], this->vertices[j]);
-      float magnitude = this->CalculateForceMagnitude(this->vertices[i], this->vertices[j]);
+      b2Vec2 force = this->CalculateForceDirection(vertices[i], vertices[j]);
+      float magnitude = this->CalculateForceMagnitude(vertices[i], vertices[j]);
       force *= magnitude;
       force *= -this->adjacency_matrix[i][j];
       this->vertices[i].AddForce(force);
+      this->vertices[i].AddForce(this->CalculateBlackHoleForce(vertices[i]));
     }
   }
   this->physical_world.Step(dt.asSeconds(), 8, 3);

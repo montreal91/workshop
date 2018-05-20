@@ -34,6 +34,10 @@ b2Vec2 Vertex::GetPosition() const {
   return this->body->GetPosition();
 }
 
+void Vertex::SetPosition(const b2Vec2& pos) {
+  this->body->SetTransform(pos, 0);
+}
+
 void Vertex::Update(const sf::Time& dt) {
   b2Vec2 pos = this->body->GetPosition();
   this->dot.setPosition(SCALE * pos.x, SCALE * pos.y);
