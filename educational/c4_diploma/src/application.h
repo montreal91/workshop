@@ -5,6 +5,7 @@
 #include <cmath>
 #include <iostream>
 #include <fstream>
+#include <stdexcept>
 #include <thread>
 #include <vector>
 
@@ -19,15 +20,29 @@
 // This class is not supposed to be subclassed.
 class Application : private sf::NonCopyable {
 public:
+  static const float EPSILON;
+
+  enum GravityType : int {
+    constant = 0,
+    inv_linear = 1,
+    inv_quadratic = 2,
+  };
+
   Application();
 
   void Run();
 private:
+  // static const int GRV_CONSTANT;
+  // static const int GRV_INV_LINEAR;
+  // static const int GRV_INV_QUADRATIC;
   b2Vec2 CalculateBlackHoleForce(const Vertex& vertex) const;
 
   // Returns normalized force direction applied to subject
   b2Vec2 CalculateForceDirection(const Vertex& subject, const Vertex& object) const;
-  float CalculateForceMagnitude(const Vertex& subjet, const Vertex& object) const;
+  float CalculateForceMagnitude(
+    const Vertex& subjet,
+    const Vertex& object
+  ) const;
 
   void InitVerticesPositions();
   void LoadData(std::istream& in);
@@ -38,16 +53,17 @@ private:
 
   typedef std::vector<std::vector<float>> Matrix_t;
 
-  static const float EPSILON;
   static const sf::Time TIME_PER_FRAME;
 
   // This value should be constant too,
-  // But it is loaded during runtime rather than compile-time, so it can't be const.
+  // But it is loaded during runtime rather than compile-time,
+  // so it can't be const.
   float GRAVITATIONAL_CONSTANT;
 
   Matrix_t adjacency_matrix;
   float black_hole_action_radius;
   b2Vec2 black_hole_position;
+  int gravity_type;
   b2World physical_world;
   std::vector<Vertex> vertices;
   sf::RenderWindow window;

@@ -2,7 +2,7 @@
 #include "application.h"
 
 
-const float Application::EPSILON = 1;
+const float Application::EPSILON = 0.0001;
 const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.0f / 60.0f);
 
 Application::Application() :
@@ -20,6 +20,7 @@ window(sf::VideoMode(1200, 600), "Diploma", sf::Style::Close) {
     black_hole_y / 2 / Vertex::SCALE
   );
   this->black_hole_action_radius = this->black_hole_position.y - 2;
+  this->gravity_type = GravityType::constant;
 
   this->LoadData(fileinput);
   this->InitVerticesPositions();
@@ -62,8 +63,32 @@ b2Vec2 Application::CalculateForceDirection(const Vertex& subject, const Vertex&
   return util::GetNormalizedVector(res);
 }
 
-float Application::CalculateForceMagnitude(const Vertex& subject, const Vertex& object) const{
-  return GRAVITATIONAL_CONSTANT;
+float Application::CalculateForceMagnitude(
+  const Vertex& subject,
+  const Vertex& object
+) const {
+  const auto distance = GetDistanceBetweenVertices(subject, object);
+  if (this->gravity_type == GravityType::constant) {
+    return GRAVITATIONAL_CONSTANT;
+  }
+  else if (this->gravity_type == GravityType::inv_linear) {
+    if (distance <= EPSILON) {
+      return GRAVITATIONAL_CONSTANT;
+    } else {
+      return GRAVITATIONAL_CONSTANT / distance;
+    }
+  }
+  else if (this->gravity_type == GravityType::inv_quadratic) {
+    if (distance <= EPSILON) {
+      return GRAVITATIONAL_CONSTANT;
+    } else {
+      return GRAVITATIONAL_CONSTANT / distance / distance;
+    }
+  }
+  else {
+    throw std::invalid_argument("Gravity type should be 0, 1 or 2.");
+  }
+
 }
 
 void Application::InitVerticesPositions() {
@@ -88,16 +113,14 @@ void Application::LoadData(std::istream& in) {
   in >> n;
   std::cout << "Number of vertices: " << n << "\n";
   for (int i = 0; i < n; i++) {
-    int x, y;
-    in >> x >> y;
     Vertex v(this->physical_world);
     this->vertices.push_back(v);
   }
-  float tmp = 0;
-
+  in >> this->gravity_type;
   in >> this->GRAVITATIONAL_CONSTANT;
   std::cout << "Gravitaional constant: " << this->GRAVITATIONAL_CONSTANT << "\n";
 
+  float tmp = 0;
   this->adjacency_matrix.clear();
   for (int i = 0; i < n; i++) {
     this->adjacency_matrix.push_back(std::vector<float>());
@@ -143,7 +166,10 @@ void Application::Update(const sf::Time& dt) {
   for (int i=0; i<this->vertices.size(); i++) {
     for (int j=0; j<this->vertices.size(); j++) {
       b2Vec2 force = this->CalculateForceDirection(vertices[i], vertices[j]);
-      float magnitude = this->CalculateForceMagnitude(vertices[i], vertices[j]);
+      float magnitude = this->CalculateForceMagnitude(
+        this->vertices[i],
+        this->vertices[j]
+      );
       force *= magnitude;
       force *= -this->adjacency_matrix[i][j];
       this->vertices[i].AddForce(force);
@@ -158,7 +184,7 @@ void Application::Update(const sf::Time& dt) {
 
 b2Vec2 util::GetNormalizedVector(const b2Vec2& vec) {
   float norma = util::GetVectorNorm(vec);
-  if (norma <= 0.0001) {
+  if (norma <= Application::EPSILON) {
     return b2Vec2(vec.x, vec.y);
   }
 
