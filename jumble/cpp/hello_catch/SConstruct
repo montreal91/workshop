@@ -1,0 +1,36 @@
+
+
+flags           = [
+    "-std=c++11",
+    "-Wall",
+    "-O3",
+]
+
+libs            = []
+
+common_sources  = ["src/vector.cc"]
+test_sources    = [
+    "tests/test_vector2.cc",
+    "tests/test.cc"
+]
+
+program_sources = ["src/main.cc"]
+
+env             = Environment( CXX="clang++" )
+env.Append( CPPPATH="." )
+
+common_objects  = env.Object(source=common_sources, CXXFLAGS=flags, LIBS=libs)
+
+program         = env.Program(
+    target="program",
+    source=program_sources+common_objects,
+    CXXFLAGS=flags,
+    LIBS=libs
+)
+
+tests           = env.Program(
+    target="test",
+    source=test_sources+common_objects,
+    CXXFLAGS=flags,
+    LIBS=libs
+)
