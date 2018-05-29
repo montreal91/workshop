@@ -6,3 +6,6 @@ def foo(s1: str, s2: str) -> str:
     :param s2: right string
     """
     return s1 + s2
+
+def dummy():
+	return "Dummy"
