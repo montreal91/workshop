@@ -1,8 +1,6 @@
 
-#ifndef APPLICATION_H
-#define APPLICATION_H
+#pragma once
 
-#include <cmath>
 #include <iostream>
 #include <fstream>
 #include <stdexcept>
@@ -14,27 +12,23 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 
+#include "utility.h"
 #include "vertex.h"
 
 // Main application class which manages vertex movement
 // This class is not supposed to be subclassed.
 class Application : private sf::NonCopyable {
 public:
-  static const float EPSILON;
-
   enum GravityType : int {
     constant = 0,
     inv_linear = 1,
     inv_quadratic = 2,
   };
 
-  Application();
+  explicit Application();
 
   void Run();
 private:
-  // static const int GRV_CONSTANT;
-  // static const int GRV_INV_LINEAR;
-  // static const int GRV_INV_QUADRATIC;
   b2Vec2 CalculateBlackHoleForce(const Vertex& vertex) const;
 
   // Returns normalized force direction applied to subject
@@ -68,11 +62,3 @@ private:
   std::vector<Vertex> vertices;
   sf::RenderWindow window;
 };
-
-//TODO: put utility functions into separate file
-namespace util {
-b2Vec2 GetNormalizedVector(const b2Vec2& vec);
-float GetVectorNorm(const b2Vec2& vec);
-} // namespace util
-
-#endif // APPLICATION_H

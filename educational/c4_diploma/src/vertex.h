@@ -1,5 +1,5 @@
-#ifndef VERTEX_H
-#define VERTEX_H
+
+#pragma once
 
 #include <cmath>
 #include <iostream>
@@ -31,5 +31,3 @@ private:
 };
 
 float GetDistanceBetweenVertices(const Vertex& v1, const Vertex& v2);
-
-#endif // VERTEX_H

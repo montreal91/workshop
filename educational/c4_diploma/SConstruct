@@ -16,6 +16,7 @@ source_dir = "src/"
 files = [
     "application.cc",
     "main.cc",
+    "utility.cc",
     "vertex.cc",
 ]
 

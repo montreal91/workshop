@@ -2,7 +2,6 @@
 #include "application.h"
 
 
-const float Application::EPSILON = 0.0001;
 const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.0f / 60.0f);
 
 Application::Application() :
@@ -72,14 +71,14 @@ float Application::CalculateForceMagnitude(
     return GRAVITATIONAL_CONSTANT;
   }
   else if (this->gravity_type == GravityType::inv_linear) {
-    if (distance <= EPSILON) {
+    if (distance <= util::EPSILON) {
       return GRAVITATIONAL_CONSTANT;
     } else {
       return GRAVITATIONAL_CONSTANT / distance;
     }
   }
   else if (this->gravity_type == GravityType::inv_quadratic) {
-    if (distance <= EPSILON) {
+    if (distance <= util::EPSILON) {
       return GRAVITATIONAL_CONSTANT;
     } else {
       return GRAVITATIONAL_CONSTANT / distance / distance;
@@ -180,18 +179,4 @@ void Application::Update(const sf::Time& dt) {
   for (auto i = 0; i < this->vertices.size(); i++) {
     this->vertices[i].Update(dt);
   }
-}
-
-b2Vec2 util::GetNormalizedVector(const b2Vec2& vec) {
-  float norma = util::GetVectorNorm(vec);
-  if (norma <= Application::EPSILON) {
-    return b2Vec2(vec.x, vec.y);
-  }
-
-  b2Vec2 res = b2Vec2(vec.x / norma, vec.y / norma);
-  return res;
-}
-
-float util::GetVectorNorm(const b2Vec2& vec) {
-  return std::sqrt(vec.x * vec.x + vec.y * vec.y);
 }
