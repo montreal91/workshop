@@ -45,14 +45,7 @@ void World::SetGravityType(World::GravityType type) {
 void World::Update(const sf::Time& dt) {
   for (int i=0; i<_vertexes.size(); i++) {
     for (int j=0; j<_vertexes.size(); j++) {
-      b2Vec2 force = _CalculateForceDirection(_vertexes[i], _vertexes[j]);
-      float magnitude = _CalculateForceMagnitude(
-        _vertexes[i],
-        _vertexes[j]
-      );
-      force *= magnitude;
-      force *= -_graph->GetEdge(i, j);
-      _vertexes[i].AddForce(force);
+      _vertexes[i].AddForce(_CalculateGravityBetweenVertexes(i, j));
       _vertexes[i].AddForce(_CalculateBlackHoleForce(_vertexes[i]));
     }
   }
@@ -116,6 +109,17 @@ float World::_CalculateForceMagnitude(
   else {
     throw std::invalid_argument("Gravity type should be 0, 1 or 2.");
   }
+}
+
+b2Vec2 World::_CalculateGravityBetweenVertexes(size_t i, size_t j) const {
+  auto subject = _vertexes[i];
+  auto object = _vertexes[j];
+
+  b2Vec2 force = _CalculateForceDirection(subject, object);
+  float magnitude = _CalculateForceMagnitude(subject, object);
+  force *= magnitude;
+  force *= -_graph->GetEdge(i, j);
+  return force;
 }
 
 void World::_InitVerticesObjects() {

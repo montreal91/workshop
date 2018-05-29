@@ -67,6 +67,8 @@ private:
     const Vertex& object
   ) const;
 
+  b2Vec2 _CalculateGravityBetweenVertexes(size_t i, size_t j) const;
+
   void _InitVerticesObjects();
 
   void _InitVerticesPositions();
