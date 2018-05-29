@@ -9,6 +9,10 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Time.hpp>
 
+//
+// Class for physical vertexes that live in physical world and can be drawn in
+// sf::RenderTarget
+//
 class Vertex : public sf::Drawable {
 public:
   explicit Vertex(b2World& world);
@@ -18,16 +22,16 @@ public:
   virtual void draw(sf::RenderTarget& target, sf::RenderStates) const;
   virtual b2Vec2 GetPosition() const;
   virtual void SetPosition(const b2Vec2& pos);
-  virtual void Update(const sf::Time& dt);
+  virtual void Update();
 
   const static float RADIUS;
   const static float SCALE;
 
 private:
-  virtual void CreatePhysicalBody(b2World& world, float x, float y);
+  virtual void _CreatePhysicalBody(b2World& world, float x, float y);
 
-  b2Body* body;
-  sf::CircleShape dot;
+  b2Body* _body;
+  sf::CircleShape _dot;
 };
 
 float GetDistanceBetweenVertices(const Vertex& v1, const Vertex& v2);

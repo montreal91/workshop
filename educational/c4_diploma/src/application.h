@@ -3,8 +3,8 @@
 
 #include <iostream>
 #include <fstream>
+#include <memory>
 #include <stdexcept>
-#include <thread>
 #include <vector>
 
 
@@ -12,53 +12,28 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 
+#include "graph.h"
 #include "utility.h"
 #include "vertex.h"
+#include "world.h"
 
 // Main application class which manages vertex movement
 // This class is not supposed to be subclassed.
 class Application : private sf::NonCopyable {
 public:
-  enum GravityType : int {
-    constant = 0,
-    inv_linear = 1,
-    inv_quadratic = 2,
-  };
-
   explicit Application();
 
   void Run();
+
 private:
-  b2Vec2 CalculateBlackHoleForce(const Vertex& vertex) const;
-
-  // Returns normalized force direction applied to subject
-  b2Vec2 CalculateForceDirection(const Vertex& subject, const Vertex& object) const;
-  float CalculateForceMagnitude(
-    const Vertex& subjet,
-    const Vertex& object
-  ) const;
-
-  void InitVerticesPositions();
-  void LoadData(std::istream& in);
-  void PrintTestData() const;
-  void ProcessInput();
-  void Render();
-  void Update(const sf::Time& dt);
-
-  typedef std::vector<std::vector<float>> Matrix_t;
+  void _LoadData(std::istream& in);
+  void _PrintTestData() const;
+  void _ProcessInput();
+  void _Render();
+  void _Update(const sf::Time& dt);
 
   static const sf::Time TIME_PER_FRAME;
 
-  // This value should be constant too,
-  // But it is loaded during runtime rather than compile-time,
-  // so it can't be const.
-  float GRAVITATIONAL_CONSTANT;
-
-  Matrix_t adjacency_matrix;
-  float black_hole_action_radius;
-  b2Vec2 black_hole_position;
-  int gravity_type;
-  b2World physical_world;
-  std::vector<Vertex> vertices;
-  sf::RenderWindow window;
+  sf::RenderWindow _window;
+  World _world;
 };

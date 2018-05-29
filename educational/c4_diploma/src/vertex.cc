@@ -5,45 +5,41 @@ const float Vertex::RADIUS = 0.25f;
 const float Vertex::SCALE = 30.0f;
 
 Vertex::Vertex(b2World& world) :
-dot(RADIUS * SCALE)
+_dot(RADIUS * SCALE)
 {
-  this->dot.setFillColor(sf::Color::Magenta);
-  this->dot.setPosition(sf::Vector2f(550, 300));
-
-  this->CreatePhysicalBody(world, 0.0f, 0.0f);
+  _dot.setFillColor(sf::Color::Cyan);
+  _CreatePhysicalBody(world, 0.0f, 0.0f);
 }
 
 Vertex::Vertex(b2World& world, float x, float y) :
-  dot(RADIUS * SCALE)
+_dot(RADIUS * SCALE)
 {
-  this->dot.setFillColor(sf::Color::Magenta);
-  this->dot.setPosition(sf::Vector2f(x, y));
-
-  this->CreatePhysicalBody(world, x, y);
+  _dot.setFillColor(sf::Color::Cyan);
+  _CreatePhysicalBody(world, x, y);
 }
 
 void Vertex::AddForce(const b2Vec2& force) {
-  this->body->ApplyForceToCenter(force, true);
+  _body->ApplyForceToCenter(force, true);
 }
 
 void Vertex::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-  target.draw(this->dot, states);
+  target.draw(_dot, states);
 }
 
 b2Vec2 Vertex::GetPosition() const {
-  return this->body->GetPosition();
+  return _body->GetPosition();
 }
 
 void Vertex::SetPosition(const b2Vec2& pos) {
-  this->body->SetTransform(pos, 0);
+  _body->SetTransform(pos, 0);
 }
 
-void Vertex::Update(const sf::Time& dt) {
-  b2Vec2 pos = this->body->GetPosition();
-  this->dot.setPosition(SCALE * pos.x, SCALE * pos.y);
+void Vertex::Update() {
+  b2Vec2 pos = _body->GetPosition();
+  _dot.setPosition(SCALE * pos.x, SCALE * pos.y);
 }
 
-void Vertex::CreatePhysicalBody(b2World& world, float x, float y) {
+void Vertex::_CreatePhysicalBody(b2World& world, float x, float y) {
   b2BodyDef body_def;
   body_def.position = b2Vec2(x, y);
   body_def.type = b2_dynamicBody;
@@ -57,10 +53,10 @@ void Vertex::CreatePhysicalBody(b2World& world, float x, float y) {
   fixture_def.friction = 0.7f;
   fixture_def.shape = &circle_shape;
 
-  this->body = world.CreateBody(&body_def);
-  this->body->CreateFixture(&fixture_def);
+  _body = world.CreateBody(&body_def);
+  _body->CreateFixture(&fixture_def);
 
-  std::cout << "Mass: " << this->body->GetMass() << "\n";
+  std::cout << "Mass: " << _body->GetMass() << "\n";
 }
 
 float GetDistanceBetweenVertices(const Vertex& v1, const Vertex& v2) {

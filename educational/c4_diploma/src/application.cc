@@ -5,178 +5,82 @@
 const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.0f / 60.0f);
 
 Application::Application() :
-adjacency_matrix(),
-physical_world(b2Vec2(0.0f, 0.0f)),
-vertices(),
-window(sf::VideoMode(1200, 600), "Diploma", sf::Style::Close) {
+_window(sf::VideoMode(1200, 600), "Diploma", sf::Style::Close),
+_world()
+{
+  _window.setKeyRepeatEnabled(false);
+
   std::ifstream fileinput("graph.txt");
-
-  auto window_size = this->window.getSize();
-  float black_hole_x = (float)window_size.x;
-  float black_hole_y = (float)window_size.y;
-  this->black_hole_position = b2Vec2(
-    black_hole_x / 2 / Vertex::SCALE,
-    black_hole_y / 2 / Vertex::SCALE
-  );
-  this->black_hole_action_radius = this->black_hole_position.y - 2;
-  this->gravity_type = GravityType::constant;
-
-  this->LoadData(fileinput);
-  this->InitVerticesPositions();
+  _LoadData(fileinput);
 }
 
 void Application::Run() {
   sf::Clock clock;
   sf::Time time_since_last_update = sf::Time::Zero;
-  while (window.isOpen()) {
+  while (_window.isOpen()) {
     sf::Time dt = clock.restart();
     time_since_last_update += dt;
 
     while (time_since_last_update > TIME_PER_FRAME) {
       time_since_last_update -= TIME_PER_FRAME;
-      this->ProcessInput();
-      this->Update(TIME_PER_FRAME);
-      this->Render();
+      _ProcessInput();
+      _Update(TIME_PER_FRAME);
+      _Render();
     }
   }
 }
 
-b2Vec2 Application::CalculateBlackHoleForce(const Vertex& vertex) const {
-  auto pos = vertex.GetPosition();
-  auto direction = this->black_hole_position - pos;
+//
+// Private methods
+//
 
-  auto distance = util::GetVectorNorm(direction);
 
-  if (distance < this->black_hole_action_radius) {
-    return b2Vec2(0.0f, 0.0f);
-  } else {
-    direction = util::GetNormalizedVector(direction);
-    auto magnitude = distance;
-    return b2Vec2(direction.x * magnitude, direction.y * magnitude);
-  }
-}
-
-b2Vec2 Application::CalculateForceDirection(const Vertex& subject, const Vertex& object) const {
-  b2Vec2 res = subject.GetPosition();
-  res -= object.GetPosition();
-  return util::GetNormalizedVector(res);
-}
-
-float Application::CalculateForceMagnitude(
-  const Vertex& subject,
-  const Vertex& object
-) const {
-  const auto distance = GetDistanceBetweenVertices(subject, object);
-  if (this->gravity_type == GravityType::constant) {
-    return GRAVITATIONAL_CONSTANT;
-  }
-  else if (this->gravity_type == GravityType::inv_linear) {
-    if (distance <= util::EPSILON) {
-      return GRAVITATIONAL_CONSTANT;
-    } else {
-      return GRAVITATIONAL_CONSTANT / distance;
-    }
-  }
-  else if (this->gravity_type == GravityType::inv_quadratic) {
-    if (distance <= util::EPSILON) {
-      return GRAVITATIONAL_CONSTANT;
-    } else {
-      return GRAVITATIONAL_CONSTANT / distance / distance;
-    }
-  }
-  else {
-    throw std::invalid_argument("Gravity type should be 0, 1 or 2.");
-  }
-
-}
-
-void Application::InitVerticesPositions() {
-  const auto PI = 3.141592f;
-  auto phi = 2 * PI / this->vertices.size();
-  auto r = this->black_hole_action_radius * 0.25;
-
-  for (auto i=0; i < this->vertices.size(); i++) {
-    auto x = std::cos(phi * i) * r;
-    auto y = std::sin(phi * i) * r;
-
-    auto pos = b2Vec2(
-      this->black_hole_position.x + x,
-      this->black_hole_position.y + y
-    );
-    this->vertices[i].SetPosition(pos);
-  }
-}
-
-void Application::LoadData(std::istream& in) {
+void Application::_LoadData(std::istream& in) {
   int n;
   in >> n;
   std::cout << "Number of vertices: " << n << "\n";
-  for (int i = 0; i < n; i++) {
-    Vertex v(this->physical_world);
-    this->vertices.push_back(v);
-  }
-  in >> this->gravity_type;
-  in >> this->GRAVITATIONAL_CONSTANT;
-  std::cout << "Gravitaional constant: " << this->GRAVITATIONAL_CONSTANT << "\n";
 
+  auto gravity_type = 0;
+  in >> gravity_type;
+  _world.SetGravityType(static_cast<World::GravityType>(gravity_type));
+
+  std::unique_ptr<Graph> graph(new Graph(n));
   float tmp = 0;
-  this->adjacency_matrix.clear();
-  for (int i = 0; i < n; i++) {
-    this->adjacency_matrix.push_back(std::vector<float>());
-    for (int j = 0; j < n; j++) {
+  for (auto i=0; i<n; i++) {
+    for (auto j=0; j<n; j++) {
       in >> tmp;
-      this->adjacency_matrix[i].push_back(tmp);
+      graph->SetEdge(i, j, tmp);
     }
   }
+  _world.SetGraph(std::move(graph));
+  _world.Init();
 }
 
-void Application::PrintTestData() const {
-  b2Vec2 position = this->vertices[0].GetPosition();
-  std::cout << "Pos: " << position.x << " " << position.y << "\n";
-}
+void Application::_PrintTestData() const {}
 
-void Application::ProcessInput() {
+void Application::_ProcessInput() {
   sf::Event event;
-  while (this->window.pollEvent(event)) {
+  while (_window.pollEvent(event)) {
     if (event.type == sf::Event::KeyPressed) {
       if (event.key.code == sf::Keyboard::Q) {
-        this->window.close();
+        _window.close();
       }
       if (event.key.code == sf::Keyboard::P) {
-        this->PrintTestData();
+        _PrintTestData();
       }
     }
     if (event.type == sf::Event::Closed) {
-      std::cout << "ProcessInput close window\n";
-      this->window.close();
+      _window.close();
     }
   }
 }
 
-void Application::Render() {
-  this->window.clear();
-  for (Vertex vertex : this->vertices) {
-    this->window.draw(vertex);
-  }
-  this->window.display();
+void Application::_Render() {
+  _window.clear();
+  _world.RenderVertexes(_window);
+  _window.display();
 }
 
-void Application::Update(const sf::Time& dt) {
-  for (int i=0; i<this->vertices.size(); i++) {
-    for (int j=0; j<this->vertices.size(); j++) {
-      b2Vec2 force = this->CalculateForceDirection(vertices[i], vertices[j]);
-      float magnitude = this->CalculateForceMagnitude(
-        this->vertices[i],
-        this->vertices[j]
-      );
-      force *= magnitude;
-      force *= -this->adjacency_matrix[i][j];
-      this->vertices[i].AddForce(force);
-      this->vertices[i].AddForce(this->CalculateBlackHoleForce(vertices[i]));
-    }
-  }
-  this->physical_world.Step(dt.asSeconds(), 8, 3);
-  for (auto i = 0; i < this->vertices.size(); i++) {
-    this->vertices[i].Update(dt);
-  }
+void Application::_Update(const sf::Time& dt) {
+  _world.Update(dt);
 }
