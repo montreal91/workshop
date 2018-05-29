@@ -2,8 +2,13 @@
 #include "world.h"
 
 
+const float World::GRAVITATIONAL_CONSTANT = 1.0f;
+
+
 World::World():
+_attraction(GRAVITATIONAL_CONSTANT),
 _physical_world(b2Vec2(0.0f, 0.0f)),
+_repulsion(GRAVITATIONAL_CONSTANT),
 _vertexes()
 {
   float black_hole_x = 1200;
@@ -26,6 +31,9 @@ void World::Init() {
   _vertexes.clear();
   _InitVerticesObjects();
   _InitVerticesPositions();
+
+  _repulsion = GRAVITATIONAL_CONSTANT;
+  _attraction = _repulsion / 2;
 }
 
 void World::RenderVertexes(sf::RenderWindow& window) const {
@@ -70,8 +78,7 @@ b2Vec2 World::_CalculateBlackHoleForce(const Vertex& vertex) const {
     return b2Vec2(0.0f, 0.0f);
   } else {
     direction = util::GetNormalizedVector(direction);
-    auto magnitude = distance;
-    return b2Vec2(direction.x * magnitude, direction.y * magnitude);
+    return b2Vec2(direction.x * _repulsion * 2, direction.y * _repulsion * 2);
   }
 }
 
@@ -90,20 +97,20 @@ float World::_CalculateForceMagnitude(
 ) const {
   const auto distance = GetDistanceBetweenVertices(subject, object);
   if (_gravity_type == GravityType::constant) {
-    return _GRAVITATIONAL_CONSTANT;
+    return GRAVITATIONAL_CONSTANT;
   }
   else if (_gravity_type == GravityType::inv_linear) {
     if (distance <= util::EPSILON) {
-      return _GRAVITATIONAL_CONSTANT;
+      return GRAVITATIONAL_CONSTANT;
     } else {
-      return _GRAVITATIONAL_CONSTANT / distance;
+      return GRAVITATIONAL_CONSTANT / distance;
     }
   }
   else if (_gravity_type == GravityType::inv_quadratic) {
     if (distance <= util::EPSILON) {
-      return _GRAVITATIONAL_CONSTANT;
+      return GRAVITATIONAL_CONSTANT;
     } else {
-      return _GRAVITATIONAL_CONSTANT / distance / distance;
+      return GRAVITATIONAL_CONSTANT / distance / distance;
     }
   }
   else {
@@ -118,7 +125,16 @@ b2Vec2 World::_CalculateGravityBetweenVertexes(size_t i, size_t j) const {
   b2Vec2 force = _CalculateForceDirection(subject, object);
   float magnitude = _CalculateForceMagnitude(subject, object);
   force *= magnitude;
-  force *= -_graph->GetEdge(i, j);
+
+  auto edge = _graph->GetEdge(i, j);
+  force *= -edge;
+  
+  if (edge == Graph::EdgeGravity::repulsion) {
+    force *= _repulsion;
+  }
+  else if (edge == Graph::EdgeGravity::attraction) {
+    force *= _attraction;
+  }
   return force;
 }
 

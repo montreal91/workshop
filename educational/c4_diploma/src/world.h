@@ -52,6 +52,8 @@ public:
   void Update(const sf::Time& dt);
 
 private:
+  static const float GRAVITATIONAL_CONSTANT;
+  
   b2Vec2 _CalculateBlackHoleForce(const Vertex& vertex) const;
 
   //
@@ -73,13 +75,12 @@ private:
 
   void _InitVerticesPositions();
 
-
-  float _black_hole_action_radius;
-  b2Vec2 _black_hole_position;
-  GravityType _gravity_type;
-  b2World _physical_world;
+  float               _attraction;
+  float               _black_hole_action_radius;
+  b2Vec2              _black_hole_position;
+  GravityType         _gravity_type;
+  b2World             _physical_world;
+  float               _repulsion;
   std::vector<Vertex> _vertexes;
-  Graph::Ptr_t _graph;
-
-  float _GRAVITATIONAL_CONSTANT = 1.0f;
+  Graph::Ptr_t        _graph;
 };

@@ -10,6 +10,10 @@
 //
 class Graph {
 public:
+  enum EdgeGravity : int {
+    attraction = 1,
+    repulsion = -1,
+  };
   typedef std::unique_ptr<Graph> Ptr_t;
 
   //
@@ -20,7 +24,7 @@ public:
   //
   // Returns value of an edge that connects i'th and j'th vertexes.
   //
-  float GetEdge(size_t i, size_t j) const;
+  EdgeGravity GetEdge(size_t i, size_t j) const;
 
   //
   // Returns number of vertices in current graph.
@@ -35,10 +39,10 @@ public:
   //
   // Sets value of an edge that connects i'th and j'th vertexes to n.
   //
-  void SetEdge(size_t i, size_t j, float val);
+  void SetEdge(size_t i, size_t j, EdgeGravity edge);
 
 private:
-  typedef std::vector<std::vector<float>> Matrix_t;
+  typedef std::vector<std::vector<EdgeGravity>> Matrix_t;
 
   Matrix_t _adjacency_matrix;
 };

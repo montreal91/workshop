@@ -7,7 +7,7 @@ _adjacency_matrix()
   this->InitEdgelessGraph(n);
 }
 
-float Graph::GetEdge(size_t i, size_t j) const {
+Graph::EdgeGravity Graph::GetEdge(size_t i, size_t j) const {
   return _adjacency_matrix[i][j];
 }
 
@@ -18,18 +18,18 @@ size_t Graph::GetSize() const {
 void Graph::InitEdgelessGraph(size_t n) {
   _adjacency_matrix.clear();
   for (auto i=0; i<n; i++) {
-    _adjacency_matrix.push_back(std::vector<float>());
+    _adjacency_matrix.push_back(std::vector<EdgeGravity>());
     for (auto j=0; j<n; j++) {
-      _adjacency_matrix[i].push_back(0.0f);
+      _adjacency_matrix[i].push_back(EdgeGravity::repulsion);
     }
   }
 }
 
-void Graph::SetEdge(size_t i, size_t j, float value) {
-  if (j > _adjacency_matrix.size() || i > _adjacency_matrix.size()) {
-    throw std::invalid_argument("Trying to set edge value outside of the graph.");
+void Graph::SetEdge(size_t i, size_t j, Graph::EdgeGravity type) {
+  if (j >= _adjacency_matrix.size() || i >= _adjacency_matrix.size()) {
+    throw std::invalid_argument("Trying to set edge type outside of the graph.");
   }
 
-  _adjacency_matrix[i][j] = value;
-  _adjacency_matrix[j][i] = value;
+  _adjacency_matrix[i][j] = type;
+  _adjacency_matrix[j][i] = type;
 }

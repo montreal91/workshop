@@ -1,6 +1,7 @@
 
 #pragma once
 
+#include <cstring>
 #include <iostream>
 #include <fstream>
 #include <memory>
@@ -32,6 +33,7 @@ private:
   void _Render();
   void _Update(const sf::Time& dt);
 
+  static const std::string FOLDER;
   static const sf::Time TIME_PER_FRAME;
 
   sf::RenderWindow _window;

@@ -10,7 +10,7 @@ _world()
 {
   _window.setKeyRepeatEnabled(false);
 
-  std::ifstream fileinput("graph.txt");
+  std::ifstream fileinput("graphs/default.txt");
   _LoadData(fileinput);
 }
 
@@ -36,21 +36,22 @@ void Application::Run() {
 
 
 void Application::_LoadData(std::istream& in) {
-  int n;
-  in >> n;
-  std::cout << "Number of vertices: " << n << "\n";
-
   auto gravity_type = 0;
   in >> gravity_type;
   _world.SetGravityType(static_cast<World::GravityType>(gravity_type));
 
+  auto n=0;
+  in >> n;
+  std::cout << "Number of vertices: " << n << "\n";
   std::unique_ptr<Graph> graph(new Graph(n));
-  float tmp = 0;
-  for (auto i=0; i<n; i++) {
-    for (auto j=0; j<n; j++) {
-      in >> tmp;
-      graph->SetEdge(i, j, tmp);
+
+  auto i=0, j=0;
+  for (auto c=0; c<n*n; c++) {
+    in >> i >> j;
+    if (i < 0 || j < 0) {
+      break;
     }
+    graph->SetEdge(i, j, Graph::EdgeGravity::attraction);
   }
   _world.SetGraph(std::move(graph));
   _world.Init();
