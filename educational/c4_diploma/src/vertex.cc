@@ -1,25 +1,23 @@
 
 #include "vertex.h"
 
-const float Vertex::RADIUS = 0.25f;
-const float Vertex::SCALE = 30.0f;
 
 Vertex::Vertex(b2World& world) :
-_dot(RADIUS * SCALE)
+_dot(util::RADIUS * util::SCALE)
 {
   _dot.setFillColor(sf::Color::Cyan);
   _CreatePhysicalBody(world, 0.0f, 0.0f, 1.0f);
 }
 
 Vertex::Vertex(b2World& world, float x, float y) :
-_dot(RADIUS * SCALE)
+_dot(util::RADIUS * util::SCALE)
 {
   _dot.setFillColor(sf::Color::Cyan);
   _CreatePhysicalBody(world, x, y, 1.0f);
 }
 
 Vertex::Vertex(b2World& world, float x, float y, float mass) :
-_dot(RADIUS * SCALE)
+_dot(util::RADIUS * util::SCALE)
 {
   _dot.setFillColor(sf::Color::Cyan);
   _CreatePhysicalBody(world, x, y, mass);
@@ -47,7 +45,7 @@ void Vertex::SetPosition(const b2Vec2& pos) {
 
 void Vertex::Update() {
   b2Vec2 pos = _body->GetPosition();
-  _dot.setPosition(SCALE * pos.x, SCALE * pos.y);
+  _dot.setPosition(util::SCALE * pos.x, util::SCALE * pos.y);
 }
 
 void Vertex::_CreatePhysicalBody(b2World& world, float x, float y, float mass) {
@@ -57,11 +55,11 @@ void Vertex::_CreatePhysicalBody(b2World& world, float x, float y, float mass) {
 
   b2CircleShape circle_shape;
   circle_shape.m_p.Set(0, 0);
-  circle_shape.m_radius = RADIUS;
+  circle_shape.m_radius = util::RADIUS;
 
   b2FixtureDef fixture_def;
   fixture_def.density  = 2.0f;
-  fixture_def.friction = 0.7f;
+  fixture_def.friction = 0.0f;
   fixture_def.shape = &circle_shape;
 
   _body = world.CreateBody(&body_def);

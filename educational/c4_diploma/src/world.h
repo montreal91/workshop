@@ -6,6 +6,7 @@
 #include <Box2D/Box2D.h>
 #include <SFML/Graphics.hpp>
 
+#include "bounding_box.h"
 #include "graph.h"
 #include "utility.h"
 #include "vertex.h"
@@ -44,6 +45,8 @@ public:
   //
   void SetGravityType(GravityType type);
 
+  void ToggleBlackHoleOn();
+
   //
   // Main function for graph simulation.
   // Calculates and applies all forces and then does world step for a fraction
@@ -54,7 +57,7 @@ public:
 private:
   static const float GRAVITATIONAL_CONSTANT;
   
-  b2Vec2 _CalculateBlackHoleForce(const Vertex& vertex) const;
+  b2Vec2 _CalculateBlackHoleGravity(const Vertex& vertex) const;
 
   b2Vec2 _CalculateGravityBetweenVertexes(size_t i, size_t j) const;
 
@@ -67,7 +70,7 @@ private:
   ) const;
 
   float _CalculateGravityMagnitude(
-    const Vertex& subjet,
+    const Vertex& subject,
     const Vertex& object
   ) const;
 
@@ -75,11 +78,14 @@ private:
 
   void _InitVerticesPositions();
 
+
   float               _attraction;
   float               _black_hole_action_radius;
+  bool                _black_hole_on;
   b2Vec2              _black_hole_position;
   GravityType         _gravity_type;
   b2World             _physical_world;
+  BoundingBox         _bounding_box;
   float               _repulsion;
   std::vector<Vertex> _vertexes;
   Graph::Ptr_t        _graph;

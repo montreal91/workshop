@@ -7,6 +7,19 @@ _adjacency_matrix()
   this->InitEdgelessGraph(n);
 }
 
+float Graph::GetDensity() const {
+  float edges = 0.0f;
+  for (auto i=0; i<this->GetSize(); i++) {
+    for (auto j=0; j<this->GetSize(); j++) {
+      if (_adjacency_matrix[i][j] == EdgeGravity::attraction) {
+        edges += 1.0f;
+      }
+    }
+  }
+  auto vertexes = this->GetSize();
+  return edges / static_cast<float>(vertexes * (vertexes - 1));
+}
+
 Graph::EdgeGravity Graph::GetEdge(size_t i, size_t j) const {
   return _adjacency_matrix[i][j];
 }

@@ -5,9 +5,10 @@
 #include <iostream>
 
 #include <Box2D/Box2D.h>
-
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Time.hpp>
+
+#include "utility.h"
 
 //
 // Class for physical vertexes that live in physical world and can be drawn in
@@ -29,7 +30,7 @@ public:
   // This method is inherited from sf::Drawable and allows to render vertex
   // the same way as sf::CircleShape is rendered.
   //
-  virtual void draw(sf::RenderTarget& target, sf::RenderStates) const;
+  virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
   //
   // Returns vertex' mass measured in kilograms.
@@ -50,9 +51,6 @@ public:
   // Updates vertex' representation.
   //
   virtual void Update();
-
-  const static float RADIUS;
-  const static float SCALE;
 
 private:
   virtual void _CreatePhysicalBody(b2World& world, float x, float y, float mass);

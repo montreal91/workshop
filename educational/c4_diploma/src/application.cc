@@ -1,14 +1,14 @@
 
 #include "application.h"
 
-
+const int Application::MAX_VERTS = 400;
 const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.0f / 60.0f);
 
 
 Application::Application() :
 _current_graph_filename("graphs/default.txt"),
 _is_active(false),
-_window(sf::VideoMode(1200, 600), "Diploma", sf::Style::Close),
+_window(sf::VideoMode(1200, 610), "Diploma", sf::Style::Close),
 _world()
 {
   _window.setKeyRepeatEnabled(false);
@@ -44,6 +44,9 @@ void Application::_LoadData() {
 
   auto n=0;
   in >> n;
+  if (n > MAX_VERTS) {
+    throw std::length_error("Graph is too big.");
+  }
   std::cout << "Number of vertices: " << n << "\n";
   std::cout << "Gravity type: " << gravity_type << "\n";
   std::unique_ptr<Graph> graph(new Graph(n));
@@ -78,6 +81,9 @@ void Application::_ProcessInput() {
 }
 
 void Application::_ProcessKeyPress(const sf::Event::KeyEvent& key_event) {
+  if (key_event.code == sf::Keyboard::B) {
+    _world.ToggleBlackHoleOn();
+  }
   if (key_event.code == sf::Keyboard::Q) {
     _window.close();
   }

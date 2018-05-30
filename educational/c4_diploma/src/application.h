@@ -38,6 +38,7 @@ private:
   void _Update(const sf::Time& dt);
 
   static const std::string  FOLDER;
+  static const int          MAX_VERTS;
   static const sf::Time     TIME_PER_FRAME;
 
   std::string       _current_graph_filename;

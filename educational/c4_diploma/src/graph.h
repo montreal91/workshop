@@ -22,6 +22,11 @@ public:
   explicit Graph(size_t n);
 
   //
+  // Returns graph density according to definition.
+  //
+  float GetDensity() const;
+
+  //
   // Returns value of an edge that connects i'th and j'th vertexes.
   //
   EdgeGravity GetEdge(size_t i, size_t j) const;
