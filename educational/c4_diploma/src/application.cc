@@ -4,14 +4,16 @@
 
 const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.0f / 60.0f);
 
+
 Application::Application() :
+_current_graph_filename("graphs/default.txt"),
+_is_active(false),
 _window(sf::VideoMode(1200, 600), "Diploma", sf::Style::Close),
 _world()
 {
   _window.setKeyRepeatEnabled(false);
 
-  std::ifstream fileinput("graphs/default.txt");
-  _LoadData(fileinput);
+  _LoadData();
 }
 
 void Application::Run() {
@@ -34,8 +36,8 @@ void Application::Run() {
 // Private methods
 //
 
-
-void Application::_LoadData(std::istream& in) {
+void Application::_LoadData() {
+  std::ifstream in(_current_graph_filename);
   auto gravity_type = 0;
   in >> gravity_type;
   _world.SetGravityType(static_cast<World::GravityType>(gravity_type));
@@ -43,6 +45,7 @@ void Application::_LoadData(std::istream& in) {
   auto n=0;
   in >> n;
   std::cout << "Number of vertices: " << n << "\n";
+  std::cout << "Gravity type: " << gravity_type << "\n";
   std::unique_ptr<Graph> graph(new Graph(n));
 
   auto i=0, j=0;
@@ -63,16 +66,30 @@ void Application::_ProcessInput() {
   sf::Event event;
   while (_window.pollEvent(event)) {
     if (event.type == sf::Event::KeyPressed) {
-      if (event.key.code == sf::Keyboard::Q) {
-        _window.close();
-      }
-      if (event.key.code == sf::Keyboard::P) {
-        _PrintTestData();
-      }
+      _ProcessKeyPress(event.key);
     }
     if (event.type == sf::Event::Closed) {
       _window.close();
     }
+    if (event.type == sf::Event::LostFocus) {
+      _SetActive(false);
+    }
+  }
+}
+
+void Application::_ProcessKeyPress(const sf::Event::KeyEvent& key_event) {
+  if (key_event.code == sf::Keyboard::Q) {
+    _window.close();
+  }
+  if (key_event.code == sf::Keyboard::P) {
+    _PrintTestData();
+  }
+  if (key_event.code == sf::Keyboard::R) {
+    _LoadData();
+    _SetActive(false);
+  }
+  if (key_event.code == sf::Keyboard::Space) {
+    _ToggleActive();
   }
 }
 
@@ -82,6 +99,16 @@ void Application::_Render() {
   _window.display();
 }
 
+void Application::_SetActive(bool active) {
+  _is_active = active;
+}
+
+void Application::_ToggleActive() {
+  _is_active = !_is_active;
+}
+
 void Application::_Update(const sf::Time& dt) {
-  _world.Update(dt);
+  if (_is_active) {
+    _world.Update(dt);
+  }
 }
