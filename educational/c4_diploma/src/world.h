@@ -56,20 +56,20 @@ private:
   
   b2Vec2 _CalculateBlackHoleForce(const Vertex& vertex) const;
 
+  b2Vec2 _CalculateGravityBetweenVertexes(size_t i, size_t j) const;
+
   //
   // Returns normalized force direction applied to subject
   //
-  b2Vec2 _CalculateForceDirection(
+  b2Vec2 _CalculateGravityDirection(
     const Vertex& subject,
     const Vertex& object
   ) const;
 
-  float _CalculateForceMagnitude(
+  float _CalculateGravityMagnitude(
     const Vertex& subjet,
     const Vertex& object
   ) const;
-
-  b2Vec2 _CalculateGravityBetweenVertexes(size_t i, size_t j) const;
 
   void _InitVerticesObjects();
 

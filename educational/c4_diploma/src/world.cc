@@ -82,7 +82,27 @@ b2Vec2 World::_CalculateBlackHoleForce(const Vertex& vertex) const {
   }
 }
 
-b2Vec2 World::_CalculateForceDirection(
+b2Vec2 World::_CalculateGravityBetweenVertexes(size_t i, size_t j) const {
+  auto subject = _vertexes[i];
+  auto object = _vertexes[j];
+
+  b2Vec2 force = _CalculateGravityDirection(subject, object);
+  float magnitude = _CalculateGravityMagnitude(subject, object);
+  force *= magnitude;
+
+  auto edge = _graph->GetEdge(i, j);
+  force *= -edge;
+
+  if (edge == Graph::EdgeGravity::repulsion) {
+    force *= _repulsion;
+  }
+  else if (edge == Graph::EdgeGravity::attraction) {
+    force *= _attraction;
+  }
+  return force;
+}
+
+b2Vec2 World::_CalculateGravityDirection(
   const Vertex& subject,
   const Vertex& object
 ) const {
@@ -91,51 +111,35 @@ b2Vec2 World::_CalculateForceDirection(
   return util::GetNormalizedVector(res);
 }
 
-float World::_CalculateForceMagnitude(
+float World::_CalculateGravityMagnitude(
   const Vertex& subject,
   const Vertex& object
 ) const {
+  
   const auto distance = GetDistanceBetweenVertices(subject, object);
+  
+  float mass_factor = subject.GetMass() * object.GetMass();
+
   if (_gravity_type == GravityType::constant) {
-    return GRAVITATIONAL_CONSTANT;
+    return GRAVITATIONAL_CONSTANT * mass_factor;
   }
   else if (_gravity_type == GravityType::inv_linear) {
     if (distance <= util::EPSILON) {
       return GRAVITATIONAL_CONSTANT;
     } else {
-      return GRAVITATIONAL_CONSTANT / distance;
+      return GRAVITATIONAL_CONSTANT * mass_factor / distance;
     }
   }
   else if (_gravity_type == GravityType::inv_quadratic) {
     if (distance <= util::EPSILON) {
       return GRAVITATIONAL_CONSTANT;
     } else {
-      return GRAVITATIONAL_CONSTANT / distance / distance;
+      return GRAVITATIONAL_CONSTANT * mass_factor / distance / distance;
     }
   }
   else {
     throw std::invalid_argument("Gravity type should be 0, 1 or 2.");
   }
-}
-
-b2Vec2 World::_CalculateGravityBetweenVertexes(size_t i, size_t j) const {
-  auto subject = _vertexes[i];
-  auto object = _vertexes[j];
-
-  b2Vec2 force = _CalculateForceDirection(subject, object);
-  float magnitude = _CalculateForceMagnitude(subject, object);
-  force *= magnitude;
-
-  auto edge = _graph->GetEdge(i, j);
-  force *= -edge;
-  
-  if (edge == Graph::EdgeGravity::repulsion) {
-    force *= _repulsion;
-  }
-  else if (edge == Graph::EdgeGravity::attraction) {
-    force *= _attraction;
-  }
-  return force;
 }
 
 void World::_InitVerticesObjects() {

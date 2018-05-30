@@ -8,14 +8,21 @@ Vertex::Vertex(b2World& world) :
 _dot(RADIUS * SCALE)
 {
   _dot.setFillColor(sf::Color::Cyan);
-  _CreatePhysicalBody(world, 0.0f, 0.0f);
+  _CreatePhysicalBody(world, 0.0f, 0.0f, 1.0f);
 }
 
 Vertex::Vertex(b2World& world, float x, float y) :
 _dot(RADIUS * SCALE)
 {
   _dot.setFillColor(sf::Color::Cyan);
-  _CreatePhysicalBody(world, x, y);
+  _CreatePhysicalBody(world, x, y, 1.0f);
+}
+
+Vertex::Vertex(b2World& world, float x, float y, float mass) :
+_dot(RADIUS * SCALE)
+{
+  _dot.setFillColor(sf::Color::Cyan);
+  _CreatePhysicalBody(world, x, y, mass);
 }
 
 void Vertex::AddForce(const b2Vec2& force) {
@@ -24,6 +31,10 @@ void Vertex::AddForce(const b2Vec2& force) {
 
 void Vertex::draw(sf::RenderTarget& target, sf::RenderStates states) const{
   target.draw(_dot, states);
+}
+
+float Vertex::GetMass() const {
+  return static_cast<float>(_body->GetMass());
 }
 
 b2Vec2 Vertex::GetPosition() const {
@@ -39,7 +50,7 @@ void Vertex::Update() {
   _dot.setPosition(SCALE * pos.x, SCALE * pos.y);
 }
 
-void Vertex::_CreatePhysicalBody(b2World& world, float x, float y) {
+void Vertex::_CreatePhysicalBody(b2World& world, float x, float y, float mass) {
   b2BodyDef body_def;
   body_def.position = b2Vec2(x, y);
   body_def.type = b2_dynamicBody;
@@ -49,12 +60,17 @@ void Vertex::_CreatePhysicalBody(b2World& world, float x, float y) {
   circle_shape.m_radius = RADIUS;
 
   b2FixtureDef fixture_def;
-  fixture_def.density  = 1.0f;
+  fixture_def.density  = 2.0f;
   fixture_def.friction = 0.7f;
   fixture_def.shape = &circle_shape;
 
   _body = world.CreateBody(&body_def);
   _body->CreateFixture(&fixture_def);
+
+  b2MassData mass_data;
+  mass_data.center = b2Vec2(0.0f, 0.0f);
+  mass_data.mass = mass;
+  _body->SetMassData(&mass_data);
 
   std::cout << "Mass: " << _body->GetMass() << "\n";
 }
