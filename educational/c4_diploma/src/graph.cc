@@ -38,6 +38,16 @@ void Graph::InitEdgelessGraph(size_t n) {
   }
 }
 
+int Graph::GetVertexDegree(size_t i) const {
+  auto res = 0;
+  for (auto v : _adjacency_matrix[i]) {
+    if (v == EdgeGravity::attraction) {
+      res++;
+    }
+  }
+  return res;
+}
+
 void Graph::SetEdge(size_t i, size_t j, Graph::EdgeGravity type) {
   if (j >= _adjacency_matrix.size() || i >= _adjacency_matrix.size()) {
     throw std::invalid_argument("Trying to set edge type outside of the graph.");

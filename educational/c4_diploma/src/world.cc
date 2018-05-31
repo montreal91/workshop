@@ -2,7 +2,7 @@
 #include "world.h"
 
 
-const float World::GRAVITATIONAL_CONSTANT = 1.75f;
+const float World::GRAVITATIONAL_CONSTANT = 1.0f;
 
 
 World::World():
@@ -150,9 +150,35 @@ float World::_CalculateGravityMagnitude(
   }
 }
 
+sf::Color World::_CalculateVertexColor(size_t i) const {
+  int degree = _graph->GetVertexDegree(i);
+
+  if (degree == 0) {
+    return sf::Color::Red;
+  }
+
+  const int max_colors = 512; // 256 + 256
+  int step = max_colors / (_graph->GetSize() - 1);
+  auto val = degree * step;
+  auto green = 0;
+  auto blue = 0;
+
+  if (degree % 2 == 0) {
+    green = std::min(val, max_colors / 2 - 1);
+    blue = val - green;
+  }
+  else {
+    blue = std::min(val, max_colors / 2 - 1);
+    green = val - blue;
+  }
+
+  return sf::Color(0, green, blue);
+}
+
 void World::_InitVerticesObjects() {
   for (auto i=0; i<_graph->GetSize(); i++) {
     Vertex v(_physical_world);
+    v.SetColor(_CalculateVertexColor(i));
     _vertexes.push_back(v);
   }
 }

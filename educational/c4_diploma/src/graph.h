@@ -37,6 +37,12 @@ public:
   size_t GetSize() const;
 
   //
+  // Gets vertex' index in the matrix
+  // Returns vertex' degree
+  //
+  int GetVertexDegree(size_t i) const;
+
+  //
   // Deletes all edges and sets number of vertexes to n
   //
   void InitEdgelessGraph(size_t n);

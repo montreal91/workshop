@@ -39,6 +39,10 @@ b2Vec2 Vertex::GetPosition() const {
   return _body->GetPosition();
 }
 
+void Vertex::SetColor(const sf::Color& color) {
+  _dot.setFillColor(color);
+}
+
 void Vertex::SetPosition(const b2Vec2& pos) {
   _body->SetTransform(pos, 0);
 }

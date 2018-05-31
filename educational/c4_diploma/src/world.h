@@ -1,7 +1,8 @@
 
 #pragma once
 
-// #include <memory>
+#include <algorithm>
+#include <memory>
 
 #include <Box2D/Box2D.h>
 #include <SFML/Graphics.hpp>
@@ -45,6 +46,9 @@ public:
   //
   void SetGravityType(GravityType type);
 
+  //
+  // Turns on and off the black hole.
+  //
   void ToggleBlackHoleOn();
 
   //
@@ -73,6 +77,8 @@ private:
     const Vertex& subject,
     const Vertex& object
   ) const;
+
+  sf::Color _CalculateVertexColor(size_t i) const;
 
   void _InitVerticesObjects();
 

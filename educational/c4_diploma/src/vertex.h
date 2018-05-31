@@ -43,6 +43,11 @@ public:
   virtual b2Vec2 GetPosition() const;
 
   //
+  // Sets vertex' color that appears on the screen
+  //
+  virtual void SetColor(const sf::Color& color);
+
+  //
   // Sets vertex' position in the physical world measured in meters.
   //
   virtual void SetPosition(const b2Vec2& pos);
