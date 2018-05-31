@@ -21,7 +21,7 @@ public:
   enum GravityType : int {
     constant = 0,
     inv_linear = 1,
-    inv_quadratic = 2,
+    classic = 2,
   };
 
   explicit World();

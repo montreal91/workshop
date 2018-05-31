@@ -15,13 +15,17 @@ public:
   explicit BoundingBox(b2World& world);
   explicit BoundingBox(b2World& world, b2Vec2 pos, float width, float height);
 
-  virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
   virtual float GetHeight() const;
   virtual b2Vec2 GetPosition() const;
   virtual float GetWidth() const;
+
 private:
+  void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
   void _CreatePhysicalBody(b2World& world);
+
   void _InitCorners(const std::vector<b2Vec2>& corners);
+
 
   b2Body*         _body;
   sf::VertexArray _corners;

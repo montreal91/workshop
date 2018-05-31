@@ -26,11 +26,6 @@ public:
   //
   virtual void AddForce(const b2Vec2& force);
 
-  //
-  // This method is inherited from sf::Drawable and allows to render vertex
-  // the same way as sf::CircleShape is rendered.
-  //
-  virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 
   //
   // Returns vertex' mass measured in kilograms.
@@ -58,6 +53,8 @@ public:
   virtual void Update();
 
 private:
+  void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
+
   virtual void _CreatePhysicalBody(b2World& world, float x, float y, float mass);
 
   b2Body*         _body;

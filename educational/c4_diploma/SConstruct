@@ -16,6 +16,7 @@ source_dir = "src/"
 files = [
     "application.cc",
     "bounding_box.cc",
+    "button.cc",
     "graph.cc",
     "main.cc",
     "utility.cc",

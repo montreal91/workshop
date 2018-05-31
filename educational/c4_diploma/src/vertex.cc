@@ -27,10 +27,6 @@ void Vertex::AddForce(const b2Vec2& force) {
   _body->ApplyForceToCenter(force, true);
 }
 
-void Vertex::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-  target.draw(_dot, states);
-}
-
 float Vertex::GetMass() const {
   return static_cast<float>(_body->GetMass());
 }
@@ -50,6 +46,14 @@ void Vertex::SetPosition(const b2Vec2& pos) {
 void Vertex::Update() {
   b2Vec2 pos = _body->GetPosition();
   _dot.setPosition(util::SCALE * pos.x, util::SCALE * pos.y);
+}
+
+//
+// Private methods
+//
+
+void Vertex::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+  target.draw(_dot, states);
 }
 
 void Vertex::_CreatePhysicalBody(b2World& world, float x, float y, float mass) {

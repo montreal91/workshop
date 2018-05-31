@@ -3,6 +3,14 @@
 
 namespace util {
 
+void CenterOrigin(sf::Text& text) {
+  sf::FloatRect bounds = text.getLocalBounds();
+  text.setOrigin(
+    std::floor(bounds.left + bounds.width / 2.0),
+    std::floor(bounds.top + bounds.height / 2.0)
+  );
+}
+
 b2Vec2 GetNormalizedVector(const b2Vec2& vec) {
   float norma = GetVectorNorm(vec);
   if (norma <= EPSILON) {

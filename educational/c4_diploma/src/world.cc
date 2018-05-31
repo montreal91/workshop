@@ -138,7 +138,7 @@ float World::_CalculateGravityMagnitude(
       return GRAVITATIONAL_CONSTANT * mass_factor / distance;
     }
   }
-  else if (_gravity_type == GravityType::inv_quadratic) {
+  else if (_gravity_type == GravityType::classic) {
     if (distance <= util::EPSILON) {
       return GRAVITATIONAL_CONSTANT;
     } else {

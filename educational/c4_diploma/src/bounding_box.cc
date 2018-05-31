@@ -19,12 +19,8 @@ _width(width)
   _CreatePhysicalBody(world);
 }
 
-void BoundingBox::draw(sf::RenderTarget& target, sf::RenderStates states) const {
-  target.draw(_corners, states);
-}
-
 float BoundingBox::GetHeight() const {
-  return _height; 
+  return _height;
 }
 
 b2Vec2 BoundingBox::GetPosition() const {
@@ -33,6 +29,14 @@ b2Vec2 BoundingBox::GetPosition() const {
 
 float BoundingBox::GetWidth() const {
   return _width;
+}
+
+//
+// Private methods
+//
+
+void BoundingBox::draw(sf::RenderTarget& target, sf::RenderStates states) const {
+  target.draw(_corners, states);
 }
 
 void BoundingBox::_CreatePhysicalBody(b2World& world) {
