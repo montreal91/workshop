@@ -38,7 +38,7 @@ void World::Init() {
 
 void World::RenderVertexes(sf::RenderWindow& window) const {
   window.draw(_bounding_box);
-  for (auto vertex : _vertexes) {
+  for (auto& vertex : _vertexes) {
     window.draw(vertex);
   }
 }

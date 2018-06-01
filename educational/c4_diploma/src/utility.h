@@ -17,15 +17,20 @@ float GetVectorNorm(const b2Vec2& vec);
 const float EPSILON = 0.0001f;
 const auto  FONT_SIZE = 15;
 const auto  GAP = 5;
-const float RADIUS = 0.1f;
+const float RADIUS = 0.15f;
 const float SCALE = 30.0f;
 const sf::Vector2f SHIFT = sf::Vector2f(5.0, 5.0);
 
-typedef std::map<std::string, sf::Text> LabelHolder_t;
 
+//
+// Enumeration of all possible action types.
+//
 enum class ActionType : int {
   Dummy = -1,
   None = 0,
+  SetGravityConst = 100,
+  SetGravityInvLinear = 101,
+  SetGravityClassic = 102,
 };
 
 } // namespace util

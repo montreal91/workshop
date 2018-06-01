@@ -77,8 +77,6 @@ void Vertex::_CreatePhysicalBody(b2World& world, float x, float y, float mass) {
   mass_data.center = b2Vec2(0.0f, 0.0f);
   mass_data.mass = mass;
   _body->SetMassData(&mass_data);
-
-  std::cout << "Mass: " << _body->GetMass() << "\n";
 }
 
 float GetDistanceBetweenVertices(const Vertex& v1, const Vertex& v2) {

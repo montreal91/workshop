@@ -6,7 +6,7 @@ const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.0f / 60.0f);
 
 
 Application::Application() :
-_button(),
+_buttons(),
 _current_graph_filename("graphs/default.txt"),
 _font(),
 _is_active(false),
@@ -22,10 +22,8 @@ _world()
   gravity_type_lbl.setPosition(win_size.x / 2 + 2 * util::GAP, util::GAP);
 
   _labels["gravity_type"] = gravity_type_lbl;
-  _button.SetAction(util::ActionType::Dummy);
-  _button.SetText(_CreateEmptyLabel(sf::Color::Black));
-  _button.SetString("Dummy button");
-  _button.SetPosition(win_size.x / 2 + 2 * util::GAP, util::GAP + 20);
+
+  _InitButtons();
 
   _LoadData();
 }
@@ -50,6 +48,30 @@ void Application::Run() {
 // Private methods
 //
 
+void Application::_AdjustButtonsWidth() {
+  auto max_width = 0.0;
+  for (auto& button : _buttons) {
+    if (button->GetSize().x > max_width) {
+      max_width = button->GetSize().x;
+    }
+  }
+
+  for (auto& button : _buttons) {
+    button->SetWidth(max_width);
+  }
+}
+
+Button::UPtr Application::_CreateButton(
+  const std::string& title,
+  util::ActionType action
+) {
+  Button::UPtr button(new Button());
+  button->SetAction(action);
+  button->SetText(_CreateEmptyLabel(sf::Color::Black));
+  button->SetString(title);
+  return button;
+}
+
 sf::Text Application::_CreateEmptyLabel(const sf::Color& text_color) const {
   auto label = sf::Text();
   label.setFont(_font);
@@ -57,6 +79,31 @@ sf::Text Application::_CreateEmptyLabel(const sf::Color& text_color) const {
   label.setColor(text_color);
   label.setCharacterSize(util::FONT_SIZE);
   return label;
+}
+
+void Application::_InitButtons() {
+  const auto win_size = _window.getSize();
+  const auto btns_x = win_size.x / 2 + 2 * util::GAP;
+  const auto step = 20;
+  const auto y_shift = 510;
+
+  auto grv_btn1 = _CreateButton("Constant", util::ActionType::SetGravityConst);
+  grv_btn1->SetPosition(btns_x, y_shift + util::GAP + step);
+
+  auto grv_btn2 = _CreateButton(
+    "Inv. Linear",
+    util::ActionType::SetGravityInvLinear
+  );
+  grv_btn2->SetPosition(btns_x, y_shift + (util::GAP + step) * 2);
+
+  auto grv_btn3 = _CreateButton("Classic", util::ActionType::SetGravityClassic);
+  grv_btn3->SetPosition(btns_x, y_shift + (util::GAP + step) * 3);
+
+  _buttons.push_back(std::move(grv_btn1));
+  _buttons.push_back(std::move(grv_btn2));
+  _buttons.push_back(std::move(grv_btn3));
+
+  _AdjustButtonsWidth();
 }
 
 void Application::_LoadData() {
@@ -91,7 +138,41 @@ void Application::_OnActionDummy() {
   std::cout << "Dummy button is clicked\n";
 }
 
+void Application::_OnActionSetGravityClassic() {
+  _UpdateGravity(World::GravityType::classic);
+}
+
+void Application::_OnActionSetGravityConst() {
+  _UpdateGravity(World::GravityType::constant);
+}
+
+void Application::_OnActionSetGravityInvLinear() {
+  _UpdateGravity(World::GravityType::inv_linear);
+}
+
 void Application::_PrintTestData() const {
+}
+
+bool Application::_ProcessAction(util::ActionType action) {
+  if (action == util::ActionType::Dummy) {
+    _OnActionDummy();
+    return true;
+  } else if (action == util::ActionType::SetGravityConst) {
+    _OnActionSetGravityConst();
+    return true;
+  } else if (action == util::ActionType::SetGravityInvLinear) {
+    _OnActionSetGravityInvLinear();
+    return true;
+  } else if (action == util::ActionType::SetGravityClassic) {
+    _OnActionSetGravityClassic();
+    return true;
+  }
+  else if (action == util::ActionType::None) {
+    return false;
+  }
+  else {
+    throw std::logic_error("Incorrect action.");
+  }
 }
 
 void Application::_ProcessInput() {
@@ -135,11 +216,12 @@ void Application::_ProcessKeyPress(const sf::Event::KeyEvent& key_event) {
 }
 
 void Application::_ProcessMouseClick(const sf::Event::MouseButtonEvent& event) {
-  if (event.button == sf::Mouse::Button::Left) {
-    // std::cout << "click" << event.x << " " << event.y << "\n";
-    auto action = _button.HandleClick(event.x, event.y);
-    if (action == util::ActionType::Dummy) {
-      _OnActionDummy();
+  if (event.button != sf::Mouse::Button::Left) {
+    return;
+  }
+  for (auto& button : _buttons) {
+    if (_ProcessAction(button->HandleClick(event.x, event.y))) {
+      break;
     }
   }
 }
@@ -147,13 +229,19 @@ void Application::_ProcessMouseClick(const sf::Event::MouseButtonEvent& event) {
 void Application::_Render() {
   _window.clear();
   _world.RenderVertexes(_window);
-  _window.draw(_button);
+  _RenderButtons();
   _RenderLabels();
   _window.display();
 }
 
+void Application::_RenderButtons() {
+  for (auto& button : _buttons) {
+    button->draw(_window, sf::RenderStates::Default);
+  }
+}
+
 void Application::_RenderLabels() {
-  for (auto lbl : _labels) {
+  for (auto& lbl : _labels) {
     _window.draw(lbl.second);
   }
 }
@@ -184,11 +272,18 @@ void Application::_ToggleActive() {
 }
 
 void Application::_UnclickButtons() {
-  _button.Unclick();
+  for (auto& button : _buttons) {
+    button->Unclick();
+  }
 }
 
 void Application::_Update(const sf::Time& dt) {
   if (_is_active) {
     _world.Update(dt);
   }
+}
+
+void Application::_UpdateGravity(World::GravityType t) {
+  _world.SetGravityType(t);
+  _SetGravityTypeLabel(t);
 }

@@ -17,6 +17,7 @@ files = [
     "application.cc",
     "bounding_box.cc",
     "button.cc",
+    "checkbox.cc",
     "graph.cc",
     "main.cc",
     "utility.cc",

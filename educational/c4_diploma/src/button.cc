@@ -32,21 +32,28 @@ _text(text)
   _Init();
 }
 
+sf::Vector2f Button::GetSize() const {
+  return _box.getSize();
+}
+
 util::ActionType Button::HandleClick(int x, int y) {
-  auto rect = _box.getLocalBounds();
-  auto pos = this->getPosition();
-
-  rect.left += pos.x;
-  rect.top += pos.y;
-
-  bool hit = rect.contains(static_cast<float>(x), static_cast<float>(y));
-  if (hit) {
+  if (this->IsHit(x, y)) {
     _box.setFillColor(PRESSED_COLOR);
     return _action;
   }
   else {
     return util::ActionType::None;
   }
+}
+
+bool Button::IsHit(int x, int y) const {
+  auto rect = _box.getLocalBounds();
+  auto pos = this->getPosition();
+
+  rect.left += pos.x;
+  rect.top += pos.y;
+
+  return rect.contains(static_cast<float>(x), static_cast<float>(y));
 }
 
 void Button::SetAction(util::ActionType action) {
@@ -61,6 +68,10 @@ void Button::SetPosition(const sf::Vector2f& pos) {
   this->setPosition(pos);
 }
 
+void Button::SetSize(const sf::Vector2f& size) {
+  _box.setSize(size);
+  _AdjustText();
+}
 
 void Button::SetString(const std::string& string) {
   _text.setString(string);
@@ -72,6 +83,12 @@ void Button::SetText(const sf::Text& text) {
   _text = text;
   _AdjustBox();
   _AdjustText();
+}
+
+void Button::SetWidth(int w) {
+  auto size = _box.getSize();
+  size.x = w;
+  this->SetSize(size);
 }
 
 void Button::Unclick() {
