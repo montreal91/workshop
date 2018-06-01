@@ -132,27 +132,26 @@ float World::_CalculateGravityMagnitude(
   const Vertex& subject,
   const Vertex& object
 ) const {
-  
   const auto distance = GetDistanceBetweenVertexes(subject, object);
   
+  if (distance <= util::EPSILON) {
+    return GRAVITATIONAL_CONSTANT;
+  }
+
   float mass_factor = subject.GetMass() * object.GetMass();
 
   if (_gravity_type == GravityType::constant) {
     return GRAVITATIONAL_CONSTANT * mass_factor;
   }
   else if (_gravity_type == GravityType::inv_linear) {
-    if (distance <= util::EPSILON) {
-      return GRAVITATIONAL_CONSTANT;
-    } else {
-      return GRAVITATIONAL_CONSTANT * mass_factor / distance;
-    }
+    return GRAVITATIONAL_CONSTANT * mass_factor / distance;
   }
   else if (_gravity_type == GravityType::classic) {
-    if (distance <= util::EPSILON) {
-      return GRAVITATIONAL_CONSTANT;
-    } else {
-      return GRAVITATIONAL_CONSTANT * mass_factor / distance / distance;
-    }
+    return GRAVITATIONAL_CONSTANT * mass_factor / distance / distance;
+  }
+  else if (_gravity_type == GravityType::logarithmic) {
+    auto divisor = std::abs(std::log2(distance + 1));
+    return GRAVITATIONAL_CONSTANT * mass_factor / divisor;
   }
   else {
     throw std::invalid_argument("Invalid gravity type.");

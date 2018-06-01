@@ -84,7 +84,7 @@ void Application::_InitButtons() {
   const auto win_size = _window.getSize();
   const auto btns_x = win_size.x / 2 + 2 * util::GAP;
   const auto step = 20;
-  const auto y_shift = 510;
+  const auto y_shift = 485;
 
   auto grv_btn1 = _CreateButton("Constant", util::ActionType::SetGravityConst);
   grv_btn1->SetPosition(btns_x, y_shift + util::GAP + step);
@@ -98,12 +98,19 @@ void Application::_InitButtons() {
   auto grv_btn3 = _CreateButton("Classic", util::ActionType::SetGravityClassic);
   grv_btn3->SetPosition(btns_x, y_shift + (util::GAP + step) * 3);
 
+  auto grv_btn4 = _CreateButton(
+    "Logarithmic",
+    util::ActionType::SetGravityLogarithmic
+  );
+  grv_btn4->SetPosition(btns_x, y_shift + (util::GAP + step) * 4);
+
   auto mass_btn = _CreateButton("Toggle Masses", util::ActionType::ToggleMasses);
   mass_btn->SetPosition(btns_x, y_shift - (util::GAP + step));
 
   _buttons.push_back(std::move(grv_btn1));
   _buttons.push_back(std::move(grv_btn2));
   _buttons.push_back(std::move(grv_btn3));
+  _buttons.push_back(std::move(grv_btn4));
   _buttons.push_back(std::move(mass_btn));
 
   _AdjustButtonsWidth();
@@ -166,6 +173,10 @@ void Application::_OnActionSetGravityInvLinear() {
   _UpdateGravity(World::GravityType::inv_linear);
 }
 
+void Application::_OnActionSetGravityLogarithmic() {
+  _UpdateGravity(World::GravityType::logarithmic);
+}
+
 void Application::_OnActionToggleMasses() {
   _SetActive(false);
   _world.ToggleEqualMasses();
@@ -191,6 +202,10 @@ bool Application::_ProcessAction(util::ActionType action) {
   }
   else if (action == util::ActionType::SetGravityClassic) {
     _OnActionSetGravityClassic();
+    return true;
+  }
+  else if (action == util::ActionType::SetGravityLogarithmic) {
+    _OnActionSetGravityLogarithmic();
     return true;
   }
   else if (action == util::ActionType::ToggleMasses) {
@@ -290,6 +305,9 @@ void Application::_SetGravityTypeLabel(World::GravityType t) {
   }
   else if (t == World::GravityType::classic) {
     label.setString("Gravity Type: Classic");
+  }
+  else if (t == World::GravityType::logarithmic) {
+    label.setString("Gravity Type: Logarithmic");
   }
   else {
     throw std::invalid_argument("Wrong gravity type");

@@ -2,6 +2,7 @@
 #pragma once
 
 #include <algorithm>
+#include <cmath>
 #include <memory>
 
 #include <Box2D/Box2D.h>
@@ -22,6 +23,7 @@ public:
     constant = 0,
     inv_linear = 1,
     classic = 2,
+    logarithmic = 3,
   };
 
   explicit World();

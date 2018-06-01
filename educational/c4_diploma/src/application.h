@@ -44,6 +44,7 @@ private:
   void _OnActionSetGravityClassic();
   void _OnActionSetGravityConst();
   void _OnActionSetGravityInvLinear();
+  void _OnActionSetGravityLogarithmic();
   void _OnActionToggleMasses();
 
   void _PrintTestData() const;
