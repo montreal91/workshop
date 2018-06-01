@@ -8,6 +8,8 @@ const float World::GRAVITATIONAL_CONSTANT = 1.0f;
 World::World():
 _attraction(GRAVITATIONAL_CONSTANT),
 _black_hole_on(true),
+_equal_masses(true),
+_gravity_type(GravityType::constant),
 _physical_world(b2Vec2(0.0f, 0.0f)),
 _bounding_box(_physical_world, b2Vec2(), 20, 20),
 _repulsion(GRAVITATIONAL_CONSTANT),
@@ -18,7 +20,10 @@ _vertexes()
   _black_hole_position.y += _bounding_box.GetHeight() / 2.0;
 
   _black_hole_action_radius = _black_hole_position.y - 2;
-  _gravity_type = GravityType::constant;
+}
+
+bool World::AreMassesEqual() const {
+  return _equal_masses;
 }
 
 void World::Init() {
@@ -28,8 +33,8 @@ void World::Init() {
     return;
   }
   _vertexes.clear();
-  _InitVerticesObjects();
-  _InitVerticesPositions();
+  _InitVertexesObjects();
+  _InitVertexesPositions();
 
   _attraction = GRAVITATIONAL_CONSTANT;
   float density = _graph->GetDensity();
@@ -53,6 +58,10 @@ void World::SetGravityType(World::GravityType type) {
 
 void World::ToggleBlackHoleOn() {
   _black_hole_on = !_black_hole_on;
+}
+
+void World::ToggleEqualMasses() {
+  _equal_masses = !_equal_masses;
 }
 
 void World::Update(const sf::Time& dt) {
@@ -124,7 +133,7 @@ float World::_CalculateGravityMagnitude(
   const Vertex& object
 ) const {
   
-  const auto distance = GetDistanceBetweenVertices(subject, object);
+  const auto distance = GetDistanceBetweenVertexes(subject, object);
   
   float mass_factor = subject.GetMass() * object.GetMass();
 
@@ -175,21 +184,35 @@ sf::Color World::_CalculateVertexColor(size_t i) const {
   return sf::Color(0, green, blue);
 }
 
-void World::_InitVerticesObjects() {
+void World::_FillVertexIndex(UVertexIndex& index) {
+  for (auto i=0; i<_vertexes.size(); i++) {
+    index.push_back(&_vertexes[i]);
+  }
+}
+
+void World::_InitVertexesObjects() {
   for (auto i=0; i<_graph->GetSize(); i++) {
     Vertex v(_physical_world);
     v.SetColor(_CalculateVertexColor(i));
+    if (!_equal_masses) {
+      v.SetMass(_graph->GetVertexDegree(i));
+    }
     _vertexes.push_back(v);
   }
 }
 
-void World::_InitVerticesPositions() {
-  const auto PI = 3.141592f;
+void World::_InitVertexesPositions() {
+  UVertexIndex v_index;
+  _FillVertexIndex(v_index);
 
-  // For now 11 is bounding box's size + 1
+  std::sort(v_index.begin(), v_index.end(), [](Vertex* a, Vertex* b) {
+    return a->GetMass() > b->GetMass();
+  });
+
+  const auto PI = 3.141592f;
   auto index = 0;
-  _vertexes[index].SetPosition(_black_hole_position);
-  _vertexes[index].Update();
+  v_index[index]->SetPosition(_black_hole_position);
+  v_index[index]->Update();
 
   for (auto i=1; i < 11 && index < _graph->GetSize(); i++) {
     auto step = 2.0f * PI / i / 10;
@@ -206,8 +229,8 @@ void World::_InitVerticesPositions() {
         _black_hole_position.x + x,
         _black_hole_position.y + y
       );
-      _vertexes[index].SetPosition(pos);
-      _vertexes[index].Update();
+      v_index[index]->SetPosition(pos);
+      v_index[index]->Update();
     }
   }
 }

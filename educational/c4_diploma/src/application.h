@@ -37,12 +37,14 @@ private:
   Button::UPtr _CreateButton(const std::string& title, util::ActionType action);
   sf::Text _CreateEmptyLabel(const sf::Color& text_color) const;
   void _InitButtons();
+  void _InitLabels();
   void _LoadData();
 
   void _OnActionDummy();
   void _OnActionSetGravityClassic();
   void _OnActionSetGravityConst();
   void _OnActionSetGravityInvLinear();
+  void _OnActionToggleMasses();
 
   void _PrintTestData() const;
   bool _ProcessAction(util::ActionType action);
@@ -54,6 +56,7 @@ private:
   void _RenderLabels();
   void _SetActive(bool active);
   void _SetGravityTypeLabel(World::GravityType t);
+  void _SetMassLabel(bool mass);
   void _ToggleActive();
   void _UnclickButtons();
   void _Update(const sf::Time& dt);

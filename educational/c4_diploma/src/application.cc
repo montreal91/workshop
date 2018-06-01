@@ -17,13 +17,12 @@ _world()
   _window.setKeyRepeatEnabled(false);
   _font.loadFromFile("media/fonts/RobotoMono-Regular.ttf");
 
-  auto gravity_type_lbl = _CreateEmptyLabel(sf::Color::Cyan);
-  auto win_size = _window.getSize();
-  gravity_type_lbl.setPosition(win_size.x / 2 + 2 * util::GAP, util::GAP);
-
-  _labels["gravity_type"] = gravity_type_lbl;
-
   _InitButtons();
+  _InitLabels();
+
+  _world.SetGravityType(World::GravityType::classic);
+  _SetGravityTypeLabel(World::GravityType::classic);
+  _SetMassLabel(_world.AreMassesEqual());
 
   _LoadData();
 }
@@ -99,37 +98,54 @@ void Application::_InitButtons() {
   auto grv_btn3 = _CreateButton("Classic", util::ActionType::SetGravityClassic);
   grv_btn3->SetPosition(btns_x, y_shift + (util::GAP + step) * 3);
 
+  auto mass_btn = _CreateButton("Toggle Masses", util::ActionType::ToggleMasses);
+  mass_btn->SetPosition(btns_x, y_shift - (util::GAP + step));
+
   _buttons.push_back(std::move(grv_btn1));
   _buttons.push_back(std::move(grv_btn2));
   _buttons.push_back(std::move(grv_btn3));
+  _buttons.push_back(std::move(mass_btn));
 
   _AdjustButtonsWidth();
 }
 
+void Application::_InitLabels() {
+  const auto win_size = _window.getSize();
+  const auto lbls_x = win_size.x / 2 + 2 * util::GAP;
+  const auto step = 10;
+
+  auto gravity_type_lbl = _CreateEmptyLabel(sf::Color::Cyan);
+  gravity_type_lbl.setPosition(lbls_x, util::GAP);
+
+  auto mass_lbl = _CreateEmptyLabel(sf::Color::Cyan);
+  mass_lbl.setPosition(lbls_x, (util::GAP + step) * 2);
+
+  _labels["gravity_type"] = gravity_type_lbl;
+  _labels["mass"] = mass_lbl;
+}
+
 void Application::_LoadData() {
   std::ifstream in(_current_graph_filename);
-  auto gravity_type = 0;
-  in >> gravity_type;
-  _world.SetGravityType(static_cast<World::GravityType>(gravity_type));
-  _SetGravityTypeLabel(static_cast<World::GravityType>(gravity_type));
 
   auto n=0;
   in >> n;
   if (n > MAX_VERTS) {
     throw std::length_error("Graph is too big.");
   }
-  std::cout << "Number of vertices: " << n << "\n";
-  std::cout << "Gravity type: " << gravity_type << "\n";
   std::unique_ptr<Graph> graph(new Graph(n));
 
-  auto i=0, j=0;
+  auto i=0, j=0, e=0;
   for (auto c=0; c<n*n; c++) {
     in >> i >> j;
     if (i < 0 || j < 0) {
       break;
     }
     graph->SetEdge(i, j, Graph::EdgeGravity::attraction);
+    e++;
   }
+  std::cout << "Number of vertices: " << n << "\n";
+  std::cout << "Number of edges:    " << e << "\n";
+  std::cout << "Graph density:      " << graph->GetDensity() << "\n";
   _world.SetGraph(std::move(graph));
   _world.Init();
 }
@@ -150,6 +166,13 @@ void Application::_OnActionSetGravityInvLinear() {
   _UpdateGravity(World::GravityType::inv_linear);
 }
 
+void Application::_OnActionToggleMasses() {
+  _SetActive(false);
+  _world.ToggleEqualMasses();
+  _world.Init();
+  _SetMassLabel(_world.AreMassesEqual());
+}
+
 void Application::_PrintTestData() const {
 }
 
@@ -157,15 +180,21 @@ bool Application::_ProcessAction(util::ActionType action) {
   if (action == util::ActionType::Dummy) {
     _OnActionDummy();
     return true;
-  } else if (action == util::ActionType::SetGravityConst) {
+  }
+  else if (action == util::ActionType::SetGravityConst) {
     _OnActionSetGravityConst();
     return true;
-  } else if (action == util::ActionType::SetGravityInvLinear) {
+  }
+  else if (action == util::ActionType::SetGravityInvLinear) {
     _OnActionSetGravityInvLinear();
     return true;
-  } else if (action == util::ActionType::SetGravityClassic) {
+  }
+  else if (action == util::ActionType::SetGravityClassic) {
     _OnActionSetGravityClassic();
     return true;
+  }
+  else if (action == util::ActionType::ToggleMasses) {
+    _OnActionToggleMasses();
   }
   else if (action == util::ActionType::None) {
     return false;
@@ -173,6 +202,7 @@ bool Application::_ProcessAction(util::ActionType action) {
   else {
     throw std::logic_error("Incorrect action.");
   }
+  return false; // This line makes compiler happy;
 }
 
 void Application::_ProcessInput() {
@@ -207,7 +237,7 @@ void Application::_ProcessKeyPress(const sf::Event::KeyEvent& key_event) {
     _PrintTestData();
   }
   if (key_event.code == sf::Keyboard::R) {
-    _LoadData();
+    _world.Init();
     _SetActive(false);
   }
   if (key_event.code == sf::Keyboard::Space) {
@@ -265,6 +295,14 @@ void Application::_SetGravityTypeLabel(World::GravityType t) {
     throw std::invalid_argument("Wrong gravity type");
   }
   _labels["gravity_type"] = label;
+}
+
+void Application::_SetMassLabel(bool mass) {
+  if (!mass) {
+    _labels["mass"].setString("Degree-based masses: ON");
+  } else {
+    _labels["mass"].setString("Degree-based masses: OFF");
+  }
 }
 
 void Application::_ToggleActive() {

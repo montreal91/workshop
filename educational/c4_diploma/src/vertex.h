@@ -1,8 +1,9 @@
 
 #pragma once
 
+
 #include <cmath>
-#include <iostream>
+#include <memory>
 
 #include <Box2D/Box2D.h>
 #include <SFML/Graphics.hpp>
@@ -16,6 +17,8 @@
 //
 class Vertex : public sf::Drawable {
 public:
+  typedef std::unique_ptr<Vertex> UPtr;
+
   explicit Vertex(b2World& world);
   explicit Vertex(b2World& world, float x, float y);
   explicit Vertex(b2World& world, float x, float y, float mass);
@@ -42,6 +45,8 @@ public:
   //
   virtual void SetColor(const sf::Color& color);
 
+  virtual void SetMass(int mass);
+
   //
   // Sets vertex' position in the physical world measured in meters.
   //
@@ -61,4 +66,4 @@ private:
   sf::CircleShape _dot;
 };
 
-float GetDistanceBetweenVertices(const Vertex& v1, const Vertex& v2);
+float GetDistanceBetweenVertexes(const Vertex& v1, const Vertex& v2);

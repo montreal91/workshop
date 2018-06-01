@@ -18,13 +18,15 @@ public:
   //
   // Enumeration of all possible gravity types in this world
   //
-  enum GravityType : int {
+  enum class GravityType : int {
     constant = 0,
     inv_linear = 1,
     classic = 2,
   };
 
   explicit World();
+
+  bool AreMassesEqual() const;
 
   //
   // Sets initial world state.
@@ -42,7 +44,7 @@ public:
   void SetGraph(Graph::Ptr_t graph_ptr);
 
   //
-  // Sets physical law of force of interaction between vertices.
+  // Sets physical law of force of interaction between vertexes.
   //
   void SetGravityType(GravityType type);
 
@@ -50,6 +52,8 @@ public:
   // Turns on and off the black hole.
   //
   void ToggleBlackHoleOn();
+
+  void ToggleEqualMasses();
 
   //
   // Main function for graph simulation.
@@ -59,6 +63,8 @@ public:
   void Update(const sf::Time& dt);
 
 private:
+  typedef std::vector<Vertex*> UVertexIndex;
+
   static const float GRAVITATIONAL_CONSTANT;
   
   b2Vec2 _CalculateBlackHoleGravity(const Vertex& vertex) const;
@@ -80,15 +86,18 @@ private:
 
   sf::Color _CalculateVertexColor(size_t i) const;
 
-  void _InitVerticesObjects();
+  void _FillVertexIndex(UVertexIndex& index);
 
-  void _InitVerticesPositions();
+  void _InitVertexesObjects();
+
+  void _InitVertexesPositions();
 
 
   float               _attraction;
   float               _black_hole_action_radius;
   bool                _black_hole_on;
   b2Vec2              _black_hole_position;
+  bool                _equal_masses;
   GravityType         _gravity_type;
   b2World             _physical_world;
   BoundingBox         _bounding_box;

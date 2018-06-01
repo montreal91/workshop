@@ -31,6 +31,7 @@ enum class ActionType : int {
   SetGravityConst = 100,
   SetGravityInvLinear = 101,
   SetGravityClassic = 102,
+  ToggleMasses = 10,
 };
 
 } // namespace util

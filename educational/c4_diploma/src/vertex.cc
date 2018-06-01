@@ -39,6 +39,13 @@ void Vertex::SetColor(const sf::Color& color) {
   _dot.setFillColor(color);
 }
 
+void Vertex::SetMass(int mass) {
+  b2MassData mass_data;
+  mass_data.center = b2Vec2();
+  mass_data.mass = mass;
+  _body->SetMassData(&mass_data);
+}
+
 void Vertex::SetPosition(const b2Vec2& pos) {
   _body->SetTransform(pos, 0);
 }
@@ -74,12 +81,12 @@ void Vertex::_CreatePhysicalBody(b2World& world, float x, float y, float mass) {
   _body->CreateFixture(&fixture_def);
 
   b2MassData mass_data;
-  mass_data.center = b2Vec2(0.0f, 0.0f);
+  mass_data.center = b2Vec2();
   mass_data.mass = mass;
   _body->SetMassData(&mass_data);
 }
 
-float GetDistanceBetweenVertices(const Vertex& v1, const Vertex& v2) {
+float GetDistanceBetweenVertexes(const Vertex& v1, const Vertex& v2) {
   b2Vec2 pos1 = v1.GetPosition();
   b2Vec2 pos2 = v2.GetPosition();
   

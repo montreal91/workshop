@@ -29,7 +29,6 @@ if __name__ == '__main__':
 	c2 = int(sys.argv[3])
 	e1, e2 = generate_graph(n, c1, c2)
 
-	print(2)
 	print(n)
 	[print(e[0], e[1]) for e in e1]
 	print()
