@@ -9,7 +9,7 @@ World::World():
 _attraction(GRAVITATIONAL_CONSTANT),
 _black_hole_on(true),
 _equal_masses(true),
-_gravity_type(GravityType::constant),
+_gravity_type(GravityType::Constant),
 _physical_world(b2Vec2(0.0f, 0.0f)),
 _bounding_box(_physical_world, b2Vec2(), 20, 20),
 _repulsion(GRAVITATIONAL_CONSTANT),
@@ -135,21 +135,21 @@ float World::_CalculateGravityMagnitude(
   const auto distance = GetDistanceBetweenVertexes(subject, object);
   
   if (distance <= util::EPSILON) {
-    return GRAVITATIONAL_CONSTANT;
+    return 0.0f;
   }
 
   float mass_factor = subject.GetMass() * object.GetMass();
 
-  if (_gravity_type == GravityType::constant) {
+  if (_gravity_type == GravityType::Constant) {
     return GRAVITATIONAL_CONSTANT * mass_factor;
   }
-  else if (_gravity_type == GravityType::inv_linear) {
+  else if (_gravity_type == GravityType::InvLinear) {
     return GRAVITATIONAL_CONSTANT * mass_factor / distance;
   }
-  else if (_gravity_type == GravityType::classic) {
+  else if (_gravity_type == GravityType::Classic) {
     return GRAVITATIONAL_CONSTANT * mass_factor / distance / distance;
   }
-  else if (_gravity_type == GravityType::logarithmic) {
+  else if (_gravity_type == GravityType::Logarithmic) {
     auto divisor = std::abs(std::log2(distance + 1));
     return GRAVITATIONAL_CONSTANT * mass_factor / divisor;
   }

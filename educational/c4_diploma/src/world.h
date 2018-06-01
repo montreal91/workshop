@@ -20,10 +20,10 @@ public:
   // Enumeration of all possible gravity types in this world
   //
   enum class GravityType : int {
-    constant = 0,
-    inv_linear = 1,
-    classic = 2,
-    logarithmic = 3,
+    Constant = 0,
+    InvLinear = 1,
+    Classic = 2,
+    Logarithmic = 3,
   };
 
   explicit World();

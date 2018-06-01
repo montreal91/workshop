@@ -20,8 +20,8 @@ _world()
   _InitButtons();
   _InitLabels();
 
-  _world.SetGravityType(World::GravityType::classic);
-  _SetGravityTypeLabel(World::GravityType::classic);
+  _world.SetGravityType(World::GravityType::Classic);
+  _SetGravityTypeLabel(World::GravityType::Classic);
   _SetMassLabel(_world.AreMassesEqual());
 
   _LoadData();
@@ -162,19 +162,19 @@ void Application::_OnActionDummy() {
 }
 
 void Application::_OnActionSetGravityClassic() {
-  _UpdateGravity(World::GravityType::classic);
+  _UpdateGravity(World::GravityType::Classic);
 }
 
 void Application::_OnActionSetGravityConst() {
-  _UpdateGravity(World::GravityType::constant);
+  _UpdateGravity(World::GravityType::Constant);
 }
 
 void Application::_OnActionSetGravityInvLinear() {
-  _UpdateGravity(World::GravityType::inv_linear);
+  _UpdateGravity(World::GravityType::InvLinear);
 }
 
 void Application::_OnActionSetGravityLogarithmic() {
-  _UpdateGravity(World::GravityType::logarithmic);
+  _UpdateGravity(World::GravityType::Logarithmic);
 }
 
 void Application::_OnActionToggleMasses() {
@@ -297,16 +297,16 @@ void Application::_SetActive(bool active) {
 
 void Application::_SetGravityTypeLabel(World::GravityType t) {
   auto label = _labels["gravity_type"];
-  if (t == World::GravityType::constant) {
+  if (t == World::GravityType::Constant) {
     label.setString("Gravity Type: Constant");
   }
-  else if (t == World::GravityType::inv_linear) {
+  else if (t == World::GravityType::InvLinear) {
     label.setString("Gravity Type: Inv. Linear");
   }
-  else if (t == World::GravityType::classic) {
+  else if (t == World::GravityType::Classic) {
     label.setString("Gravity Type: Classic");
   }
-  else if (t == World::GravityType::logarithmic) {
+  else if (t == World::GravityType::Logarithmic) {
     label.setString("Gravity Type: Logarithmic");
   }
   else {
