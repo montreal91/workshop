@@ -11,7 +11,7 @@ _black_hole_on(true),
 _equal_masses(true),
 _gravity_type(GravityType::Constant),
 _physical_world(b2Vec2(0.0f, 0.0f)),
-_bounding_box(_physical_world, b2Vec2(), 20, 20),
+_bounding_box(_physical_world, b2Vec2(0.0, 0.0), 20, 20),
 _repulsion(GRAVITATIONAL_CONSTANT),
 _vertexes()
 {

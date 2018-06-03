@@ -1,6 +1,7 @@
 
 #include "bounding_box.h"
 
+
 BoundingBox::BoundingBox(b2World& world) :
 _corners(sf::LinesStrip, 4+1),
 _height(1),

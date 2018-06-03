@@ -184,8 +184,7 @@ void Application::_OnActionToggleMasses() {
   _SetMassLabel(_world.AreMassesEqual());
 }
 
-void Application::_PrintTestData() const {
-}
+void Application::_PrintTestData() const {}
 
 bool Application::_ProcessAction(util::ActionType action) {
   if (action == util::ActionType::Dummy) {
