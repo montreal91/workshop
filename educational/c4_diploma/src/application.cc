@@ -127,14 +127,19 @@ void Application::_InitButtons() {
 void Application::_InitLabels() {
   const auto win_size = _window.getSize();
   const auto lbls_x = win_size.x / 2 + 2 * util::GAP;
-  const auto step = 10;
+  const auto step = 15;
+  const auto y_shift = -10;
+
+  auto density_label = _CreateEmptyLabel(sf::Color::Cyan);
+  density_label.setPosition(lbls_x, y_shift + util::GAP + step);
 
   auto gravity_type_lbl = _CreateEmptyLabel(sf::Color::Cyan);
-  gravity_type_lbl.setPosition(lbls_x, util::GAP);
+  gravity_type_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 2);
 
   auto mass_lbl = _CreateEmptyLabel(sf::Color::Cyan);
-  mass_lbl.setPosition(lbls_x, (util::GAP + step) * 2);
+  mass_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 3);
 
+  _labels["density"] = density_label;
   _labels["gravity_type"] = gravity_type_lbl;
   _labels["mass"] = mass_lbl;
 }
@@ -160,7 +165,9 @@ void Application::_LoadData() {
   }
   std::cout << "Number of vertices: " << n << "\n";
   std::cout << "Number of edges:    " << e << "\n";
-  std::cout << "Graph density:      " << graph->GetDensity() << "\n";
+  _labels["density"].setString(
+      "Graph Density: " + std::to_string(graph->GetDensity())
+  );
   _world.SetGraph(std::move(graph));
   _world.Init();
 }
@@ -319,24 +326,25 @@ void Application::_SetActive(bool active) {
 }
 
 void Application::_SetGravityTypeLabel(World::GravityType t) {
+  const auto gtype = std::string("Gravity Type: ");
   auto label = _labels["gravity_type"];
   if (t == World::GravityType::Constant) {
-    label.setString("Gravity Type: Constant");
+    label.setString(gtype + "Constant");
   }
   else if (t == World::GravityType::InvLinear) {
-    label.setString("Gravity Type: Inv. Linear");
+    label.setString(gtype + "Inv. Linear");
   }
   else if (t == World::GravityType::Classic) {
-    label.setString("Gravity Type: Classic");
+    label.setString(gtype + "Classic");
   }
   else if (t == World::GravityType::Logarithmic) {
-    label.setString("Gravity Type: Logarithmic");
+    label.setString(gtype + "Logarithmic");
   }
   else if (t == World::GravityType::Radical) {
-    label.setString("Gravity Type: Radical");
+    label.setString(gtype + "Radical");
   }
   else if (t == World::GravityType::Step) {
-    label.setString("Gravity Type: Step");
+    label.setString(gtype + "Step");
   }
   else {
     throw std::invalid_argument("Wrong gravity type");
