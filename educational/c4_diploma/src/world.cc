@@ -153,6 +153,10 @@ float World::_CalculateGravityMagnitude(
     auto divisor = std::abs(std::log2(distance + 1));
     return GRAVITATIONAL_CONSTANT * mass_factor / divisor;
   }
+  else if (_gravity_type == GravityType::Radical) {
+    auto divisor = std::sqrt(distance);
+    return GRAVITATIONAL_CONSTANT * mass_factor / divisor;
+  }
   else {
     throw std::invalid_argument("Invalid gravity type.");
   }

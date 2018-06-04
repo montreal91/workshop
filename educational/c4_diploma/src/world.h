@@ -24,6 +24,7 @@ public:
     InvLinear = 1,
     Classic = 2,
     Logarithmic = 3,
+    Radical = 4,
   };
 
   explicit World();
