@@ -30,7 +30,26 @@ public:
 
   explicit World();
 
+  //
+  // Returns true, if all massess of all vertexes are equal and false otherwise.
+  //
   bool AreMassesEqual() const;
+
+  //
+  // Decreases gravity constant by specified value,
+  // but prevents it from hitting negative values.
+  //
+  void DecreaseGravity(float val);
+
+  //
+  // Returns current value of gravity constant.
+  //
+  float GetGravityConstant() const;
+
+  //
+  // Increases gravity by specified value.
+  //
+  void IncreaseGravity(float val);
 
   //
   // Sets initial world state.
@@ -38,7 +57,7 @@ public:
   void Init();
 
   //
-  // Renders vertexes in provided window
+  // Renders vertexes in provided window.
   //
   void RenderVertexes(sf::RenderWindow& window) const;
 
@@ -57,6 +76,9 @@ public:
   //
   void ToggleBlackHoleOn();
 
+  //
+  // Turns on and off vertex' mass calculation based on its degree.
+  //
   void ToggleEqualMasses();
 
   //
@@ -69,8 +91,6 @@ public:
 private:
   typedef std::vector<Vertex*> UVertexIndex;
 
-  static const float GRAVITATIONAL_CONSTANT;
-  
   b2Vec2 _CalculateBlackHoleGravity(const Vertex& vertex) const;
 
   b2Vec2 _CalculateGravityBetweenVertexes(size_t i, size_t j) const;
@@ -102,6 +122,7 @@ private:
   bool                _black_hole_on;
   b2Vec2              _black_hole_position;
   bool                _equal_masses;
+  float               _gravity_constant;
   GravityType         _gravity_type;
   b2World             _physical_world;
   BoundingBox         _bounding_box;

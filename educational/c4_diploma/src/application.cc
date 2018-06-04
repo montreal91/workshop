@@ -1,6 +1,7 @@
 
 #include "application.h"
 
+const std::string Application::GRAVITY_CONSTANT_STR = "Gravity Constant: ";
 const int Application::MAX_VERTS = 400;
 const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.0f / 60.0f);
 
@@ -133,13 +134,17 @@ void Application::_InitLabels() {
   auto density_label = _CreateEmptyLabel(sf::Color::Cyan);
   density_label.setPosition(lbls_x, y_shift + util::GAP + step);
 
+  auto gravity_constant_lbl = _CreateEmptyLabel(sf::Color::Cyan);
+  gravity_constant_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 2);
+
   auto gravity_type_lbl = _CreateEmptyLabel(sf::Color::Cyan);
-  gravity_type_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 2);
+  gravity_type_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 3);
 
   auto mass_lbl = _CreateEmptyLabel(sf::Color::Cyan);
-  mass_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 3);
+  mass_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 4);
 
   _labels["density"] = density_label;
+  _labels["gravity_constant"] = gravity_constant_lbl;
   _labels["gravity_type"] = gravity_type_lbl;
   _labels["mass"] = mass_lbl;
 }
@@ -167,6 +172,9 @@ void Application::_LoadData() {
   std::cout << "Number of edges:    " << e << "\n";
   _labels["density"].setString(
       "Graph Density: " + std::to_string(graph->GetDensity())
+  );
+  _labels["gravity_constant"].setString(
+    GRAVITY_CONSTANT_STR + std::to_string(_world.GetGravityConstant())
   );
   _world.SetGraph(std::move(graph));
   _world.Init();
@@ -284,6 +292,18 @@ void Application::_ProcessKeyPress(const sf::Event::KeyEvent& key_event) {
   if (key_event.code == sf::Keyboard::R) {
     _world.Init();
     _SetActive(false);
+  }
+  if (key_event.code == sf::Keyboard::Down) {
+    _world.DecreaseGravity(util::GRAVITY_STEP);
+    _labels["gravity_constant"].setString(
+        GRAVITY_CONSTANT_STR + std::to_string(_world.GetGravityConstant())
+    );
+  }
+  if (key_event.code == sf::Keyboard::Up) {
+    _world.IncreaseGravity(util::GRAVITY_STEP);
+    _labels["gravity_constant"].setString(
+        GRAVITY_CONSTANT_STR + std::to_string(_world.GetGravityConstant())
+    );
   }
   if (key_event.code == sf::Keyboard::Space) {
     _ToggleActive();

@@ -66,6 +66,7 @@ private:
   void _UpdateGravity(World::GravityType t);
 
   static const std::string  FOLDER;
+  static const std::string  GRAVITY_CONSTANT_STR;
   static const int          MAX_VERTS;
   static const sf::Time     TIME_PER_FRAME;
 

@@ -2,17 +2,15 @@
 #include "world.h"
 
 
-const float World::GRAVITATIONAL_CONSTANT = 1.0f;
-
-
 World::World():
-_attraction(GRAVITATIONAL_CONSTANT),
+_attraction(0.0),
 _black_hole_on(true),
 _equal_masses(true),
+_gravity_constant(1.0),
 _gravity_type(GravityType::Constant),
 _physical_world(b2Vec2(0.0f, 0.0f)),
 _bounding_box(_physical_world, b2Vec2(0.0, 0.0), 20, 20),
-_repulsion(GRAVITATIONAL_CONSTANT),
+_repulsion(0.0),
 _vertexes()
 {
   _black_hole_position = _bounding_box.GetPosition();
@@ -26,6 +24,18 @@ bool World::AreMassesEqual() const {
   return _equal_masses;
 }
 
+void World::DecreaseGravity(float val) {
+  _gravity_constant -= std::min(val, _gravity_constant);
+}
+
+float World::GetGravityConstant() const {
+  return _gravity_constant;
+}
+
+void World::IncreaseGravity(float val) {
+  _gravity_constant += val;
+}
+
 void World::Init() {
   // If there is no graph yet, or _graph pointer does not own any graph object,
   // there is nothing to do
@@ -36,9 +46,9 @@ void World::Init() {
   _InitVertexesObjects();
   _InitVertexesPositions();
 
-  _attraction = GRAVITATIONAL_CONSTANT;
+  _attraction = _gravity_constant;
   float density = _graph->GetDensity();
-  _repulsion = GRAVITATIONAL_CONSTANT * density * _graph->GetSize();
+  _repulsion = _gravity_constant * density * _graph->GetSize();
 }
 
 void World::RenderVertexes(sf::RenderWindow& window) const {
@@ -95,7 +105,7 @@ b2Vec2 World::_CalculateBlackHoleGravity(const Vertex& vertex) const {
     return b2Vec2(0.0f, 0.0f);
   } else {
     direction = util::GetNormalizedVector(direction);
-    return GRAVITATIONAL_CONSTANT * direction;
+    return _gravity_constant * direction;
   }
 }
 
@@ -141,29 +151,29 @@ float World::_CalculateGravityMagnitude(
   float mass_factor = subject.GetMass() * object.GetMass();
 
   if (_gravity_type == GravityType::Constant) {
-    return GRAVITATIONAL_CONSTANT * mass_factor;
+    return _gravity_constant * mass_factor;
   }
   else if (_gravity_type == GravityType::InvLinear) {
-    return GRAVITATIONAL_CONSTANT * mass_factor / distance;
+    return _gravity_constant * mass_factor / distance;
   }
   else if (_gravity_type == GravityType::Classic) {
-    return GRAVITATIONAL_CONSTANT * mass_factor / distance / distance;
+    return _gravity_constant * mass_factor / distance / distance;
   }
   else if (_gravity_type == GravityType::Logarithmic) {
     auto divisor = std::abs(std::log2(distance + 1));
-    return GRAVITATIONAL_CONSTANT * mass_factor / divisor;
+    return _gravity_constant * mass_factor / divisor;
   }
   else if (_gravity_type == GravityType::Radical) {
     auto divisor = std::sqrt(distance);
-    return GRAVITATIONAL_CONSTANT * mass_factor / divisor;
+    return _gravity_constant * mass_factor / divisor;
   }
   else if (_gravity_type == GravityType::Step) {
     const auto alpha = std::abs(std::log2(_graph->GetSize()));
     if (distance < _bounding_box.GetHeight() / alpha) {
-      return GRAVITATIONAL_CONSTANT * mass_factor * alpha;
+      return _gravity_constant * mass_factor * alpha;
     }
     else {
-      return GRAVITATIONAL_CONSTANT * mass_factor;
+      return _gravity_constant * mass_factor;
     }
   }
   else {
