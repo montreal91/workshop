@@ -157,6 +157,15 @@ float World::_CalculateGravityMagnitude(
     auto divisor = std::sqrt(distance);
     return GRAVITATIONAL_CONSTANT * mass_factor / divisor;
   }
+  else if (_gravity_type == GravityType::Step) {
+    const auto alpha = std::abs(std::log2(_graph->GetSize()));
+    if (distance < _bounding_box.GetHeight() / alpha) {
+      return GRAVITATIONAL_CONSTANT * mass_factor * alpha;
+    }
+    else {
+      return GRAVITATIONAL_CONSTANT * mass_factor;
+    }
+  }
   else {
     throw std::invalid_argument("Invalid gravity type.");
   }

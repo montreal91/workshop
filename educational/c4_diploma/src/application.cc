@@ -84,7 +84,7 @@ void Application::_InitButtons() {
   const auto win_size = _window.getSize();
   const auto btns_x = win_size.x / 2 + 2 * util::GAP;
   const auto step = 20;
-  const auto y_shift = 460;
+  const auto y_shift = 435;
 
   auto grv_btn1 = _CreateButton("Constant", util::ActionType::SetGravityConst);
   grv_btn1->SetPosition(btns_x, y_shift + util::GAP + step);
@@ -107,6 +107,9 @@ void Application::_InitButtons() {
   auto grv_btn5 = _CreateButton("Radical", util::ActionType::SetGravityRadical);
   grv_btn5->SetPosition(btns_x, y_shift + (util::GAP + step) * 5);
 
+  auto grv_btn6 = _CreateButton("Step", util::ActionType::SetGravityStep);
+  grv_btn6->SetPosition(btns_x, y_shift + (util::GAP + step) * 6);
+
   auto mass_btn = _CreateButton("Toggle Masses", util::ActionType::ToggleMasses);
   mass_btn->SetPosition(btns_x, y_shift - (util::GAP + step));
 
@@ -115,6 +118,7 @@ void Application::_InitButtons() {
   _buttons.push_back(std::move(grv_btn3));
   _buttons.push_back(std::move(grv_btn4));
   _buttons.push_back(std::move(grv_btn5));
+  _buttons.push_back(std::move(grv_btn6));
   _buttons.push_back(std::move(mass_btn));
 
   _AdjustButtonsWidth();
@@ -181,6 +185,10 @@ void Application::_OnActionSetGravityLogarithmic() {
   _UpdateGravity(World::GravityType::Logarithmic);
 }
 
+void Application::_OnActionSetGravityStep() {
+  _UpdateGravity(World::GravityType::Step);
+}
+
 void Application::_OnActionSetGravityRadical() {
   _UpdateGravity(World::GravityType::Radical);
 }
@@ -217,6 +225,10 @@ bool Application::_ProcessAction(util::ActionType action) {
   }
   else if (action == util::ActionType::SetGravityRadical) {
     _OnActionSetGravityRadical();
+    return true;
+  }
+  else if (action == util::ActionType::SetGravityStep) {
+    _OnActionSetGravityStep();
     return true;
   }
   else if (action == util::ActionType::ToggleMasses) {
@@ -322,6 +334,9 @@ void Application::_SetGravityTypeLabel(World::GravityType t) {
   }
   else if (t == World::GravityType::Radical) {
     label.setString("Gravity Type: Radical");
+  }
+  else if (t == World::GravityType::Step) {
+    label.setString("Gravity Type: Step");
   }
   else {
     throw std::invalid_argument("Wrong gravity type");

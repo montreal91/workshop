@@ -25,6 +25,7 @@ public:
     Classic = 2,
     Logarithmic = 3,
     Radical = 4,
+    Step = 5,
   };
 
   explicit World();

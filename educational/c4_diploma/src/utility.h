@@ -33,6 +33,7 @@ enum class ActionType : int {
   SetGravityClassic = 102,
   SetGravityLogarithmic = 103,
   SetGravityRadical = 104,
+  SetGravityStep = 105,
   ToggleMasses = 10,
 };
 
