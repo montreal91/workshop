@@ -12,13 +12,25 @@
 #include "utility.h"
 
 
-class Button : public sf::Drawable, public sf::Transformable, private sf::NonCopyable {
+class Button :
+    public sf::Drawable,
+    public sf::Transformable,
+    private sf::NonCopyable
+{
 public:
   typedef std::unique_ptr<Button> UPtr;
+
+  static UPtr CreateButton(
+      const std::string& title,
+      const sf::Font& font,
+      util::ActionType action
+  );
 
   explicit Button();
   explicit Button(sf::Text& text);
   explicit Button(sf::Text& text, util::ActionType action);
+
+  virtual void CutString(int n);
 
   virtual sf::Vector2f GetSize() const;
 
@@ -39,6 +51,7 @@ public:
   virtual void SetWidth(int w);
 
   virtual void Unclick();
+
   void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
 protected:

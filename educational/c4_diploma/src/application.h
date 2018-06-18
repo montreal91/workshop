@@ -10,10 +10,12 @@
 #include <vector>
 
 #include <Box2D/Box2D.h>
+#include <Poco/File.h>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 
 #include "button.h"
+#include "file_list.h"
 #include "graph.h"
 #include "utility.h"
 #include "vertex.h"
@@ -34,13 +36,13 @@ private:
   typedef std::map<std::string, sf::Text> LabelHolder;
 
   void _AdjustButtonsWidth();
-  Button::UPtr _CreateButton(const std::string& title, util::ActionType action);
-  sf::Text _CreateEmptyLabel(const sf::Color& text_color) const;
   void _InitButtons();
   void _InitLabels();
   void _LoadData();
+  void _LoadFiles();
 
   void _OnActionDummy();
+  void _OnActionReloadFile();
   void _OnActionSetGravityClassic();
   void _OnActionSetGravityConst();
   void _OnActionSetGravityInvLinear();
@@ -72,6 +74,7 @@ private:
 
   ButtonHolder      _buttons;
   std::string       _current_graph_filename;
+  FileList::UPtr    _file_list;
   sf::Font          _font;
   bool              _is_active;
   LabelHolder       _labels;
