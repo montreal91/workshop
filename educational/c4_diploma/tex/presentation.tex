@@ -1,0 +1,303 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%   PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass{beamer}
+
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usefonttheme{serif}
+\usepackage{beamerthemePittsburgh}
+\usepackage{color}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+%\usetheme{default}
+%\usetheme{AnnArbor}
+%\usetheme{Antibes}
+%\usetheme{Bergen}
+%\usetheme{Berkeley}
+\usetheme{Berlin}
+%\usetheme{Boadilla}
+%\usetheme{CambridgeUS}
+%\usetheme{Copenhagen}
+%\usetheme{Darmstadt}
+%\usetheme{Dresden}
+%\usetheme{Frankfurt}
+%\usetheme{Goettingen}
+%\usetheme{Hannover}
+%\usetheme{Ilmenau}
+%\usetheme{JuanLesPins}
+%\usetheme{Luebeck}
+% \usetheme{Madrid}
+%\usetheme{Malmoe}
+%\usetheme{Marburg}
+%\usetheme{Montpellier}
+%\usetheme{PaloAlto}
+%\usetheme{Pittsburgh}
+%\usetheme{Rochester}
+%\usetheme{Singapore}
+%\usetheme{Szeged}
+%\usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+%\usecolortheme{albatross}
+%\usecolortheme{beaver}
+%\usecolortheme{beetle}
+%\usecolortheme{crane}
+%\usecolortheme{dolphin}
+%\usecolortheme{dove}
+%\usecolortheme{fly}
+%\usecolortheme{lily}
+%\usecolortheme{orchid}
+%\usecolortheme{rose}
+%\usecolortheme{seagull}
+\usecolortheme{seahorse}
+%\usecolortheme{whale}
+%\usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\graphicspath{ {./pics/} }
+\theoremstyle{plain}
+\newtheorem{defi}{Определение}
+\newtheorem{lem}{Лемма}
+\newtheorem{stm}{Утверждение}
+\newtheorem{thm}{Теорема}
+\newtheorem{rem}{Замечание}
+\newtheorem{cor}{Corollary}
+
+%----------------------------------------------------------------------------------------
+%   TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Поиск клик]{Использование псевдофизической симуляции для поиска клик в графе} % The short title appears at the bottom of every slide, the full title is only on the title page
+
+\author{Нефедов Александр} % Your name
+\institute[ЧелГУ] % Your institution as it will appear on the bottom of every slide, may be shorthand to save space
+{
+Челябинский Государственный Университет \\ % Your institution for the title page
+\medskip
+\textit{nefedov.alexander91@yandex.ru} % Your email address
+}
+\date{\today} % Date, can be changed to a custom date
+
+\begin{document}
+
+% \begin{frame}
+% \titlepage % Print the title page as the first slide
+% \end{frame}
+
+\begin{frame}
+  \begin{center}
+    \tiny{МИНОБРНАУКИ РОССИИ} \\
+    \footnotesize\textbf{<<Челябинский государственный университет>>}
+    \vspace{2mm}
+
+    \footnotesize{Математический факультет} \\
+    \tiny{Кафедра вычислительной математики}
+  % \end{center}
+    \vspace{2mm}
+
+  % \begin{center}
+    {\footnotesize\textbf{Применение псевдофизической симуляции для поиска клик в графе}}
+  \end{center}
+
+  % \noindent
+  % \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcl}
+    % & \hfill & 
+    \tiny{Выполнил студент} \\
+    % \\
+    % & & 
+    \footnotesize{Нефедов Александр Юрьевич}\\
+    % \\ % имя студента
+    % & & 
+    \tiny{академической группы МП-401}\\
+    % \\
+    % & & 
+    % \\
+  % \end{tabular*}
+
+  \vspace{4mm}
+
+  % \noindent
+  % \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcl}
+  %   & \hfill &  \\
+  %   & & Научный руководитель \\
+  %   & & Лепчинский Михаил Германович \\
+  %   & & кандидат физико-математических наук \\
+  %   & & доцент \\
+  % \end{tabular*}
+  \tiny{Научный руководитель} \\
+    % \\
+    % & & 
+    \footnotesize{Лепчинский Михаил Германович}\\
+    % \\ % имя студента
+    % & & 
+    \tiny{кандидат физико-математических наук}\\
+    % \\
+    % & & 
+    \tiny{доцент} \\
+    % \\
+    % & & 
+    % \footnotesize{Прикладная математика и информатика}\\
+  \begin{center}
+    \small\the\year
+  \end{center}
+\end{frame}
+
+\begin{frame}{Клика}
+  \begin{defi}
+    \textbf{Полный граф} -- граф, в котором каждая вершина соединена ребром с другой
+    вершиной.
+  % \end{defi}
+
+  % \begin{defi}
+    \textbf{Подграф} -- граф, содержащий некоторое подмножество вершин данного графа и 
+    некоторое подмножество соединяющих их рёбер.
+  % \end{defi}
+
+  % \begin{defi}
+    \textbf{Клика} -- полный подграф данного графа.
+  \end{defi}
+\end{frame}
+
+\begin{frame}{Применение клик}
+  \begin{itemize}
+    \item Социология
+    \item Химия
+    \item Биология
+    \item Математика
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Вариации задачи}
+  \begin{itemize}
+    \item
+    найти наибольшую клику (клику с наибольшим количеством вершин);
+
+    \item
+    найти клику максимального веса во взвешенном графе;
+
+    \item
+    найти все максимальные клики (клики, которые нельзя расширить);
+
+    \item
+    поиск или проверка на существование в графе клики заданного размера;
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Существующие алгоритмы}
+  \begin{itemize}
+    \item Tarjan \& Trojanowski (1977)
+    \item Bron–Kerbosch (1973)
+    \item Robson (2001)
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Описание симуляции}
+  % Нарисовать картинку с вершинами и равнодействующими силами
+  Данные шаги выполняются в двойном цикле по всем вершинам
+  \begin{enumerate}
+    \item Для каждой пары вершин
+    \begin{enumerate}
+      \item Вычислить расстояние между вершинами
+      \item Вычислить направление действия силы
+      \item Рассчитать значение силы
+    \end{enumerate}
+    \item Рассчитать равнодействующую силу и применить её
+    \item Сделать шаг симуляции
+  \end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}{Виды гравитации}
+  $R$ -- Расстояние между вершинами
+  \begin{itemize}
+    \item Постоянная -- $const$
+    \item Линейная -- $\frac{1}{R}$
+    \item Классическая -- $\frac{1}{R^2}$
+    \item Логарифмическая -- $\frac{1}{log(R + 1)}$
+    \item Радикальная -- $\frac{1}{\sqrt R}$
+    \item Ступенчатая
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Использованные инструменты}
+  \begin{itemize}
+    \item С++
+    \item Simple and Fast Multimedia Library
+    \item Box2D
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Рабочий экран}
+  \begin{figure}[h]
+    \centering
+      % \caption{Граф из 150 вершин в конце симуляции}
+    % \label{end_pic}
+    \includegraphics[width=\textwidth]{Screenshot-Diploma-2}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Выводы}
+  Плюсы
+  \begin{itemize}
+    \item Относительная простота
+    \item Скорость
+    \item Корректно работает в абсолютном большинстве случаев
+  \end{itemize}
+
+  Минусы
+  \begin{itemize}
+    \item Возможен некорректный результат
+    \item Много параметров
+    \item Трудно оценить скорость сходимости
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Возможное развитие}
+  \begin{itemize}
+    \item Переход в 3D
+    \item Увеличение точности симуляции
+    \item Публикация в рецензируемом журнале
+  \end{itemize}
+\end{frame}
+
+\begin{frame}
+  \begin{center}
+  \LARGE{Спасибо за внимание}
+  \end{center}
+\end{frame}
+\end{document} 
