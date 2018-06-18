@@ -6,6 +6,18 @@ const sf::Color Button::BASIC_COLOR = sf::Color::Cyan;
 const float Button::DEFAULT_HEIGHT = 20.0;
 const sf::Color Button::PRESSED_COLOR = sf::Color::Yellow;
 
+Button::UPtr Button::CreateButton(
+    const std::string& title,
+    const sf::Font& font,
+    util::ActionType action
+) {
+  Button::UPtr button(new Button());
+  button->SetAction(action);
+  button->SetText(util::CreateEmptyLabel(sf::Color::Black, font));
+  button->SetString(title);
+  return button;
+}
+
 Button::Button() :
 _action(util::ActionType::None),
 _box(),
@@ -30,6 +42,13 @@ _box(),
 _text(text)
 {
   _Init();
+}
+
+void Button::CutString(int n) {
+  auto string = _text.getString().toAnsiString();
+  if (string.size() > n) {
+    this->SetString(string.substr(10));
+  }
 }
 
 sf::Vector2f Button::GetSize() const {

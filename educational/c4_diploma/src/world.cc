@@ -17,7 +17,8 @@ _vertexes()
   _black_hole_position.x += _bounding_box.GetWidth() / 2.0;
   _black_hole_position.y += _bounding_box.GetHeight() / 2.0;
 
-  _black_hole_action_radius = _black_hole_position.y - 2;
+  const auto gap = 0.25;
+  _black_hole_action_radius = _bounding_box.GetWidth() / 2 - gap;
 }
 
 bool World::AreMassesEqual() const {

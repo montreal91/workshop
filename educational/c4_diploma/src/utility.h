@@ -11,6 +11,7 @@
 namespace util {
 
 void CenterOrigin(sf::Text& text);
+sf::Text CreateEmptyLabel(const sf::Color& text_color, const sf::Font& font);
 b2Vec2 GetNormalizedVector(const b2Vec2& vec);
 float GetVectorNorm(const b2Vec2& vec);
 
@@ -29,13 +30,14 @@ const sf::Vector2f SHIFT = sf::Vector2f(5.0, 5.0);
 enum class ActionType : int {
   Dummy = -1,
   None = 0,
+  ReloadFile = 50,
   SetGravityConst = 100,
   SetGravityInvLinear = 101,
   SetGravityClassic = 102,
   SetGravityLogarithmic = 103,
   SetGravityRadical = 104,
   SetGravityStep = 105,
-  ToggleMasses = 10,
+  ToggleMasses = 150,
   UpdateGravityConstant = 200,
 };
 

@@ -11,6 +11,15 @@ void CenterOrigin(sf::Text& text) {
   );
 }
 
+sf::Text CreateEmptyLabel(const sf::Color& text_color, const sf::Font& font) {
+  auto label = sf::Text();
+  label.setFont(font);
+  label.setString("");
+  label.setColor(text_color);
+  label.setCharacterSize(FONT_SIZE);
+  return label;
+}
+
 b2Vec2 GetNormalizedVector(const b2Vec2& vec) {
   float norma = GetVectorNorm(vec);
   if (norma <= EPSILON) {
