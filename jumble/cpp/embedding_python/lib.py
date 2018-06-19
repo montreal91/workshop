@@ -1,6 +1,7 @@
 
 import json
 
+
 def multiply(a, b):
     print("Will compute", a, "times", b)
     _a = int(a)
@@ -9,6 +10,7 @@ def multiply(a, b):
     for _ in range(_a):
         c += _b
     return str(c)
+
 
 def divide(a, b):
     import sys
@@ -24,6 +26,7 @@ def divide(a, b):
 
 def length(some_string):
     return len(some_string)
+
 
 def foo():
     d = {}

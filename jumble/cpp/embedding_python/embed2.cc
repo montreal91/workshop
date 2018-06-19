@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-#include <python3.5m/Python.h>
+#include <Python.h>
 
 static std::string get_string(PyObject* obj) {
   PyObject* repr = PyObject_Repr(obj);
@@ -20,7 +20,8 @@ static void reprint(PyObject* obj) {
 
 int
 main(int argc, char *argv[]) {
-  PyObject *pName, *pModule, *pDict, *pFunc;
+  PyObject *pName, *pModule, *pFunc;
+
   PyObject *pArgs, *pValue;
 
   if (argc < 3) {

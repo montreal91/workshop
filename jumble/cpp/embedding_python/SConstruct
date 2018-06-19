@@ -1,0 +1,43 @@
+
+flags = [
+    "-I/usr/local/include/python3.6m",
+    "-I/usr/local/include/python3.6m" ,
+    "-Wno-unused-result",
+    "-Wsign-compare",
+    "-DNDEBUG",
+    "-g",
+    "-fwrapv",
+    "-O3",
+    "-Wall",
+]
+
+linkflags = [
+    "-L/usr/local/lib/python3.6/config-3.6m-x86_64-linux-gnu",
+    "-L/usr/local/lib",
+    "-Xlinker",
+    "-export-dynamic",
+]
+
+libs = [
+    "python3.6m",
+    "pthread",
+    "dl",
+    "util",
+    "m",
+]
+
+Program(
+    target="ep1",
+    source=["embed1.cc"],
+    CXXFLAGS=flags,
+    LIBS=libs,
+    LINKFLAGS=linkflags,
+)
+
+Program(
+    target="ep2",
+    source=["embed2.cc"],
+    CXXFLAGS=flags,
+    LIBS=libs,
+    LINKFLAGS=linkflags,
+)

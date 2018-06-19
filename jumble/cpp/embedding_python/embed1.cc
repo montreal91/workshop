@@ -1,5 +1,5 @@
 
-#include <python3.5m/Python.h>
+#include <Python.h>
 
 
 int
