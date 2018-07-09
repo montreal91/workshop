@@ -29,5 +29,4 @@ def foo():
     d = {}
     d["foo"] = 3
     res = json.dumps(d)
-    # print(res)
     return res
