@@ -1,0 +1,38 @@
+<svg width="400" height="300">
+  <rect x="0" y="0" width="400" height="400" fill="#ffffff"/>
+  <!-- Edges -->
+  <g>
+    <line x1="200" y1="150" x2="150" y2="100" stroke-width="1" stroke="#303030"/>
+    <line x1="200" y1="150" x2="200" y2="200" stroke-width="1" stroke="#303030"/>
+    <line x1="150" y1="100" x2="200" y2="200" stroke-width="1" stroke="#303030"/>
+    <line x1="150" y1="100" x2="300" y2="50" stroke-width="1" stroke="#303030"/>
+  </g>
+
+  <!-- Vectors -->
+  <g>
+    <line x1="200" y1="150" x2="181" y2="131" stroke-width="2" stroke="#00aa00"/>
+    <line x1="200" y1="150" x2="200" y2="169" stroke-width="2" stroke="#00aa00"/>
+    <line x1="200" y1="150" x2="133" y2="217" stroke-width="2" stroke="#aa0000"/>
+    <!-- <line x1="200" y1="150" x2="515" y2="516" stroke-width="3" stroke="#0000aa"/> -->
+  </g>
+
+  <!-- Vertices -->
+  <g>
+    <circle r="6" cx="200" cy="150" fill="#303030" />
+    <circle r="6" cx="150" cy="100" fill="#303030" />
+    <circle r="6" cx="300" cy="50"  fill="#303030" />
+    <circle r="6" cx="200" cy="200" fill="#303030" />
+
+  </g>
+
+  <!-- Vectors' arrows -->
+  <g transform="translate(181,131) rotate(135, 0, 0) scale(0.75)">
+    <polygon points="-5,0 0,20 5,0" fill="#00aa00"/>
+  </g>
+  <g transform="translate(200,169) scale(0.75)">
+    <polygon points="-5,0 0,20 5,0" fill="#00aa00"/>
+  </g>
+  <g transform="translate(133,217) rotate(45, 0, 0) scale(0.75)">
+    <polygon points="-5,0 0,20 5,0" fill="#aa0000"/>
+  </g>
+</svg>

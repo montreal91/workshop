@@ -26,6 +26,7 @@
 \usefonttheme{serif}
 \usepackage{beamerthemePittsburgh}
 \usepackage{color}
+\usepackage{svg}
 
 \mode<presentation> {
 
@@ -112,6 +113,14 @@
 }
 \date{\today} % Date, can be changed to a custom date
 
+\addtobeamertemplate{navigation symbols}{}{%
+  \usebeamerfont{footline}%
+  \usebeamercolor[fg]{footline}%
+  \hspace{1em}%
+  \insertframenumber
+}
+\setbeamercolor{footline}{fg=black}
+
 \begin{document}
 
 % \begin{frame}
@@ -119,87 +128,124 @@
 % \end{frame}
 
 \begin{frame}
+\setcounter{framenumber}{0}
   \begin{center}
     \tiny{МИНОБРНАУКИ РОССИИ} \\
-    \footnotesize\textbf{<<Челябинский государственный университет>>}
-    \vspace{2mm}
-
-    \footnotesize{Математический факультет} \\
+    \tiny\textbf{<<Челябинский государственный университет>>}\\
+    \tiny{Математический факультет} \\
     \tiny{Кафедра вычислительной математики}
   % \end{center}
-    \vspace{2mm}
+    \vspace{6mm}
 
   % \begin{center}
-    {\footnotesize\textbf{Применение псевдофизической симуляции для поиска клик в графе}}
+    {\normalsize\textbf{Использование псевдофизической симуляции в задаче поиска клик в графе}}
   \end{center}
 
   % \noindent
   % \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcl}
-    % & \hfill & 
-    \tiny{Выполнил студент} \\
-    % \\
-    % & & 
-    \footnotesize{Нефедов Александр Юрьевич}\\
-    % \\ % имя студента
-    % & & 
-    \tiny{академической группы МП-401}\\
-    % \\
-    % & & 
-    % \\
-  % \end{tabular*}
+    % & \hfill &
+    \vspace{4mm}
 
-  \vspace{4mm}
+  \begin{columns}[t]
+    \begin{column}[t]{5cm}
+    \end{column}
 
-  % \noindent
-  % \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lcl}
-  %   & \hfill &  \\
-  %   & & Научный руководитель \\
-  %   & & Лепчинский Михаил Германович \\
-  %   & & кандидат физико-математических наук \\
-  %   & & доцент \\
-  % \end{tabular*}
-  \tiny{Научный руководитель} \\
-    % \\
-    % & & 
-    \footnotesize{Лепчинский Михаил Германович}\\
-    % \\ % имя студента
-    % & & 
-    \tiny{кандидат физико-математических наук}\\
-    % \\
-    % & & 
-    \tiny{доцент} \\
-    % \\
-    % & & 
-    % \footnotesize{Прикладная математика и информатика}\\
+    \begin{column}[t]{7cm}
+      \small{Выполнил студент} \\
+      \small{Нефедов Александр Юрьевич}\\
+      \small{академической группы МП-401}\\
+      \vspace{4mm}
+  
+      \small{Научный руководитель} \\
+      \small{Лепчинский Михаил Германович}\\
+      \small{кандидат физико-математических наук}\\
+      \small{доцент} \\
+    \end{column}
+  \end{columns}
   \begin{center}
     \small\the\year
   \end{center}
 \end{frame}
 
-\begin{frame}{Клика}
-  \begin{defi}
-    \textbf{Полный граф} -- граф, в котором каждая вершина соединена ребром с другой
-    вершиной.
-  % \end{defi}
+% \begin{frame}{Клика}
+%   \begin{defi}
+%     \textbf{Полный граф} -- граф, в котором каждая вершина соединена ребром с другой
+%     вершиной.
+%   % \end{defi}
 
-  % \begin{defi}
-    \textbf{Подграф} -- граф, содержащий некоторое подмножество вершин данного графа и 
-    некоторое подмножество соединяющих их рёбер.
-  % \end{defi}
+%   % \begin{defi}
+%     \textbf{Подграф} -- граф, содержащий некоторое подмножество вершин данного графа и 
+%     некоторое подмножество соединяющих их рёбер.
+%   % \end{defi}
 
-  % \begin{defi}
-    \textbf{Клика} -- полный подграф данного графа.
-  \end{defi}
-\end{frame}
+%   % \begin{defi}
+%     \textbf{Клика} -- полный подграф данного графа.
+%   \end{defi}
+%   \insertframenumber/\inserttotalframenumber
+% \end{frame}
 
-\begin{frame}{Применение клик}
+\begin{frame}{Цели и задачи}
+  Цель:
   \begin{itemize}
-    \item Социология
-    \item Химия
-    \item Биология
-    \item Математика
+    \item
+    исследовать использование псевдофизической симуляции в задаче поиска клик в графе;
+  \end{itemize}
+
+  Задачи:
+  \begin{itemize}
+    \item
+    написать программу, реализующую данный подход;
+
+    \item
+    разработать достаточно широкий набор тестовых графов и провести численные эксперименты;
+
+    \item
+    оценить границы применимости;
   \end{itemize}
 \end{frame}
+
+\begin{frame} {Граф}
+  \begin{columns}[T] % contents are top vertically aligned
+    \begin{column}[T]{5cm} % each column can also be its own environment
+      \begin{defi}
+        \textbf{Граф} --- упорядоченная пара множеств $\left(V, E\right)$, где $V$ --- это непустое множество
+        вершин или узлов, а $E$ --- множество (неупорядоченных) пар вершин, называемых
+        рёбрами.
+      \end{defi}
+    \end{column}
+    \begin{column}[T]{5cm} % alternative top-align that's better for graphics
+      \begin{figure}
+        \centering
+        \def\svgwidth{\columnwidth}
+        \input{graph.pdf_tex}
+        % \includesvg{graph}
+      \end{figure}
+          % \includegraphics[height=3cm]{graphic.png}
+    \end{column}
+  \end{columns}
+  % \insertframenumber/\inserttotalframenumber
+\end{frame}
+
+\begin{frame} {Клика}
+  \begin{columns}[T] % contents are top vertically aligned
+    \begin{column}[T]{5cm} % each column can also be its own environment
+      \begin{defi}
+        \textbf{Клика} -- полный подграф данного графа.
+      \end{defi}
+    \end{column}
+    \begin{column}[T]{5cm} % alternative top-align that's better for graphics
+      \begin{figure}
+        \centering
+        \def\svgwidth{\columnwidth}
+        \input{clique.pdf_tex}
+        % \includesvg{graph}
+      \end{figure}
+          % \includegraphics[height=3cm]{graphic.png}
+    \end{column}
+  \end{columns}
+  % \insertframenumber/\inserttotalframenumber
+\end{frame}
+
 
 \begin{frame}{Вариации задачи}
   \begin{itemize}
@@ -215,6 +261,7 @@
     \item
     поиск или проверка на существование в графе клики заданного размера;
   \end{itemize}
+  % \insertframenumber/\inserttotalframenumber
 \end{frame}
 
 \begin{frame}{Существующие алгоритмы}
@@ -223,22 +270,30 @@
     \item Bron–Kerbosch (1973)
     \item Robson (2001)
   \end{itemize}
+  Главный недостаток --- экспоненциальная сложность.
 \end{frame}
 
-\begin{frame}{Описание симуляции}
-  % Нарисовать картинку с вершинами и равнодействующими силами
-  Данные шаги выполняются в двойном цикле по всем вершинам
-  \begin{enumerate}
-    \item Для каждой пары вершин
-    \begin{enumerate}
-      \item Вычислить расстояние между вершинами
-      \item Вычислить направление действия силы
-      \item Рассчитать значение силы
-    \end{enumerate}
-    \item Рассчитать равнодействующую силу и применить её
-    \item Сделать шаг симуляции
-  \end{enumerate}
+% \begin{frame}{Описание симуляции}
+%   % Нарисовать картинку с вершинами и равнодействующими силами
+%   Данные шаги выполняются в двойном цикле по всем вершинам
+%   \begin{enumerate}
+%     \item Для каждой пары вершин
+%     \begin{enumerate}
+%       \item Вычислить расстояние между вершинами
+%       \item Вычислить направление действия силы
+%       \item Рассчитать значение силы
+%     \end{enumerate}
+%     \item Рассчитать равнодействующую силу и применить её
+%     \item Сделать шаг симуляции
+%   \end{enumerate}
+% \end{frame}
 
+\begin{frame}{Иллюстрация симуляции}
+  \begin{figure}
+    \centering
+    \def\svgwidth{\columnwidth}
+    \input{sim.pdf_tex}
+  \end{figure}
 \end{frame}
 
 
@@ -254,13 +309,6 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Использованные инструменты}
-  \begin{itemize}
-    \item С++
-    \item Simple and Fast Multimedia Library
-    \item Box2D
-  \end{itemize}
-\end{frame}
 
 \begin{frame}{Рабочий экран}
   \begin{figure}[h]
@@ -269,6 +317,15 @@
     % \label{end_pic}
     \includegraphics[width=\textwidth]{Screenshot-Diploma-2}
   \end{figure}
+\end{frame}
+
+\begin{frame}{Возможное развитие}
+  \begin{itemize}
+    \item Перенос симуляции в пространства больших размерностей;
+    \item Увеличение точности симуляции;
+    \item Вывести зависимости параметров от количества вершин и рёбер;
+    \item Использование других метрик;
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Выводы}
@@ -281,23 +338,34 @@
 
   Минусы
   \begin{itemize}
-    \item Возможен некорректный результат
+    % \item Возможен некорректный результат
     \item Много параметров
     \item Трудно оценить скорость сходимости
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Возможное развитие}
-  \begin{itemize}
-    \item Переход в 3D
-    \item Увеличение точности симуляции
-    \item Публикация в рецензируемом журнале
-  \end{itemize}
-\end{frame}
 
 \begin{frame}
   \begin{center}
-  \LARGE{Спасибо за внимание}
+  \LARGE{Спасибо за внимание!}
   \end{center}
 \end{frame}
+
+\begin{frame}{Использованные инструменты}
+  \begin{itemize}
+    \item С++
+    \item Simple and Fast Multimedia Library
+    \item Box2D
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Применение клик}
+  \begin{itemize}
+    \item Социология
+    \item Химия
+    \item Биология
+    \item Математика
+  \end{itemize}
+\end{frame}
+
 \end{document} 
