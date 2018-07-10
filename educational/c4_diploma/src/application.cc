@@ -1,197 +1,434 @@
 
 #include "application.h"
 
+const std::string Application::FOLDER = "data/";
+const std::string Application::GRAVITY_CONSTANT_STR = "Gravity Constant: ";
+const int         Application::MAX_VERTS = 400;
+const sf::Time    Application::TIME_PER_FRAME = sf::seconds(1.0f / 30.0f);
 
-const float Application::EPSILON = 0.0001;
-const sf::Time Application::TIME_PER_FRAME = sf::seconds(1.0f / 60.0f);
 
 Application::Application() :
-adjacency_matrix(),
-physical_world(b2Vec2(0.0f, 0.0f)),
-vertices(),
-window(sf::VideoMode(1200, 600), "Diploma", sf::Style::Close) {
-  std::ifstream fileinput("graph.txt");
+_buttons(),
+_current_graph_filename("data/default.txt"),
+_font(),
+_is_active(false),
+_labels(),
+_window(sf::VideoMode(1200, 610), "Diploma", sf::Style::Close),
+_world()
+{
+  _window.setKeyRepeatEnabled(false);
+  _font.loadFromFile("media/fonts/RobotoMono-Regular.ttf");
 
-  auto window_size = this->window.getSize();
-  float black_hole_x = (float)window_size.x;
-  float black_hole_y = (float)window_size.y;
-  this->black_hole_position = b2Vec2(
-    black_hole_x / 2 / Vertex::SCALE,
-    black_hole_y / 2 / Vertex::SCALE
-  );
-  this->black_hole_action_radius = this->black_hole_position.y - 2;
-  this->gravity_type = GravityType::constant;
+  _InitButtons();
+  _InitLabels();
 
-  this->LoadData(fileinput);
-  this->InitVerticesPositions();
+  _world.SetGravityType(World::GravityType::Classic);
+  _SetGravityTypeLabel(World::GravityType::Classic);
+  _SetMassLabel(_world.AreMassesEqual());
+
+  _LoadData();
+  _LoadFiles();
 }
 
 void Application::Run() {
   sf::Clock clock;
   sf::Time time_since_last_update = sf::Time::Zero;
-  while (window.isOpen()) {
+  while (_window.isOpen()) {
     sf::Time dt = clock.restart();
     time_since_last_update += dt;
 
     while (time_since_last_update > TIME_PER_FRAME) {
       time_since_last_update -= TIME_PER_FRAME;
-      this->ProcessInput();
-      this->Update(TIME_PER_FRAME);
-      this->Render();
+      _ProcessInput();
+      _Update(TIME_PER_FRAME);
+      _Render();
     }
   }
 }
 
-b2Vec2 Application::CalculateBlackHoleForce(const Vertex& vertex) const {
-  auto pos = vertex.GetPosition();
-  auto direction = this->black_hole_position - pos;
+//
+// Private methods
+//
 
-  auto distance = util::GetVectorNorm(direction);
+void Application::_AdjustButtonsWidth() {
+  auto max_width = 0.0;
+  for (auto& button : _buttons) {
+    if (button->GetSize().x > max_width) {
+      max_width = button->GetSize().x;
+    }
+  }
 
-  if (distance < this->black_hole_action_radius) {
-    return b2Vec2(0.0f, 0.0f);
-  } else {
-    direction = util::GetNormalizedVector(direction);
-    auto magnitude = distance;
-    return b2Vec2(direction.x * magnitude, direction.y * magnitude);
+  for (auto& button : _buttons) {
+    button->SetWidth(max_width);
   }
 }
 
-b2Vec2 Application::CalculateForceDirection(const Vertex& subject, const Vertex& object) const {
-  b2Vec2 res = subject.GetPosition();
-  res -= object.GetPosition();
-  return util::GetNormalizedVector(res);
+void Application::_InitButtons() {
+  const auto win_size = _window.getSize();
+  const auto btns_x = win_size.x / 2 + 2 * util::GAP;
+  const auto step = 20;
+  const auto y_shift = 435;
+
+  auto grv_btn1 = Button::CreateButton(
+      "Constant",
+      _font,
+      util::ActionType::SetGravityConst
+  );
+  grv_btn1->SetPosition(btns_x, y_shift + util::GAP + step);
+
+  auto grv_btn2 = Button::CreateButton(
+      "Inv. Linear",
+      _font,
+      util::ActionType::SetGravityInvLinear
+  );
+  grv_btn2->SetPosition(btns_x, y_shift + (util::GAP + step) * 2);
+
+  auto grv_btn3 = Button::CreateButton(
+      "Classic",
+      _font,
+      util::ActionType::SetGravityClassic
+  );
+  grv_btn3->SetPosition(btns_x, y_shift + (util::GAP + step) * 3);
+
+  auto grv_btn4 = Button::CreateButton(
+    "Logarithmic",
+    _font,
+    util::ActionType::SetGravityLogarithmic
+  );
+  grv_btn4->SetPosition(btns_x, y_shift + (util::GAP + step) * 4);
+
+  auto grv_btn5 = Button::CreateButton(
+    "Radical",
+    _font,
+    util::ActionType::SetGravityRadical
+  );
+  grv_btn5->SetPosition(btns_x, y_shift + (util::GAP + step) * 5);
+
+  auto grv_btn6 = Button::CreateButton(
+    "Step",
+    _font,
+    util::ActionType::SetGravityStep
+  );
+  grv_btn6->SetPosition(btns_x, y_shift + (util::GAP + step) * 6);
+
+  auto mass_btn = Button::CreateButton(
+    "Toggle Masses",
+    _font,
+    util::ActionType::ToggleMasses
+  );
+  mass_btn->SetPosition(btns_x, y_shift - (util::GAP + step));
+
+  _buttons.push_back(std::move(grv_btn1));
+  _buttons.push_back(std::move(grv_btn2));
+  _buttons.push_back(std::move(grv_btn3));
+  _buttons.push_back(std::move(grv_btn4));
+  _buttons.push_back(std::move(grv_btn5));
+  _buttons.push_back(std::move(grv_btn6));
+  _buttons.push_back(std::move(mass_btn));
+
+  _AdjustButtonsWidth();
 }
 
-float Application::CalculateForceMagnitude(
-  const Vertex& subject,
-  const Vertex& object
-) const {
-  const auto distance = GetDistanceBetweenVertices(subject, object);
-  if (this->gravity_type == GravityType::constant) {
-    return GRAVITATIONAL_CONSTANT;
+void Application::_InitLabels() {
+  const auto win_size = _window.getSize();
+  const auto lbls_x = win_size.x / 2 + 2 * util::GAP;
+  const auto step = 15;
+  const auto y_shift = -10;
+
+  auto density_label = util::CreateEmptyLabel(sf::Color::Cyan, _font);
+  density_label.setPosition(lbls_x, y_shift + util::GAP + step);
+
+  auto gravity_constant_lbl = util::CreateEmptyLabel(sf::Color::Cyan, _font);
+  gravity_constant_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 2);
+
+  auto gravity_type_lbl = util::CreateEmptyLabel(sf::Color::Cyan, _font);
+  gravity_type_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 3);
+
+  auto mass_lbl = util::CreateEmptyLabel(sf::Color::Cyan, _font);
+  mass_lbl.setPosition(lbls_x, y_shift + (util::GAP + step) * 4);
+
+  _labels["density"] = density_label;
+  _labels["gravity_constant"] = gravity_constant_lbl;
+  _labels["gravity_type"] = gravity_type_lbl;
+  _labels["mass"] = mass_lbl;
+}
+
+void Application::_LoadData() {
+  std::ifstream in(_current_graph_filename);
+
+  auto n=0;
+  in >> n;
+  if (n > MAX_VERTS) {
+    throw std::length_error("Graph is too big.");
   }
-  else if (this->gravity_type == GravityType::inv_linear) {
-    if (distance <= EPSILON) {
-      return GRAVITATIONAL_CONSTANT;
-    } else {
-      return GRAVITATIONAL_CONSTANT / distance;
+  std::unique_ptr<Graph> graph(new Graph(n));
+
+  auto i=0, j=0, e=0;
+  for (auto c=0; c<n*n; c++) {
+    in >> i >> j;
+    if (i < 0 || j < 0) {
+      break;
     }
+    graph->SetEdge(i, j, Graph::EdgeGravity::attraction);
+    e++;
   }
-  else if (this->gravity_type == GravityType::inv_quadratic) {
-    if (distance <= EPSILON) {
-      return GRAVITATIONAL_CONSTANT;
-    } else {
-      return GRAVITATIONAL_CONSTANT / distance / distance;
-    }
+  std::cout << "Number of vertices: " << n << "\n";
+  std::cout << "Number of edges:    " << e << "\n";
+  _labels["density"].setString(
+      "Graph Density: " + std::to_string(graph->GetDensity())
+  );
+  _labels["gravity_constant"].setString(
+    GRAVITY_CONSTANT_STR + std::to_string(_world.GetGravityConstant())
+  );
+  _world.SetGraph(std::move(graph));
+  _world.Init();
+}
+
+void Application::_LoadFiles() {
+  Poco::File graph_dir("data");
+  std::vector<std::string> files;
+  graph_dir.list(files);
+
+  FileList::UPtr ptr(new FileList(files, _font));
+  _file_list = std::move(ptr);
+
+  _file_list->setPosition(750, 410);
+  _file_list->SetWidth(_buttons[0]->GetSize().x);
+}
+
+void Application::_OnActionDummy() {
+  std::cout << "Dummy button is clicked\n";
+}
+
+void Application::_OnActionReloadFile() {
+  std::cout << _file_list->GetValue() << "\n";
+  _SetActive(false);
+  _current_graph_filename = FOLDER + _file_list->GetValue();
+  _LoadData();
+}
+
+void Application::_OnActionSetGravityClassic() {
+  _UpdateGravity(World::GravityType::Classic);
+}
+
+void Application::_OnActionSetGravityConst() {
+  _UpdateGravity(World::GravityType::Constant);
+}
+
+void Application::_OnActionSetGravityInvLinear() {
+  _UpdateGravity(World::GravityType::InvLinear);
+}
+
+void Application::_OnActionSetGravityLogarithmic() {
+  _UpdateGravity(World::GravityType::Logarithmic);
+}
+
+void Application::_OnActionSetGravityStep() {
+  _UpdateGravity(World::GravityType::Step);
+}
+
+void Application::_OnActionSetGravityRadical() {
+  _UpdateGravity(World::GravityType::Radical);
+}
+
+void Application::_OnActionToggleMasses() {
+  _SetActive(false);
+  _world.ToggleEqualMasses();
+  _world.Init();
+  _SetMassLabel(_world.AreMassesEqual());
+}
+
+void Application::_PrintTestData() const {}
+
+bool Application::_ProcessAction(util::ActionType action) {
+  if (action == util::ActionType::Dummy) {
+    _OnActionDummy();
+    return true;
+  }
+  else if (action == util::ActionType::ReloadFile) {
+    _OnActionReloadFile();
+    return true;
+  }
+  else if (action == util::ActionType::SetGravityConst) {
+    _OnActionSetGravityConst();
+    return true;
+  }
+  else if (action == util::ActionType::SetGravityInvLinear) {
+    _OnActionSetGravityInvLinear();
+    return true;
+  }
+  else if (action == util::ActionType::SetGravityClassic) {
+    _OnActionSetGravityClassic();
+    return true;
+  }
+  else if (action == util::ActionType::SetGravityLogarithmic) {
+    _OnActionSetGravityLogarithmic();
+    return true;
+  }
+  else if (action == util::ActionType::SetGravityRadical) {
+    _OnActionSetGravityRadical();
+    return true;
+  }
+  else if (action == util::ActionType::SetGravityStep) {
+    _OnActionSetGravityStep();
+    return true;
+  }
+  else if (action == util::ActionType::ToggleMasses) {
+    _OnActionToggleMasses();
+  }
+  else if (action == util::ActionType::None) {
+    return false;
   }
   else {
-    throw std::invalid_argument("Gravity type should be 0, 1 or 2.");
+    throw std::logic_error("Incorrect action.");
   }
-
+  return false; // This line makes compiler happy;
 }
 
-void Application::InitVerticesPositions() {
-  const auto PI = 3.141592f;
-  auto phi = 2 * PI / this->vertices.size();
-  auto r = this->black_hole_action_radius * 0.25;
-
-  for (auto i=0; i < this->vertices.size(); i++) {
-    auto x = std::cos(phi * i) * r;
-    auto y = std::sin(phi * i) * r;
-
-    auto pos = b2Vec2(
-      this->black_hole_position.x + x,
-      this->black_hole_position.y + y
-    );
-    this->vertices[i].SetPosition(pos);
-  }
-}
-
-void Application::LoadData(std::istream& in) {
-  int n;
-  in >> n;
-  std::cout << "Number of vertices: " << n << "\n";
-  for (int i = 0; i < n; i++) {
-    Vertex v(this->physical_world);
-    this->vertices.push_back(v);
-  }
-  in >> this->gravity_type;
-  in >> this->GRAVITATIONAL_CONSTANT;
-  std::cout << "Gravitaional constant: " << this->GRAVITATIONAL_CONSTANT << "\n";
-
-  float tmp = 0;
-  this->adjacency_matrix.clear();
-  for (int i = 0; i < n; i++) {
-    this->adjacency_matrix.push_back(std::vector<float>());
-    for (int j = 0; j < n; j++) {
-      in >> tmp;
-      this->adjacency_matrix[i].push_back(tmp);
-    }
-  }
-}
-
-void Application::PrintTestData() const {
-  b2Vec2 position = this->vertices[0].GetPosition();
-  std::cout << "Pos: " << position.x << " " << position.y << "\n";
-}
-
-void Application::ProcessInput() {
+void Application::_ProcessInput() {
   sf::Event event;
-  while (this->window.pollEvent(event)) {
+  while (_window.pollEvent(event)) {
     if (event.type == sf::Event::KeyPressed) {
-      if (event.key.code == sf::Keyboard::Q) {
-        this->window.close();
-      }
-      if (event.key.code == sf::Keyboard::P) {
-        this->PrintTestData();
-      }
+      _ProcessKeyPress(event.key);
+    }
+    if (event.type == sf::Event::MouseButtonPressed) {
+      _ProcessMouseClick(event.mouseButton);
+    }
+    if (event.type == sf::Event::MouseButtonReleased) {
+      _UnclickButtons();
     }
     if (event.type == sf::Event::Closed) {
-      std::cout << "ProcessInput close window\n";
-      this->window.close();
+      _window.close();
+    }
+    if (event.type == sf::Event::LostFocus) {
+      _SetActive(false);
     }
   }
 }
 
-void Application::Render() {
-  this->window.clear();
-  for (Vertex vertex : this->vertices) {
-    this->window.draw(vertex);
+void Application::_ProcessKeyPress(const sf::Event::KeyEvent& key_event) {
+  if (key_event.code == sf::Keyboard::B) {
+    _world.ToggleBlackHoleOn();
   }
-  this->window.display();
+  if (key_event.code == sf::Keyboard::Q) {
+    _window.close();
+  }
+  if (key_event.code == sf::Keyboard::P) {
+    _PrintTestData();
+  }
+  if (key_event.code == sf::Keyboard::R) {
+    _world.Init();
+    _SetActive(false);
+  }
+  if (key_event.code == sf::Keyboard::Down) {
+    _world.DecreaseGravity(util::GRAVITY_STEP);
+    _labels["gravity_constant"].setString(
+        GRAVITY_CONSTANT_STR + std::to_string(_world.GetGravityConstant())
+    );
+  }
+  if (key_event.code == sf::Keyboard::Up) {
+    _world.IncreaseGravity(util::GRAVITY_STEP);
+    _labels["gravity_constant"].setString(
+        GRAVITY_CONSTANT_STR + std::to_string(_world.GetGravityConstant())
+    );
+  }
+  if (key_event.code == sf::Keyboard::Space) {
+    _ToggleActive();
+  }
 }
 
-void Application::Update(const sf::Time& dt) {
-  for (int i=0; i<this->vertices.size(); i++) {
-    for (int j=0; j<this->vertices.size(); j++) {
-      b2Vec2 force = this->CalculateForceDirection(vertices[i], vertices[j]);
-      float magnitude = this->CalculateForceMagnitude(
-        this->vertices[i],
-        this->vertices[j]
-      );
-      force *= magnitude;
-      force *= -this->adjacency_matrix[i][j];
-      this->vertices[i].AddForce(force);
-      this->vertices[i].AddForce(this->CalculateBlackHoleForce(vertices[i]));
+void Application::_ProcessMouseClick(const sf::Event::MouseButtonEvent& event) {
+  if (event.button != sf::Mouse::Button::Left) {
+    return;
+  }
+  if (_ProcessAction(_file_list->HandleClick(event.x, event.y))) {
+    return;
+  }
+  for (auto& button : _buttons) {
+    if (_ProcessAction(button->HandleClick(event.x, event.y))) {
+      break;
     }
   }
-  this->physical_world.Step(dt.asSeconds(), 8, 3);
-  for (auto i = 0; i < this->vertices.size(); i++) {
-    this->vertices[i].Update(dt);
+}
+
+void Application::_Render() {
+  _window.clear();
+  _world.RenderVertexes(_window);
+  _RenderButtons();
+  _RenderLabels();
+  _file_list->draw(_window, sf::RenderStates::Default);
+  _window.display();
+}
+
+void Application::_RenderButtons() {
+  for (auto& button : _buttons) {
+    button->draw(_window, sf::RenderStates::Default);
   }
 }
 
-b2Vec2 util::GetNormalizedVector(const b2Vec2& vec) {
-  float norma = util::GetVectorNorm(vec);
-  if (norma <= Application::EPSILON) {
-    return b2Vec2(vec.x, vec.y);
+void Application::_RenderLabels() {
+  for (auto& lbl : _labels) {
+    _window.draw(lbl.second);
   }
-
-  b2Vec2 res = b2Vec2(vec.x / norma, vec.y / norma);
-  return res;
 }
 
-float util::GetVectorNorm(const b2Vec2& vec) {
-  return std::sqrt(vec.x * vec.x + vec.y * vec.y);
+void Application::_SetActive(bool active) {
+  _is_active = active;
+}
+
+void Application::_SetGravityTypeLabel(World::GravityType t) {
+  const auto gtype = std::string("Gravity Type: ");
+  auto label = _labels["gravity_type"];
+  if (t == World::GravityType::Constant) {
+    label.setString(gtype + "Constant");
+  }
+  else if (t == World::GravityType::InvLinear) {
+    label.setString(gtype + "Inv. Linear");
+  }
+  else if (t == World::GravityType::Classic) {
+    label.setString(gtype + "Classic");
+  }
+  else if (t == World::GravityType::Logarithmic) {
+    label.setString(gtype + "Logarithmic");
+  }
+  else if (t == World::GravityType::Radical) {
+    label.setString(gtype + "Radical");
+  }
+  else if (t == World::GravityType::Step) {
+    label.setString(gtype + "Step");
+  }
+  else {
+    throw std::invalid_argument("Wrong gravity type");
+  }
+  _labels["gravity_type"] = label;
+}
+
+void Application::_SetMassLabel(bool mass) {
+  if (!mass) {
+    _labels["mass"].setString("Degree-based masses: ON");
+  } else {
+    _labels["mass"].setString("Degree-based masses: OFF");
+  }
+}
+
+void Application::_ToggleActive() {
+  _is_active = !_is_active;
+}
+
+void Application::_UnclickButtons() {
+  _file_list->Unclick();
+  for (auto& button : _buttons) {
+    button->Unclick();
+  }
+}
+
+void Application::_Update(const sf::Time& dt) {
+  if (_is_active) {
+    _world.Update(dt);
+  }
+}
+
+void Application::_UpdateGravity(World::GravityType t) {
+  _world.SetGravityType(t);
+  _SetGravityTypeLabel(t);
 }

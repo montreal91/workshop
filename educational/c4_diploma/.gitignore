@@ -1,1 +1,13 @@
 diploma
+data/*
+tex/Sashin_Eblom_2_0.tex
+*.bbl
+*.blg
+*.aux
+*.log
+*.toc
+*.pdf
+*.nav
+*.out
+*.snm
+*.vrb

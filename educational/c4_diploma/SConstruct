@@ -1,5 +1,6 @@
 libs = [
     "Box2D",
+    "PocoFoundation",
     "sfml-graphics",
     "sfml-window",
     "sfml-system",
@@ -15,8 +16,14 @@ source_dir = "src/"
 
 files = [
     "application.cc",
+    "bounding_box.cc",
+    "button.cc",
+    "file_list.cc",
+    "graph.cc",
     "main.cc",
+    "utility.cc",
     "vertex.cc",
+    "world.cc",
 ]
 
 env = Environment(CXX="clang++")

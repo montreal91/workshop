@@ -1,69 +1,92 @@
 
 #include "vertex.h"
 
-const float Vertex::RADIUS = 0.25f;
-const float Vertex::SCALE = 30.0f;
 
 Vertex::Vertex(b2World& world) :
-dot(RADIUS * SCALE)
+_dot(util::RADIUS * util::SCALE)
 {
-  this->dot.setFillColor(sf::Color::Magenta);
-  this->dot.setPosition(sf::Vector2f(550, 300));
-
-  this->CreatePhysicalBody(world, 0.0f, 0.0f);
+  _dot.setFillColor(sf::Color::Cyan);
+  _CreatePhysicalBody(world, 0.0f, 0.0f, 1.0f);
 }
 
 Vertex::Vertex(b2World& world, float x, float y) :
-  dot(RADIUS * SCALE)
+_dot(util::RADIUS * util::SCALE)
 {
-  this->dot.setFillColor(sf::Color::Magenta);
-  this->dot.setPosition(sf::Vector2f(x, y));
+  _dot.setFillColor(sf::Color::Cyan);
+  _CreatePhysicalBody(world, x, y, 1.0f);
+}
 
-  this->CreatePhysicalBody(world, x, y);
+Vertex::Vertex(b2World& world, float x, float y, float mass) :
+_dot(util::RADIUS * util::SCALE)
+{
+  _dot.setFillColor(sf::Color::Cyan);
+  _CreatePhysicalBody(world, x, y, mass);
 }
 
 void Vertex::AddForce(const b2Vec2& force) {
-  this->body->ApplyForceToCenter(force, true);
+  _body->ApplyForceToCenter(force, true);
 }
 
-void Vertex::draw(sf::RenderTarget& target, sf::RenderStates states) const{
-  target.draw(this->dot, states);
+float Vertex::GetMass() const {
+  return static_cast<float>(_body->GetMass());
 }
 
 b2Vec2 Vertex::GetPosition() const {
-  return this->body->GetPosition();
+  return _body->GetPosition();
+}
+
+void Vertex::SetColor(const sf::Color& color) {
+  _dot.setFillColor(color);
+}
+
+void Vertex::SetMass(int mass) {
+  b2MassData mass_data;
+  mass_data.center = b2Vec2();
+  mass_data.mass = mass;
+  _body->SetMassData(&mass_data);
 }
 
 void Vertex::SetPosition(const b2Vec2& pos) {
-  this->body->SetTransform(pos, 0);
+  _body->SetTransform(pos, 0);
 }
 
-void Vertex::Update(const sf::Time& dt) {
-  b2Vec2 pos = this->body->GetPosition();
-  this->dot.setPosition(SCALE * pos.x, SCALE * pos.y);
+void Vertex::Update() {
+  b2Vec2 pos = _body->GetPosition();
+  _dot.setPosition(util::SCALE * pos.x, util::SCALE * pos.y);
 }
 
-void Vertex::CreatePhysicalBody(b2World& world, float x, float y) {
+//
+// Private methods
+//
+
+void Vertex::draw(sf::RenderTarget& target, sf::RenderStates states) const{
+  target.draw(_dot, states);
+}
+
+void Vertex::_CreatePhysicalBody(b2World& world, float x, float y, float mass) {
   b2BodyDef body_def;
   body_def.position = b2Vec2(x, y);
   body_def.type = b2_dynamicBody;
 
   b2CircleShape circle_shape;
   circle_shape.m_p.Set(0, 0);
-  circle_shape.m_radius = RADIUS;
+  circle_shape.m_radius = util::RADIUS;
 
   b2FixtureDef fixture_def;
-  fixture_def.density  = 1.0f;
-  fixture_def.friction = 0.7f;
+  fixture_def.density  = 2.0f;
+  fixture_def.friction = 0.0f;
   fixture_def.shape = &circle_shape;
 
-  this->body = world.CreateBody(&body_def);
-  this->body->CreateFixture(&fixture_def);
+  _body = world.CreateBody(&body_def);
+  _body->CreateFixture(&fixture_def);
 
-  std::cout << "Mass: " << this->body->GetMass() << "\n";
+  b2MassData mass_data;
+  mass_data.center = b2Vec2();
+  mass_data.mass = mass;
+  _body->SetMassData(&mass_data);
 }
 
-float GetDistanceBetweenVertices(const Vertex& v1, const Vertex& v2) {
+float GetDistanceBetweenVertexes(const Vertex& v1, const Vertex& v2) {
   b2Vec2 pos1 = v1.GetPosition();
   b2Vec2 pos2 = v2.GetPosition();
   

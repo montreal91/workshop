@@ -1,35 +1,69 @@
-#ifndef VERTEX_H
-#define VERTEX_H
+
+#pragma once
+
 
 #include <cmath>
-#include <iostream>
+#include <memory>
 
 #include <Box2D/Box2D.h>
-
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Time.hpp>
 
+#include "utility.h"
+
+//
+// Class for physical vertexes that live in physical world and can be drawn in
+// sf::RenderTarget
+//
 class Vertex : public sf::Drawable {
 public:
+  typedef std::unique_ptr<Vertex> UPtr;
+
   explicit Vertex(b2World& world);
   explicit Vertex(b2World& world, float x, float y);
+  explicit Vertex(b2World& world, float x, float y, float mass);
 
+  //
+  // Adds Force to the vertex.
+  // Force is measured in newtons.
+  //
   virtual void AddForce(const b2Vec2& force);
-  virtual void draw(sf::RenderTarget& target, sf::RenderStates) const;
-  virtual b2Vec2 GetPosition() const;
-  virtual void SetPosition(const b2Vec2& pos);
-  virtual void Update(const sf::Time& dt);
 
-  const static float RADIUS;
-  const static float SCALE;
+
+  //
+  // Returns vertex' mass measured in kilograms.
+  //
+  virtual float GetMass() const;
+
+  //
+  // Returns vertex' position in the physical world.
+  //
+  virtual b2Vec2 GetPosition() const;
+
+  //
+  // Sets vertex' color that appears on the screen
+  //
+  virtual void SetColor(const sf::Color& color);
+
+  virtual void SetMass(int mass);
+
+  //
+  // Sets vertex' position in the physical world measured in meters.
+  //
+  virtual void SetPosition(const b2Vec2& pos);
+
+  //
+  // Updates vertex' representation.
+  //
+  virtual void Update();
 
 private:
-  virtual void CreatePhysicalBody(b2World& world, float x, float y);
+  void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
 
-  b2Body* body;
-  sf::CircleShape dot;
+  virtual void _CreatePhysicalBody(b2World& world, float x, float y, float mass);
+
+  b2Body*         _body;
+  sf::CircleShape _dot;
 };
 
-float GetDistanceBetweenVertices(const Vertex& v1, const Vertex& v2);
-
-#endif // VERTEX_H
+float GetDistanceBetweenVertexes(const Vertex& v1, const Vertex& v2);

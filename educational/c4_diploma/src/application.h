@@ -1,78 +1,83 @@
 
-#ifndef APPLICATION_H
-#define APPLICATION_H
+#pragma once
 
-#include <cmath>
+#include <cstring>
 #include <iostream>
 #include <fstream>
+#include <map>
+#include <memory>
 #include <stdexcept>
-#include <thread>
 #include <vector>
 
-
 #include <Box2D/Box2D.h>
+#include <Poco/File.h>
 #include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 
+#include "button.h"
+#include "file_list.h"
+#include "graph.h"
+#include "utility.h"
 #include "vertex.h"
+#include "world.h"
 
+//
 // Main application class which manages vertex movement
 // This class is not supposed to be subclassed.
+//
 class Application : private sf::NonCopyable {
 public:
-  static const float EPSILON;
-
-  enum GravityType : int {
-    constant = 0,
-    inv_linear = 1,
-    inv_quadratic = 2,
-  };
-
-  Application();
+  explicit Application();
 
   void Run();
+
 private:
-  // static const int GRV_CONSTANT;
-  // static const int GRV_INV_LINEAR;
-  // static const int GRV_INV_QUADRATIC;
-  b2Vec2 CalculateBlackHoleForce(const Vertex& vertex) const;
+  typedef std::vector<Button::UPtr> ButtonHolder;
+  typedef std::map<std::string, sf::Text> LabelHolder;
 
-  // Returns normalized force direction applied to subject
-  b2Vec2 CalculateForceDirection(const Vertex& subject, const Vertex& object) const;
-  float CalculateForceMagnitude(
-    const Vertex& subjet,
-    const Vertex& object
-  ) const;
+  void _AdjustButtonsWidth();
+  void _InitButtons();
+  void _InitLabels();
+  void _LoadData();
+  void _LoadFiles();
 
-  void InitVerticesPositions();
-  void LoadData(std::istream& in);
-  void PrintTestData() const;
-  void ProcessInput();
-  void Render();
-  void Update(const sf::Time& dt);
+  void _OnActionDummy();
+  void _OnActionReloadFile();
+  void _OnActionSetGravityClassic();
+  void _OnActionSetGravityConst();
+  void _OnActionSetGravityInvLinear();
+  void _OnActionSetGravityLogarithmic();
+  void _OnActionSetGravityStep();
+  void _OnActionSetGravityRadical();
+  void _OnActionToggleMasses();
 
-  typedef std::vector<std::vector<float>> Matrix_t;
+  void _PrintTestData() const;
+  bool _ProcessAction(util::ActionType action);
+  void _ProcessInput();
+  void _ProcessKeyPress(const sf::Event::KeyEvent& key_event);
+  void _ProcessMouseClick(const sf::Event::MouseButtonEvent& event);
+  void _Render();
+  void _RenderButtons();
+  void _RenderLabels();
+  void _SetActive(bool active);
+  void _SetGravityTypeLabel(World::GravityType t);
+  void _SetMassLabel(bool mass);
+  void _ToggleActive();
+  void _UnclickButtons();
+  void _Update(const sf::Time& dt);
+  void _UpdateGravity(World::GravityType t);
 
-  static const sf::Time TIME_PER_FRAME;
+  static const std::string  FOLDER;
+  static const std::string  GRAVITY_CONSTANT_STR;
+  static const int          MAX_VERTS;
+  static const sf::Time     TIME_PER_FRAME;
 
-  // This value should be constant too,
-  // But it is loaded during runtime rather than compile-time,
-  // so it can't be const.
-  float GRAVITATIONAL_CONSTANT;
-
-  Matrix_t adjacency_matrix;
-  float black_hole_action_radius;
-  b2Vec2 black_hole_position;
-  int gravity_type;
-  b2World physical_world;
-  std::vector<Vertex> vertices;
-  sf::RenderWindow window;
+  ButtonHolder      _buttons;
+  std::string       _current_graph_filename;
+  FileList::UPtr    _file_list;
+  sf::Font          _font;
+  bool              _is_active;
+  LabelHolder       _labels;
+  sf::RenderWindow  _window;
+  World             _world;
 };
-
-//TODO: put utility functions into separate file
-namespace util {
-b2Vec2 GetNormalizedVector(const b2Vec2& vec);
-float GetVectorNorm(const b2Vec2& vec);
-} // namespace util
-
-#endif // APPLICATION_H
