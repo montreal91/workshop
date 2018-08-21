@@ -2,4 +2,4 @@ bin/
 manthan_codefest_17/bin/
 *.out
 la_salle_pui_ching/
-mem_sql_r2/data/
+*/data/*
