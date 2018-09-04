@@ -7,6 +7,7 @@
 //
 
 #include <algorithm>
+#include <chrono>
 #include <cstdint>
 #include <iostream>
 #include <fstream>
@@ -31,6 +32,7 @@ bool square_stick_check(size_t i, const vector<int>& sticks) {
 double calculate_ratio(int a, int b) {
   int top = 4 * (a * a + 2 * a * b + b * b);
   return static_cast<double>(top) / static_cast<double>(a * b);
+  // return static_cast<double>(abs(a - b));
 }
 
 // we assume that sticks is a sorted vector
@@ -69,6 +71,8 @@ void get_min_rect(const vector<int>& sticks, vector<int>* out) {
 }
 
 void function(istream& in, ostream& out) {
+  ios::sync_with_stdio(false);
+  in.tie(nullptr);
   int T;
   int N;
   vector<int> sticks;
@@ -92,7 +96,14 @@ void function(istream& in, ostream& out) {
 }
 
 int main() {
-  ifstream in("data/c.in");
+#ifndef ONLINE_JUDGE
+  using namespace chrono;
+  auto time1 = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+#endif
   function(cin, cout);
+#ifndef ONLINE_JUDGE
+  auto time2 = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+  cout << "Time consumed: " << milliseconds(time2 - time1).count() << endl;
+#endif
   return 0;
 }

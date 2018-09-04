@@ -3,10 +3,11 @@
 // Problem: https://codeforces.com/contest/1027/problem/C
 // Author: montreal91
 // This solution uses the same idea, as my another solution.
-// It is a failed optimization attempt.
+// It is an optimized version.
 //
 
 #include <algorithm>
+#include <chrono>
 #include <cstdint>
 #include <iostream>
 #include <fstream>
@@ -87,7 +88,7 @@ void function(istream& in, ostream& out) {
 
     bool four_flag = false;
     for (auto& stick_count : counter) {
-      if (stick_count.second > 4) {
+      if (stick_count.second >= 4) {
         for (auto i=0; i<4; i++) {
           rect.push_back(stick_count.first);
         }
@@ -108,7 +109,15 @@ void function(istream& in, ostream& out) {
 }
 
 int main() {
-  ifstream in("data/c.in");
+#ifndef ONLINE_JUDGE
+  using namespace chrono;
+  auto time1 = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+#endif // ONLINE_JUDGE
   function(cin, cout);
+#ifndef ONLINE_JUDGE
+  auto time2 = duration_cast<milliseconds>(system_clock::now().time_since_epoch());
+  cout << "Time consumed: " << milliseconds(time2 - time1).count();
+  cout << " ms.\n";
+#endif // ONLINE_JUDGE
   return 0;
 }
