@@ -1,5 +1,6 @@
 bin/
 manthan_codefest_17/bin/
 *.out
+*.sol
 la_salle_pui_ching/
 */data/*
