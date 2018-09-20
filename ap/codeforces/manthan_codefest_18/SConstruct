@@ -1,0 +1,27 @@
+
+env = Environment(CXX="clang++")
+flags = ["-std=c++14", "-Wall"]
+
+env.Program(
+    target="a.sol",
+    source="solution_a.cc",
+    CXXFLAGS=flags
+)
+
+env.Program(
+    target="b.sol",
+    source="solution_b.cc",
+    CXXFLAGS=flags
+)
+
+env.Program(
+    target="c.sol",
+    source="solution_c.cc",
+    CXXFLAGS=flags
+)
+
+env.Program(
+    target="d.sol",
+    source="solution_d.cc",
+    CXXFLAGS=flags
+)
