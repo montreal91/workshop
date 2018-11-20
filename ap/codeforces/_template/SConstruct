@@ -1,6 +1,6 @@
 
 env = Environment(CXX="clang++")
-flags = ["-std=c++14", "-Wall"]
+flags = ["-std=c++14"]
 
 env.Program(
     target="a.sol",
