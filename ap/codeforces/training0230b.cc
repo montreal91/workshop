@@ -3,6 +3,7 @@
 // Problem: https://codeforces.com/contest/230/problem/B
 // Author: montreal91
 // Type: training
+// Date: 23.11.2018
 // Time: 00:57
 // Failed attempts: 2
 //
