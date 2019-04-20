@@ -57,6 +57,10 @@ class CounterProcess(Process):
         self._counters["a"] = Counter()
         self._counters["b"] = Counter()
 
+    @property
+    def len_counters(self):
+        return len(self._counters)
+
     def run(self):
         for i in range(15):
             time.sleep(0.5)
@@ -120,11 +124,16 @@ if __name__ == '__main__':
     iq.put(Action(label="drop", data=dict()))
 
     print()
+    print(proc.len_counters)
+    print()
     print_output(oq, 5, 0.1)
 
     iq.put(Action(label="drop", data=dict(label="b")))
 
     print()
+    print(proc.len_counters)
+    print()
+
     print_output(oq, 5, 0.1)
 
     proc.join()
