@@ -1,10 +1,12 @@
-1. [Two sum](https://leetcode.com/problems/two-sum/)
-0. [Add two numbers](https://leetcode.com/problems/add-two-numbers/)
-0. Longest Substring Without Repeating Characters
-0. Median of Two Sorted Arrays
-0. Longest Palindromic Substring
-0. ZigZag Conversion
-0. [Reverse Integer](https://leetcode.com/problems/reverse-integer/)
-0. String to Integer (atoi)
-0. Palindrome Number
-0. Regular Expression Matching
+This file contains links and notes to the leetcode problems that I've solved good, bad or okay.
+
+## Good
+1. [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/)
+
+## Okay
+1. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)  
+   *Forgot to deal with one of the cases*.
+
+## Bad
+1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/)  
+   *I wasn't able to come up with required solution. I've made it after reading a wikipedia article on this topic.*
