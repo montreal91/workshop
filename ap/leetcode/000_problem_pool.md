@@ -15,6 +15,7 @@
 1. [Rotate Image](https://leetcode.com/problems/rotate-image/) *(medium)*
 1. [Jump Game](https://leetcode.com/problems/jump-game/) *(medium)*
 1. [Majority Element II](https://leetcode.com/problems/majority-element-ii/) *(medium)*
+1. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) *(medium)*
 1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(hard)*
 1. [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) *(hard)*
 
@@ -25,6 +26,13 @@
 1. [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) *(hard)*
 
 ## Tree
+1. [Same Tree](https://leetcode.com/problems/same-tree/) *(easy)*
+1. [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) *(easy)*
+1. [Path Sum](https://leetcode.com/problems/path-sum/) *(easy)*
+1. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) *(medium)*
+1. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) *(medium)*
+1. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) *(hard)*
+1. [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) *(hard)*
 
 ## Dynamic Programming
 1. [~~Best Time to Buy and Sell Stock~~](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) *(easy)*
