@@ -12,7 +12,7 @@
 
 ## Array
 1. [Majority Element](https://leetcode.com/problems/majority-element/) *(easy)*
-1. [Rotate Image] (https://leetcode.com/problems/rotate-image/) *(medium)*
+1. [Rotate Image](https://leetcode.com/problems/rotate-image/) *(medium)*
 1. [Jump Game](https://leetcode.com/problems/jump-game/) *(medium)*
 1. [Majority Element II](https://leetcode.com/problems/majority-element-ii/) *(medium)*
 1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(hard)*
