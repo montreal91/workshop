@@ -2,6 +2,7 @@ This file contains links and notes to the leetcode problems that I've solved goo
 
 ## Good
 1. [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**
+1. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
 
 ## Okay
 1. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
