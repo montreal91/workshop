@@ -10,6 +10,8 @@ This file contains links and notes to the leetcode problems that I've solved goo
    *Forgot to deal with one of the cases*.
 1. [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) **\[dp]**  
    *Forgot to deal with empty array corner case*.
+1. [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) **\[dp]**  
+   *I assumed that m == n, but it was not. It was unclear. IRL I would ask interviewer about this case.*
 
 ## Bad
 1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
