@@ -12,3 +12,5 @@ This file contains links and notes to the leetcode problems that I've solved goo
 ## Bad
 1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
    *I wasn't able to come up with required solution. I've made it after reading a wikipedia article on this topic.*
+1. [House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**  
+   *I've completely forgot the solution because I totally didn't comprehend it. Now I get it.*
