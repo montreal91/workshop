@@ -20,6 +20,7 @@
 1. [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) *(hard)*
 
 ## Linked List
+1. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) *(easy)*
 
 ## Hash Table
 1. [~~Valid Sudoku~~](https://leetcode.com/problems/valid-sudoku/) *(medium)*
