@@ -8,6 +8,8 @@ This file contains links and notes to the leetcode problems that I've solved goo
 1. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
    **\[string]\[hash]**  
    *Forgot to deal with one of the cases*.
+1. [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) **\[dp]**  
+   *Forgot to deal with empty array corner case*.
 
 ## Bad
 1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
