@@ -12,6 +12,8 @@ This file contains links and notes to the leetcode problems that I've solved goo
    *Forgot to deal with empty array corner case*.
 1. [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) **\[dp]**  
    *I assumed that m == n, but it was not. It was unclear. IRL I would ask interviewer about this case.*
+1. [Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**  
+   *I knew the correct idea to solve the problem, but got very confused when my solution appeared too slow.*
 
 ## Bad
 1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
