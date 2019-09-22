@@ -41,11 +41,12 @@
 1. [~~Climbing Stairs~~](https://leetcode.com/problems/climbing-stairs/submissions/) *(easy)*
 1. [~~Range Sum Query - Immutable~~](https://leetcode.com/problems/range-sum-query-immutable/) *(easy)*
 1. [~~House Robber~~](https://leetcode.com/problems/house-robber/submissions/) *(easy)*
-1. [Coin Change](https://leetcode.com/problems/coin-change/) *(medium)*
+1. [~~Coin Change~~](https://leetcode.com/problems/coin-change/) *(medium)*
 1. [House Robber II](https://leetcode.com/problems/house-robber-ii/) *(medium)*
 1. [Maximal Square](https://leetcode.com/problems/maximal-square/) *(medium)*
 1. [Unique Paths](https://leetcode.com/problems/unique-paths/) *(medium)*
 1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
+1. [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) *(medium)*
 1. [~~Range Sum Query 2D - Immutable~~](https://leetcode.com/problems/range-sum-query-2d-immutable/) *(medium)*
 1. [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) *(hard)*
 1. [Dungeon Game](https://leetcode.com/problems/dungeon-game/) *(hard)*
