@@ -1,5 +1,7 @@
 
 ## Math
+1. [~~Factorial Trailing Zeroes~~](https://leetcode.com/problems/factorial-trailing-zeroes/) *(easy)*
+1. [Preimage Size of Factorial Zeroes Function](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/) *(hard)*
 
 ## String
 1. [~~Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/) *(medium)*
