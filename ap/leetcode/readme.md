@@ -5,6 +5,7 @@ This file contains links and notes to the leetcode problems that I've solved goo
 1. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
 1. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) **\[linked list]**
 1. [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
+1. [Same Tree](https://leetcode.com/problems/same-tree/) **\[tree]** 
 
 ## Okay
 1. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
