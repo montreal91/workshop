@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved goo
 1. [Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
 1. [Same Tree](https://leetcode.com/problems/same-tree/) **\[tree]**
 1. [Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) **\[hash]**
+1. [Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) **\[tree]**
 
 ## Okay
 1. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
