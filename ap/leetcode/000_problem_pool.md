@@ -7,7 +7,7 @@
 1. [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) *(hard)*
 
 ## String
-1. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) *(easy)*
+1. [~~Valid Parentheses~~](https://leetcode.com/problems/valid-parentheses/) *(easy)*
 1. [~~Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/) *(medium)*
 1. [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) *(medium)*
 1. [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) (*medium*)
