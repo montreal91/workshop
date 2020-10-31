@@ -1,0 +1,41 @@
+
+flags = [
+    "-I/usr/local/include/python3.6m",
+    "-I/usr/local/include/python3.6m" ,
+    "-Wno-unused-result",
+    "-Wsign-compare",
+    "-DNDEBUG",
+    "-g",
+    "-fwrapv",
+    "-O3",
+    "-Wall",
+    "-std=c++11",
+]
+
+linkflags = [
+    "-L/usr/local/lib/python3.6/config-3.6m-x86_64-linux-gnu",
+    "-L/usr/local/lib",
+    "-Xlinker",
+    "-export-dynamic",
+]
+
+libs = [
+    "python3.6m",
+    "pthread",
+    "dl",
+    "util",
+    "m",
+]
+
+files = [
+    "app.cc",
+    "main.cc",
+]
+
+Program(
+    target="se",
+    source=files,
+    CXXFLAGS=flags,
+    LIBS=libs,
+    LINKFLAGS=linkflags,
+)
