@@ -2,7 +2,7 @@
 //
 // Problem: https://leetcode.com/problems/majority-element/
 // Author: montreal91
-// Solved in 1:10
+// Solved in 0:40
 //
 
 using System;
