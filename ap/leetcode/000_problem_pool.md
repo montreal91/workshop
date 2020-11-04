@@ -16,7 +16,7 @@
 1. [Parse Lisp Expression](https://leetcode.com/problems/parse-lisp-expression/) *(hard)*
 
 ## Array
-1. [Majority Element](https://leetcode.com/problems/majority-element/) *(easy)*
+1. [~~Majority Element~~](https://leetcode.com/problems/majority-element/) *(easy)*
 1. [Rotate Image](https://leetcode.com/problems/rotate-image/) *(medium)*
 1. [Jump Game](https://leetcode.com/problems/jump-game/) *(medium)*
 1. [Majority Element II](https://leetcode.com/problems/majority-element-ii/) *(medium)*
