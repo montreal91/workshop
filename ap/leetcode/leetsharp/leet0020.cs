@@ -1,7 +1,7 @@
 //
 // Problem: https://leetcode.com/problems/valid-parentheses/
 // Author: montreal91
-// Solved this solution in 1:10
+// Solved in 1:10
 // Solution is accepted from the second attempt
 //
 
@@ -13,7 +13,7 @@ using System.Diagnostics;
 namespace leetsharp {
 
 
-class Solution {
+class Solution20 {
   private List<char> lefts = new List<char>(new char[3]{'(', '[', '{'});
   private List<char> rights = new List<char>(new char[3]{')', ']', '}'});
 
@@ -47,7 +47,7 @@ class Solution {
   }
 
   public static void TestSolution() {
-    var solution = new Solution();
+    var solution = new Solution20();
     Debug.Assert(solution.IsValid("[]") == true);
     Debug.Assert(solution.IsValid("()") == true);
     Debug.Assert(solution.IsValid("{}") == true);
