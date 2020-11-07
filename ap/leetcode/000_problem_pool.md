@@ -1,7 +1,7 @@
 
 ## Math
 1. [~~Factorial Trailing Zeroes~~](https://leetcode.com/problems/factorial-trailing-zeroes/) *(easy)*
-1. [Palindrome Number](https://leetcode.com/problems/palindrome-number/) *(easy)*
+1. [~~Palindrome Number~~](https://leetcode.com/problems/palindrome-number/) *(easy)*
 1. [Rectangle Area](https://leetcode.com/problems/rectangle-area/) *(medium)*
 1. [Preimage Size of Factorial Zeroes Function](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/) *(hard)*
 1. [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) *(hard)*
