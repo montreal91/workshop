@@ -83,3 +83,19 @@
 1. [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) *(hard)*
 1. [Dungeon Game](https://leetcode.com/problems/dungeon-game/) *(hard)*
 1. [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) *(hard)*
+
+## Graph
+1. [Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/) *(easy)*
+1. [Flower Planting With No Adjacent](https://leetcode.com/problems/flower-planting-with-no-adjacent/) *(easy)*
+1. [All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/) *(medium)*
+1. [Network Delay Time](https://leetcode.com/problems/network-delay-time/) *(medium)*
+1. [Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) *(medium)*
+1. [Jump Game III](https://leetcode.com/problems/jump-game-iii/) *(medium)*
+1. [Keys and Rooms](https://leetcode.com/problems/keys-and-rooms/) *(medium)*
+1. [Minimum Number of Vertices to Reach All Nodes](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/) *(medium)*
+1. [Course Schedule](https://leetcode.com/problems/course-schedule/) *(medium)*
+1. [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) *(medium)*
+1. [Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/) *(medium)*
+
+## Other
+1. [Course Schedule III](https://leetcode.com/problems/course-schedule-iii/) *(hard)*
