@@ -18,6 +18,7 @@
 ## Array
 1. [~~Majority Element~~](https://leetcode.com/problems/majority-element/) *(easy)*
 1. [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) *(easy)*
+1. [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) *(easy)*
 1. [Rotate Image](https://leetcode.com/problems/rotate-image/) *(medium)*
 1. [Jump Game](https://leetcode.com/problems/jump-game/) *(medium)*
 1. [Majority Element II](https://leetcode.com/problems/majority-element-ii/) *(medium)*
