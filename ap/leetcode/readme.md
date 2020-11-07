@@ -22,6 +22,8 @@ This file contains links and notes to the leetcode problems that I've solved goo
    *I assumed that m == n, but it was not. It was unclear. IRL I would ask interviewer about this case.*
 1. [Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**  
    *I knew the correct idea to solve the problem, but got very confused when my solution appeared too slow.*
+1. [Path Sum](https://leetcode.com/problems/path-sum/) **\[tree]**  
+   *General idea was right and fast, but I forgot to deal with case when root is null. But it was not very obvious because of strange inputs.*
 
 ## Bad
 1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
