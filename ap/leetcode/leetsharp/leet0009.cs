@@ -12,7 +12,7 @@ using System.Numerics;
 namespace leetsharp {
 
 
-class Solution {
+class Solution0009 {
   public bool IsPalindrome(BigInteger x) {
     if (x < 0) {
       return false;
@@ -38,7 +38,7 @@ class Solution {
   }
 
   public static void TestSolution() {
-    var s = new Solution();
+    var s = new Solution0009();
     TestGetDigit();
     Debug.Assert(s.IsPalindrome(0) == true);
     Debug.Assert(s.IsPalindrome(11) == true);
@@ -57,14 +57,14 @@ class Solution {
   }
 
   private static void TestGetDigit() {
-    Debug.Assert(Solution.GetDigitAtPos(10, 2) == 1);
-    Debug.Assert(Solution.GetDigitAtPos(10, 1) == 0);
-    Debug.Assert(Solution.GetDigitAtPos(11, 1) == 1);
-    Debug.Assert(Solution.GetDigitAtPos(65536, 5) == 6);
-    Debug.Assert(Solution.GetDigitAtPos(65536, 4) == 5);
-    Debug.Assert(Solution.GetDigitAtPos(65536, 3) == 5);
-    Debug.Assert(Solution.GetDigitAtPos(65536, 2) == 3);
-    Debug.Assert(Solution.GetDigitAtPos(65536, 1) == 6);
+    Debug.Assert(Solution0009.GetDigitAtPos(10, 2) == 1);
+    Debug.Assert(Solution0009.GetDigitAtPos(10, 1) == 0);
+    Debug.Assert(Solution0009.GetDigitAtPos(11, 1) == 1);
+    Debug.Assert(Solution0009.GetDigitAtPos(65536, 5) == 6);
+    Debug.Assert(Solution0009.GetDigitAtPos(65536, 4) == 5);
+    Debug.Assert(Solution0009.GetDigitAtPos(65536, 3) == 5);
+    Debug.Assert(Solution0009.GetDigitAtPos(65536, 2) == 3);
+    Debug.Assert(Solution0009.GetDigitAtPos(65536, 1) == 6);
   }
 }
 
