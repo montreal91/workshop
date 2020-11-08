@@ -19,6 +19,7 @@
 1. [~~Majority Element~~](https://leetcode.com/problems/majority-element/) *(easy)*
 1. [~~Remove Duplicates from Sorted Array~~](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) *(easy)*
 1. [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) *(easy)*
+1. [Remove Element](https://leetcode.com/problems/remove-element/) *(easy)*
 1. [Rotate Image](https://leetcode.com/problems/rotate-image/) *(medium)*
 1. [Jump Game](https://leetcode.com/problems/jump-game/) *(medium)*
 1. [Majority Element II](https://leetcode.com/problems/majority-element-ii/) *(medium)*
@@ -26,6 +27,7 @@
 1. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) *(medium)*
 1. [3Sum](https://leetcode.com/problems/3sum/) *(medium)*
 1. [4Sum](https://leetcode.com/problems/4sum/) *(medium)*
+1. [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) *(medium)*
 1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(hard)*
 1. [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) *(hard)*
 1. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) *(hard)*
