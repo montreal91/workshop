@@ -12,6 +12,7 @@ This file contains links and notes to the leetcode problems that I've solved goo
 1. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) **\[string]\[stack]**
 1. [Majority Element](https://leetcode.com/problems/majority-element/) **\[array]**
 1. [Palindrome Number](https://leetcode.com/problems/palindrome-number/) **\[math]**
+1. [Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) **\[array]**
 
 ## Okay
 1. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
