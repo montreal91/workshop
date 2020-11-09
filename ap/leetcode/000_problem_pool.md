@@ -50,7 +50,7 @@
 
 ## Hash Table
 1. [~~Contains Duplicate~~](https://leetcode.com/problems/contains-duplicate/) *(easy)*
-1. [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/) *(easy)*
+1. [~~Contains Duplicate II~~](https://leetcode.com/problems/contains-duplicate-ii/) *(easy)*
 1. [~~Valid Sudoku~~](https://leetcode.com/problems/valid-sudoku/) *(medium)*
 1. [4Sum](https://leetcode.com/problems/4sum/) *(medium)*
 1. [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) *(medium)*
