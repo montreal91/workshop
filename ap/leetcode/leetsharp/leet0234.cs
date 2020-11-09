@@ -41,7 +41,7 @@ public class ListNode {
 }
 
 
-public class Solution {
+public class Solution0234 {
   bool IsPalindrome(ListNode head) {
     if (head == null) {
       return true;
@@ -83,7 +83,7 @@ public class Solution {
 
   public static void TestSolution() {
 
-    var s = new Solution();
+    var s = new Solution0234();
     var posCase0 = ListNode.FromArray(new int[]{});
     var posCase1 = ListNode.FromArray(new int[]{1});
     var posCase2 = ListNode.FromArray(new int[]{1, 1});
