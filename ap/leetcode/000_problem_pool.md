@@ -36,7 +36,17 @@
 ## Linked List
 1. [~~Reverse Linked List~~](https://leetcode.com/problems/reverse-linked-list/) *(easy)*
 1. [~~Palindrome Linked List~~](https://leetcode.com/problems/palindrome-linked-list/) *(easy)*
+1. [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) *(easy)*
+1. [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) *(easy)*
+1. [Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) *(easy)*
 1. [Reverse Linked List II](https://leetcode.com/problems/reverse-linked-list-ii/) *(medium)*
+1. [Odd Even Linked List](https://leetcode.com/problems/odd-even-linked-list/) *(medium)*
+1. [Remove Duplicates from Sorted List II](https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/) *(medium)*
+1. [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) *(medium)*
+1. [Sort List](https://leetcode.com/problems/sort-list/) *(medium)*
+1. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) *(medium)*
+1. [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) *(hard)*
+1. [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) *(hard)*
 
 ## Hash Table
 1. [~~Contains Duplicate~~](https://leetcode.com/problems/contains-duplicate/) *(easy)*
