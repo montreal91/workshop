@@ -26,6 +26,8 @@ This file contains links and notes to the leetcode problems that I've solved goo
    *I knew the correct idea to solve the problem, but got very confused when my solution appeared too slow.*
 1. [Path Sum](https://leetcode.com/problems/path-sum/) **\[tree]**  
    *General idea was right and fast, but I forgot to deal with case when root is null. But it was not very obvious because of strange inputs.*
+1. [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) **\[linked list]**  
+   *The only objection is time I take to compose a solution. Otherwise it would be good.*
 
 ## Bad
 1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
