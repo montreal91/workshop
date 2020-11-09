@@ -54,6 +54,7 @@
 1. [~~Valid Sudoku~~](https://leetcode.com/problems/valid-sudoku/) *(medium)*
 1. [4Sum](https://leetcode.com/problems/4sum/) *(medium)*
 1. [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) *(medium)*
+1. [Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/) *(medium)*
 1. [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) *(hard)*
 1. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) *(hard)*
 
