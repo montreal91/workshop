@@ -75,6 +75,7 @@
 1. [Binary Tree Pruning](https://leetcode.com/problems/binary-tree-pruning/) *(medium)*
 1. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) *(medium)*
 1. [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) *(medium)*
+1. [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) *(medium)*
 1. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) *(hard)*
 1. [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) *(hard)*
 1. [Recover a Tree From Preorder Traversal](https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/) *(hard)*
