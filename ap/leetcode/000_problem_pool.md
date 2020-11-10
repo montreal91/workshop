@@ -62,7 +62,7 @@
 1. [~~Same Tree~~](https://leetcode.com/problems/same-tree/) *(easy)*
 1. [~~Symmetric Tree~~](https://leetcode.com/problems/symmetric-tree/) *(easy)*
 1. [~~Path Sum~~](https://leetcode.com/problems/path-sum/) *(easy)*
-1. [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) *(easy)*
+1. [~~Maximum Depth of Binary Tree~~](https://leetcode.com/problems/maximum-depth-of-binary-tree/) *(easy)*
 1. [Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/) *(easy)*
 1. [N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/) *(easy)*
 1. [N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/) *(easy)*
