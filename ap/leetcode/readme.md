@@ -17,7 +17,7 @@ This file contains links and notes to the leetcode problems that I've solved goo
 1. [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) **\[tree]**
 
 ## Okay
-1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]*  
+1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
    *Took too much time, but passed on first attempt.*
 1. [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
    **\[string]\[hash]**  
