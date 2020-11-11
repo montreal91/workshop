@@ -102,7 +102,7 @@
 1. [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) *(hard)*
 
 ## Graph
-1. [Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/) *(easy)*
+1. [~~Find the Town Judge~~](https://leetcode.com/problems/find-the-town-judge/) *(easy)*
 1. [Flower Planting With No Adjacent](https://leetcode.com/problems/flower-planting-with-no-adjacent/) *(easy)*
 1. [All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/) *(medium)*
 1. [Network Delay Time](https://leetcode.com/problems/network-delay-time/) *(medium)*
