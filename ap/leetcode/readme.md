@@ -17,6 +17,9 @@ This file contains links and notes to the leetcode problems that I've solved goo
 1. [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) **\[tree]**
 
 ## Okay
+1. [Rectangle Area](https://leetcode.com/problems/rectangle-area/)  **\[math]**  
+   *Passed from second attempt.*  
+   *Though output was specified as int, intermediate values could cause int overflow and I didn't deal with this case correctly.*
 1. [Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/) **\[graph]**  
    *The only objection is time I take to compose a solution. Otherwise it would be good.*
 1. [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
