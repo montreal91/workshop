@@ -1,6 +1,7 @@
 This file contains links and notes to the leetcode problems that I've solved good, bad or okay.
 
 ## Good
+1. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) **\[array]**
 1. [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**
 1. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
 1. [Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) **\[linked list]**
