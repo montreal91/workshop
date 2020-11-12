@@ -2,7 +2,8 @@
 ## Math
 1. [~~Factorial Trailing Zeroes~~](https://leetcode.com/problems/factorial-trailing-zeroes/) *(easy)*
 1. [~~Palindrome Number~~](https://leetcode.com/problems/palindrome-number/) *(easy)*
-1. [Rectangle Area](https://leetcode.com/problems/rectangle-area/) *(medium)*
+1. [Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/) *(easy)*
+1. [~~Rectangle Area~~](https://leetcode.com/problems/rectangle-area/) *(medium)*
 1. [Preimage Size of Factorial Zeroes Function](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/) *(hard)*
 1. [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) *(hard)*
 
@@ -29,6 +30,7 @@
 1. [3Sum](https://leetcode.com/problems/3sum/) *(medium)*
 1. [4Sum](https://leetcode.com/problems/4sum/) *(medium)*
 1. [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) *(medium)*
+1. [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) *(medium)*
 1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(hard)*
 1. [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) *(hard)*
 1. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) *(hard)*
