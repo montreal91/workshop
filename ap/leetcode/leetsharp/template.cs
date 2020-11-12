@@ -3,7 +3,7 @@ using System;
 using System.Diagnostics;
 
 
-namespace template {
+namespace leetsharp1 {
 
 
 class Solution {
@@ -14,4 +14,4 @@ class Solution {
 }
 
 
-} // namespace template
+} // namespace leetsharp1
