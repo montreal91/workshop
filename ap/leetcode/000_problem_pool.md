@@ -34,7 +34,7 @@
 1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(hard)*
 1. [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) *(hard)*
 1. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) *(hard)*
-1. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) *(hard)*
+1. [~~Median of Two Sorted Arrays~~](https://leetcode.com/problems/median-of-two-sorted-arrays/) *(hard)*
 
 ## Linked List
 1. [~~Reverse Linked List~~](https://leetcode.com/problems/reverse-linked-list/) *(easy)*
@@ -102,6 +102,7 @@
 1. [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) *(hard)*
 1. [Dungeon Game](https://leetcode.com/problems/dungeon-game/) *(hard)*
 1. [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) *(hard)*
+1. [Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/) *(hard)*
 
 ## Graph
 1. [~~Find the Town Judge~~](https://leetcode.com/problems/find-the-town-judge/) *(easy)*
@@ -118,3 +119,4 @@
 
 ## Other
 1. [Course Schedule III](https://leetcode.com/problems/course-schedule-iii/) *(hard)*
+1. [Data Stream as Disjoint Intervals](https://leetcode.com/problems/data-stream-as-disjoint-intervals/) *(hard)*
