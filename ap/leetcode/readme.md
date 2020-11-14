@@ -1,6 +1,9 @@
 This file contains links and notes to the leetcode problems that I've solved good, bad or okay.
 
+It's good to revisit problems after 3-4 months.
+
 ## Good
+1. **14.11.2020** [CF - A. Specific Tastes of Andre](https://codeforces.com/contest/1438/problem/A) **\[array]**
 1. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) **\[array]**
 1. [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**
 1. [Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
@@ -18,6 +21,7 @@ This file contains links and notes to the leetcode problems that I've solved goo
 1. [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) **\[tree]**
 
 ## Okay
+1. **14.11.2020** [CF - C. Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**  
 1. [Rectangle Area](https://leetcode.com/problems/rectangle-area/)  **\[math]**  
    *Passed from second attempt.*  
    *Though output was specified as int, intermediate values could cause int overflow and I didn't deal with this case correctly.*
@@ -40,6 +44,8 @@ This file contains links and notes to the leetcode problems that I've solved goo
    *The only objection is time I take to compose a solution. Otherwise it would be good.*
 
 ## Bad
+1. **14.11.2020** [CF - B. Valerii Against Everyone](https://codeforces.com/contest/1438/problem/B) **\[array]**
+1. **14.11.2020** [CF - 1438D - Powerful Ksenia](https://codeforces.com/contest/1438/problem/D) **\[other]**
 1. [~~Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
    ~~*I wasn't able to come up with required solution. I've made it after reading a wikipedia article on this topic.*~~
 1. [House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**  
