@@ -3,6 +3,7 @@ This file contains links and notes to the leetcode problems that I've solved goo
 It's good to revisit problems after 3-4 months.
 
 ## Good
+1. **16.11.2020** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) **\[string]**
 1. **14.11.2020** [CF - A. Specific Tastes of Andre](https://codeforces.com/contest/1438/problem/A) **\[array]**
 1. [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) **\[array]**
 1. [Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**
