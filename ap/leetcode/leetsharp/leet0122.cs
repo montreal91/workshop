@@ -11,7 +11,7 @@ using System.Diagnostics;
 namespace leetsharp {
 
 
-class Solution {
+class Solution0122 {
   public int MaxProfit(int[] prices) {
     int profit = 0;
     int bought = prices[0];
@@ -40,7 +40,7 @@ class Solution {
     var my2 = new int[] {3, 1, 2, 5, 4, 5}; // 5
     var my3 = new int[] {3, 1, 2, 5, 5, 6}; // 5
 
-    var S = new Solution();
+    var S = new Solution0122();
     Debug.Assert(S.MaxProfit(leet0) == 7);
     Debug.Assert(S.MaxProfit(leet1) == 4);
     Debug.Assert(S.MaxProfit(leet2) == 0);
