@@ -20,7 +20,7 @@
 ## Array
 1. [~~Majority Element~~](https://leetcode.com/problems/majority-element/) *(easy)*
 1. [~~Remove Duplicates from Sorted Array~~](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) *(easy)*
-1. [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) *(easy)*
+1. [~~Best Time to Buy and Sell Stock II~~](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) *(easy)*
 1. [Remove Element](https://leetcode.com/problems/remove-element/) *(easy)*
 1. [Degree of an Array](https://leetcode.com/problems/degree-of-an-array/) *(easy)*
 1. [Rotate Image](https://leetcode.com/problems/rotate-image/) *(medium)*
@@ -101,10 +101,13 @@
 1. [~~Range Sum Query 2D - Immutable~~](https://leetcode.com/problems/range-sum-query-2d-immutable/) *(medium)*
 1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
 1. [Longest Turbulent Subarray](https://leetcode.com/problems/longest-turbulent-subarray/) *(medium)*
+1. [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) *(medium)*
+1. [Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) *(medium)*
 1. [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) *(hard)*
 1. [Dungeon Game](https://leetcode.com/problems/dungeon-game/) *(hard)*
 1. [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) *(hard)*
 1. [Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/) *(hard)*
+1. [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) *(hard)*
 
 ## Graph
 1. [~~Find the Town Judge~~](https://leetcode.com/problems/find-the-town-judge/) *(easy)*
