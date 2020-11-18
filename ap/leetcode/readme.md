@@ -3,6 +3,7 @@ This file contains links and notes to the leetcode problems that I've solved goo
 It's good to revisit problems after 3-4 months.
 
 ## Good
+1. **18.11.2020** [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) **\[hash]**
 1. **17.11.2020** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) **\[linked list]**
 1. **17.11.2020** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) **\[array]**
 1. **16.11.2020** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) **\[string]**
