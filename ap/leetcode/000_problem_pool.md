@@ -57,7 +57,7 @@
 1. [~~Contains Duplicate II~~](https://leetcode.com/problems/contains-duplicate-ii/) *(easy)*
 1. [~~Valid Sudoku~~](https://leetcode.com/problems/valid-sudoku/) *(medium)*
 1. [4Sum](https://leetcode.com/problems/4sum/) *(medium)*
-1. [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) *(medium)*
+1. [~~Repeated DNA Sequences~~](https://leetcode.com/problems/repeated-dna-sequences/) *(medium)*
 1. [Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/) *(medium)*
 1. [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) *(hard)*
 1. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) *(hard)*
@@ -120,6 +120,18 @@
 1. [Course Schedule](https://leetcode.com/problems/course-schedule/) *(medium)*
 1. [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) *(medium)*
 1. [Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/) *(medium)*
+
+## Trie
+1. [Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary/) *(easy)*
+1. [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) *(medium)*
+1. [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) *(medium)*
+1. [Implement Magic Dictionary](https://leetcode.com/problems/implement-magic-dictionary/) *(medium)*
+1. [Replace Words](https://leetcode.com/problems/replace-words/) *(medium)*
+1. [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) *(medium)*
+1. [Prefix and Suffix Search](https://leetcode.com/problems/prefix-and-suffix-search/) *(hard)*
+1. [Stream of Characters](https://leetcode.com/problems/stream-of-characters/) *(hard)*
+1. [Word Search II](https://leetcode.com/problems/word-search-ii/) *(hard)*
+1. [Concatenated Words](https://leetcode.com/problems/concatenated-words/) *(hard)*
 
 ## Other
 1. [Course Schedule III](https://leetcode.com/problems/course-schedule-iii/) *(hard)*
