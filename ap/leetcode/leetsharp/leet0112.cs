@@ -9,62 +9,9 @@
 
 using System;
 using System.Diagnostics;
+using Utils;
 
 namespace leetsharp {
-
-public class TreeNode {
-  public int val;
-  public TreeNode left;
-  public TreeNode right;
-  public TreeNode(int val=0, TreeNode left=null, TreeNode right=null) {
-    this.val = val;
-    this.left = left;
-    this.right = right;
-  }
-
-  public static TreeNode ComposeTestTree0() {
-    return new TreeNode(10);
-  }
-
-  public static TreeNode ComposeTestTree1() {
-    var root = new TreeNode(5);
-    var n1 = new TreeNode(4);
-    var n2 = new TreeNode(8);
-    var n3 = new TreeNode(11);
-    var n4 = new TreeNode(13);
-    var n5 = new TreeNode(4);
-    var n6 = new TreeNode(7);
-    var n7 = new TreeNode(2);
-    var n8 = new TreeNode(1);
-
-    root.left = n1;
-    root.right = n2;
-
-    n1.left = n3;
-    n1.right = n4;
-
-    n2.right = n5;
-
-    n3.left = n6;
-    n3.right = n7;
-    n5.right = n8;
-
-    return root;
-  }
-
-  public static TreeNode ComposeTestTree2() {
-    var root = new TreeNode(-3);
-    var n1 = new TreeNode(3);
-    var n2 = new TreeNode(0);
-    root.left = n1;
-    root.right = n2;
-    return root;
-  }
-
-  public static TreeNode ComposeTestTree3() {
-    return null;
-  }
-}
 
 public class Solution0012 {
   public bool HasPathSum(TreeNode root, int sum) {

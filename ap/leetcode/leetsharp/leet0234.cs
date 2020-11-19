@@ -12,33 +12,10 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
+using Utils;
+
 
 namespace leetsharp {
-
-
-public class ListNode {
-  public int val;
-  public ListNode next;
-  public ListNode(int val=0, ListNode next=null) {
-    this.val = val;
-    this.next = next;
-  }
-
-  public static ListNode FromArray(int[] vals) {
-    if (vals.Length == 0) {
-      return null;
-    }
-    var nodes = new List<ListNode>();
-    foreach (int v in vals) {
-      nodes.Add(new ListNode(v, null));
-    }
-
-    for (int i=0; i<nodes.Count - 1; i++) {
-      nodes[i].next = nodes[i+1];
-    }
-    return nodes[0];
-  }
-}
 
 
 public class Solution0234 {
