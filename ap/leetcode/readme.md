@@ -31,6 +31,7 @@ It's good to revisit problems after 3-4 months.
    *Forgot to deal with one of the cases*.
 
 ## Good
+1. **19.11.2020** [Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/) **\[tree]**
 1. **18.11.2020** [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) **\[hash]**
 1. **17.11.2020** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) **\[linked list]**
 1. **17.11.2020** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) **\[array]**
