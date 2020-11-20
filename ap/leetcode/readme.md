@@ -1,14 +1,19 @@
-This file contains links and notes to the leetcode problems that I've solved good, bad or okay.
+This file contains links and notes to the leetcode problems that I've solved perfect, bad or fine.
 
-It's good to revisit problems after 3-4 months.
+* **Perfect**: Problem is solved within one hour and passed from the first attempt.
+* **Fine**: Problem is solved within two hours or has failed attempts.
+* **Bad**: Problem is not solved within two hours by myself and I looked up the solution.
+
+It's good to revisit problems after 4 months.
 
 ## Bad
 1. **14.11.2020** [CF - B. Valerii Against Everyone](https://codeforces.com/contest/1438/problem/B) **\[array]**
 1. **14.11.2020** [CF - 1438D - Powerful Ksenia](https://codeforces.com/contest/1438/problem/D) **\[other]**
-1. **21.09.2019** [House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**  
+1. **21.09.2019** [~~House Robber~~](https://leetcode.com/problems/house-robber/) **\[dp]**  
 1. **15.09.2020** [~~Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
-## Okay
+## Fine
+1. **20.11.2020** [House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**  
 1. **14.11.2020** [CF - C. Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**  
 1. **12.11.2020** [Rectangle Area](https://leetcode.com/problems/rectangle-area/)  **\[math]**  
    *Passed from second attempt.*  
@@ -30,7 +35,7 @@ It's good to revisit problems after 3-4 months.
    **\[string]\[hash]**  
    *Forgot to deal with one of the cases*.
 
-## Good
+## Perfect
 1. **19.11.2020** [Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/) **\[tree]**
 1. **18.11.2020** [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) **\[hash]**
 1. **17.11.2020** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) **\[linked list]**
