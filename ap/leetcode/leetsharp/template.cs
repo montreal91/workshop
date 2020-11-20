@@ -8,6 +8,7 @@ namespace leetsharp1 {
 
 class Solution {
   public static void TestSolution() {
+    var S = new Solution();
     Debug.Assert(true);
     Console.WriteLine("All tests passed.");
   }
