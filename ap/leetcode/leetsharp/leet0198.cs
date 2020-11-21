@@ -1,5 +1,5 @@
 //
-// Problem: https://leetcode.com/problems/palindrome-linked-list/
+// Problem: https://leetcode.com/problems/house-robber/
 // Author: montreal91
 // Solved in 0:48
 // Failed attempts: 1
@@ -12,7 +12,7 @@ using System.Diagnostics;
 namespace leetsharp {
 
 
-class Solution {
+class Solution0198 {
   public int Rob(int[] nums) {
     if (nums.Length == 0) {
       return 0;
@@ -49,7 +49,7 @@ class Solution {
     var case1 = new int[] {1, 2, 3, 4, 1, 1, 4};
     var case2 = new int[] {1, 2, 2, 1};
 
-    var S = new Solution();
+    var S = new Solution0198();
     Debug.Assert(S.Rob(leet1) == 4);
     Debug.Assert(S.Rob(leet2) == 12);
     Debug.Assert(S.Rob(empty) == 0);

@@ -1,7 +1,17 @@
+
+
+using System;
 using System.Collections.Generic;
 
-
 namespace Utils {
+
+public class Tools {
+  public static void PrintArray(int[] arr) {
+    foreach (var a in arr) {
+      Console.WriteLine(a);
+    }
+  }
+}
 
 public class ListNode {
   public int val;
