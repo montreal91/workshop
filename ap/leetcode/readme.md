@@ -36,6 +36,7 @@ It's good to revisit problems after 4 months.
    *Forgot to deal with one of the cases*.
 
 ## Perfect
+1. **21.11.2020** [Flower Planting With No Adjacent](https://leetcode.com/problems/flower-planting-with-no-adjacent/) **\[graph]**
 1. **19.11.2020** [Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/) **\[tree]**
 1. **18.11.2020** [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) **\[hash]**
 1. **17.11.2020** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) **\[linked list]**
