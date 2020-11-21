@@ -11,7 +11,7 @@
 1. [~~Valid Parentheses~~](https://leetcode.com/problems/valid-parentheses/) *(easy)*
 1. [~~Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/) *(medium)*
 1. [~~Letter Combinations of a Phone Number~~](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) *(medium)*
-1. [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) (*medium*)
+1. [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) *(medium)*
 1. [~~Reverse Words in a String~~](https://leetcode.com/problems/reverse-words-in-a-string/) *(medium)*
 1. [Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) *(medium)*
 1. [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) *(medium)*
@@ -115,7 +115,7 @@
 
 ## Graph
 1. [~~Find the Town Judge~~](https://leetcode.com/problems/find-the-town-judge/) *(easy)*
-1. [Flower Planting With No Adjacent](https://leetcode.com/problems/flower-planting-with-no-adjacent/) *(easy)*
+1. [~~Flower Planting With No Adjacent~~](https://leetcode.com/problems/flower-planting-with-no-adjacent/) *(medium)*
 1. [All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/) *(medium)*
 1. [Network Delay Time](https://leetcode.com/problems/network-delay-time/) *(medium)*
 1. [Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) *(medium)*
@@ -125,6 +125,7 @@
 1. [Course Schedule](https://leetcode.com/problems/course-schedule/) *(medium)*
 1. [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) *(medium)*
 1. [Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/) *(medium)*
+1. [Minimum Cost to Connect Two Groups of Points](https://leetcode.com/problems/minimum-cost-to-connect-two-groups-of-points/) *(hard)*
 
 ## Trie
 1. [Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary/) *(easy)*
