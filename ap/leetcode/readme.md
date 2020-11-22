@@ -7,14 +7,16 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
-1. **14.11.2020** [CF - B. Valerii Against Everyone](https://codeforces.com/contest/1438/problem/B) **\[array]**
-1. **14.11.2020** [CF - 1438D - Powerful Ksenia](https://codeforces.com/contest/1438/problem/D) **\[other]**
+1. **21.11.2020** [CF: 1451E2 - Bitwise Queries (Hard Version)](https://codeforces.com/contest/1451/problem/E2) **\[math] \[bitmasks]**
+1. **21.11.2020** [CF: 1451E1 - Bitwise Queries (Easy Version)](https://codeforces.com/contest/1451/problem/E1) **\[math] \[bitmasks]**
+1. **14.11.2020** [CF: 1438D - Powerful Ksenia](https://codeforces.com/contest/1438/problem/D) **\[other]**
+1. **14.11.2020** [CF: 1438B - Valerii Against Everyone](https://codeforces.com/contest/1438/problem/B) **\[array]**
 1. **21.09.2019** [~~House Robber~~](https://leetcode.com/problems/house-robber/) **\[dp]**  
 1. **15.09.2020** [~~Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
 1. **20.11.2020** [House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**  
-1. **14.11.2020** [CF - C. Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**  
+1. **14.11.2020** [CF: 1438C - Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**  
 1. **12.11.2020** [Rectangle Area](https://leetcode.com/problems/rectangle-area/)  **\[math]**  
    *Passed from second attempt.*  
    *Though output was specified as int, intermediate values could cause int overflow and I didn't deal with this case correctly.*
@@ -36,13 +38,17 @@ It's good to revisit problems after 4 months.
    *Forgot to deal with one of the cases*.
 
 ## Perfect
+1. **21.11.2020** [CF: 1451D - Circle Game](https://codeforces.com/contest/1451/problem/D) **\[math] \[geometry]**
+1. **21.11.2020** [CF: 1451C - String Equality ](https://codeforces.com/contest/1451/problem/C) **\[string]**
+1. **21.11.2020** [CF: 1451B - Non-Substring Subsequence](https://codeforces.com/contest/1451/problem/B) **\[string]**
+1. **21.11.2020** [CF: 1451A - Subtract or Divide ](https://codeforces.com/contest/1451/problem/A) **\[math]**
 1. **21.11.2020** [Flower Planting With No Adjacent](https://leetcode.com/problems/flower-planting-with-no-adjacent/) **\[graph]**
 1. **19.11.2020** [Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/) **\[tree]**
 1. **18.11.2020** [Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) **\[hash]**
 1. **17.11.2020** [Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) **\[linked list]**
 1. **17.11.2020** [Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) **\[array]**
 1. **16.11.2020** [Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) **\[string]**
-1. **14.11.2020** [CF - A. Specific Tastes of Andre](https://codeforces.com/contest/1438/problem/A) **\[array]**
+1. **14.11.2020** [CF: 1438A - Specific Tastes of Andre](https://codeforces.com/contest/1438/problem/A) **\[array]**
 1. **12.11.2020** [Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) **\[array]**
 1. **10.11.2020** [Maximum Depth of Binary Tree](https://leetcode.com/problems/maximum-depth-of-binary-tree/) **\[tree]**
 1. **09.11.2020** [Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/) **\[hash]**
