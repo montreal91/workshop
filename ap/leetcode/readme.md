@@ -15,7 +15,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
-1. **20.11.2020** [Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary/) **\[trie]**
+1. **23.11.2020** [Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary/) **\[trie]**
 1. **20.11.2020** [House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**  
 1. **14.11.2020** [CF: 1438C - Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**  
 1. **12.11.2020** [Rectangle Area](https://leetcode.com/problems/rectangle-area/)  **\[math]**  
