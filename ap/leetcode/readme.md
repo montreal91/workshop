@@ -15,6 +15,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **25.11.2020** [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) **\[string]**
 1. **23.11.2020** [Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary/) **\[trie]**
 1. **20.11.2020** [House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**  
 1. **14.11.2020** [CF: 1438C - Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**  
@@ -39,7 +40,7 @@ It's good to revisit problems after 4 months.
    *Forgot to deal with one of the cases*.
 
 ## Perfect
-1. **21.11.2020** [Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/)  **\[math]**
+1. **24.11.2020** [Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/)  **\[math]**
 1. **21.11.2020** [CF: 1451D - Circle Game](https://codeforces.com/contest/1451/problem/D) **\[math] \[geometry]**
 1. **21.11.2020** [CF: 1451C - String Equality ](https://codeforces.com/contest/1451/problem/C) **\[string]**
 1. **21.11.2020** [CF: 1451B - Non-Substring Subsequence](https://codeforces.com/contest/1451/problem/B) **\[string]**
