@@ -13,11 +13,12 @@
 1. [~~Valid Parentheses~~](https://leetcode.com/problems/valid-parentheses/) *(easy)*
 1. [~~Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/) *(medium)*
 1. [~~Letter Combinations of a Phone Number~~](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) *(medium)*
-1. [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) *(medium)*
+1. [~~String to Integer (atoi)~~](https://leetcode.com/problems/string-to-integer-atoi/) *(medium)*
 1. [~~Reverse Words in a String~~](https://leetcode.com/problems/reverse-words-in-a-string/) *(medium)*
 1. [Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) *(medium)*
 1. [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) *(medium)*
 1. [Parse Lisp Expression](https://leetcode.com/problems/parse-lisp-expression/) *(hard)*
+1. [Valid Number](https://leetcode.com/problems/valid-number/) *(hard)*
 
 ## Array
 1. [~~Majority Element~~](https://leetcode.com/problems/majority-element/) *(easy)*
