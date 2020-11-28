@@ -1,7 +1,7 @@
 //
 // Problem: https://leetcode.com/problems/flower-planting-with-no-adjacent/
 // Author: montreal91
-// Solved in 0:48
+// Solved in 1:00
 // Failed attempts: 0
 //
 
