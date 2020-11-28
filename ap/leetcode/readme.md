@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **21.11.2020** [CF: 1451F - Nullify The Matrix](https://codeforces.com/contest/1451/problem/F) **\[other]**
 1. **21.11.2020** [CF: 1451E2 - Bitwise Queries (Hard Version)](https://codeforces.com/contest/1451/problem/E2) **\[math] \[bitmasks]**
 1. **21.11.2020** [CF: 1451E1 - Bitwise Queries (Easy Version)](https://codeforces.com/contest/1451/problem/E1) **\[math] \[bitmasks]**
 1. **14.11.2020** [CF: 1438D - Powerful Ksenia](https://codeforces.com/contest/1438/problem/D) **\[other]**
