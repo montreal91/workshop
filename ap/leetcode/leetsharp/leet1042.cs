@@ -1,7 +1,7 @@
 //
 // Problem: https://leetcode.com/problems/flower-planting-with-no-adjacent/
 // Author: montreal91
-// Solved in 0:48
+// Solved in 1:00
 // Failed attempts: 0
 //
 
@@ -67,7 +67,7 @@ class GardenGraph {
 }
 
 
-class Solution {
+class Solution1042 {
   public int[] GardenNoAdj(int n, int[][] paths) {
     var garden = new GardenGraph(n, paths);
     garden.AutoPlant();
@@ -75,7 +75,7 @@ class Solution {
   }
 
   public static void TestSolution() {
-    var S = new Solution();
+    var S = new Solution1042();
     var paths = new int[][]{
       new int[]{1, 2},
       new int[]{1, 3},
