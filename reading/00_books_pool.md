@@ -1,10 +1,10 @@
 # BOOKS
 
-1. "The Clean Coder" by Robert C. Martin
+1. <ins>"The Clean Coder" by Robert C. Martin</ins>
 1. "Patterns of Enterprise Application Architecture" by Martin Fowler, David Rice, Matthew Foemmel, Edward Hieatt, Robert Mee, Randy Stafford
 1. "Refactoring: Improving the Design of Existing Code" 1st edition by Martin Fowler, Kent Beck, John Brant, William Opdyke, Don Roberts
 1. "Clean Code: A Handbook of Agile Software Craftsmanship" by Robert C. Martin
-1. "Code Complete" 2nd edition by Steve McConnell
+1. <ins>"Code Complete" 2nd edition by Steve McConnell</ins>
 1. "UML Distilled. A Brief Guide to the Standard Object Modeling Language" 3d edition by Martin Fowler
 1. "Test-Driven Development By Example" by Kent Beck
 1. "Extreme Programming Explained" 1st edition by Kent Beck
@@ -15,7 +15,7 @@
 1. "Domain-Driven Design" by Eric Evans
 1. "Implementing Domain-Driven Design" by Vaughn Vernon
 1. "Domain-Driven Design Quickly"
-1. "Domain-Driven Design Distilled" by V.Vernon
+1. <ins>"Domain-Driven Design Distilled" by V.Vernon</ins>
 1. ["CQRS Journey"](https://docs.microsoft.com/en-US/previous-versions/msp-n-p/jj554200(v=pandp.10)) by Dominic Betts, Julián Domínguez, Grigori Melnik, Fernando Simonazzi, Mani Subramanian
 1. "The Art of PostgreSQL" 2nd edition by Dimitri Fontaine
 1. "SQL Antipatterns. Avoiding the Pitfalls of Database Programming." by Bill Karwin
