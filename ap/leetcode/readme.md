@@ -12,33 +12,24 @@ It's good to revisit problems after 4 months.
 1. **21.11.2020** [CF: 1451E1 - Bitwise Queries (Easy Version)](https://codeforces.com/contest/1451/problem/E1) **\[math] \[bitmasks]**
 1. **14.11.2020** [CF: 1438D - Powerful Ksenia](https://codeforces.com/contest/1438/problem/D) **\[other]**
 1. **14.11.2020** [CF: 1438B - Valerii Against Everyone](https://codeforces.com/contest/1438/problem/B) **\[array]**
-1. **21.09.2019** [~~House Robber~~](https://leetcode.com/problems/house-robber/) **\[dp]**  
+1. **21.09.2019** [~~House Robber~~](https://leetcode.com/problems/house-robber/) **\[dp]**
 1. **15.09.2020** [~~Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **30.11.2020** [Remove Element](https://leetcode.com/problems/remove-element/) **\[array]**
 1. **25.11.2020** [String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) **\[string]**
 1. **23.11.2020** [Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary/) **\[trie]**
-1. **20.11.2020** [House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**  
-1. **14.11.2020** [CF: 1438C - Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**  
-1. **12.11.2020** [Rectangle Area](https://leetcode.com/problems/rectangle-area/)  **\[math]**  
-   *Passed from second attempt.*  
-   *Though output was specified as int, intermediate values could cause int overflow and I didn't deal with this case correctly.*
+1. **20.11.2020** [House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**
+1. **14.11.2020** [CF: 1438C - Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**
+1. **12.11.2020** [Rectangle Area](https://leetcode.com/problems/rectangle-area/)  **\[math]**
 1. **11.11.2020** [Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/) **\[graph]**
-1. **10.11.2020** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**  
-   *Took too much time, but passed on first attempt.*
-1. **09.11.2020** [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) **\[linked list]**  
-   *The only objection is time I take to compose a solution. Otherwise it would be good.*
-1. **07.11.2020** [Path Sum](https://leetcode.com/problems/path-sum/) **\[tree]**  
-   *General idea was right and fast, but I forgot to deal with case when root is null. But it was not very obvious because of strange inputs.*
-1. **22.09.2019** [Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**  
-   *I knew the correct idea to solve the problem, but got very confused when my solution appeared too slow.*
-1. **22.09.2019** [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) **\[dp]**  
-   *I assumed that m == n, but it was not. It was unclear. IRL I would ask interviewer about this case.*
-1. **21.09.2019** [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) **\[dp]**  
-   *Forgot to deal with empty array corner case*.
-1. **18.09.2019** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)
-   **\[string]\[hash]**  
-   *Forgot to deal with one of the cases*.
+1. **10.11.2020** [Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
+1. **09.11.2020** [Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) **\[linked list]**
+1. **07.11.2020** [Path Sum](https://leetcode.com/problems/path-sum/) **\[tree]**
+1. **22.09.2019** [Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**
+1. **22.09.2019** [Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) **\[dp]**
+1. **21.09.2019** [Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) **\[dp]**
+1. **18.09.2019** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
 1. **24.11.2020** [Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/)  **\[math]**
