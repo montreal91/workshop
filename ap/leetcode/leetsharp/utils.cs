@@ -7,9 +7,33 @@ namespace Utils {
 
 public class Tools {
   public static void PrintArray(int[] arr) {
-    foreach (var a in arr) {
-      Console.WriteLine(a);
+    Console.WriteLine(String.Join(' ', arr));
+  }
+
+  public static void PrintLinkedList(ListNode node) {
+    if (node == null) {
+      return;
     }
+    var tmpArr = new List<int>();
+    var curr = node;
+    while (curr != null) {
+      tmpArr.Add(curr.val);
+      curr = curr.next;
+    }
+    PrintArray(tmpArr.ToArray());
+  }
+
+  public static bool CompareLinkedLists(ListNode one, ListNode two) {
+    var currOne = one;
+    var currTwo = two;
+    while(currOne != null) {
+      if (!currOne.Equals(currTwo)) {
+        return false;
+      }
+      currOne = currOne.next;
+      currTwo = currTwo.next;
+    }
+    return currTwo == null;
   }
 }
 
@@ -19,6 +43,13 @@ public class ListNode {
   public ListNode(int val=0, ListNode next=null) {
     this.val = val;
     this.next = next;
+  }
+
+  public bool Equals(ListNode other) {
+    if (other == null) {
+      return false;
+    }
+    return this.val == other.val;
   }
 
   public static ListNode FromArray(int[] vals) {
