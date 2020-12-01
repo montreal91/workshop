@@ -32,6 +32,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **01.12.2020** [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) **\[linked list]**
 1. **24.11.2020** [Rectangle Overlap](https://leetcode.com/problems/rectangle-overlap/)  **\[math]**
 1. **21.11.2020** [CF: 1451D - Circle Game](https://codeforces.com/contest/1451/problem/D) **\[math] \[geometry]**
 1. **21.11.2020** [CF: 1451C - String Equality ](https://codeforces.com/contest/1451/problem/C) **\[string]**
