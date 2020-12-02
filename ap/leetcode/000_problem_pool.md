@@ -32,7 +32,7 @@
 1. [Majority Element II](https://leetcode.com/problems/majority-element-ii/) *(medium)*
 1. [~~Product of Array Except Self~~](https://leetcode.com/problems/product-of-array-except-self/) *(medium)*
 1. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) *(medium)*
-1. [3Sum](https://leetcode.com/problems/3sum/) *(medium)*
+
 1. [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) *(medium)*
 1. [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) *(medium)*
 1. [Combination Sum](https://leetcode.com/problems/combination-sum/) *(medium)*
@@ -61,11 +61,16 @@
 1. [~~Contains Duplicate~~](https://leetcode.com/problems/contains-duplicate/) *(easy)*
 1. [~~Contains Duplicate II~~](https://leetcode.com/problems/contains-duplicate-ii/) *(easy)*
 1. [~~Valid Sudoku~~](https://leetcode.com/problems/valid-sudoku/) *(medium)*
-1. [4Sum](https://leetcode.com/problems/4sum/) *(medium)*
 1. [~~Repeated DNA Sequences~~](https://leetcode.com/problems/repeated-dna-sequences/) *(medium)*
 1. [Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/) *(medium)*
 1. [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) *(hard)*
 1. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) *(hard)*
+
+### N-sum problems
+1. [Two Sum](https://leetcode.com/problems/two-sum/) *(easy)*
+1. [3Sum](https://leetcode.com/problems/3sum/) *(medium)*
+1. [3Sum Closest](https://leetcode.com/problems/3sum-closest/) *(medium)*
+1. [4Sum](https://leetcode.com/problems/4sum/) *(medium)*
 
 ## Tree
 1. [~~Same Tree~~](https://leetcode.com/problems/same-tree/) *(easy)*
