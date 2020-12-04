@@ -32,7 +32,6 @@
 1. [Majority Element II](https://leetcode.com/problems/majority-element-ii/) *(medium)*
 1. [~~Product of Array Except Self~~](https://leetcode.com/problems/product-of-array-except-self/) *(medium)*
 1. [Container With Most Water](https://leetcode.com/problems/container-with-most-water/) *(medium)*
-
 1. [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) *(medium)*
 1. [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) *(medium)*
 1. [Combination Sum](https://leetcode.com/problems/combination-sum/) *(medium)*
@@ -67,7 +66,7 @@
 1. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) *(hard)*
 
 ### N-sum problems
-1. [Two Sum](https://leetcode.com/problems/two-sum/) *(easy)*
+1. [~~Two Sum~~](https://leetcode.com/problems/two-sum/) *(easy)*
 1. [3Sum](https://leetcode.com/problems/3sum/) *(medium)*
 1. [3Sum Closest](https://leetcode.com/problems/3sum-closest/) *(medium)*
 1. [4Sum](https://leetcode.com/problems/4sum/) *(medium)*
