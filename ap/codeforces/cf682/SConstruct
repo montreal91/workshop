@@ -31,3 +31,9 @@ env.Program(
     source="solution_e.cc",
     CXXFLAGS=flags
 )
+
+env.Program(
+    target="f.sol",
+    source="solution_f.cc",
+    CXXFLAGS=flags
+)
