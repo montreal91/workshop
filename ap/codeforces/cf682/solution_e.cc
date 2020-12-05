@@ -4,8 +4,7 @@
 // Author: montreal91
 // Type: tutorial
 // Time: 00:00
-// Failed attempts: 0
-// Unfinished
+// Failed attempts: 1
 //
 
 #include <algorithm>
@@ -72,31 +71,66 @@ LL bithack_next_pow2(LL v) {
   return w;
 }
 
-// Inclusive
 LL my_sum(const vector<LL>& nums, int i, int j) {
   LL res = 0;
-  for (int c=i; c<=j; c++) {
-    res += nums[c+1];
+  for (int c=i+1; c<j; c++) {
+    res += nums[c];
   }
   return res;
 }
 
+class Keeper {
+public:
+  void add_pair(int i, int j) {
+    good_arrays[convert(i, j)]++;
+  }
+
+  int size() const {
+    return good_arrays.size();
+  }
+
+private:
+  unordered_map<string, int> good_arrays;
+
+  bool contains(int i, int j) const {
+    auto token = convert(i, j);
+    auto f = good_arrays.find(token);
+    return f != good_arrays.end();
+  }
+
+  string convert(int i, int j) const {
+    return to_string(i) + "-" + to_string(j);
+  }
+};
+
+bool array_is_good(const vector<LL>& nums, LL s, int i, int j) {
+  return s == (nums[i] ^ nums[j]);
+}
+
 int count_good_arrays(const vector<LL>& nums) {
-  unordered_map<int, int> goodies;
+  Keeper keeper;
   for (int l=0; l<nums.size() - 1; l++) {
     auto two_k_plus1 = bithack_next_pow2(nums[l]);
-    for (int r=l+2; r<nums.size(); r++) {
-      auto zum = my_sum(nums, l+1, r-1);
-      if (zum == (l ^ r)) {
-        goodies[l] = r;
+    auto s = 0;
+    for (int r=l+2; s < two_k_plus1 && r < nums.size(); r++) {
+      s += nums[r-1];
+      if (array_is_good(nums, s, l, r)) {
+        keeper.add_pair(l, r);
       }
     }
   }
 
-  for (int r=nums.size() - 1; r>=0; r++) {
-
+  for (int r=nums.size() - 1; r>=0; r--) {
+    auto two_k_plus1 = bithack_next_pow2(nums[r]);
+    auto s = 0;
+    for (int l=r-2; s < two_k_plus1 && l >=0; l--)  {
+      s += nums[l+1];
+      if (array_is_good(nums, s, l, r)) {
+        keeper.add_pair(l, r);
+      }
+    }
   }
-  return goodies.size();
+  return keeper.size();
 }
 
 void function(istream& in, ostream& out) {
