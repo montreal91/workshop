@@ -20,35 +20,12 @@
 #include <utility>
 #include <vector>
 
+#ifndef ONLINE_JUDGE
+  #include "util.h"
+#endif // ONLINE_JUDGE
+
 using namespace std;
 
-template<typename T>
-void debug_print(T val, const string& label="") {
-  #ifndef ONLINE_JUDGE
-    string separator;
-    if (label.size() == 0) {
-      separator = "";
-    }
-    else {
-      separator = " ";
-    }
-    cout << label << separator << val << endl;
-  #endif // ONLINE_JUDGE
-}
-
-template<typename T>
-void debug_print(
-  const vector<T>& to_print,
-  const string& separator=" ",
-  const string& label=""
-) {
-  #ifndef ONLINE_JUDGE
-    for (T p : to_print) {
-      cout << p << separator;
-    }
-    cout << endl;
-  #endif // ONLINE_JUDGE
-}
 
 void function(istream& in, ostream& out) {
   ios::sync_with_stdio(false);
