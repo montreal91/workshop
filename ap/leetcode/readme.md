@@ -7,6 +7,8 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **05.12.2020** [CF: 1438F - Olha and Igor](https://codeforces.com/contest/1438/problem/F) **\[tree]**
+1. **05.12.2020** [CF: 1438E - Yurii Can Do Everything](https://codeforces.com/contest/1438/problem/E) **\[other]**
 1. **01.12.2020** [4Sum](https://leetcode.com/problems/4sum/) **\[hash]**
 1. **28.11.2020** [CF: 1451F - Nullify The Matrix](https://codeforces.com/contest/1451/problem/F) **\[other]**
 1. **21.11.2020** [CF: 1451E2 - Bitwise Queries (Hard Version)](https://codeforces.com/contest/1451/problem/E2) **\[math] \[bitmasks]**
