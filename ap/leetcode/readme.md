@@ -35,6 +35,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **07.12.2020** [N-ary Tree Preorder Traversal](https://leetcode.com/problems/n-ary-tree-preorder-traversal/)
 1. **05.12.2020** [CF: 1140A - Detective Book](https://codeforces.com/contest/1140/problem/A) **\[array**
 1. **04.12.2020** [Two Sum](https://leetcode.com/problems/two-sum/) **\[array** **\[hash]**
 1. **01.12.2020** [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/) **\[linked list]**
