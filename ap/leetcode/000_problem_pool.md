@@ -103,7 +103,7 @@
 1. [~~Range Sum Query - Immutable~~](https://leetcode.com/problems/range-sum-query-immutable/) *(easy)*
 1. [~~House Robber~~](https://leetcode.com/problems/house-robber/submissions/) *(easy)*
 1. [~~Coin Change~~](https://leetcode.com/problems/coin-change/) *(medium)*
-1. [House Robber II](https://leetcode.com/problems/house-robber-ii/) *(medium)*
+1. [~~House Robber II~~](https://leetcode.com/problems/house-robber-ii/) *(medium)*
 1. [Maximal Square](https://leetcode.com/problems/maximal-square/) *(medium)*
 1. [Unique Paths](https://leetcode.com/problems/unique-paths/) *(medium)*
 1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
