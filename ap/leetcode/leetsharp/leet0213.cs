@@ -12,7 +12,7 @@ using System.Diagnostics;
 namespace leetsharp {
 
 
-class Solution {
+class Solution0213 {
   public int Rob(int[] nums) {
     if (nums.Length == 1) {
       return nums[0];
@@ -47,7 +47,7 @@ class Solution {
   }
 
   public static void TestSolution() {
-    var S = new Solution();
+    var S = new Solution0213();
     var leet1r0 = new int[]{2, 3, 2}; // 3
     var leet1r1 = new int[]{2, 2, 3};
     var leet1r2 = new int[]{3, 2, 2};
