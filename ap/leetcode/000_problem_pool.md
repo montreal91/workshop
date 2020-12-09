@@ -125,7 +125,7 @@
 ## Graph
 1. [~~Find the Town Judge~~](https://leetcode.com/problems/find-the-town-judge/) *(easy)*
 1. [~~Flower Planting With No Adjacent~~](https://leetcode.com/problems/flower-planting-with-no-adjacent/) *(medium)*
-1. [All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/) *(medium)*
+1. [~~All Paths From Source to Target~~](https://leetcode.com/problems/all-paths-from-source-to-target/) *(medium)*
 1. [Network Delay Time](https://leetcode.com/problems/network-delay-time/) *(medium)*
 1. [Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) *(medium)*
 1. [Jump Game III](https://leetcode.com/problems/jump-game-iii/) *(medium)*
@@ -152,3 +152,4 @@
 ## Other
 1. [Course Schedule III](https://leetcode.com/problems/course-schedule-iii/) *(hard)*
 1. [Data Stream as Disjoint Intervals](https://leetcode.com/problems/data-stream-as-disjoint-intervals/) *(hard)*
+1. [Minimum Incompatibility](https://leetcode.com/problems/minimum-incompatibility/) *(hard)*
