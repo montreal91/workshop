@@ -1,6 +1,6 @@
 # BOOKS
 
-1. <ins>"The Clean Coder" by Robert C. Martin</ins>
+1. ~~"The Clean Coder" by Robert C. Martin
 1. "Patterns of Enterprise Application Architecture" by Martin Fowler, David Rice, Matthew Foemmel, Edward Hieatt, Robert Mee, Randy Stafford
 1. "Refactoring: Improving the Design of Existing Code" 1st edition by Martin Fowler, Kent Beck, John Brant, William Opdyke, Don Roberts
 1. "Clean Code: A Handbook of Agile Software Craftsmanship" by Robert C. Martin
