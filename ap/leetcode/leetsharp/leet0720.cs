@@ -13,17 +13,17 @@ using System.Diagnostics;
 namespace leetsharp {
 
 
-class Trie {
-  private Trie parent;
+class Trie0720 {
+  private Trie0720 parent;
   private readonly string value;
   private bool isWord;
-  private readonly Dictionary<char, Trie> children;
+  private readonly Dictionary<char, Trie0720> children;
 
-  public Trie(string value) {
+  public Trie0720(string value) {
     this.parent = null;
     this.value = value;
     this.isWord = value.Length == 0;
-    this.children = new Dictionary<char, Trie>();
+    this.children = new Dictionary<char, Trie0720>();
   }
 
   public void AddWord(string word) {
@@ -31,10 +31,10 @@ class Trie {
       isWord = true;
       return;
     }
-    
+
     char firstLetter = word[0];
     if (!children.ContainsKey(firstLetter)) {
-      var newChild = new Trie(firstLetter.ToString());
+      var newChild = new Trie0720(firstLetter.ToString());
       newChild.parent = this;
       children[firstLetter] = newChild;
     }
@@ -56,7 +56,7 @@ class Trie {
     }
     foreach (var node in children.Values) {
       node.CollectWords(collection, new List<char>(letters));
-    } 
+    }
   }
 
   private string FindLongMin(List<string> words) {
@@ -72,7 +72,7 @@ class Trie {
     return res;
   }
 
-  private bool CanConstruct(Trie node) {
+  private bool CanConstruct(Trie0720 node) {
     var curr = node;
     while (curr.value != "") {
       if (!curr.isWord) {
@@ -92,7 +92,7 @@ class Trie {
 
 class Solution0720 {
   public string LongestWord(string[] words) {
-    var trieRoot = new Trie("");
+    var trieRoot = new Trie0720("");
     foreach (var word in words) {
       trieRoot.AddWord(word);
     }
@@ -108,7 +108,7 @@ class Solution0720 {
     var reversedCase1 = new string[]{"world", "wor", "wo", "w"};
     var manyEqual = new string[]{"baka", "ba", "boku", "bo"};
     var leetErrorCase = new string[]{"m","mo","moc","moch","mocha","l","la","lat","latt","latte","c","ca","cat"};
-    
+
     var S = new Solution0720();
     Debug.Assert(S.LongestWord(leetDict1) == "world");
     Debug.Assert(S.LongestWord(leetDict2) == "apple");
