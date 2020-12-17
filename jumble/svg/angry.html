@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<svg width="500" height="500">
+  <rect fill="#CCCCCC" width="500" height="500" stroke="#000000"/>
+  <g id="sq-face" transform="translate(50, 50)">
+    <rect x="0" y="0" width="400" height="400" fill="#ffffff" stroke="#000000" stroke-width="2" />
+    <g transform="translate(50, 100)">
+      <g>
+        <polygon id="sq-eye-shape" points="0 0  100 50  100 100  0 100" stroke="#000000" fill="#ffffff" stroke-width="3" />
+        <polygon id="sq-eye-pupil" points="0 0  25 0  50 12  50 50  0 50" stroke="#000000" fill="#000000" transform="translate(25, 25)" />
+      </g>
+      <g transform="translate(300, 0) scale(-1, 1)">
+        <use xlink:href="#sq-eye-shape" />
+        <use xlink:href="#sq-eye-pupil" />
+      </g>
+      <line x1="0" y1="0"  x2="200" y2="0" stroke="#000000" stroke-width="3" transform="translate(50, 200)" />
+    </g>  
+  </g>
+</svg>
+
+</body>
+</html>
