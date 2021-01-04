@@ -37,6 +37,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **19.12.2020** [CF: 1459A - Red-Blue Shuffle](https://codeforces.com/contest/1459/problem/A) **\[math]**
 1. **10.12.2020** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) **\[trie]**
 1. **09.12.2020** [All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/) **\[graph]**
 1. **07.12.2020** [CF: 1140B - Good String](https://codeforces.com/contest/1140/problem/B) **\[string]**
