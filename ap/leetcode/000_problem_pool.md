@@ -4,7 +4,8 @@
 1. [~~Palindrome Number~~](https://leetcode.com/problems/palindrome-number/) *(easy)*
 1. [~~Rectangle Overlap~~](https://leetcode.com/problems/rectangle-overlap/) *(easy)*
 1. [~~Rectangle Area~~](https://leetcode.com/problems/rectangle-area/) *(medium)*
-1. [Generate Random Point in a Circle](https://leetcode.com/problems/generate-random-point-in-a-circle/) *(medium)*
+1. [~~Generate Random Point in a Circle~~](https://leetcode.com/problems/generate-random-point-in-a-circle/) *(medium)*
+1. [Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/) *(medium)*
 1. [Preimage Size of Factorial Zeroes Function](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/) *(hard)*
 1. [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) *(hard)*
 1. [Probability of a Two Boxes Having The Same Number of Distinct Balls](https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/) *(hard)*

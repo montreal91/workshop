@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **04.01.2021** [LC: Generate Random Point in a Circle](https://leetcode.com/problems/generate-random-point-in-a-circle/) **\[math]**
 1. **05.12.2020** [CF: 1438F - Olha and Igor](https://codeforces.com/contest/1438/problem/F) **\[tree]**
 1. **05.12.2020** [CF: 1438E - Yurii Can Do Everything](https://codeforces.com/contest/1438/problem/E) **\[other]**
 1. **01.12.2020** [4Sum](https://leetcode.com/problems/4sum/) **\[hash]**
