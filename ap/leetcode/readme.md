@@ -37,6 +37,10 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **04.01.2021** [CF: 1472D - Even-Odd Game](https://codeforces.com/contest/1472/problem/D) **\[array]**
+1. **04.01.2021** [CF: 1472C - Long Jumps](https://codeforces.com/contest/1472/problem/C) **\[dp]**
+1. **04.01.2021** [CF: 1472B - Fair Division](https://codeforces.com/contest/1472/problem/B) **\[math]**
+1. **04.01.2021** [CF: 1472A - Cards for Friends](https://codeforces.com/contest/1472/problem/A) **\[math]**
 1. **19.12.2020** [CF: 1459A - Red-Blue Shuffle](https://codeforces.com/contest/1459/problem/A) **\[math]**
 1. **10.12.2020** [Implement Trie (Prefix Tree)](https://leetcode.com/problems/implement-trie-prefix-tree/) **\[trie]**
 1. **09.12.2020** [All Paths From Source to Target](https://leetcode.com/problems/all-paths-from-source-to-target/) **\[graph]**
