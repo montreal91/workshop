@@ -1,4 +1,4 @@
-# About me (DRAFT)
+# About me (WIP, DRAFT)
 
 I am a perpetually improving Software Engineer with a bachelor degree in applied mathematics.
 
