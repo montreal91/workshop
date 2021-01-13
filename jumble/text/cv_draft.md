@@ -13,16 +13,13 @@ All projects I took part in at this point, except academic one, are managed by A
 Maintenance tasks (various bug fixes and minor impovements) usually take from 4 hours up to three days, rarely more.
 Significant improvements take 1-2 weeks.
 
-Interesting note.
-In all projects I tend to create more tasks than I solve.
-
 ### Pearlchain (Pearlchain)
 Stack: Java, Spring, Hibernate.
 
 The goal of the project is to provide Enterprise Resource Planning (ERP) solution for production of higly customized products,
-taking into account real-time maufacturing capacities.
+taking into account real-time manufacturing capacities.
 
-At the beginning of the project all my tasks were mainenance,
+At the beginning of the project all my tasks were maintenance,
 but once I've got used to the project, its philosophy and key concepts, I started to do refactoring and redesign of different systems.
 
 My favorite task was to replace old naive implementation of in-house Domain-Specific Language (DSL) with a new one
@@ -39,7 +36,13 @@ That task left me exhausted so I decided to step back a little. Needed to recove
 and to get an overview of my previous career, read books and craft my pet projects to test new concepts.
 
 ### Naumen Service Desk (Naumen)
-TBA
+Stack: Java, Spring, Hibernate
+
+The goal of the project is automation of management process in IT and service maintenance on production.
+
+I was an intern and did maintenance tasks and minor improvements.
+This was the first project where I've seen three-layered architecture in action and though I was just an intern and worked for a short period of time,
+it was very valuable experience for me and I've learned a lot about industry-level development.
 
 ### Graduation Project (Chelyabinsk State University)
 TBA
@@ -48,7 +51,19 @@ TBA
 TBA
 
 ### Db2 Cloning Tool (Complex Systems)
-TBA
+Stack: High-Level Assembly (HLASM), bare IBM hardware and a bit of C/C++.
+
+The goal of the project is to make possible cloning various Db2 subsystems with minimal (or no) downtime.
+
+Because this project is written with low-level language, it has much longer 4-week sprints.
+Usual maintenance tasks like  bugfixes and minor improvements took a whole working week to make and significant improvements were made within a month or more.
+
+Here for the first 3-4 weeks I learned HLASM and basic IBM mainframe workflow.
+Later and till the end of my work with this project all I did was mantenance and bug reporting.
+
+In general, I liked to work with machine language and bare metal,
+but at the time IBM was withdrawing all development from Russia,
+so I have had to look for another job.
 
 ## Prominent reading
 ### Clean Coder by Robert C. Martin
