@@ -48,7 +48,18 @@ it was very valuable experience for me and I've learned a lot about industry-lev
 TBA
 
 ### Electronic Educational Systems (BARS Group)
-TBA
+Stack: Python, Django ORM
+
+The goal of the project is to automate processes in Russian education system.
+
+Most of the time I did maintenance. Once upon a time I got a bigger improvement task and failed it
+(not completely; I produced required solution, but took too much time). Then another one.
+After several failures all I did was maintenance and writing of unit-tests.
+
+I stuck in routine tasks, stuck with my personal development,
+and it didn't feel like I add enough value to the project.
+In this situation the obvious decision was to move over, so I did.
+
 
 ### Db2 Cloning Tool (Complex Systems)
 Stack: High-Level Assembly (HLASM), bare IBM hardware and a bit of C/C++.
