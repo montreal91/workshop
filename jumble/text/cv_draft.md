@@ -13,27 +13,23 @@ All projects I took part in at this point, except academic one, are managed by A
 Maintenance tasks (various bug fixes and minor impovements) usually take from 4 hours up to three days, rarely more.
 Significant improvements take 1-2 weeks.
 
-### Pearlchain (Pearlchain)
-Stack: Java, Spring, Hibernate.
+### PearlChain, Novosibirsk — Java Software Engineer
+*January 2020 — December 2020*
 
-The goal of the project is to provide Enterprise Resource Planning (ERP) solution for production of higly customized products,
-taking into account real-time manufacturing capacities.
+PearlChain — general ERP solution for production of non-serial products taking into account real-time manufacturing capacities.
 
-At the beginning of the project all my tasks were maintenance,
-but once I've got used to the project, its philosophy and key concepts, I started to do refactoring and redesign of different systems.
+Automotive — specific solution for automotive industry based on PearlChain.
 
-My favorite task was to replace old naive implementation of in-house Domain-Specific Language (DSL) with a new one
-which would allow easier maintenance and extension of the said DSL.
-Original estimation was two weeks, but it took me three times more to pull it off and I don't regret a single day spent on this task.
-First of all, I decoupled the old subsystem from the other system and designed a narrow interface.
-Only using this interface the other code can communicate with the DSL subsystem.
-This allowed me to isolate my changes from the other code and hide implementation details behind the interface.
+Tech Stack: Java, Spring, Hibernate.
 
-It was the first time when I was using principles of R. C. Martin's clean architecture on such scale and it was great,
-because benifits of such approach soon were proven to be useful.
+* Developed from scratch DSL interpreter;
+* Redesigned interfaces between subsystems;
+* Developed subsystems from scratch;
+* Refactored subsystems;
+* Refactored and simplified complicated algorithms;
+* Proposed a lot of improvements which were implemented later by other team members;
+* Code review;
 
-That task left me exhausted so I decided to step back a little. Needed to recover,
-and to get an overview of my previous career, read books and craft my pet projects to test new concepts.
 
 ### Naumen, Chelyabinsk — Intern/Junior Java Software Engineer
 July 2016 — November 2016
