@@ -8,6 +8,9 @@ Recently I've got fond of philosophy: a programmer does not have a goal, only th
 This practically means that I always learn and will never stop.
 And it renders my current state rather meamingless, because what I don't know today I will do tomorrow and so on and on.
 
+### Skills
+Java, C++, Python
+
 
 ## PearlChain, Novosibirsk — Java Software Engineer
 *January 2020 — December 2020*
@@ -27,21 +30,6 @@ Tech Stack: Java, Spring, Hibernate.
 * Code review;
 
 
-## Naumen, Chelyabinsk — Intern/Junior Java Software Engineer
-July 2016 — November 2016
-
-Naumen Service Desk — a solution for automation of management process in IT and service maintenance of production.
-
-Tech Stack: Java, Spring, Hibernate
-
-* Learned basic patterns of enterprise applications;
-* Developed minor features;
-* Fixed bugs;
-* Wrote migration scripts;
-
-## Graduation Project (Chelyabinsk State University)
-TBA
-
 ## BARS Group, Novosibirsk — Junior Python Developer
 *October 2018 — December 2019*
 
@@ -57,20 +45,32 @@ Tech Stack: Python, Django ORM.
 * Fixed bugs;
 
 
-## Db2 Cloning Tool (Complex Systems)
-Stack: High-Level Assembly (HLASM), bare IBM hardware and a bit of C/C++.
+## Complex Systems, Chelyabinsk — Junior C/C++/Assembly Developer
+*October 2017 — September 2018*
 
-The goal of the project is to make possible cloning various Db2 subsystems with minimal (or no) downtime.
+Db2 Cloning Tool is a versatile utility for cloning databases with minimum or no downtime.
 
-Because this project is written with low-level language, it has much longer 4-week sprints.
-Usual maintenance tasks like  bugfixes and minor improvements took a whole working week to make and significant improvements were made within a month or more.
+Tech Stack: C/C++, Assembly
 
-Here for the first 3-4 weeks I learned HLASM and basic IBM mainframe workflow.
-Later and till the end of my work with this project all I did was mantenance and bug reporting.
+* Learned how to speak machine language;
+* Did small refactorings;
+* Fixed bugs;
 
-In general, I liked to work with machine language and bare metal,
-but at the time IBM was withdrawing all development from Russia,
-so I have had to look for another job.
+
+## Naumen, Chelyabinsk — Intern/Junior Java Software Engineer
+July 2016 — November 2016
+
+Naumen Service Desk — a solution for automation of management process in IT and service maintenance of production.
+
+Tech Stack: Java, Spring, Hibernate
+
+* Learned basic patterns of enterprise applications;
+* Developed minor features;
+* Fixed bugs;
+* Wrote migration scripts;
+
+## Graduation Project (Chelyabinsk State University)
+TBA
 
 ## Prominent reading
 ### Clean Coder by Robert C. Martin
