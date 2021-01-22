@@ -35,14 +35,17 @@ because benifits of such approach soon were proven to be useful.
 That task left me exhausted so I decided to step back a little. Needed to recover,
 and to get an overview of my previous career, read books and craft my pet projects to test new concepts.
 
-### Naumen Service Desk (Naumen)
+### Naumen, Chelyabinsk — Intern/Junior Java Software Engineer
+July 2016 — November 2016
+
+Naumen Service Desk — a solution for automation of management process in IT and service maintenance of production.
+
 Stack: Java, Spring, Hibernate
 
-The goal of the project is automation of management process in IT and service maintenance on production.
-
-I was an intern and did maintenance tasks and minor improvements.
-This was the first project where I've seen three-layered architecture in action and though I was just an intern and worked for a short period of time,
-it was very valuable experience for me and I've learned a lot about industry-level development.
+* Learned basic patterns of enterprise applications;
+* Developed minor features;
+* Fixed bugs;
+* Wrote migration scripts;
 
 ### Graduation Project (Chelyabinsk State University)
 TBA
