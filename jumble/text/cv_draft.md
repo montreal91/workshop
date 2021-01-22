@@ -8,12 +8,8 @@ Recently I've got fond of philosophy: a programmer does not have a goal, only th
 This practically means that I always learn and will never stop.
 And it renders my current state rather meamingless, because what I don't know today I will do tomorrow and so on and on.
 
-## Projects
-All projects I took part in at this point, except academic one, are managed by Agile methologies with 1-2 week sprints.
-Maintenance tasks (various bug fixes and minor impovements) usually take from 4 hours up to three days, rarely more.
-Significant improvements take 1-2 weeks.
 
-### PearlChain, Novosibirsk — Java Software Engineer
+## PearlChain, Novosibirsk — Java Software Engineer
 *January 2020 — December 2020*
 
 PearlChain — general ERP solution for production of non-serial products taking into account real-time manufacturing capacities.
@@ -31,36 +27,37 @@ Tech Stack: Java, Spring, Hibernate.
 * Code review;
 
 
-### Naumen, Chelyabinsk — Intern/Junior Java Software Engineer
+## Naumen, Chelyabinsk — Intern/Junior Java Software Engineer
 July 2016 — November 2016
 
 Naumen Service Desk — a solution for automation of management process in IT and service maintenance of production.
 
-Stack: Java, Spring, Hibernate
+Tech Stack: Java, Spring, Hibernate
 
 * Learned basic patterns of enterprise applications;
 * Developed minor features;
 * Fixed bugs;
 * Wrote migration scripts;
 
-### Graduation Project (Chelyabinsk State University)
+## Graduation Project (Chelyabinsk State University)
 TBA
 
-### Electronic Educational Systems (BARS Group)
-Stack: Python, Django ORM
+## BARS Group, Novosibirsk — Junior Python Developer
+*October 2018 — December 2019*
 
-The goal of the project is to automate processes in Russian education system.
+Electronic Educational System is a web-based enterprise-level platform for various Russian Education subsystems.
 
-Most of the time I did maintenance. Once upon a time I got a bigger improvement task and failed it
-(not completely; I produced required solution, but took too much time). Then another one.
-After several failures all I did was maintenance and writing of unit-tests.
+Tech Stack: Python, Django ORM.
 
-I stuck in routine tasks, stuck with my personal development,
-and it didn't feel like I add enough value to the project.
-In this situation the obvious decision was to move over, so I did.
+* Reimplemented bookkeeping reports;
+* Developed complex Django ORM queries;
+* Optimized Django ORM queries;
+* Maintained a lot of legacy code;
+* Added minor improvements;
+* Fixed bugs;
 
 
-### Db2 Cloning Tool (Complex Systems)
+## Db2 Cloning Tool (Complex Systems)
 Stack: High-Level Assembly (HLASM), bare IBM hardware and a bit of C/C++.
 
 The goal of the project is to make possible cloning various Db2 subsystems with minimal (or no) downtime.
