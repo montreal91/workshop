@@ -37,6 +37,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **25.01.2021** [LC: Degree of an Array](https://leetcode.com/problems/degree-of-an-array/) **\[array**
 1. **04.01.2021** [CF: 1472D - Even-Odd Game](https://codeforces.com/contest/1472/problem/D) **\[array]**
 1. **04.01.2021** [CF: 1472C - Long Jumps](https://codeforces.com/contest/1472/problem/C) **\[dp]**
 1. **04.01.2021** [CF: 1472B - Fair Division](https://codeforces.com/contest/1472/problem/B) **\[math]**
