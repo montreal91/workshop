@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **27.01.2021** [CF: 1475D - Cleaning the Phone](https://codeforces.com/contest/1475/problem/D) **\[dp]**
 1. **26.01.2021** [CF: 1475C - Ball in Berland](https://codeforces.com/contest/1475/problem/C) **\[graph]**
 1. **04.01.2021** [LC: Generate Random Point in a Circle](https://leetcode.com/problems/generate-random-point-in-a-circle/) **\[math]**
 1. **05.12.2020** [CF: 1438F - Olha and Igor](https://codeforces.com/contest/1438/problem/F) **\[tree]**
