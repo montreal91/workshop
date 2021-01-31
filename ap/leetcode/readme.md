@@ -7,6 +7,9 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **31.01.2021** [CF: 1476D - Journey](https://codeforces.com/contest/1476/problem/D) **\[dp]** **\[graph]**
+1. **31.01.2021** [CF: 1476C - Longest Simple Cycle](https://codeforces.com/contest/1476/problem/C) **\[dp]** **\[graph]**
+1. **31.01.2021** [CF: 1476B - Inflation](https://codeforces.com/contest/1476/problem/B) **\[math]**
 1. **27.01.2021** [CF: 1475D - Cleaning the Phone](https://codeforces.com/contest/1475/problem/D) **\[dp]**
 1. **26.01.2021** [CF: 1475C - Ball in Berland](https://codeforces.com/contest/1475/problem/C) **\[graph]**
 1. **04.01.2021** [LC: Generate Random Point in a Circle](https://leetcode.com/problems/generate-random-point-in-a-circle/) **\[math]**
@@ -23,6 +26,7 @@ It's good to revisit problems after 4 months.
 
 ## Fine
 1. **30.01.2021** [CF: 1475E - Advertising Agency](https://codeforces.com/contest/1475/problem/E) **\[math]** **\[combinatorics]**
+1. **29.01.2021** [CF: 1476A - K-divisible Sum](https://codeforces.com/contest/1476/problem/A) **\[math]**
 1. **08.12.2020** [LC: House Robber II](https://leetcode.com/problems/house-robber-ii/) **\[dp]**
 1. **30.11.2020** [LC: Remove Element](https://leetcode.com/problems/remove-element/) **\[array]**
 1. **25.11.2020** [LC: String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) **\[string]**
