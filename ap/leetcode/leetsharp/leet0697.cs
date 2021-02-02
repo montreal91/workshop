@@ -63,7 +63,7 @@ class Solution0697 {
     var leet1 = new int[]{1,2,2,3,1}; // 2
     var leet2 = new int[]{1,2,2,3,1,4,2}; // 6
 
-    var S = new Solution();
+    var S = new Solution0697();
     Debug.Assert(S.FindShortestSubArray(mycase1) == 3);
     Debug.Assert(S.FindShortestSubArray(mycase2) == 1);
     Debug.Assert(S.FindShortestSubArray(one) == 1);
