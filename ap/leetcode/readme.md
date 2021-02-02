@@ -25,6 +25,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **02.02.2021** [LC: Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) **\[string]**
 1. **30.01.2021** [CF: 1475E - Advertising Agency](https://codeforces.com/contest/1475/problem/E) **\[math]** **\[combinatorics]**
 1. **29.01.2021** [CF: 1476A - K-divisible Sum](https://codeforces.com/contest/1476/problem/A) **\[math]**
 1. **08.12.2020** [LC: House Robber II](https://leetcode.com/problems/house-robber-ii/) **\[dp]**
