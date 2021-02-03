@@ -41,8 +41,9 @@
 1. [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) *(medium)*
 1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(hard)*
 1. [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) *(hard)*
-1. [Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) *(hard)*
+1. [~~Trapping Rain Water~~](https://leetcode.com/problems/trapping-rain-water/) *(hard)*
 1. [~~Median of Two Sorted Arrays~~](https://leetcode.com/problems/median-of-two-sorted-arrays/) *(hard)*
+1. [Trapping Rain Water II](https://leetcode.com/problems/trapping-rain-water-ii/) *(hard)*
 
 ## Linked List
 1. [~~Reverse Linked List~~](https://leetcode.com/problems/reverse-linked-list/) *(easy)*

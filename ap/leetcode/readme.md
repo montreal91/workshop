@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **03.02.2021** [LC: Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) **\[array]**
 1. **31.01.2021** [CF: 1476D - Journey](https://codeforces.com/contest/1476/problem/D) **\[dp]** **\[graph]**
 1. **31.01.2021** [CF: 1476C - Longest Simple Cycle](https://codeforces.com/contest/1476/problem/C) **\[dp]** **\[graph]**
 1. **31.01.2021** [CF: 1476B - Inflation](https://codeforces.com/contest/1476/problem/B) **\[math]**
