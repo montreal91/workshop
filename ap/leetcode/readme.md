@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **05.02.2021** [CF: 1481D - AB Graph](https://codeforces.com/contest/1481/problem/D) **\[graph]**
 1. **03.02.2021** [LC: Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) **\[array]**
 1. **31.01.2021** [CF: 1476D - Journey](https://codeforces.com/contest/1476/problem/D) **\[dp]** **\[graph]**
 1. **31.01.2021** [CF: 1476C - Longest Simple Cycle](https://codeforces.com/contest/1476/problem/C) **\[dp]** **\[graph]**
@@ -26,6 +27,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **05.02.2021** [CF: 1481C - Fence Painting](https://codeforces.com/contest/1481/problem/C) **\[array]**
 1. **02.02.2021** [LC: Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) **\[string]**
 1. **30.01.2021** [CF: 1475E - Advertising Agency](https://codeforces.com/contest/1475/problem/E) **\[math]** **\[combinatorics]**
 1. **29.01.2021** [CF: 1476A - K-divisible Sum](https://codeforces.com/contest/1476/problem/A) **\[math]**
@@ -46,6 +48,8 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [LC: Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **05.02.2021** [CF: 1481B - New Colony](https://codeforces.com/contest/1481/problem/B) **\[array]**
+1. **05.02.2021** [CF: 1481A - Space Navigation](https://codeforces.com/contest/1481/problem/A) **\[string]**
 1. **25.01.2021** [CF: 1475B - New Year's Number](https://codeforces.com/contest/1475/problem/B) **\[dp]**
 1. **25.01.2021** [CF: 1475A - Odd Divisor](https://codeforces.com/contest/1475/problem/A) **\[math]**
 1. **25.01.2021** [LC: Degree of an Array](https://leetcode.com/problems/degree-of-an-array/) **\[array**
