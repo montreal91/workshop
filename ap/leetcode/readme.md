@@ -28,6 +28,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **11.02.2021** [LC: Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) **\[linked list]**
 1. **05.02.2021** [CF: 1481C - Fence Painting](https://codeforces.com/contest/1481/problem/C) **\[array]**
 1. **02.02.2021** [LC: Basic Calculator II](https://leetcode.com/problems/basic-calculator-ii/) **\[string]**
 1. **30.01.2021** [CF: 1475E - Advertising Agency](https://codeforces.com/contest/1475/problem/E) **\[math]** **\[combinatorics]**
