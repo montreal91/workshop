@@ -47,9 +47,10 @@ It's good to revisit problems after 4 months.
 1. **22.09.2019** [LC: Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**
 1. **22.09.2019** [LC: Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) **\[dp]**
 1. **21.09.2019** [LC: Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) **\[dp]**
-1. **18.09.2019** [LC: Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
+1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **13.02.2021** [LC: Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 1. **05.02.2021** [CF: 1481B - New Colony](https://codeforces.com/contest/1481/problem/B) **\[array]**
 1. **05.02.2021** [CF: 1481A - Space Navigation](https://codeforces.com/contest/1481/problem/A) **\[string]**
 1. **25.01.2021** [CF: 1475B - New Year's Number](https://codeforces.com/contest/1475/problem/B) **\[dp]**

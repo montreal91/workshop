@@ -74,6 +74,7 @@
 1. [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/) *(easy)*
 1. [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) *(hard)*
 1. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) *(hard)*
+1. [Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers/) *(hard)*
 
 ### N-sum problems
 1. [~~Two Sum~~](https://leetcode.com/problems/two-sum/) *(easy)*
