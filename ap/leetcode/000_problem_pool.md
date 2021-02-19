@@ -68,10 +68,11 @@
 1. [Single Number](https://leetcode.com/problems/single-number/) *(easy)*
 1. [Valid Anagram](https://leetcode.com/problems/valid-anagram/) *(easy)*
 1. [Count Primes](https://leetcode.com/problems/count-primes/) *(easy)*
+1. [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/) *(easy)*
+1. [Check Array Formation Through Concatenation](https://leetcode.com/problems/check-array-formation-through-concatenation/) *(easy)*
 1. [~~Valid Sudoku~~](https://leetcode.com/problems/valid-sudoku/) *(medium)*
 1. [~~Repeated DNA Sequences~~](https://leetcode.com/problems/repeated-dna-sequences/) *(medium)*
 1. [Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/) *(medium)*
-1. [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/) *(easy)*
 1. [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) *(hard)*
 1. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) *(hard)*
 1. [Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers/) *(hard)*
@@ -89,10 +90,11 @@
 1. [~~Maximum Depth of Binary Tree~~](https://leetcode.com/problems/maximum-depth-of-binary-tree/) *(easy)*
 1. [~~Maximum Depth of N-ary Tree~~](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/) *(easy)*
 1. [~~N-ary Tree Preorder Traversal~~](https://leetcode.com/problems/n-ary-tree-preorder-traversal/) *(easy)*
-1. [N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/) *(easy)*
+1. [~~N-ary Tree Postorder Traversal~~](https://leetcode.com/problems/n-ary-tree-postorder-traversal/) *(easy)*
 1. [Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree/) *(easy)*
-1. [N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) *(easy)*
+1. [N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) *(medium)*
 1. [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) *(medium)*
+1. [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) *(medium)*
 1. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) *(medium)*
 1. [Path Sum II](https://leetcode.com/problems/path-sum-ii/) *(medium)*
 1. [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) *(medium)*
@@ -102,8 +104,8 @@
 1. [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) *(medium)*
 1. [Shortest Bridge](https://leetcode.com/problems/shortest-bridge/) *(medium)*
 1. [Throne Inheritance](https://leetcode.com/problems/throne-inheritance/) *(medium)*
+1. [Find Elements in a Contaminated Binary Tree](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/) *(medium)*
 1. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) *(hard)*
-1. [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) *(hard)*
 1. [Recover a Tree From Preorder Traversal](https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/) *(hard)*
 1. [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/) *(hard)*
 
