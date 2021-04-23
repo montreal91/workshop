@@ -44,7 +44,7 @@ It's good to revisit problems after 4 months.
 1. **14.11.2020** [CF: 1438C - Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**
 1. **12.11.2020** [LC: Rectangle Area](https://leetcode.com/problems/rectangle-area/)  **\[math]**
 1. **11.11.2020** [LC: Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/) **\[graph]**
-1. **10.11.2020** [LC: Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
+1. **10.11.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 1. **09.11.2020** [LC: Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) **\[linked list]**
 1. **07.11.2020** [LC: Path Sum](https://leetcode.com/problems/path-sum/) **\[tree]**
 1. **22.09.2019** [LC: Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**
