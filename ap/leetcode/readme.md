@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **23.04.2021** [LC: Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 1. **05.02.2021** [CF: 1481E - Sorting Books](https://codeforces.com/contest/1481/problem/E) **\[dp]**
 1. **05.02.2021** [CF: 1481D - AB Graph](https://codeforces.com/contest/1481/problem/D) **\[graph]**
 1. **03.02.2021** [LC: Trapping Rain Water](https://leetcode.com/problems/trapping-rain-water/) **\[array]**
@@ -28,6 +29,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **15.03.2021** [LC: Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/) **\[linked list]**
 1. **15.02.2021** [LC: 3Sum](https://leetcode.com/problems/3sum/) **\[array]**
 1. **11.02.2021** [LC: Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) **\[linked list]**
 1. **05.02.2021** [CF: 1481C - Fence Painting](https://codeforces.com/contest/1481/problem/C) **\[array]**
