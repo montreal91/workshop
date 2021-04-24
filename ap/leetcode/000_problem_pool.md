@@ -3,6 +3,7 @@
 1. [~~Factorial Trailing Zeroes~~](https://leetcode.com/problems/factorial-trailing-zeroes/) *(easy)*
 1. [~~Palindrome Number~~](https://leetcode.com/problems/palindrome-number/) *(easy)*
 1. [~~Rectangle Overlap~~](https://leetcode.com/problems/rectangle-overlap/) *(easy)*
+1. [Divisor Game](https://leetcode.com/problems/divisor-game/) *(easy)*
 1. [~~Rectangle Area~~](https://leetcode.com/problems/rectangle-area/) *(medium)*
 1. [~~Generate Random Point in a Circle~~](https://leetcode.com/problems/generate-random-point-in-a-circle/) *(medium)*
 1. [Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/) *(medium)*
@@ -119,7 +120,6 @@
 1. [~~House Robber II~~](https://leetcode.com/problems/house-robber-ii/) *(medium)*
 1. [Maximal Square](https://leetcode.com/problems/maximal-square/) *(medium)*
 1. [Unique Paths](https://leetcode.com/problems/unique-paths/) *(medium)*
-1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
 1. [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) *(medium)*
 1. [~~Range Sum Query 2D - Immutable~~](https://leetcode.com/problems/range-sum-query-2d-immutable/) *(medium)*
 1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
