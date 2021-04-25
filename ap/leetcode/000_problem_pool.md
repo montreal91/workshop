@@ -114,7 +114,7 @@
 1. [Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers/) *(hard)*
 
 ## Binary Search
-1. [Binary Search](https://leetcode.com/problems/binary-search/) *(easy)*
+1. [~~Binary Search~~](https://leetcode.com/problems/binary-search/) *(easy)*
 1. [Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/) *(easy)*
 1. [The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) *(easy)*
 1. [Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/) *(easy)*
