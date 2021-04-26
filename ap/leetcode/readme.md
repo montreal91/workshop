@@ -29,6 +29,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **26.04.2021** [LC: Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/) **\[array]**
 1. **15.03.2021** [LC: Remove Linked List Elements](https://leetcode.com/problems/remove-linked-list-elements/) **\[linked list]**
 1. **15.02.2021** [LC: 3Sum](https://leetcode.com/problems/3sum/) **\[array]**
 1. **11.02.2021** [LC: Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/) **\[linked list]**
