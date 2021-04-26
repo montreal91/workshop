@@ -130,7 +130,7 @@
 1. [~~Find the Town Judge~~](https://leetcode.com/problems/find-the-town-judge/) *(easy)*
 1. [~~Flower Planting With No Adjacent~~](https://leetcode.com/problems/flower-planting-with-no-adjacent/) *(medium)*
 1. [~~All Paths From Source to Target~~](https://leetcode.com/problems/all-paths-from-source-to-target/) *(medium)*
-1. [Network Delay Time](https://leetcode.com/problems/network-delay-time/) *(medium)*
+1. [~~Network Delay Time~~](https://leetcode.com/problems/network-delay-time/) *(medium)*
 1. [Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) *(medium)*
 1. [Jump Game III](https://leetcode.com/problems/jump-game-iii/) *(medium)*
 1. [Keys and Rooms](https://leetcode.com/problems/keys-and-rooms/) *(medium)*
