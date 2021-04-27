@@ -1,3 +1,8 @@
+#
+# Author: montreal91
+# Time: 0:09
+# Failed attempts: 0
+#
 
 class Solution:
     def isHappy(self, n):
