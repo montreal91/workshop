@@ -42,7 +42,7 @@ It's good to revisit problems after 4 months.
 1. **30.11.2020** [LC: Remove Element](https://leetcode.com/problems/remove-element/) **\[array]**
 1. **25.11.2020** [LC: String to Integer (atoi)](https://leetcode.com/problems/string-to-integer-atoi/) **\[string]**
 1. **23.11.2020** [LC: Longest Word in Dictionary](https://leetcode.com/problems/longest-word-in-dictionary/) **\[trie]**
-1. **20.11.2020** [LC: House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**
+1. **20.11.2020** [~~LC: House Robber~~](https://leetcode.com/problems/house-robber/) **\[dp]**
 1. **14.11.2020** [CF: 1438C - Engineer Artem](https://codeforces.com/contest/1438/problem/C) **\[other]**
 1. **12.11.2020** [LC: Rectangle Area](https://leetcode.com/problems/rectangle-area/)  **\[math]**
 1. **11.11.2020** [LC: Find the Town Judge](https://leetcode.com/problems/find-the-town-judge/) **\[graph]**
@@ -55,6 +55,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **27.04.2021** [LC: House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**
 1. **27.04.2021** [LC: Happy Number](https://leetcode.com/problems/happy-number/) **\[hash]**
 1. **27.04.2021** [LC: N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) **\[graph]**
 1. **26.04.2021** [LC: Move Zeroes](https://leetcode.com/problems/move-zeroes/) **\[array]**
