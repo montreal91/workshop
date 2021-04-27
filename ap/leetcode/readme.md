@@ -49,12 +49,13 @@ It's good to revisit problems after 4 months.
 1. **10.11.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 1. **09.11.2020** [LC: Palindrome Linked List](https://leetcode.com/problems/palindrome-linked-list/) **\[linked list]**
 1. **07.11.2020** [LC: Path Sum](https://leetcode.com/problems/path-sum/) **\[tree]**
-1. **22.09.2019** [LC: Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**
+1. **22.09.2019** [~~LC: Coin Change~~](https://leetcode.com/problems/coin-change/) **\[dp]**
 1. **22.09.2019** [LC: Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) **\[dp]**
 1. **21.09.2019** [LC: Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) **\[dp]**
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **27.04.2021** [LC: Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**
 1. **27.04.2021** [LC: House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**
 1. **27.04.2021** [LC: Happy Number](https://leetcode.com/problems/happy-number/) **\[hash]**
 1. **27.04.2021** [LC: N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) **\[graph]**
