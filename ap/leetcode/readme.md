@@ -55,6 +55,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **27.04.2021** [LC: Happy Number](https://leetcode.com/problems/happy-number/) **\[hash]**
 1. **27.04.2021** [LC: N-ary Tree Level Order Traversal](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) **\[graph]**
 1. **26.04.2021** [LC: Move Zeroes](https://leetcode.com/problems/move-zeroes/) **\[array]**
 1. **25.04.2021** [LC: Binary Search](https://leetcode.com/problems/binary-search/) **\[binary search]**

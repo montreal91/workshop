@@ -102,7 +102,7 @@
 ## Hash Table
 1. [~~Contains Duplicate~~](https://leetcode.com/problems/contains-duplicate/) *(easy)*
 1. [~~Contains Duplicate II~~](https://leetcode.com/problems/contains-duplicate-ii/) *(easy)*
-1. [Happy Number](https://leetcode.com/problems/happy-number/) *(easy)*
+1. [~~Happy Number~~](https://leetcode.com/problems/happy-number/) *(easy)*
 1. [Single Number](https://leetcode.com/problems/single-number/) *(easy)*
 1. [Valid Anagram](https://leetcode.com/problems/valid-anagram/) *(easy)*
 1. [Count Primes](https://leetcode.com/problems/count-primes/) *(easy)*
