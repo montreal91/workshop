@@ -55,6 +55,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
+1. **30.05.2021** [LC: Majority Element](https://leetcode.com/problems/majority-element/) **\[array]**
 1. **27.04.2021** [LC: Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**
 1. **27.04.2021** [LC: House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**
 1. **27.04.2021** [LC: Happy Number](https://leetcode.com/problems/happy-number/) **\[hash]**
@@ -99,7 +100,7 @@ It's good to revisit problems after 4 months.
 1. **09.11.2020** [LC: Contains Duplicate II](https://leetcode.com/problems/contains-duplicate-ii/) **\[hash]**
 1. **08.11.2020** [LC: Remove Duplicates from Sorted Array](https://leetcode.com/problems/remove-duplicates-from-sorted-array/) **\[array]**
 1. **07.11.2020** [LC: Palindrome Number](https://leetcode.com/problems/palindrome-number/) **\[math]**
-1. **04.11.2020** [LC: Majority Element](https://leetcode.com/problems/majority-element/) **\[array]**
+1. **04.11.2020** [~~LC: Majority Element~~](https://leetcode.com/problems/majority-element/) **\[array]**
 1. **31.10.2020** [LC: Valid Parentheses](https://leetcode.com/problems/valid-parentheses/) **\[string]\[stack]**
 1. **29.09.2019** [LC: Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) **\[string]**
 1. **25.09.2019** [LC: Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) **\[hash]**
