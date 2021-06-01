@@ -50,7 +50,7 @@
 
 ## String
 1. [~~Valid Parentheses~~](https://leetcode.com/problems/valid-parentheses/) *(easy)*
-1. [Thousand Separator](https://leetcode.com/problems/thousand-separator/) *(easy)*
+1. [~~Thousand Separator~~](https://leetcode.com/problems/thousand-separator/) *(easy)*
 1. [Most Common Word](https://leetcode.com/problems/most-common-word/) *(easy)*
 1. [Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) *(easy)*
 1. [~~Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/) *(medium)*

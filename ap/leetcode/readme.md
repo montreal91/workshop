@@ -29,6 +29,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **01.06.2021** [LC: Thousand Separator](https://leetcode.com/problems/thousand-separator/) **\[string]**
 1. **30.05.2021** [LC: Jump Game](https://leetcode.com/problems/jump-game/) **\[array]**
 1. **26.04.2021** [LC: Network Delay Time](https://leetcode.com/problems/network-delay-time/) **\[graph]**
 1. **26.04.2021** [LC: Number of Sub-arrays With Odd Sum](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/) **\[array]**
