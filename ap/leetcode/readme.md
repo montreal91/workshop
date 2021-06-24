@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **01.06.2021** [LC: Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree/) **\[tree]**
 1. **23.04.2021** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 1. **05.02.2021** [CF: 1481E - Sorting Books](https://codeforces.com/contest/1481/problem/E) **\[dp]**
 1. **05.02.2021** [CF: 1481D - AB Graph](https://codeforces.com/contest/1481/problem/D) **\[graph]**
@@ -29,6 +30,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **01.06.2021** [LC: Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) **\[tree]**
 1. **01.06.2021** [LC: Thousand Separator](https://leetcode.com/problems/thousand-separator/) **\[string]**
 1. **30.05.2021** [LC: Jump Game](https://leetcode.com/problems/jump-game/) **\[array]**
 1. **26.04.2021** [LC: Network Delay Time](https://leetcode.com/problems/network-delay-time/) **\[graph]**
@@ -57,7 +59,8 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
 
 ## Perfect
-1. **23.04.2021** [LC: Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
+1. **24.06.2021** [LC: Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/) **\[binary search]**
+1. **31.05.2021** [LC: Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 1. **30.05.2021** [LC: Majority Element](https://leetcode.com/problems/majority-element/) **\[array]**
 1. **27.04.2021** [LC: Coin Change](https://leetcode.com/problems/coin-change/) **\[dp]**
 1. **27.04.2021** [LC: House Robber](https://leetcode.com/problems/house-robber/) **\[dp]**
