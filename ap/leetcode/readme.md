@@ -31,6 +31,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **08.08.2021** [LC: The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) **\[binary search]**
 1. **01.06.2021** [LC: Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) **\[tree]**
 1. **01.06.2021** [LC: Thousand Separator](https://leetcode.com/problems/thousand-separator/) **\[string]**
 1. **30.05.2021** [LC: Jump Game](https://leetcode.com/problems/jump-game/) **\[array]**
@@ -57,7 +58,7 @@ It's good to revisit problems after 4 months.
 1. **22.09.2019** [~~LC: Coin Change~~](https://leetcode.com/problems/coin-change/) **\[dp]**
 1. **22.09.2019** [LC: Range Sum Query 2D - Immutable](https://leetcode.com/problems/range-sum-query-2d-immutable/) **\[dp]**
 1. **21.09.2019** [LC: Range Sum Query - Immutable](https://leetcode.com/problems/range-sum-query-immutable/) **\[dp]**
-1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
+1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
 1. **24.06.2021** [LC: Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/) **\[binary search]**
@@ -72,7 +73,7 @@ It's good to revisit problems after 4 months.
 1. **24.04.2021** [LC: Divisor Game](https://leetcode.com/problems/divisor-game/) **\[math]**
 1. **23.04.2021** [LC: Climbing Stairs](https://leetcode.com/problems/climbing-stairs/) **\[dp]**
 1. **19.02.2021** [LC: N-ary Tree Postorder Traversal](https://leetcode.com/problems/n-ary-tree-postorder-traversal/) **\[tree]**
-1. **13.02.2021** [LC: Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/)**\[string]\[hash]**
+1. **13.02.2021** [LC: Longest Substring Without Repeating Characters](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 1. **05.02.2021** [CF: 1481B - New Colony](https://codeforces.com/contest/1481/problem/B) **\[array]**
 1. **05.02.2021** [CF: 1481A - Space Navigation](https://codeforces.com/contest/1481/problem/A) **\[string]**
 1. **25.01.2021** [CF: 1475B - New Year's Number](https://codeforces.com/contest/1475/problem/B) **\[dp]**

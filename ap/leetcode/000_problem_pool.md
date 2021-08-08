@@ -128,7 +128,7 @@
 ## Binary Search
 1. [~~Binary Search~~](https://leetcode.com/problems/binary-search/) *(easy)*
 1. [~~Count Negative Numbers in a Sorted Matrix~~](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/) *(easy)*
-1. [The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) *(easy)*
+1. [~~The K Weakest Rows in a Matrix~~](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) *(easy)*
 1. [Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/) *(easy)*
 1. [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) *(medium)*
 1. [Find Peak Element](https://leetcode.com/problems/find-peak-element/) *(medium)*
