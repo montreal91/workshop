@@ -61,6 +61,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **05.09.2021** [LC: Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
 1. **24.06.2021** [LC: Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/) **\[binary search]**
 1. **31.05.2021** [LC: Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 1. **30.05.2021** [LC: Majority Element](https://leetcode.com/problems/majority-element/) **\[array]**
@@ -116,5 +117,5 @@ It's good to revisit problems after 4 months.
 1. **24.09.2019** [LC: Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) **\[linked list]**
 1. **24.09.2019** [LC: Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
 1. **24.09.2019** [LC: Same Tree](https://leetcode.com/problems/same-tree/) **\[tree]**
-1. **19.09.2019** [LC: Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
+1. **19.09.2019** [~~LC: Product of Array Except Self~~](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
 1. **14.09.2019** [LC: Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**
