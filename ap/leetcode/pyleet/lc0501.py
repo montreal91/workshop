@@ -8,7 +8,7 @@ from collections import deque
 
 
 class Solution:
-    def findMode(self, root: TreeNode) -> List[int]:
+    def findMode(self, root):
         nodes = {}
         queue = deque()
         queue.append(root)
