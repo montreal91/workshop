@@ -31,7 +31,7 @@
 1. [~~House Robber~~](https://leetcode.com/problems/house-robber/) *(easy)*
 1. [~~Coin Change~~](https://leetcode.com/problems/coin-change/) *(medium)*
 1. [~~House Robber II~~](https://leetcode.com/problems/house-robber-ii/) *(medium)*
-1. [Maximal Square](https://leetcode.com/problems/maximal-square/) *(medium)*
+1. [~~Maximal Square~~](https://leetcode.com/problems/maximal-square/) *(medium)*
 1. [Unique Paths](https://leetcode.com/problems/unique-paths/) *(medium)*
 1. [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) *(medium)*
 1. [~~Range Sum Query 2D - Immutable~~](https://leetcode.com/problems/range-sum-query-2d-immutable/) *(medium)*
