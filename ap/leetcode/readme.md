@@ -62,6 +62,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **22.09.2021** [LC: Most Common Word](https://leetcode.com/problems/most-common-word/) **\[string]**
 1. **05.09.2021** [LC: Product of Array Except Self](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
 1. **24.06.2021** [LC: Count Negative Numbers in a Sorted Matrix](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/) **\[binary search]**
 1. **31.05.2021** [LC: Maximum Subarray](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
