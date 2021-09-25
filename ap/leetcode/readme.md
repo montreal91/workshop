@@ -31,6 +31,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **25.09.2021** [LC: Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/) **\[math]**
 1. **12.09.2021** [LC: Maximal Square](https://leetcode.com/problems/maximal-square/) **\[dp]**
 1. **08.08.2021** [LC: The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) **\[binary search]**
 1. **01.06.2021** [LC: Validate Binary Search Tree](https://leetcode.com/problems/validate-binary-search-tree/) **\[tree]**

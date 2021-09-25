@@ -77,7 +77,7 @@
 1. [~~Divisor Game~~](https://leetcode.com/problems/divisor-game/) *(easy)*
 1. [~~Rectangle Area~~](https://leetcode.com/problems/rectangle-area/) *(medium)*
 1. [~~Generate Random Point in a Circle~~](https://leetcode.com/problems/generate-random-point-in-a-circle/) *(medium)*
-1. [Random Point in Non-overlapping Rectangles](https://leetcode.com/problems/random-point-in-non-overlapping-rectangles/) *(medium)*
+1. [~~Fraction to Recurring Decimal~~](https://leetcode.com/problems/fraction-to-recurring-decimal/) *(medium)*
 1. [Preimage Size of Factorial Zeroes Function](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/) *(hard)*
 1. [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) *(hard)*
 1. [Probability of a Two Boxes Having The Same Number of Distinct Balls](https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/) *(hard)*
@@ -105,6 +105,7 @@
 1. [Shortest Bridge](https://leetcode.com/problems/shortest-bridge/) *(medium)*
 1. [Throne Inheritance](https://leetcode.com/problems/throne-inheritance/) *(medium)*
 1. [Find Elements in a Contaminated Binary Tree](https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/) *(medium)*
+1. [Serialize and Deserialize BST](https://leetcode.com/problems/serialize-and-deserialize-bst/) *(medium)*
 1. [Binary Tree Maximum Path Sum](https://leetcode.com/problems/binary-tree-maximum-path-sum/) *(hard)*
 1. [Recover a Tree From Preorder Traversal](https://leetcode.com/problems/recover-a-tree-from-preorder-traversal/) *(hard)*
 1. [Recover Binary Search Tree](https://leetcode.com/problems/recover-binary-search-tree/) *(hard)*
