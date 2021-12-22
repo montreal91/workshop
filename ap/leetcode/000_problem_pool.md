@@ -115,7 +115,7 @@
 1. [~~Contains Duplicate II~~](https://leetcode.com/problems/contains-duplicate-ii/) *(easy)*
 1. [~~Happy Number~~](https://leetcode.com/problems/happy-number/) *(easy)*
 1. [~~Single Number~~](https://leetcode.com/problems/single-number/) *(easy)*
-1. [Valid Anagram](https://leetcode.com/problems/valid-anagram/) *(easy)*
+1. [~~Valid Anagram~~](https://leetcode.com/problems/valid-anagram/) *(easy)*
 1. [Count Primes](https://leetcode.com/problems/count-primes/) *(easy)*
 1. [Bulls and Cows](https://leetcode.com/problems/bulls-and-cows/) *(easy)*
 1. [Check Array Formation Through Concatenation](https://leetcode.com/problems/check-array-formation-through-concatenation/) *(easy)*
