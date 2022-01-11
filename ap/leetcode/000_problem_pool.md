@@ -47,6 +47,7 @@
 1. [Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/) *(hard)*
 1. [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) *(hard)*
 1. [Non-negative Integers without Consecutive Ones](https://leetcode.com/problems/non-negative-integers-without-consecutive-ones/) *(hard)*
+1. [Minimum Number of Removals to Make Mountain Array](https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array/) *(hard)*
 
 ## String
 1. [~~Valid Parentheses~~](https://leetcode.com/problems/valid-parentheses/) *(easy)*
@@ -130,13 +131,14 @@
 1. [~~Binary Search~~](https://leetcode.com/problems/binary-search/) *(easy)*
 1. [~~Count Negative Numbers in a Sorted Matrix~~](https://leetcode.com/problems/count-negative-numbers-in-a-sorted-matrix/) *(easy)*
 1. [~~The K Weakest Rows in a Matrix~~](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) *(easy)*
-1. [Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/) *(easy)*
+1. [~~Peak Index in a Mountain Array~~](https://leetcode.com/problems/peak-index-in-a-mountain-array/) *(easy)*
 1. [Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) *(medium)*
 1. [Find Peak Element](https://leetcode.com/problems/find-peak-element/) *(medium)*
 1. [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) *(medium)*
 1. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) *(medium)*
 1. [Divide Two Integers](https://leetcode.com/problems/divide-two-integers/) *(medium)*
 1. [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/) *(hard)*
+1. [Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/) *(hard)*
 
 ## Graph
 1. [~~Find the Town Judge~~](https://leetcode.com/problems/find-the-town-judge/) *(easy)*

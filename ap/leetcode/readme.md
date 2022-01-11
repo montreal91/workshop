@@ -63,6 +63,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **11.01.2022** [LC: Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/) **\[binary search]**
 1. **22.12.2021** [LC: Valid Anagram](https://leetcode.com/problems/valid-anagram/) **\[hash]**
 1. **28.09.2021** [CF: 1574A - Regular Bracket Sequences](https://codeforces.com/contest/1574/problem/A) **\[string]**
 1. **22.09.2021** [LC: Most Common Word](https://leetcode.com/problems/most-common-word/) **\[string]**
