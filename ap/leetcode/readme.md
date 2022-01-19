@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **20.01.2022** [LC: Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) **\[graph]**
 1. **08.08.2021** [LC: Single Number](https://leetcode.com/problems/single-number/) **\[xor]**
 1. **01.06.2021** [LC: Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree/) **\[tree]**
 1. **23.04.2021** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
