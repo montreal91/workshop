@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **16.03.2022** [LC: Majority Element II](https://leetcode.com/problems/majority-element-ii/) **\[array]** (O(1) space)
 1. **20.01.2022** [LC: Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) **\[graph]**
 1. **08.08.2021** [LC: Single Number](https://leetcode.com/problems/single-number/) **\[xor]**
 1. **01.06.2021** [LC: Find Mode in Binary Search Tree](https://leetcode.com/problems/find-mode-in-binary-search-tree/) **\[tree]**
@@ -64,6 +65,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **16.03.2022** [LC: Majority Element II](https://leetcode.com/problems/majority-element-ii/) **\[array]** (O(n) space)
 1. **11.01.2022** [LC: Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/) **\[binary search]**
 1. **22.12.2021** [LC: Valid Anagram](https://leetcode.com/problems/valid-anagram/) **\[hash]**
 1. **28.09.2021** [CF: 1574A - Regular Bracket Sequences](https://codeforces.com/contest/1574/problem/A) **\[string]**
