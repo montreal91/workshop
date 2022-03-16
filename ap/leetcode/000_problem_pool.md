@@ -32,7 +32,7 @@
 1. [~~Coin Change~~](https://leetcode.com/problems/coin-change/) *(medium)*
 1. [~~House Robber II~~](https://leetcode.com/problems/house-robber-ii/) *(medium)*
 1. [~~Maximal Square~~](https://leetcode.com/problems/maximal-square/) *(medium)*
-1. [Unique Paths](https://leetcode.com/problems/unique-paths/) *(medium)*
+1. [~~Unique Paths~~](https://leetcode.com/problems/unique-paths/) *(medium)*
 1. [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) *(medium)*
 1. [~~Range Sum Query 2D - Immutable~~](https://leetcode.com/problems/range-sum-query-2d-immutable/) *(medium)*
 1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
@@ -41,6 +41,8 @@
 1. [House Robber III](https://leetcode.com/problems/house-robber-iii/) *(medium)*
 1. [Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) *(medium)*
 1. [Delete and Earn](https://leetcode.com/problems/delete-and-earn/) *(medium)*
+1. [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) *(medium)*
+1. [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) *(medium)*
 1. [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) *(hard)*
 1. [Dungeon Game](https://leetcode.com/problems/dungeon-game/) *(hard)*
 1. [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) *(hard)*
