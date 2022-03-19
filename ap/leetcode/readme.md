@@ -66,6 +66,8 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **19.03.2022** [LC: Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) **\[tree]**
+1. **19.03.2022** [LC: Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/) **\[tree]**
 1. **19.03.2022** [LC: Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
 1. **16.03.2022** [LC: Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) **\[string]**
 1. **16.03.2022** [LC: Unique Paths](https://leetcode.com/problems/unique-paths/) **\[dp]**
