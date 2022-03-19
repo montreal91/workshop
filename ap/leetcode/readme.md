@@ -65,6 +65,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **19.03.2022** [LC: Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
 1. **16.03.2022** [LC: Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) **\[string]**
 1. **16.03.2022** [LC: Unique Paths](https://leetcode.com/problems/unique-paths/) **\[dp]**
 1. **16.03.2022** [LC: Majority Element II](https://leetcode.com/problems/majority-element-ii/) **\[array]** (O(n) space)
@@ -126,7 +127,7 @@ It's good to revisit problems after 4 months.
 1. **25.09.2019** [LC: Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) **\[hash]**
 1. **25.09.2019** [LC: Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) **\[tree]**
 1. **24.09.2019** [LC: Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) **\[linked list]**
-1. **24.09.2019** [LC: Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
+1. **24.09.2019** [~~LC: Factorial Trailing Zeroes~~](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
 1. **24.09.2019** [LC: Same Tree](https://leetcode.com/problems/same-tree/) **\[tree]**
 1. **19.09.2019** [~~LC: Product of Array Except Self~~](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
 1. **14.09.2019** [LC: Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**

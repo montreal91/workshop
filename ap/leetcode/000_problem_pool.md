@@ -17,6 +17,7 @@
 1. [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) *(medium)*
 1. [~~Number of Sub-arrays With Odd Sum~~](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/) *(medium)*
 1. [Combination Sum](https://leetcode.com/problems/combination-sum/) *(medium)*
+1. [Number of Times Binary String Is Prefix-Aligned](https://leetcode.com/problems/number-of-times-binary-string-is-prefix-aligned/) *(medium)*
 1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(hard)*
 1. [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) *(hard)*
 1. [~~Trapping Rain Water~~](https://leetcode.com/problems/trapping-rain-water/) *(hard)*
@@ -50,6 +51,8 @@
 1. [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) *(hard)*
 1. [Non-negative Integers without Consecutive Ones](https://leetcode.com/problems/non-negative-integers-without-consecutive-ones/) *(hard)*
 1. [Minimum Number of Removals to Make Mountain Array](https://leetcode.com/problems/minimum-number-of-removals-to-make-mountain-array/) *(hard)*
+1. [Number of Digit One](https://leetcode.com/problems/number-of-digit-one/) *(hard)*
+1. [Pizza With 3n Slices](https://leetcode.com/problems/pizza-with-3n-slices/) *(hard)*
 
 ## String
 1. [~~Valid Parentheses~~](https://leetcode.com/problems/valid-parentheses/) *(easy)*
@@ -74,6 +77,7 @@
 1. [Parsing A Boolean Expression](https://leetcode.com/problems/parsing-a-boolean-expression/) *(hard)*
 
 ## Math
+1. [Sign of the Product of an Array](https://leetcode.com/problems/sign-of-the-product-of-an-array/) *(easy)*
 1. [~~Factorial Trailing Zeroes~~](https://leetcode.com/problems/factorial-trailing-zeroes/) *(easy)*
 1. [~~Palindrome Number~~](https://leetcode.com/problems/palindrome-number/) *(easy)*
 1. [~~Rectangle Overlap~~](https://leetcode.com/problems/rectangle-overlap/) *(easy)*
