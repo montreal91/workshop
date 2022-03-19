@@ -133,7 +133,8 @@
 1. [~~Valid Sudoku~~](https://leetcode.com/problems/valid-sudoku/) *(medium)*
 1. [~~Repeated DNA Sequences~~](https://leetcode.com/problems/repeated-dna-sequences/) *(medium)*
 1. [Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/) *(medium)*
-1. [LRU Cache](https://leetcode.com/problems/lru-cache/) *(medium)*
+1. [~~LRU Cache~~](https://leetcode.com/problems/lru-cache/) *(medium)*
+1. [LFU Cache](https://leetcode.com/problems/lfu-cache/) *(hard)*
 1. [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) *(hard)*
 1. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) *(hard)*
 1. [Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers/) *(hard)*

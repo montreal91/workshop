@@ -33,6 +33,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **19.03.2022** [LC: LRU Cache](https://leetcode.com/problems/lru-cache/) **\[hash]** **\[linked list]**
 1. **19.03.2022** [LC: Preimage Size of Factorial Zeroes Function](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/) **\[math]** (Time)
 1. **25.09.2021** [LC: Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/) **\[math]**
 1. **12.09.2021** [LC: Maximal Square](https://leetcode.com/problems/maximal-square/) **\[dp]**
