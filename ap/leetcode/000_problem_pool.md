@@ -1,3 +1,6 @@
+<!-- 1. []() *(easy)* -->
+<!-- 1. []() *(medium)* -->
+<!-- 1. []() *(hard)* -->
 
 ## Array
 1. [~~Majority Element~~](https://leetcode.com/problems/majority-element/) *(easy)*
@@ -85,7 +88,7 @@
 1. [~~Rectangle Area~~](https://leetcode.com/problems/rectangle-area/) *(medium)*
 1. [~~Generate Random Point in a Circle~~](https://leetcode.com/problems/generate-random-point-in-a-circle/) *(medium)*
 1. [~~Fraction to Recurring Decimal~~](https://leetcode.com/problems/fraction-to-recurring-decimal/) *(medium)*
-1. [Preimage Size of Factorial Zeroes Function](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/) *(hard)*
+1. [~~Preimage Size of Factorial Zeroes Function~~](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/) *(hard)*
 1. [Max Points on a Line](https://leetcode.com/problems/max-points-on-a-line/) *(hard)*
 1. [Probability of a Two Boxes Having The Same Number of Distinct Balls](https://leetcode.com/problems/probability-of-a-two-boxes-having-the-same-number-of-distinct-balls/) *(hard)*
 
@@ -129,6 +132,7 @@
 1. [~~Valid Sudoku~~](https://leetcode.com/problems/valid-sudoku/) *(medium)*
 1. [~~Repeated DNA Sequences~~](https://leetcode.com/problems/repeated-dna-sequences/) *(medium)*
 1. [Contains Duplicate III](https://leetcode.com/problems/contains-duplicate-iii/) *(medium)*
+1. [LRU Cache](https://leetcode.com/problems/lru-cache/) *(medium)*
 1. [Sudoku Solver](https://leetcode.com/problems/sudoku-solver/) *(hard)*
 1. [Minimum Window Substring](https://leetcode.com/problems/minimum-window-substring/) *(hard)*
 1. [Subarrays with K Different Integers](https://leetcode.com/problems/subarrays-with-k-different-integers/) *(hard)*
@@ -143,6 +147,7 @@
 1. [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) *(medium)*
 1. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) *(medium)*
 1. [Divide Two Integers](https://leetcode.com/problems/divide-two-integers/) *(medium)*
+1. [Nth Digit](https://leetcode.com/problems/nth-digit/) *(medium)*
 1. [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/) *(hard)*
 1. [Find in Mountain Array](https://leetcode.com/problems/find-in-mountain-array/) *(hard)*
 

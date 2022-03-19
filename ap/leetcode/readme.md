@@ -33,6 +33,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **19.03.2022** [LC: Preimage Size of Factorial Zeroes Function](https://leetcode.com/problems/preimage-size-of-factorial-zeroes-function/) **\[math]** (Time)
 1. **25.09.2021** [LC: Fraction to Recurring Decimal](https://leetcode.com/problems/fraction-to-recurring-decimal/) **\[math]**
 1. **12.09.2021** [LC: Maximal Square](https://leetcode.com/problems/maximal-square/) **\[dp]**
 1. **08.08.2021** [LC: The K Weakest Rows in a Matrix](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) **\[binary search]**
@@ -68,7 +69,6 @@ It's good to revisit problems after 4 months.
 1. **19.03.2022** [LC: Factorial Trailing Zeroes](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
 1. **16.03.2022** [LC: Valid Palindrome](https://leetcode.com/problems/valid-palindrome/) **\[string]**
 1. **16.03.2022** [LC: Unique Paths](https://leetcode.com/problems/unique-paths/) **\[dp]**
-1. **16.03.2022** [LC: Majority Element II](https://leetcode.com/problems/majority-element-ii/) **\[array]** (O(n) space)
 1. **11.01.2022** [LC: Peak Index in a Mountain Array](https://leetcode.com/problems/peak-index-in-a-mountain-array/) **\[binary search]**
 1. **22.12.2021** [LC: Valid Anagram](https://leetcode.com/problems/valid-anagram/) **\[hash]**
 1. **28.09.2021** [CF: 1574A - Regular Bracket Sequences](https://codeforces.com/contest/1574/problem/A) **\[string]**
