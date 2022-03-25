@@ -21,7 +21,6 @@
 1. [~~Number of Sub-arrays With Odd Sum~~](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/) *(medium)*
 1. [Combination Sum](https://leetcode.com/problems/combination-sum/) *(medium)*
 1. [Number of Times Binary String Is Prefix-Aligned](https://leetcode.com/problems/number-of-times-binary-string-is-prefix-aligned/) *(medium)*
-1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(hard)*
 1. [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) *(hard)*
 1. [~~Trapping Rain Water~~](https://leetcode.com/problems/trapping-rain-water/) *(hard)*
 1. [~~Median of Two Sorted Arrays~~](https://leetcode.com/problems/median-of-two-sorted-arrays/) *(hard)*
@@ -37,9 +36,10 @@
 1. [~~House Robber II~~](https://leetcode.com/problems/house-robber-ii/) *(medium)*
 1. [~~Maximal Square~~](https://leetcode.com/problems/maximal-square/) *(medium)*
 1. [~~Unique Paths~~](https://leetcode.com/problems/unique-paths/) *(medium)*
+1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(medium)*
+1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
 1. [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) *(medium)*
 1. [~~Range Sum Query 2D - Immutable~~](https://leetcode.com/problems/range-sum-query-2d-immutable/) *(medium)*
-1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
 1. [Longest Turbulent Subarray](https://leetcode.com/problems/longest-turbulent-subarray/) *(medium)*
 1. [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) *(medium)*
 1. [House Robber III](https://leetcode.com/problems/house-robber-iii/) *(medium)*
@@ -159,7 +159,7 @@
 1. [~~All Paths From Source to Target~~](https://leetcode.com/problems/all-paths-from-source-to-target/) *(medium)*
 1. [~~Network Delay Time~~](https://leetcode.com/problems/network-delay-time/) *(medium)*
 1. [~~Path with Maximum Probability~~](https://leetcode.com/problems/path-with-maximum-probability/) *(medium)*
-1. [Jump Game III](https://leetcode.com/problems/jump-game-iii/) *(medium)*
+1. [~~Jump Game III~~](https://leetcode.com/problems/jump-game-iii/) *(medium)*
 1. [Keys and Rooms](https://leetcode.com/problems/keys-and-rooms/) *(medium)*
 1. [Minimum Number of Vertices to Reach All Nodes](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/) *(medium)*
 1. [Course Schedule](https://leetcode.com/problems/course-schedule/) *(medium)*
