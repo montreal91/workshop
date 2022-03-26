@@ -180,7 +180,7 @@
 1. [Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/) *(medium)*
 1. [Sort List](https://leetcode.com/problems/sort-list/) *(medium)*
 1. [Remove Nth Node From End of List](https://leetcode.com/problems/remove-nth-node-from-end-of-list/) *(medium)*
-1. [Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) *(hard)*
+1. [~~Merge k Sorted Lists~~](https://leetcode.com/problems/merge-k-sorted-lists/) *(hard)*
 1. [Reverse Nodes in k-Group](https://leetcode.com/problems/reverse-nodes-in-k-group/) *(hard)*
 
 ## Trie
