@@ -68,6 +68,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **26.03.2022** [LC: Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) **\[linked list]**
 1. **25.03.2022** [LC: Jump Game III](https://leetcode.com/problems/jump-game-iii/) **\[graph]**
 1. **19.03.2022** [LC: Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/) **\[tree]**
 1. **19.03.2022** [LC: Binary Tree Level Order Traversal II](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/) **\[tree]**
@@ -131,7 +132,7 @@ It's good to revisit problems after 4 months.
 1. **29.09.2019** [LC: Reverse Words in a String](https://leetcode.com/problems/reverse-words-in-a-string/) **\[string]**
 1. **25.09.2019** [LC: Contains Duplicate](https://leetcode.com/problems/contains-duplicate/) **\[hash]**
 1. **25.09.2019** [LC: Symmetric Tree](https://leetcode.com/problems/symmetric-tree/) **\[tree]**
-1. **24.09.2019** [LC: Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) **\[linked list]**
+1. **24.09.2019** [~~LC: Reverse Linked List~~](https://leetcode.com/problems/reverse-linked-list/) **\[linked list]**
 1. **24.09.2019** [~~LC: Factorial Trailing Zeroes~~](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
 1. **24.09.2019** [LC: Same Tree](https://leetcode.com/problems/same-tree/) **\[tree]**
 1. **19.09.2019** [~~LC: Product of Array Except Self~~](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**

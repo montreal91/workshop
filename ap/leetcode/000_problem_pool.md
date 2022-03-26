@@ -160,9 +160,9 @@
 1. [~~Network Delay Time~~](https://leetcode.com/problems/network-delay-time/) *(medium)*
 1. [~~Path with Maximum Probability~~](https://leetcode.com/problems/path-with-maximum-probability/) *(medium)*
 1. [~~Jump Game III~~](https://leetcode.com/problems/jump-game-iii/) *(medium)*
+1. [Course Schedule](https://leetcode.com/problems/course-schedule/) *(medium)*
 1. [Keys and Rooms](https://leetcode.com/problems/keys-and-rooms/) *(medium)*
 1. [Minimum Number of Vertices to Reach All Nodes](https://leetcode.com/problems/minimum-number-of-vertices-to-reach-all-nodes/) *(medium)*
-1. [Course Schedule](https://leetcode.com/problems/course-schedule/) *(medium)*
 1. [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) *(medium)*
 1. [Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/) *(medium)*
 1. [Minimum Cost to Connect Two Groups of Points](https://leetcode.com/problems/minimum-cost-to-connect-two-groups-of-points/) *(hard)*
