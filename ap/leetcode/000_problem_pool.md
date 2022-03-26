@@ -186,7 +186,7 @@
 ## Trie
 1. [~~Longest Word in Dictionary~~](https://leetcode.com/problems/longest-word-in-dictionary/) *(easy)*
 1. [~~Implement Trie (Prefix Tree)~~](https://leetcode.com/problems/implement-trie-prefix-tree/) *(medium)*
-1. [Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) *(medium)*
+1. [~~Design Add and Search Words Data Structure~~](https://leetcode.com/problems/design-add-and-search-words-data-structure/) *(medium)*
 1. [Implement Magic Dictionary](https://leetcode.com/problems/implement-magic-dictionary/) *(medium)*
 1. [Replace Words](https://leetcode.com/problems/replace-words/) *(medium)*
 1. [Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) *(medium)*
