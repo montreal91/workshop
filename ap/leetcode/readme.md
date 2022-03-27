@@ -33,6 +33,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **26.03.2022** [LC: First Missing Positive](https://leetcode.com/problems/first-missing-positive/) **\[array]** (Time)
 1. **26.03.2022** [LC: Merge k Sorted Lists](https://leetcode.com/problems/merge-k-sorted-lists/) **\[linked list]** (Time)
 1. **20.03.2022** [LC: Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) **\[binary search]** (Time)
 1. **19.03.2022** [LC: LRU Cache](https://leetcode.com/problems/lru-cache/) **\[hash]** **\[linked list]** (Time)

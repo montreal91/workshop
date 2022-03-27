@@ -21,7 +21,8 @@
 1. [~~Number of Sub-arrays With Odd Sum~~](https://leetcode.com/problems/number-of-sub-arrays-with-odd-sum/) *(medium)*
 1. [Combination Sum](https://leetcode.com/problems/combination-sum/) *(medium)*
 1. [Number of Times Binary String Is Prefix-Aligned](https://leetcode.com/problems/number-of-times-binary-string-is-prefix-aligned/) *(medium)*
-1. [First Missing Positive](https://leetcode.com/problems/first-missing-positive/) *(hard)*
+1. [Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/) *(medium)*
+1. [~~First Missing Positive~~](https://leetcode.com/problems/first-missing-positive/) *(hard)*
 1. [~~Trapping Rain Water~~](https://leetcode.com/problems/trapping-rain-water/) *(hard)*
 1. [~~Median of Two Sorted Arrays~~](https://leetcode.com/problems/median-of-two-sorted-arrays/) *(hard)*
 1. [Trapping Rain Water II](https://leetcode.com/problems/trapping-rain-water-ii/) *(hard)*
@@ -166,6 +167,7 @@
 1. [Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) *(medium)*
 1. [Course Schedule IV](https://leetcode.com/problems/course-schedule-iv/) *(medium)*
 1. [Minimum Cost to Connect Two Groups of Points](https://leetcode.com/problems/minimum-cost-to-connect-two-groups-of-points/) *(hard)*
+1. [Couples Holding Hands](https://leetcode.com/problems/couples-holding-hands/) *(hard)*
 
 ## Linked List
 1. [~~Reverse Linked List~~](https://leetcode.com/problems/reverse-linked-list/) *(easy)*
