@@ -38,7 +38,7 @@
 1. [~~Maximal Square~~](https://leetcode.com/problems/maximal-square/) *(medium)*
 1. [~~Unique Paths~~](https://leetcode.com/problems/unique-paths/) *(medium)*
 1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(medium)*
-1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
+1. [~~Maximum Product Subarray~~](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
 1. [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) *(medium)*
 1. [~~Range Sum Query 2D - Immutable~~](https://leetcode.com/problems/range-sum-query-2d-immutable/) *(medium)*
 1. [Longest Turbulent Subarray](https://leetcode.com/problems/longest-turbulent-subarray/) *(medium)*
