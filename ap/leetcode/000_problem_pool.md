@@ -68,7 +68,7 @@
 1. [~~String to Integer (atoi)~~](https://leetcode.com/problems/string-to-integer-atoi/) *(medium)*
 1. [~~Reverse Words in a String~~](https://leetcode.com/problems/reverse-words-in-a-string/) *(medium)*
 1. [~~Basic Calculator II~~](https://leetcode.com/problems/basic-calculator-ii/) *(medium)*
-1. [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) *(medium)*
+1. [~~Generate Parentheses~~](https://leetcode.com/problems/generate-parentheses/) *(medium)*
 1. [Find and Replace Pattern](https://leetcode.com/problems/find-and-replace-pattern/) *(medium)*
 1. [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) *(medium)*
 1. [Multiply Strings](https://leetcode.com/problems/multiply-strings/) *(medium)*
