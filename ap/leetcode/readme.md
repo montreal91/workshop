@@ -73,6 +73,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **03.04.2022** [LC: Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) **\[tree]**
 1. **26.03.2022** [LC: Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) **\[trie]**
 1. **26.03.2022** [LC: Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) **\[linked list]**
 1. **25.03.2022** [LC: Jump Game III](https://leetcode.com/problems/jump-game-iii/) **\[graph]**
