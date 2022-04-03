@@ -38,7 +38,7 @@
 1. [~~Maximal Square~~](https://leetcode.com/problems/maximal-square/) *(medium)*
 1. [~~Unique Paths~~](https://leetcode.com/problems/unique-paths/) *(medium)*
 1. [Jump Game II](https://leetcode.com/problems/jump-game-ii/) *(medium)*
-1. [Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
+1. [~~Maximum Product Subarray~~](https://leetcode.com/problems/maximum-product-subarray/) *(medium)*
 1. [Minimum Cost For Tickets](https://leetcode.com/problems/minimum-cost-for-tickets/) *(medium)*
 1. [~~Range Sum Query 2D - Immutable~~](https://leetcode.com/problems/range-sum-query-2d-immutable/) *(medium)*
 1. [Longest Turbulent Subarray](https://leetcode.com/problems/longest-turbulent-subarray/) *(medium)*
@@ -46,7 +46,7 @@
 1. [House Robber III](https://leetcode.com/problems/house-robber-iii/) *(medium)*
 1. [Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) *(medium)*
 1. [Delete and Earn](https://leetcode.com/problems/delete-and-earn/) *(medium)*
-1. [Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) *(medium)*
+1. [~~Minimum Path Sum~~](https://leetcode.com/problems/minimum-path-sum/) *(medium)*
 1. [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) *(medium)*
 1. [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) *(hard)*
 1. [Dungeon Game](https://leetcode.com/problems/dungeon-game/) *(hard)*
@@ -68,7 +68,7 @@
 1. [~~String to Integer (atoi)~~](https://leetcode.com/problems/string-to-integer-atoi/) *(medium)*
 1. [~~Reverse Words in a String~~](https://leetcode.com/problems/reverse-words-in-a-string/) *(medium)*
 1. [~~Basic Calculator II~~](https://leetcode.com/problems/basic-calculator-ii/) *(medium)*
-1. [Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) *(medium)*
+1. [~~Generate Parentheses~~](https://leetcode.com/problems/generate-parentheses/) *(medium)*
 1. [Find and Replace Pattern](https://leetcode.com/problems/find-and-replace-pattern/) *(medium)*
 1. [Longest Palindromic Substring](https://leetcode.com/problems/longest-palindromic-substring/) *(medium)*
 1. [Multiply Strings](https://leetcode.com/problems/multiply-strings/) *(medium)*
