@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **31.03.2022** [LC: Dungeon Game](https://leetcode.com/problems/dungeon-game/) **\[dp]**
 1. **16.03.2022** [LC: Majority Element II](https://leetcode.com/problems/majority-element-ii/) **\[array]** (O(1) space)
 1. **20.01.2022** [LC: Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) **\[graph]**
 1. **08.08.2021** [LC: Single Number](https://leetcode.com/problems/single-number/) **\[xor]**

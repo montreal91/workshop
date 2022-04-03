@@ -49,7 +49,7 @@
 1. [~~Minimum Path Sum~~](https://leetcode.com/problems/minimum-path-sum/) *(medium)*
 1. [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) *(medium)*
 1. [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) *(hard)*
-1. [Dungeon Game](https://leetcode.com/problems/dungeon-game/) *(hard)*
+1. [~~Dungeon Game~~](https://leetcode.com/problems/dungeon-game/) *(hard)*
 1. [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) *(hard)*
 1. [Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/) *(hard)*
 1. [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) *(hard)*
