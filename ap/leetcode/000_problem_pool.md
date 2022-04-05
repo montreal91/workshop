@@ -49,7 +49,7 @@
 1. [~~Minimum Path Sum~~](https://leetcode.com/problems/minimum-path-sum/) *(medium)*
 1. [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) *(medium)*
 1. [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) *(hard)*
-1. [Dungeon Game](https://leetcode.com/problems/dungeon-game/) *(hard)*
+1. [~~Dungeon Game~~](https://leetcode.com/problems/dungeon-game/) *(hard)*
 1. [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) *(hard)*
 1. [Maximum Sum of 3 Non-Overlapping Subarrays](https://leetcode.com/problems/maximum-sum-of-3-non-overlapping-subarrays/) *(hard)*
 1. [Best Time to Buy and Sell Stock IV](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/) *(hard)*
@@ -103,10 +103,10 @@
 1. [~~N-ary Tree Postorder Traversal~~](https://leetcode.com/problems/n-ary-tree-postorder-traversal/) *(easy)*
 1. [~~Find Mode in Binary Search Tree~~](https://leetcode.com/problems/find-mode-in-binary-search-tree/) *(easy)*
 1. [~~Validate Binary Search Tree~~](https://leetcode.com/problems/validate-binary-search-tree/) *(easy)*
+1. [~~Binary Tree Postorder Traversal~~](https://leetcode.com/problems/binary-tree-postorder-traversal/) *(easy)*
 1. [~~N-ary Tree Level Order Traversal~~](https://leetcode.com/problems/n-ary-tree-level-order-traversal/) *(medium)*
 1. [~~Binary Tree Level Order Traversal~~](https://leetcode.com/problems/binary-tree-level-order-traversal/) *(medium)*
 1. [~~Binary Tree Level Order Traversal II~~](https://leetcode.com/problems/binary-tree-level-order-traversal-ii/) *(medium)*
-1. [Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) *(medium)*
 1. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) *(medium)*
 1. [Path Sum II](https://leetcode.com/problems/path-sum-ii/) *(medium)*
 1. [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) *(medium)*
@@ -146,7 +146,7 @@
 1. [~~The K Weakest Rows in a Matrix~~](https://leetcode.com/problems/the-k-weakest-rows-in-a-matrix/) *(easy)*
 1. [~~Peak Index in a Mountain Array~~](https://leetcode.com/problems/peak-index-in-a-mountain-array/) *(easy)*
 1. [~~Find First and Last Position of Element in Sorted Array~~](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) *(medium)*
-1. [Find Peak Element](https://leetcode.com/problems/find-peak-element/) *(medium)*
+1. [~~Find Peak Element~~](https://leetcode.com/problems/find-peak-element/) *(medium)*
 1. [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) *(medium)*
 1. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) *(medium)*
 1. [Divide Two Integers](https://leetcode.com/problems/divide-two-integers/) *(medium)*

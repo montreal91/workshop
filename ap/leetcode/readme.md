@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **31.03.2022** [LC: Dungeon Game](https://leetcode.com/problems/dungeon-game/) **\[dp]**
 1. **16.03.2022** [LC: Majority Element II](https://leetcode.com/problems/majority-element-ii/) **\[array]** (O(1) space)
 1. **20.01.2022** [LC: Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) **\[graph]**
 1. **08.08.2021** [LC: Single Number](https://leetcode.com/problems/single-number/) **\[xor]**
@@ -73,6 +74,8 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **03.04.2022** [LC: Find Peak Element](https://leetcode.com/problems/find-peak-element/) **\[binary search]**
+1. **03.04.2022** [LC: Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) **\[tree]**
 1. **26.03.2022** [LC: Design Add and Search Words Data Structure](https://leetcode.com/problems/design-add-and-search-words-data-structure/) **\[trie]**
 1. **26.03.2022** [LC: Reverse Linked List](https://leetcode.com/problems/reverse-linked-list/) **\[linked list]**
 1. **25.03.2022** [LC: Jump Game III](https://leetcode.com/problems/jump-game-iii/) **\[graph]**
