@@ -14,7 +14,7 @@
 1. [~~Majority Element II~~](https://leetcode.com/problems/majority-element-ii/) *(medium)*
 1. [~~Product of Array Except Self~~](https://leetcode.com/problems/product-of-array-except-self/) *(medium)*
 1. [~~Container With Most Water~~](https://leetcode.com/problems/container-with-most-water/) *(medium)*
-1. [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) *(medium)*
+1. [~~Remove Duplicates from Sorted Array II~~](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) *(medium)*
 1. [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) *(medium)*
 1. [Combination Sum](https://leetcode.com/problems/combination-sum/) *(medium)*
 1. [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) *(medium)*
@@ -111,7 +111,6 @@
 1. [Path Sum II](https://leetcode.com/problems/path-sum-ii/) *(medium)*
 1. [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) *(medium)*
 1. [Binary Tree Pruning](https://leetcode.com/problems/binary-tree-pruning/) *(medium)*
-1. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) *(medium)*
 1. [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) *(medium)*
 1. [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) *(medium)*
 1. [Shortest Bridge](https://leetcode.com/problems/shortest-bridge/) *(medium)*
