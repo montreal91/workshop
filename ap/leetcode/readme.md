@@ -74,6 +74,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **20.01.2023** [CF: 1782A - Parallel Projection](https://codeforces.com/contest/1782/problem/A) **\[math]**
 1. **20.01.2023** [LC: Shuffle String](https://leetcode.com/problems/shuffle-string/) **\[string]**
 1. **20.12.2022** [LC: Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) **\[dp]**
 1. **15.12.2022** [LC: Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) **\[array]**
