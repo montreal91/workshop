@@ -75,6 +75,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **26.01.2023** [LC: Guess Number Higher or Lower](https://leetcode.com/problems/guess-number-higher-or-lower/) **\[binary search]**
 1. **21.01.2023** [CF: 1777B - Emordnilap](https://codeforces.com/contest/1777/problem/B) **\[math]**
 1. **21.01.2023** [CF: 1777A - Everybody Likes Good Arrays!](https://codeforces.com/contest/1777/problem/A) **\[array]**
 1. **20.01.2023** [CF: 1782A - Parallel Projection](https://codeforces.com/contest/1782/problem/A) **\[math]**
