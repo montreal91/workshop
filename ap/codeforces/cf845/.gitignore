@@ -1,0 +1,5 @@
+build.zig
+in
+in20000
+zig-cache/
+zig-out/

@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **22.01.2023** [CF: 1777D - Score of a Tree](https://codeforces.com/contest/1777/problem/D) **\[tree]**
 1. **31.03.2022** [LC: Dungeon Game](https://leetcode.com/problems/dungeon-game/) **\[dp]**
 1. **16.03.2022** [LC: Majority Element II](https://leetcode.com/problems/majority-element-ii/) **\[array]** (O(1) space)
 1. **20.01.2022** [LC: Path with Maximum Probability](https://leetcode.com/problems/path-with-maximum-probability/) **\[graph]**
@@ -74,6 +75,12 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **21.01.2023** [CF: 1777B - Emordnilap](https://codeforces.com/contest/1777/problem/B) **\[math]**
+1. **21.01.2023** [CF: 1777A - Everybody Likes Good Arrays!](https://codeforces.com/contest/1777/problem/A) **\[array]**
+1. **20.01.2023** [CF: 1782A - Parallel Projection](https://codeforces.com/contest/1782/problem/A) **\[math]**
+1. **20.01.2023** [LC: Shuffle String](https://leetcode.com/problems/shuffle-string/) **\[string]**
+1. **20.12.2022** [LC: Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) **\[dp]**
+1. **15.12.2022** [LC: Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) **\[array]**
 1. **05.04.2022** [LC: Container With Most Water](https://leetcode.com/problems/container-with-most-water/) **\[array]**
 1. **03.04.2022** [LC: Find Peak Element](https://leetcode.com/problems/find-peak-element/) **\[binary search]**
 1. **03.04.2022** [LC: Binary Tree Postorder Traversal](https://leetcode.com/problems/binary-tree-postorder-traversal/) **\[tree]**

@@ -14,7 +14,7 @@
 1. [~~Majority Element II~~](https://leetcode.com/problems/majority-element-ii/) *(medium)*
 1. [~~Product of Array Except Self~~](https://leetcode.com/problems/product-of-array-except-self/) *(medium)*
 1. [~~Container With Most Water~~](https://leetcode.com/problems/container-with-most-water/) *(medium)*
-1. [Remove Duplicates from Sorted Array II](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) *(medium)*
+1. [~~Remove Duplicates from Sorted Array II~~](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/) *(medium)*
 1. [Minimum Size Subarray Sum](https://leetcode.com/problems/minimum-size-subarray-sum/) *(medium)*
 1. [Combination Sum](https://leetcode.com/problems/combination-sum/) *(medium)*
 1. [Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/) *(medium)*
@@ -47,7 +47,7 @@
 1. [Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) *(medium)*
 1. [Delete and Earn](https://leetcode.com/problems/delete-and-earn/) *(medium)*
 1. [~~Minimum Path Sum~~](https://leetcode.com/problems/minimum-path-sum/) *(medium)*
-1. [Unique Paths II](https://leetcode.com/problems/unique-paths-ii/) *(medium)*
+1. [~~Unique Paths II~~](https://leetcode.com/problems/unique-paths-ii/) *(medium)*
 1. [Best Time to Buy and Sell Stock III](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/) *(hard)*
 1. [~~Dungeon Game~~](https://leetcode.com/problems/dungeon-game/) *(hard)*
 1. [Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/) *(hard)*
@@ -63,6 +63,7 @@
 1. [~~Thousand Separator~~](https://leetcode.com/problems/thousand-separator/) *(easy)*
 1. [~~Most Common Word~~](https://leetcode.com/problems/most-common-word/) *(easy)*
 1. [~~Valid Palindrome~~](https://leetcode.com/problems/valid-palindrome/) *(easy)*
+1. [~~Shuffle String~~](https://leetcode.com/problems/shuffle-string/) *(easy)*
 1. [~~Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/submissions/) *(medium)*
 1. [~~Letter Combinations of a Phone Number~~](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) *(medium)*
 1. [~~String to Integer (atoi)~~](https://leetcode.com/problems/string-to-integer-atoi/) *(medium)*
@@ -111,7 +112,6 @@
 1. [Path Sum II](https://leetcode.com/problems/path-sum-ii/) *(medium)*
 1. [Populating Next Right Pointers in Each Node](https://leetcode.com/problems/populating-next-right-pointers-in-each-node/) *(medium)*
 1. [Binary Tree Pruning](https://leetcode.com/problems/binary-tree-pruning/) *(medium)*
-1. [Count Complete Tree Nodes](https://leetcode.com/problems/count-complete-tree-nodes/) *(medium)*
 1. [Lowest Common Ancestor of a Binary Tree](https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/) *(medium)*
 1. [Time Needed to Inform All Employees](https://leetcode.com/problems/time-needed-to-inform-all-employees/) *(medium)*
 1. [Shortest Bridge](https://leetcode.com/problems/shortest-bridge/) *(medium)*
