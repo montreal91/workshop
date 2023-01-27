@@ -39,7 +39,7 @@
 * https://leetcode.com/problems/partition-labels/
 
 ## sliding window:
-* https://leetcode.com/problems/sliding-window-median/
+* ~~https://leetcode.com/problems/sliding-window-median/~~
 * https://leetcode.com/problems/sliding-window-maximum/
 * https://leetcode.com/problems/longest-repeating-character-replacement/
 

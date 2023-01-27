@@ -76,6 +76,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **27.01.2023** [LC: Sliding Window Median](https://leetcode.com/problems/sliding-window-median/) **\[sliding window]**
 1. **27.01.2023** [LC: Merge Intervals](https://leetcode.com/problems/merge-intervals/) **\[sort]**
 1. **21.01.2023** [CF: 1777B - Emordnilap](https://codeforces.com/contest/1777/problem/B) **\[math]**
 1. **21.01.2023** [CF: 1777A - Everybody Likes Good Arrays!](https://codeforces.com/contest/1777/problem/A) **\[array]**
