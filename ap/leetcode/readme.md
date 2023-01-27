@@ -25,7 +25,7 @@ It's good to revisit problems after 4 months.
 1. **04.01.2021** [LC: Generate Random Point in a Circle](https://leetcode.com/problems/generate-random-point-in-a-circle/) **\[math]**
 1. **05.12.2020** [CF: 1438F - Olha and Igor](https://codeforces.com/contest/1438/problem/F) **\[tree]**
 1. **05.12.2020** [CF: 1438E - Yurii Can Do Everything](https://codeforces.com/contest/1438/problem/E) **\[other]**
-1. **01.12.2020** [LC: 4Sum](https://leetcode.com/problems/4sum/) **\[hash]**
+1. **01.12.2020** [~~LC: 4Sum~~](https://leetcode.com/problems/4sum/) **\[hash]**
 1. **28.11.2020** [CF: 1451F - Nullify The Matrix](https://codeforces.com/contest/1451/problem/F) **\[other]**
 1. **21.11.2020** [CF: 1451E2 - Bitwise Queries (Hard Version)](https://codeforces.com/contest/1451/problem/E2) **\[math] \[bitmasks]**
 1. **21.11.2020** [CF: 1451E1 - Bitwise Queries (Easy Version)](https://codeforces.com/contest/1451/problem/E1) **\[math] \[bitmasks]**
@@ -35,6 +35,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **27.01.2023** [LC: 4Sum](https://leetcode.com/problems/4sum/) **\[hash]** (Time)
 1. **02.04.2022** [LC: Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) **\[string]** (Time)
 1. **30.03.2022** [LC: Minimum Path Sum](https://leetcode.com/problems/minimum-path-sum/) **\[dp]** (Corner case)
 1. **29.03.2022** [LC: Maximum Product Subarray](https://leetcode.com/problems/maximum-product-subarray/) **\[dp]** (Time)

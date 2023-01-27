@@ -203,7 +203,7 @@
 1. [~~Two Sum~~](https://leetcode.com/problems/two-sum/) *(easy)*
 1. [~~3Sum~~](https://leetcode.com/problems/3sum/) *(medium)*
 1. [3Sum Closest](https://leetcode.com/problems/3sum-closest/) *(medium)*
-1. [4Sum](https://leetcode.com/problems/4sum/) *(medium)*
+1. [~~4Sum~~](https://leetcode.com/problems/4sum/) *(medium)*
 
 ## Other
 1. [Course Schedule III](https://leetcode.com/problems/course-schedule-iii/) *(hard)*
