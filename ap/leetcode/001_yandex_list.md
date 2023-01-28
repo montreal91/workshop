@@ -39,7 +39,7 @@ Solved: **20/35**
 
 ## two pointers:
 * ~~https://leetcode.com/problems/container-with-most-water/~~
-* https://leetcode.com/problems/partition-labels/
+* ~~https://leetcode.com/problems/partition-labels/~~
 
 ## sliding window:
 * ~~https://leetcode.com/problems/sliding-window-median/~~

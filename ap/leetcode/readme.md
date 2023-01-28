@@ -77,6 +77,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **28.01.2023** [LC: Partition Labels](https://leetcode.com/problems/partition-labels/) **\[hash]**
 1. **28.01.2023** [LC: Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) **\[hash]**
 1. **27.01.2023** [LC: Sliding Window Median](https://leetcode.com/problems/sliding-window-median/) **\[sliding window]**
 1. **27.01.2023** [LC: Merge Intervals](https://leetcode.com/problems/merge-intervals/) **\[sort]**
