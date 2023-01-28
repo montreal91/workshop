@@ -1,3 +1,5 @@
+
+Solved: 19/35
 ## linked lists:
 * ~~https://leetcode.com/problems/merge-k-sorted-lists/~~
 * ~~https://leetcode.com/problems/linked-list-cycle/~~
@@ -6,7 +8,7 @@
 
 ## binary search:
 * ~~https://leetcode.com/problems/binary-search/~~
-* https://leetcode.com/problems/guess-number-higher-or-lower/
+* ~~https://leetcode.com/problems/guess-number-higher-or-lower/~~
 * https://leetcode.com/problems/search-a-2d-matrix/
 * https://leetcode.com/problems/search-in-rotated-sorted-array/
 * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
@@ -24,7 +26,7 @@
 * ~~https://leetcode.com/problems/valid-parentheses/~~
 
 ## dfs/bfs:
-* https://leetcode.com/problems/number-of-islands/
+* ~~https://leetcode.com/problems/number-of-islands/~~
 * https://leetcode.com/problems/remove-invalid-parentheses/
 
 ## sort:
