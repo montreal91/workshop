@@ -1,5 +1,6 @@
 
-Solved: 19/35
+Solved: **20/35**
+
 ## linked lists:
 * ~~https://leetcode.com/problems/merge-k-sorted-lists/~~
 * ~~https://leetcode.com/problems/linked-list-cycle/~~
@@ -33,7 +34,7 @@ Solved: 19/35
 * ~~https://leetcode.com/problems/merge-intervals/~~
 
 ## heap/hash:
-* https://leetcode.com/problems/top-k-frequent-words/
+* ~~https://leetcode.com/problems/top-k-frequent-words/~~
 * https://leetcode.com/problems/top-k-frequent-elements/
 
 ## two pointers:
