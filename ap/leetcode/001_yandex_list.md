@@ -1,5 +1,5 @@
 
-Solved: **20/35**
+Solved: **21/35**
 
 ## linked lists:
 * ~~https://leetcode.com/problems/merge-k-sorted-lists/~~
