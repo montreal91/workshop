@@ -1,5 +1,5 @@
 
-Solved: **21/35**
+Solved: **22/35**
 
 ## linked lists:
 * ~~https://leetcode.com/problems/merge-k-sorted-lists/~~
@@ -50,7 +50,7 @@ Solved: **21/35**
 * ~~https://leetcode.com/problems/same-tree/~~
 * ~~https://leetcode.com/problems/symmetric-tree/~~
 * https://leetcode.com/problems/balanced-binary-tree/
-* https://leetcode.com/problems/path-sum-ii/
+* ~~https://leetcode.com/problems/path-sum-ii/~~
 
 ## greedy problems:
 * ~~https://leetcode.com/problems/best-time-to-buy-and-sell-stock/~~

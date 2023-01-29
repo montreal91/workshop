@@ -77,6 +77,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **29.01.2023** [LC: Path Sum II](https://leetcode.com/problems/path-sum-ii/) **\[tree]**
 1. **28.01.2023** [LC: Partition Labels](https://leetcode.com/problems/partition-labels/) **\[hash]**
 1. **28.01.2023** [LC: Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) **\[hash]**
 1. **27.01.2023** [LC: Sliding Window Median](https://leetcode.com/problems/sliding-window-median/) **\[sliding window]**
@@ -121,7 +122,7 @@ It's good to revisit problems after 4 months.
 1. **05.02.2021** [CF: 1481A - Space Navigation](https://codeforces.com/contest/1481/problem/A) **\[string]**
 1. **25.01.2021** [CF: 1475B - New Year's Number](https://codeforces.com/contest/1475/problem/B) **\[dp]**
 1. **25.01.2021** [CF: 1475A - Odd Divisor](https://codeforces.com/contest/1475/problem/A) **\[math]**
-1. **25.01.2021** [LC: Degree of an Array](https://leetcode.com/problems/degree-of-an-array/) **\[array**
+1. **25.01.2021** [LC: Degree of an Array](https://leetcode.com/problems/degree-of-an-array/) **\[array]**
 1. **04.01.2021** [CF: 1472D - Even-Odd Game](https://codeforces.com/contest/1472/problem/D) **\[array]**
 1. **04.01.2021** [CF: 1472C - Long Jumps](https://codeforces.com/contest/1472/problem/C) **\[dp]**
 1. **04.01.2021** [CF: 1472B - Fair Division](https://codeforces.com/contest/1472/problem/B) **\[math]**
