@@ -1,4 +1,4 @@
-
+package com.xmpl.leetcode;
 // Definition for singly-linked list.
 
 class ListNode {
@@ -41,18 +41,8 @@ class Solution {
             curLeft = curLeft.next;
             curRight = curRight.next;
         }
-        if (curLeft == null && curRight == null) {
-            if (remainder > 0) {
-                curRes.next = new ListNode(remainder);
-            }
-        }
-        else if (curLeft == null) {
-            curRight.val += remainder;
-            curRes.next = curRight;
-        }
-        else if (curRight == null) {
-            curLeft.val += remainder;
-            curRes.next = curLeft;
+        if (remainder > 0) {
+            curRes.next = new ListNode(remainder);
         }
         return res.next;
     }

@@ -35,6 +35,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **28.01.2023** [LC: Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) **\[sliding window]** **\[hash]** (Attempts)
 1. **28.01.2023** [LC: Number of Islands](https://leetcode.com/problems/number-of-islands/) **\[dfs]\[bfs]** (Attempts)
 1. **27.01.2023** [LC: 4Sum](https://leetcode.com/problems/4sum/) **\[hash]** (Time)
 1. **02.04.2022** [LC: Generate Parentheses](https://leetcode.com/problems/generate-parentheses/) **\[string]** (Time)

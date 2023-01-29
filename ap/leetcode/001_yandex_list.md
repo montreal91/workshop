@@ -1,5 +1,5 @@
 
-Solved: **22/35**
+Solved: **23/35**
 
 ## linked lists:
 * ~~https://leetcode.com/problems/merge-k-sorted-lists/~~
@@ -21,7 +21,7 @@ Solved: **22/35**
 * ~~https://leetcode.com/problems/4sum/~~
 * https://leetcode.com/problems/group-anagrams/
 * ~~https://leetcode.com/problems/valid-anagram/~~
-* https://leetcode.com/problems/find-all-anagrams-in-a-string/
+* ~~https://leetcode.com/problems/find-all-anagrams-in-a-string/~~
 
 ## queue/stack:
 * ~~https://leetcode.com/problems/valid-parentheses/~~
