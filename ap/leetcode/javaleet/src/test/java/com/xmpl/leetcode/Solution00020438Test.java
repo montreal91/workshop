@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Solution0438Test {
+class Solution00020438Test {
     @ParameterizedTest
     @MethodSource("testProvider")
     void test(String input, String anagram, List<Integer> expected) {

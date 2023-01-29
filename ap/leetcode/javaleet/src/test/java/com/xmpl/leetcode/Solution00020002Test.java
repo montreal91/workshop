@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class Solution0002Test {
+class Solution00020002Test {
     @Test
     void test() {
 

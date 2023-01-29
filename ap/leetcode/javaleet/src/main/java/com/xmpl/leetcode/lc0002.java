@@ -7,7 +7,7 @@ class ListNode {
     ListNode(int x) { val = x; }
 }
 
-class Solution {
+class Solution0002 {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode curLeft = l1;
         ListNode curRight = l2;
@@ -73,7 +73,7 @@ class Solution {
     }
 
     public static void main(String[] args) {
-        Solution s = new Solution();
+        Solution0002 s = new Solution0002();
         ListNode d1 = s.createNumber(1234);
         ListNode d2 = s.createNumber(888888);
         s.printNumber(s.addTwoNumbers(d1, d2));
