@@ -1,5 +1,5 @@
 
-Solved: **24/35**
+Solved: **25/35**
 
 ## linked lists:
 * ~~https://leetcode.com/problems/merge-k-sorted-lists/~~
@@ -10,7 +10,7 @@ Solved: **24/35**
 ## binary search:
 * ~~https://leetcode.com/problems/binary-search/~~
 * ~~https://leetcode.com/problems/guess-number-higher-or-lower/~~
-* https://leetcode.com/problems/search-a-2d-matrix/
+* ~~https://leetcode.com/problems/search-a-2d-matrix/~~
 * https://leetcode.com/problems/search-in-rotated-sorted-array/
 * https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
 * https://leetcode.com/problems/search-in-rotated-sorted-array-ii/
