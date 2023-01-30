@@ -78,6 +78,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **30.01.2023** [LC: Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**
 1. **29.01.2023** [LC: Path Sum II](https://leetcode.com/problems/path-sum-ii/) **\[tree]**
 1. **28.01.2023** [LC: Partition Labels](https://leetcode.com/problems/partition-labels/) **\[hash]**
 1. **28.01.2023** [LC: Top K Frequent Words](https://leetcode.com/problems/top-k-frequent-words/) **\[hash]**
@@ -162,4 +163,4 @@ It's good to revisit problems after 4 months.
 1. **24.09.2019** [~~LC: Factorial Trailing Zeroes~~](https://leetcode.com/problems/factorial-trailing-zeroes/) **\[math]**
 1. **24.09.2019** [LC: Same Tree](https://leetcode.com/problems/same-tree/) **\[tree]**
 1. **19.09.2019** [~~LC: Product of Array Except Self~~](https://leetcode.com/problems/product-of-array-except-self/) **\[array]**
-1. **14.09.2019** [LC: Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**
+1. **14.09.2019** [~~LC: Best Time to Buy and Sell Stock~~](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**
