@@ -7,7 +7,8 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
-1. **30.01.2023** [LC: Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/) **\[dfs]\[bfs]** (Can't comprehend the fast solution)
+1. **30.01.2023** [LC: Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/) **\[dfs]\[bfs]** ~~(Can't comprehend the fast solution)~~<br>
+  (Ok, solved with Generating combinations recursively)
 1. **22.01.2023** [CF: 1777D - Score of a Tree](https://codeforces.com/contest/1777/problem/D) **\[tree]**
 1. **31.03.2022** [LC: Dungeon Game](https://leetcode.com/problems/dungeon-game/) **\[dp]**
 1. **16.03.2022** [LC: Majority Element II](https://leetcode.com/problems/majority-element-ii/) **\[array]** (O(1) space)
