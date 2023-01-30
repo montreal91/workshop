@@ -1,5 +1,5 @@
 
-Solved: **23/35**
+Solved: **24/35**
 
 ## linked lists:
 * ~~https://leetcode.com/problems/merge-k-sorted-lists/~~
@@ -28,7 +28,7 @@ Solved: **23/35**
 
 ## dfs/bfs:
 * ~~https://leetcode.com/problems/number-of-islands/~~
-* https://leetcode.com/problems/remove-invalid-parentheses/
+* ~~https://leetcode.com/problems/remove-invalid-parentheses/~~
 
 ## sort:
 * ~~https://leetcode.com/problems/merge-intervals/~~
