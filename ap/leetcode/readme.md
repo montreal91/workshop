@@ -37,6 +37,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **31.01.2023** [LC: Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) **\[binary search]** (Time)
 1. **30.01.2023** [LC: Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) **\[binary search]** (Attemtps)
 1. **28.01.2023** [LC: Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) **\[sliding window]** **\[hash]** (Attempts)
 1. **28.01.2023** [LC: Number of Islands](https://leetcode.com/problems/number-of-islands/) **\[dfs]\[bfs]** (Attempts)
