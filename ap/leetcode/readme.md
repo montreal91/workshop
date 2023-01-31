@@ -7,7 +7,8 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
-1. **30.01.2023** [LC: Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/) **\[dfs]\[bfs]** ~~(Can't comprehend the fast solution)~~<br>
+1. **30.01.2023** [LC: Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/) **\[dfs]\[bfs]** <br>
+~~(Can't comprehend the fast solution)~~<br>
   (Ok, solved with Generating combinations recursively)
 1. **22.01.2023** [CF: 1777D - Score of a Tree](https://codeforces.com/contest/1777/problem/D) **\[tree]**
 1. **31.03.2022** [LC: Dungeon Game](https://leetcode.com/problems/dungeon-game/) **\[dp]**
@@ -37,6 +38,7 @@ It's good to revisit problems after 4 months.
 1. **15.09.2020** [~~LC: Maximum Subarray~~](https://leetcode.com/problems/maximum-subarray/) **\[dp]**
 
 ## Fine
+1. **31.01.2023** [LC: Balanced Binary Tree](https://leetcode.com/problems/balanced-binary-tree/) **\[tree]** (Time)
 1. **31.01.2023** [LC: Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/) **\[binary search]** (Time)
 1. **30.01.2023** [LC: Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) **\[binary search]** (Attemtps)
 1. **28.01.2023** [LC: Find All Anagrams in a String](https://leetcode.com/problems/find-all-anagrams-in-a-string/) **\[sliding window]** **\[hash]** (Attempts)
