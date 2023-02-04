@@ -1,5 +1,5 @@
 
-Solved: **28/35**
+Solved: **29/35**
 
 ## linked lists:
 * ~~https://leetcode.com/problems/merge-k-sorted-lists/~~
@@ -43,7 +43,7 @@ Solved: **28/35**
 
 ## sliding window:
 * ~~https://leetcode.com/problems/sliding-window-median/~~
-* https://leetcode.com/problems/sliding-window-maximum/
+* ~~https://leetcode.com/problems/sliding-window-maximum/~~
 * https://leetcode.com/problems/longest-repeating-character-replacement/
 
 ## tree:

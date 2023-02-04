@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **04.02.2023** [LC: Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) **\[sliding window]** (Monotonic Quque)
 1. **04.02.2023** [LC: Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) **\[dp]**
 1. **30.01.2023** [LC: Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/) **\[dfs]\[bfs]** <br>
 ~~(Can't comprehend the fast solution)~~<br>
