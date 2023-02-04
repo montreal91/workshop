@@ -7,6 +7,7 @@ This file contains links and notes to the leetcode problems that I've solved per
 It's good to revisit problems after 4 months.
 
 ## Bad
+1. **04.02.2023** [LC: Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) **\[dp]**
 1. **30.01.2023** [LC: Remove Invalid Parentheses](https://leetcode.com/problems/remove-invalid-parentheses/) **\[dfs]\[bfs]** <br>
 ~~(Can't comprehend the fast solution)~~<br>
   (Ok, solved with Generating combinations recursively)
@@ -84,6 +85,7 @@ It's good to revisit problems after 4 months.
 1. **18.09.2019** [~~LC: Longest Substring Without Repeating Characters~~](https://leetcode.com/problems/longest-substring-without-repeating-characters/) **\[string]\[hash]**
 
 ## Perfect
+1. **04.02.2023** [LC: Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) **\[array]**
 1. **30.01.2023** [LC: Best Time to Buy and Sell Stock](https://leetcode.com/problems/best-time-to-buy-and-sell-stock/) **\[dp]**
 1. **29.01.2023** [LC: Path Sum II](https://leetcode.com/problems/path-sum-ii/) **\[tree]**
 1. **28.01.2023** [LC: Partition Labels](https://leetcode.com/problems/partition-labels/) **\[hash]**
@@ -152,7 +154,7 @@ It's good to revisit problems after 4 months.
 1. **19.11.2020** [LC: Maximum Depth of N-ary Tree](https://leetcode.com/problems/maximum-depth-of-n-ary-tree/) **\[tree]**
 1. **18.11.2020** [LC: Repeated DNA Sequences](https://leetcode.com/problems/repeated-dna-sequences/) **\[hash]**
 1. **17.11.2020** [LC: Merge Two Sorted Lists](https://leetcode.com/problems/merge-two-sorted-lists/) **\[linked list]**
-1. **17.11.2020** [LC: Best Time to Buy and Sell Stock II](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) **\[array]**
+1. **17.11.2020** [~~LC: Best Time to Buy and Sell Stock II~~](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/) **\[array]**
 1. **16.11.2020** [LC: Letter Combinations of a Phone Number](https://leetcode.com/problems/letter-combinations-of-a-phone-number/) **\[string]**
 1. **14.11.2020** [CF: 1438A - Specific Tastes of Andre](https://codeforces.com/contest/1438/problem/A) **\[array]**
 1. **12.11.2020** [LC: Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/) **\[array]**

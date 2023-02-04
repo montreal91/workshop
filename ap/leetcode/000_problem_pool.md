@@ -44,7 +44,7 @@
 1. [Longest Turbulent Subarray](https://leetcode.com/problems/longest-turbulent-subarray/) *(medium)*
 1. [Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/) *(medium)*
 1. [House Robber III](https://leetcode.com/problems/house-robber-iii/) *(medium)*
-1. [Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) *(medium)*
+1. [~~Best Time to Buy and Sell Stock with Transaction Fee~~](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/) *(medium)*
 1. [Delete and Earn](https://leetcode.com/problems/delete-and-earn/) *(medium)*
 1. [~~Minimum Path Sum~~](https://leetcode.com/problems/minimum-path-sum/) *(medium)*
 1. [~~Unique Paths II~~](https://leetcode.com/problems/unique-paths-ii/) *(medium)*
@@ -148,7 +148,7 @@
 1. [~~Find First and Last Position of Element in Sorted Array~~](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/) *(medium)*
 1. [~~Find Peak Element~~](https://leetcode.com/problems/find-peak-element/) *(medium)*
 1. [Time Based Key-Value Store](https://leetcode.com/problems/time-based-key-value-store/) *(medium)*
-1. [Search a 2D Matrix](https://leetcode.com/problems/search-a-2d-matrix/) *(medium)*
+1. [~~Search a 2D Matrix~~](https://leetcode.com/problems/search-a-2d-matrix/) *(medium)*
 1. [Divide Two Integers](https://leetcode.com/problems/divide-two-integers/) *(medium)*
 1. [Nth Digit](https://leetcode.com/problems/nth-digit/) *(medium)*
 1. [Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/) *(hard)*

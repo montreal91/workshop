@@ -1,5 +1,5 @@
 
-Solved: **27/35**
+Solved: **28/35**
 
 ## linked lists:
 * ~~https://leetcode.com/problems/merge-k-sorted-lists/~~
@@ -55,5 +55,5 @@ Solved: **27/35**
 ## greedy problems:
 * ~~https://leetcode.com/problems/best-time-to-buy-and-sell-stock/~~
 * ~~https://leetcode.com/problems/best-time-to-buy-and-sell-stock-ii/~~
-* https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/
+* ~~https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/~~
 * https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/
