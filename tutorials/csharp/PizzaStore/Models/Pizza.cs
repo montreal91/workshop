@@ -1,8 +1,9 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.EntityFrameworkCore;
 
-namespace PizzaStore.Models {
-public class PizzaStore {
+namespace PizzaStore.Models;
+
+public class Pizza {
   public int Id { get; init; }
   
   [MaxLength(100)]
@@ -12,7 +13,6 @@ public class PizzaStore {
   public string? Description { get; set; }
 }
 
-internal class PizzaDb(DbContextOptions options) : DbContext(options) {
-  public DbSet<PizzaStore> Pizzas { get; init; } = null!;
+public class PizzaDb(DbContextOptions options) : DbContext(options) {
+  public DbSet<Pizza> Pizzas { get; init; } = null!;
 }
-} // namespace PizzaStore.Models

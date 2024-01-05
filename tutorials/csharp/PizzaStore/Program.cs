@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using PizzaStore;
 using PizzaStore.Models;
@@ -20,6 +19,8 @@ builder.Services.AddSwaggerGen(c => {
 builder.Services.AddScoped<IMyDependency, MyDependencyImpl>();
 builder.Services.AddScoped<IMyService, MyServiceImpl>();
 builder.Services.AddSqlite<PizzaDb>(connectionString);
+builder.Services.AddScoped<IPizzaRepository, PizzaRepository>();
+builder.Services.AddScoped<ApplicationService>();
 
 var app = builder.Build();
 
@@ -47,43 +48,21 @@ app.MapGet(
   async (PizzaDb db, int id) => await db.Pizzas.FindAsync(id)
 );
 
-app.MapGet(
-  "/pizzas", async (PizzaDb db) => await db.Pizzas.ToListAsync()
-);
+app.MapGet("/pizzas", (ApplicationService aps) => aps.GetAllPizzas());
 
 app.MapPost(
   "/pizzas",
-  async (PizzaDb db, PizzaStore.Models.PizzaStore pizza) => {
-    await db.Pizzas.AddAsync(pizza);
-    await db.SaveChangesAsync();
-    return Results.Created($"/pizzas/{pizza.Id}", pizza);
-  }
+  (ApplicationService service, Pizza pizza) => service.AddNewPizza(pizza)
 );
 
 app.MapPut(
   "/pizzas/{id:int}",
-  async (PizzaStore.Models.PizzaStore updatePizza, PizzaDb db, int id) => {
-    var pizza = await db.Pizzas.FindAsync(id);
-    if (pizza is null) {
-      return Results.NotFound();
-    }
-
-    pizza.Name = updatePizza.Name;
-    pizza.Description = updatePizza.Description;
-    await db.SaveChangesAsync();
-    return Results.NoContent();
-  }
+  (ApplicationService service, Pizza updatePizza, int id) => service.UpdatePizza(updatePizza, id)
 );
 
-app.MapDelete("/pizzas/{id:int}", async (PizzaDb db, int id) => {
-  var pizza = await db.Pizzas.FindAsync(id);
-  if (pizza is null) {
-    return Results.NotFound();
-  }
-
-  db.Pizzas.Remove(pizza);
-  await db.SaveChangesAsync();
-  return Results.Ok();
-});
+app.MapDelete(
+  "/pizzas/{id:int}",
+  (ApplicationService service, int id) => service.DeletePizza(id)
+);
 
 app.Run();
